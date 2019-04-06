@@ -1,11 +1,13 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
+import de.tudarmstadt.ukp.dkpro.core.berkeleyparser.BerkeleyParser;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
+import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreebankCombinedWriter;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordNamedEntityRecognizer;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;
-import de.tudarmstadt.ukp.dkpro.core.berkeleyparser.BerkeleyParser;
-import de.tudarmstadt.ukp.dkpro.core.io.tgrep.TGrepWriter;
+import de.tudarmstadt.ukp.dkpro.core.io.conll.Conll2006Writer;
+import de.tudarmstadt.ukp.dkpro.core.maltparser.MaltParser;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.collection.CollectionReader;
@@ -20,6 +22,10 @@ public class Pipeline {
 
     public static void main(String[] args)
             throws UIMAException, IOException {
+
+        final String projectDir = "C:/Users/Marco/Documents/Projects/dkpro-pipeline/";
+        final String outputDir = projectDir + "out/";
+
         CollectionReader reader = createReader(
                 TextReader.class,
                 TextReader.PARAM_SOURCE_LOCATION, "src/main/resources",
@@ -32,12 +38,19 @@ public class Pipeline {
 
         AnalysisEngineDescription ner = createEngineDescription(StanfordNamedEntityRecognizer.class);
 
-        AnalysisEngineDescription parser = createEngineDescription(BerkeleyParser.class,
+        AnalysisEngineDescription berkeleyParser = createEngineDescription(BerkeleyParser.class,
                 BerkeleyParser.PARAM_WRITE_PENN_TREE, true);
 
-        AnalysisEngineDescription writer = createEngineDescription(TGrepWriter.class,
-                TGrepWriter.PARAM_TARGET_LOCATION, "out/penn-trees");
+        AnalysisEngineDescription maltParser = createEngineDescription(MaltParser.class);
 
-        SimplePipeline.runPipeline(reader, seg, pos, ner, parser, writer);
+        AnalysisEngineDescription pennWriter = createEngineDescription(PennTreebankCombinedWriter.class,
+                PennTreebankCombinedWriter.PARAM_TARGET_LOCATION, outputDir,
+                PennTreebankCombinedWriter.PARAM_OVERWRITE, true);
+
+        AnalysisEngineDescription conllWriter = createEngineDescription(Conll2006Writer.class,
+                Conll2006Writer.PARAM_TARGET_LOCATION, outputDir,
+                Conll2006Writer.PARAM_OVERWRITE, true);
+
+        SimplePipeline.runPipeline(reader, seg, pos, ner, maltParser, berkeleyParser, conllWriter, pennWriter);
     }
 }

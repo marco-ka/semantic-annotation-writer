@@ -27,5 +27,30 @@
             <artifactId>de.tudarmstadt.ukp.dkpro.core.io.tgrep-gpl</artifactId>
             <version>1.10.0</version>
         </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.opennlp-asl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.penntree-asl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.conll-asl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.maltparser-asl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>edu.stanford.nlp</groupId>
+            <artifactId>stanford-tregex</artifactId>
+            <version>3.6.0</version>
+        </dependency>
     </dependencies>
 </project>

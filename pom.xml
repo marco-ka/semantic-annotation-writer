@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>at.ac.uibk</groupId>
+    <artifactId>kainzner-bachelors-thesis</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.text-asl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.berkeleyparser-gpl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.tgrep-gpl</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -23,8 +23,8 @@ public class Pipeline {
     public static void main(String[] args)
             throws UIMAException, IOException {
 
-        final String projectDir = "C:/Users/Marco/Documents/Projects/dkpro-pipeline/";
-        final String outputDir = projectDir + "out/";
+        String projectDir = args[0];
+        String outputDir = projectDir + "out/";
 
         CollectionReader reader = createReader(
                 TextReader.class,

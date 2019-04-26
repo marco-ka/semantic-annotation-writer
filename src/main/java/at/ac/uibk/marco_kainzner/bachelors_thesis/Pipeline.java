@@ -23,12 +23,12 @@ public class Pipeline {
     public static void main(String[] args)
             throws UIMAException, IOException {
 
-        String projectDir = args[0];
-        String outputDir = projectDir + "out/";
+        String outputDir = "out/pipeline/";
 
+        // http://pdf2md.morethan.io/
         CollectionReader reader = createReader(
                 TextReader.class,
-                TextReader.PARAM_SOURCE_LOCATION, "src/main/resources",
+                TextReader.PARAM_SOURCE_LOCATION, "resources/text",
                 TextReader.PARAM_LANGUAGE, "en",
                 TextReader.PARAM_PATTERNS, new String[]{"[+]*.txt"});
 
@@ -51,6 +51,7 @@ public class Pipeline {
                 Conll2006Writer.PARAM_TARGET_LOCATION, outputDir,
                 Conll2006Writer.PARAM_OVERWRITE, true);
 
-        SimplePipeline.runPipeline(reader, seg, pos, ner, maltParser, berkeleyParser, conllWriter, pennWriter);
+//        SimplePipeline.runPipeline(reader, seg, pos, ner, maltParser, berkeleyParser, conllWriter, pennWriter);
+        SimplePipeline.runPipeline(reader, seg, pos, ner, berkeleyParser, pennWriter);
     }
 }

@@ -51,5 +51,5 @@ public class TRegexRule {
     }
 
     private static String regexEscape(String str) {
-        return str.replaceAll("[.\\\\+*?\\[\\^\\]$(){}=!<>|:\\-]", "\\\\$0");    }
+        return str.replaceAll("[.\\\\+*?\\[\\^\\]$(){}0123456789=!<>|:\\-]", "\\\\$0");    }
 }

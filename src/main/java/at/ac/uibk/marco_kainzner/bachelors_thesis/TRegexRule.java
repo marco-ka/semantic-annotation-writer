@@ -4,13 +4,14 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class TRegexRule {
+class TRegexRule {
 
-    protected static String matchMarkers(String parentNode, Set<String> markers, Collection<String> stopWords) {
+    static String matchMarkers(String parentNode, Set<String> markers, Collection<String> stopWords) {
         Stream<String> sanitizedMarkers = markers.stream()
                 .filter(lemma -> !stopWords.contains(lemma))
                 .map(lemma -> lemma.replace(".", "")) // even escaped dots ("/.") break TRegexRule rules
-                .map(lemma -> regexEscape(lemma));
+                .map(lemma -> lemma.replace("/", "")) // even escaped slashes ("\/") break TRegex
+                .map(TRegexRule::regexEscape);
 
         Set<String> singleWordMarkers = new TreeSet<>();
         Set<String> multiWordMarkers = new TreeSet<>();

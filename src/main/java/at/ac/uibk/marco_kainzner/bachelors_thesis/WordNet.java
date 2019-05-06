@@ -23,17 +23,24 @@ public class WordNet {
         Dictionary dict = Dictionary.getInstance(new FileInputStream(PROPERTIES_FILE));
 
         String timeRule = createTimeRule(dict);
-        String actorRule = createActorRules(dict);
+        System.out.println("Time rule:\n" + timeRule);
+        System.out.println();
 
-        System.out.println("Time rule:  " + timeRule);
-        System.out.println("Actor rule: " + actorRule);
+        String actorRule = createActorRule(dict);
+        System.out.println("Actor rule:\n" + actorRule);
+        System.out.println();
+
+        String artifactRule = createArtifactRule(dict);
+        System.out.println("Artifact rule:\n" + artifactRule);
+        System.out.println();
 
         // Match characters that might break tregex: [^()<>|\w $]
         // String artifactRule = createRuleFromHyponyms(dict, "artifact%1:03:00::", "NP");
     }
 
-    private static String createActorRules(Dictionary dict) {
-        List<String> senseKeys = Arrays.asList("person%1:03:00::", "body%1:14:00::", "organisation%1:14:00::");
+    private static String createActorRule(Dictionary dict) {
+        List<String> senseKeys = Arrays.asList("body%1:14:00::", "organisation%1:14:00::");
+//        List<String> senseKeys = Arrays.asList("person%1:03:00::", "body%1:14:00::", "organisation%1:14:00::");
 
         Set<String> markers = new TreeSet<>();
         senseKeys.forEach(key -> markers.addAll(getAllHyponyms(getSynset(dict, key))));
@@ -43,7 +50,7 @@ public class WordNet {
 
     private static String createTimeRule(Dictionary dict) throws JWNLException {
         Synset temporarily = dict.getWordBySenseKey("temporarily%4:02:00::").getSynset();
-        Synset period = dict.getWordBySenseKey("period%1:28:00::").getSynset();
+        Synset period = dict.getWordBySenseKey("time_period%1:28:00::").getSynset();
 
         List<String> plainMarkers = Arrays.asList("before", "after", "date");
         Set<String> temporary = getAdjectivesAndAntonyms(temporarily);
@@ -51,45 +58,17 @@ public class WordNet {
 
         Set<String> markers = new TreeSet<>(plainMarkers);
         markers.addAll(temporary);
-        markers.addAll(periodHyponyms);
+//        markers.addAll(periodHyponyms);
 
         return TRegexRule.matchMarkers("NP", markers, PENN_TAGS);
     }
 
-    private static String createRuleFromHyponyms(Dictionary dict, String senseKey, String parentNode) throws JWNLException {
-        Synset syn = dict.getWordBySenseKey(senseKey).getSynset();
+    private static String createArtifactRule(Dictionary dict) throws JWNLException {
+        Synset syn = dict.getWordBySenseKey("artifact%1:03:00::").getSynset();
         Set<String> markers = getAllHyponyms(syn);
-        String tregexRule = TRegexRule.matchMarkers(parentNode, markers, PENN_TAGS);
 
-        System.out.println("" + syn.getWords().get(0).getLemma());
-        System.out.println("" + syn.getGloss());
-        System.out.println("HYPONYMS:   \n" + markers);
-        System.out.println("#HYPONYMS:  " + markers.size());
-        System.out.println("TREGEX:     \n" + tregexRule);
-        System.out.println("---");
-
-        return tregexRule;
+        return TRegexRule.matchMarkers("NP", markers, PENN_TAGS);
     }
-
-    //    private static Set<String> findAllLinkedWords(Synset syn) throws JWNLException {
-//        Set<String> lemmas = new TreeSet<>();
-//
-//        PointerTargetNodeList alsoSees = PointerUtils.getAlsoSees(syn);
-//        PointerTargetNodeList antonyms = PointerUtils.getAntonyms(syn);
-////        PointerTargetNodeList antonyms = PointerUtils.getIndirectAntonyms(syn);
-//        PointerTargetNodeList holonyms = PointerUtils.getHolonyms(syn);
-//        PointerTargetNodeList related = PointerUtils.getAttributes(syn);
-//        PointerTargetNodeList entailments = PointerUtils.getEntailments(syn);
-//        PointerTargetNodeList causes = PointerUtils.getCauses(syn);
-//        PointerTargetNodeList coordinateTerms = PointerUtils.getCoordinateTerms(syn);
-//        PointerTargetNodeList partMeronyms = PointerUtils.getPartMeronyms(syn);
-//        PointerTargetNodeList pertainyms = PointerUtils.getPertainyms(syn);
-//        PointerTargetNodeList synonyms = PointerUtils.getAdjectivesAndAntonyms(syn);
-//
-//        PointerUtils.
-
-//        Stream<String> synonymsX = synonyms.stream().flatMap(pt -> pt.getSynset().synsetToWord().stream().map(Word::getLemma));
-//    }
 
     private static Set<String> getAdjectivesAndAntonyms(Synset adverb) throws JWNLException {
         Set<Synset> adjectives = getPertainyms(adverb);

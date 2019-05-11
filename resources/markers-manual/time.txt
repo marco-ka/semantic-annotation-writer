@@ -1,0 +1,36 @@
+after
+banking day
+before
+calculation period
+closing date
+current
+date
+day
+days
+during
+financial year
+future
+hour
+hours
+minute
+minutes
+month
+months
+once a year
+period
+periodically
+periods
+permanent
+present
+reasonable amount of time
+recent
+temporary
+time
+transaction date
+until
+week
+weeks
+when
+within
+year
+years

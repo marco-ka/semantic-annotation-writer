@@ -1,0 +1,29 @@
+advances
+assets
+associates
+balance sheet
+bonds
+borrowings
+deposits
+deviations
+disclosures
+equity
+interest-bearing securities
+issued debt securities
+issued securities
+leased assets
+leasing agreements
+leasing object
+letters of credit
+liabilities
+liability item
+loans
+participations
+properties
+provisions
+receivables
+securities
+shares
+sureties
+tangible assets
+treasury bills

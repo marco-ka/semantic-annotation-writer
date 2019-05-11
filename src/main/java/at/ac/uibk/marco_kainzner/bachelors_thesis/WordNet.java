@@ -7,9 +7,13 @@ import net.sf.extjwnl.data.list.PointerTargetNodeList;
 import net.sf.extjwnl.data.list.PointerTargetTree;
 import net.sf.extjwnl.data.list.PointerTargetTreeNodeList.*;
 import net.sf.extjwnl.dictionary.Dictionary;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -19,20 +23,20 @@ public class WordNet {
 
     private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
-    public static void main(String[] args) throws JWNLException, FileNotFoundException {
+    public static void main(String[] args) throws JWNLException, IOException {
         Dictionary dict = Dictionary.getInstance(new FileInputStream(PROPERTIES_FILE));
 
         String timeRule = createTimeRule(dict);
         System.out.println("Time rule:\n" + timeRule);
         System.out.println();
+//
+//        String actorRule = createActorRule(dict);
+//        System.out.println("Actor rule:\n" + actorRule);
+//        System.out.println();
 
-        String actorRule = createActorRule(dict);
-        System.out.println("Actor rule:\n" + actorRule);
-        System.out.println();
-
-        String artifactRule = createArtifactRule(dict);
-        System.out.println("Artifact rule:\n" + artifactRule);
-        System.out.println();
+//        String artifactRule = createArtifactRule(dict);
+//        System.out.println("Artifact rule:\n" + artifactRule);
+//        System.out.println();
 
         // Match characters that might break tregex: [^()<>|\w $]
         // String artifactRule = createRuleFromHyponyms(dict, "artifact%1:03:00::", "NP");
@@ -45,29 +49,38 @@ public class WordNet {
         Set<String> markers = new TreeSet<>();
         senseKeys.forEach(key -> markers.addAll(getAllHyponyms(getSynset(dict, key))));
 
-        return TRegexRule.matchMarkers("NP", markers, PENN_TAGS);
+        return TRegexRule.matchMarkers("(NP < (", markers,"))", PENN_TAGS);
     }
 
-    private static String createTimeRule(Dictionary dict) throws JWNLException {
+    private static String createTimeRule(Dictionary dict) throws JWNLException, IOException {
         Synset temporarily = dict.getWordBySenseKey("temporarily%4:02:00::").getSynset();
         Synset period = dict.getWordBySenseKey("time_period%1:28:00::").getSynset();
 
-        List<String> plainMarkers = Arrays.asList("before", "after", "date");
+        List<String> manualMarkers = FileUtils.readLines(new File("resources/markers-manual/time.txt"), Charset.defaultCharset());
+
         Set<String> temporary = getAdjectivesAndAntonyms(temporarily);
         Set<String> periodHyponyms = getAllHyponyms(period);
 
-        Set<String> markers = new TreeSet<>(plainMarkers);
+        Set<String> markers = new TreeSet<>(manualMarkers);
         markers.addAll(temporary);
 //        markers.addAll(periodHyponyms);
 
-        return TRegexRule.matchMarkers("NP", markers, PENN_TAGS);
+        String rule1 = TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
+
+        // TODO: This rule has not generated any matches yet. Investigate!
+        String rule2 = TRegexRule.matchMarkers("(PP < (P < (", markers, ")) $ NP)", PENN_TAGS);
+
+        return rule1;
     }
 
     private static String createArtifactRule(Dictionary dict) throws JWNLException {
         Synset syn = dict.getWordBySenseKey("artifact%1:03:00::").getSynset();
         Set<String> markers = getAllHyponyms(syn);
 
-        return TRegexRule.matchMarkers("NP", markers, PENN_TAGS);
+        System.out.println("Artifact markers");
+        System.out.println(markers);
+
+        return TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
     }
 
     private static Set<String> getAdjectivesAndAntonyms(Synset adverb) throws JWNLException {

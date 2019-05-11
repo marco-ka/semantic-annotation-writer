@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 class TRegexRule {
 
-    static String matchMarkers(String parentNode, Set<String> markers, Collection<String> stopWords) {
+    static String matchMarkers(String beforeEachRule, Set<String> markers, String afterEachRule, Collection<String> stopWords) {
         Stream<String> sanitizedMarkers = markers.stream()
                 .filter(lemma -> !stopWords.contains(lemma))
                 .map(lemma -> lemma.replace(".", "")) // even escaped dots ("/.") break TRegexRule rules
@@ -23,8 +23,8 @@ class TRegexRule {
                 singleWordMarkers.add(lemma);
         });
 
-        String oneWordRules = withinNode(parentNode, withinNode("__", any(singleWordMarkers.stream())));
-        String multiWordRules = any(multiWordMarkers.stream().map(lemma -> ruleFromMultipleWords(parentNode, lemma)));
+        String oneWordRules = beforeEachRule + withinNode("__", any(singleWordMarkers.stream())) + afterEachRule;
+        String multiWordRules = any(multiWordMarkers.stream().map(lemma -> ruleFromMultipleWords(beforeEachRule, lemma, afterEachRule)));
 
         return oneWordRules + "|" + multiWordRules;
     }
@@ -35,14 +35,14 @@ class TRegexRule {
 
     // If marker consists of two words (eg. marker = "word1 word2", merge into tregex rule like this: `((__ < word1) $ (__ < word2))`
     // e.g. `NP < "this article"` becomes `NP < ((__ < this) $ (__ < article))`
-    private static String ruleFromMultipleWords(String rootNode, String lemma) {
+    private static String ruleFromMultipleWords(String beforeEachRule, String lemma, String afterEachRule) {
         if (lemma.contains(" ")) {
             Stream<String> words = Arrays.stream(lemma.split(" "));
             List<String> wordList = words.map(word -> "(__ < " + word + ")").collect(Collectors.toList());
 
             String rule = String.join(" $ ", wordList);
 
-            return withinNode(rootNode, rule);
+            return beforeEachRule + rule + afterEachRule;
         }
         return lemma;
     }

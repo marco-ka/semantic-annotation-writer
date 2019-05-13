@@ -1,0 +1,2724 @@
+(ROOT
+  (S
+    (NP (JJ Internal) (NNS regulations))
+    (VP (VBZ means)
+      (NP
+        (NP (DT the) (NN policy) (CC and) (NN governance) (NNS documents))
+        (, ,)
+        (NP (NNS guidelines))
+        (, ,)
+        (NP (NNS instructions))
+        (CC or)
+        (NP
+          (NP (JJ other) (VBN written) (NNS documents))
+          (SBAR
+            (WHPP (IN through)
+              (WHNP (WDT which)))
+            (S
+              (NP
+                (NP (DT the) (NN issuer))
+                (PRN (-LRB- -LRB-)
+                  (NP
+                    (NP (NN board))
+                    (PP (IN of)
+                      (NP
+                        (NP (NNS directors))
+                        (, ,)
+                        (NP (VBG managing) (NN director))
+                        (CC or)
+                        (NP (DT any) (JJ other) (NN employee)))))
+                  (-RRB- -RRB-)))
+              (VP (VBZ governs)
+                (NP (DT the) (NNS operations))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (JJ Internal) (NN governance) (CC and) (NN control))
+    (VP (VBZ means)
+      (NP
+        (NP (DT the) (NN process))
+        (SBAR
+          (WHPP (IN by)
+            (WHNP (WDT which)))
+          (S
+            (NP
+              (NP
+                (NP (DT the) (NN undertaking) (POS 's))
+                (NN board))
+              (PP (IN of)
+                (NP
+                  (NP (NNS directors))
+                  (, ,)
+                  (NP (VBG managing) (NN director))
+                  (, ,)
+                  (NP (NN management))
+                  (CC or)
+                  (NP (JJ other) (NNS personnel)))))
+            (VP (VBP create)
+              (NP (JJ reasonable) (NN certainty)
+                (SBAR (IN that)
+                  (S
+                    (NP
+                      (NP (DT the) (NN undertaking) (POS ’s))
+                      (NNS goals))
+                    (VP (VBP are)
+                      (VP (VBN fulfilled)
+                        (PP (IN in)
+                          (NP
+                            (NP (DT the) (JJ following) (NNS areas))
+                            (: :) (: -)
+                            (NP
+                              (NP (DT an)
+                                (ADJP (JJ appropriate) (CC and) (JJ efficient))
+                                (NN organisation))
+                              (CC and)
+                              (NP
+                                (NP (NN management))
+                                (PP (IN of)
+                                  (NP (DT the) (NNS operations)))))
+                            (: ;) (: -)
+                            (NP (JJ reliable) (JJ financial) (NN reporting))
+                            (: ;) (: -)
+                            (NP
+                              (NP
+                                (NP (NN compliance))
+                                (PP (IN with)
+                                  (NP (JJ applicable) (NNS laws))))
+                              (, ,)
+                              (NP (NNS ordinances))
+                              (CC and)
+                              (NP (JJ other) (NNS regulations)))))))))))))))
+    (. .)))
+
+(ROOT
+  (ADJP (NN Chapter) (CD 2) (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN Governance))
+      (NP
+        (NP (DT The) (NN board))
+        (PP (IN of)
+          (NP
+            (NP (NNS directors) (POS '))
+            (NN responsibility) (CC and) (NNS duties))))
+      (NP (NN §) (CD 1))
+      (NP
+        (NP
+          (NP (DT An) (NN undertaking) (POS 's))
+          (NN board))
+        (PP (IN of)
+          (NP (NNS directors)))))
+    (VP (MD shall)
+      (VP (VB bear)
+        (NP
+          (NP (DT the) (JJ ultimate) (NN responsibility))
+          (PP (IN for)
+            (NP
+              (NP
+                (NP (DT the) (NN undertaking) (POS 's))
+                (NN organisation) (CC and) (NN management))
+              (PP (IN of)
+                (NP (PRP$ its) (NNS affairs))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN nature))
+      (PP (IN of)
+        (NP
+          (NP (DT the) (NN board))
+          (PP (IN of)
+            (NP
+              (NP (NNS directors) (POS '))
+              (NN responsibility))))))
+    (VP (VBZ follows) (, ,)
+      (S
+        (ADJP (FW inter) (FW alia)))
+      (, ,)
+      (PP (IN from)
+        (NP
+          (NP (DT the) (NN company) (NN law) (CC and) (NN business) (NN law) (NN legislation))
+          (VP (VBN applied)
+            (PP (IN by)
+              (NP (DT the) (NN undertaking)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP (NNS directors))))
+    (VP (MD should)
+      (VP (VB adopt)
+        (NP (DT a) (NN strategy) (CC and) (NNS targets))
+        (PP (IN for)
+          (NP
+            (NP (DT the) (NNS operations))
+            (VP (VBN conducted)
+              (PP (IN by)
+                (NP (DT the) (NN undertaking))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP (NNS directors))))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB follow)
+        (PRT (RP up))
+        (NP (NN compliance))
+        (PP (IN with)
+          (NP (DT these) (NNS targets)))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN Material) (NNS changes))
+      (VP (VBG relating)
+        (PP (TO to)
+          (NP (DT the) (NNS operations) (CC and) (NN organisation)))))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN decided)
+          (PP (IN upon))
+          (PP (IN by)
+            (NP
+              (NP (DT the) (NN board))
+              (PP (IN of)
+                (NP (NNS directors))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 2))
+      (SBAR
+        (WHADVP (WRB Where))
+        (S
+          (NP (DT an) (NN undertaking))
+          (VP (VBZ is)
+            (NP
+              (NP (DT the) (NN parent) (NN undertaking))
+              (PP (IN in)
+                (NP
+                  (NP (DT a) (NN group))
+                  (, ,)
+                  (NP
+                    (NP (DT the) (NN board))
+                    (PP (IN of)
+                      (NP
+                        (NP (NNS directors))
+                        (PP (IN of)
+                          (NP (DT the) (NN parent) (NN undertaking)))))))))))))
+    (VP (MD should)
+      (VP (VB endeavour)
+        (S
+          (VP (TO to)
+            (VP (VB ensure)
+              (SBAR (IN that)
+                (S
+                  (NP (JJ common) (JJ internal) (NNS rules))
+                  (VP (VBP are)
+                    (VP (VBN adopted)
+                      (PP (IN in)
+                        (NP
+                          (NP (NN respect))
+                          (PP (IN of)
+                            (NP
+                              (NP (DT the) (JJ licensed) (NNS operations))
+                              (SBAR
+                                (WHNP (WDT which))
+                                (S
+                                  (VP (VBP are)
+                                    (VP (VBN conducted)
+                                      (PP (IN by)
+                                        (NP (NNS undertakings)))
+                                      (PP (IN within)
+                                        (NP (DT the) (NN group))))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN aforesaid))
+    (VP (MD should)
+      (VP (VB apply)
+        (PP (TO to)
+          (NP
+            (NP (DT the) (NN undertaking))
+            (PP (IN in)
+              (NP
+                (NP
+                  (NP (DT a) (NN group))
+                  (PP (IN of)
+                    (NP (JJ financial) (NNS undertakings))))
+                (CC or)
+                (NP
+                  (NP
+                    (NP (DT a) (JJ financial) (NN conglomerate))
+                    (SBAR
+                      (WHNP (WDT which))
+                      (S
+                        (VP (VBZ enjoys)
+                          (NP
+                            (NP (DT a) (JJ superior) (NN position))
+                            (PP (IN within)
+                              (NP (DT the) (NN group))))))))
+                  (CC or)
+                  (NP (DT the) (NN conglomerate)))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (SBAR
+      (WHADVP (WRB Where))
+      (S
+        (ADJP (JJ appropriate))))
+    (, ,)
+    (NP
+      (NP
+        (NP
+          (NP (DT the) (NNS functions))
+          (VP (VBN addressed)
+            (PP (IN in)
+              (NP (NN Chapter) (CD 3))))
+          (PRN (-LRB- -LRB-)
+            (NP
+              (NP (NNP Risk) (NN management))
+              (CC and)
+              (NP (NNP Risk) (NNP Control)))
+            (-RRB- -RRB-)))
+        (, ,)
+        (NP
+          (NP (NN Chapter) (CD 5))
+          (PRN (-LRB- -LRB-)
+            (NP
+              (NP (NN Compliance))
+              (PP (IN with)
+                (NP (NNPS Regulations))))
+            (-RRB- -RRB-)))
+        (CC and)
+        (NP (NN Chapter) (CD 6)))
+      (PRN (-LRB- -LRB-)
+        (NP (JJ Independent) (NN Monitoring) (NNS Functions))
+        (-RRB- -RRB-)))
+    (VP (MD may)
+      (VP (VB be)
+        (ADJP (JJ located))
+        (PP
+          (ADVP (RB centrally))
+          (IN within)
+          (NP
+            (NP (DT a) (NN group))
+            (, ,)
+            (NP
+              (NP (DT a) (NN group))
+              (PP (IN of)
+                (NP (JJ financial) (NNS undertakings))))
+            (CC or)
+            (NP (DT a) (JJ financial) (NN conglomerate))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN aforesaid))
+    (VP (MD shall)
+      (VP (VB apply)
+        (S
+          (ADJP (VBN provided)
+            (SBAR (IN that)
+              (S
+                (NP (DT the) (NNS functions))
+                (VP (VBP possess)
+                  (NP
+                    (NP (NN expertise) (CC and) (NNS resources))
+                    (VP (VBG relating)
+                      (PP (TO to)
+                        (NP (DT all) (JJ licensed) (NNS operations))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 3))
+      (PP (IN In)
+        (NP
+          (NP
+            (NP (NNS undertakings))
+            (SBAR
+              (WHNP (WDT that))
+              (S
+                (VP (VBP are) (RB not)
+                  (VP (VBN covered)
+                    (PP (IN by)
+                      (NP (DT the) (NNP Swedish) (NNP Companies) (NNP Act))))))))
+          (, ,)
+          (NP
+            (NP (DT the) (NN board))
+            (PP (IN of)
+              (NP (NNS directors)))))))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB adopt)
+        (PRN (, ,)
+          (PP (IN in)
+            (NP (JJ internal) (NNS regulations)))
+          (, ,))
+        (NP
+          (NP (NNS rules))
+          (PP (IN of)
+            (NP (NN procedure)))
+          (PP (IN for)
+            (NP
+              (NP (DT the) (NN board))
+              (PP (IN of)
+                (NP
+                  (NP (NNS directors) (CC and) (NNS duties))
+                  (PP (IN for)
+                    (NP
+                      (NP (DT the) (VBG managing) (NN director))
+                      (CC or)
+                      (NP (JJ equivalent) (NN employee)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP
+        (NP (DT The) (VBG managing) (NN director) (POS 's))
+        (NNS responsibilities) (CC and) (NNS duties))
+      (NP (NN §) (CD 4)))
+    (NP
+      (NP (DT An) (NN undertaking) (POS ’s))
+      (VBG managing) (NN director))
+    (VP (MD shall)
+      (VP (VB handle)
+        (NP
+          (NP (DT the) (JJ day-to-day) (NN management))
+          (PP (IN of)
+            (NP
+              (NP (DT the) (NN undertaking) (POS 's))
+              (NNS affairs)))
+          (PP (IN in)
+            (NP
+              (NP (NN accordance))
+              (PP (IN with)
+                (NP
+                  (NP (DT the) (NN board))
+                  (PP (IN of)
+                    (NP
+                      (NP (NNS directors) (POS '))
+                      (NNS guidelines) (CC and) (NNS instructions))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (DT The) (VBG managing) (NN director))
+      (VP (MD shall)
+        (ADVP (RB also))
+        (VP (VB take)
+          (NP
+            (NP (DT the) (NNS measures))
+            (VP (VBN required)
+              (PP (IN in)
+                (NP
+                  (NP (NN order))
+                  (PP (IN that)))))))))
+    (: :) (: –)
+    (S
+      (NP
+        (NP (DT the) (NN undertaking) (POS 's))
+        (NNS accounts))
+      (VP (VBP are)
+        (VP (VBN maintained)
+          (PP (IN in)
+            (NP
+              (NP (NN accordance))
+              (PP (IN with)
+                (NP (NN law))))))))
+    (: ;) (CC and) (: –)
+    (S
+      (NP
+        (NP (DT the) (NN administration))
+        (PP (IN of)
+          (NP (NNS funds))))
+      (VP (VBZ is)
+        (VP (VBN conducted)
+          (PP (IN in)
+            (NP (DT a) (JJ secure) (NN manner))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN nature))
+      (PP (IN of)
+        (NP
+          (NP (DT the) (VBG managing) (NN director) (POS 's))
+          (NN responsibility))))
+    (VP (VBZ follows)
+      (PRN (, ,)
+        (S
+          (ADVP (FW inter) (FW alia)))
+        (, ,))
+      (PP (IN from)
+        (NP
+          (NP (NN company) (NN law))
+          (CC and)
+          (NP (NN business) (NN law) (NN legislation)))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (VBG managing) (NN director))
+    (VP (MD should)
+      (VP (VB ensure)
+        (SBAR
+          (SBAR (IN that)
+            (S
+              (NP
+                (NP (DT the) (NN board))
+                (PP (IN of)
+                  (NP (NNS directors))))
+              (VP (VBZ receives)
+                (NP (JJ such)
+                  (ADJP (NN objective) (, ,) (JJ detailed) (CC and) (JJ relevant))
+                  (NN information))
+                (SBAR (IN as)
+                  (S
+                    (VP (VBN required)
+                      (SBAR (IN in) (NN order)
+                        (S
+                          (VP (TO to)
+                            (VP (VB take)
+                              (NP (JJ well-founded) (NNS decisions))))))))))))
+          (CC and)
+          (SBAR (IN that)
+            (S
+              (NP
+                (NP (DT the) (NN board))
+                (PP (IN of)
+                  (NP (NNS directors))))
+              (VP (VBZ is)
+                (VP
+                  (ADVP (RB regularly))
+                  (VBN informed)
+                  (PP (VBG regarding)
+                    (NP
+                      (NP (NNS developments))
+                      (PP (IN in)
+                        (NP
+                          (NP (DT the) (NN undertaking) (POS 's))
+                          (NNS operations))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (JJ Internal) (NN information))
+      (NP (NN §) (CD 5)))
+    (NP (DT An) (NN undertaking))
+    (VP (MD should)
+      (VP (VB possess)
+        (NP (JJ efficient) (NN information) (CC and) (NNS communications) (NNS systems))
+        (PP (IN for)
+          (NP
+            (NP (DT the) (NN dissemination))
+            (PP (IN of)
+              (NP (JJ internal) (NN information)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN reference))
+    (ADVP (RB here))
+    (VP (VBZ is) (, ,)
+      (ADVP (FW inter) (FW alia))
+      (, ,)
+      (PP (TO to)
+        (NP
+          (NP (JJ technical) (NNS systems))
+          (CONJP (RB as) (RB well) (IN as))
+          (NP (NN organisation) (CC and) (NNS routines))))
+      (PP (IN for)
+        (NP
+          (NP (DT the) (JJ internal) (NN communication) (CC and) (NN dissemination))
+          (PP (IN of)
+            (NP (NN information))))))
+    (. .)))
+
+(ROOT
+  (ADJP (NN Chapter) (CD 3) (. .)))
+
+(ROOT
+  (FRAG
+    (X
+      (X
+        (X
+          (X
+            (X
+              (NP (JJ Internal) (NN governance) (CC and) (NN control))
+              (NP (NN §) (CD 1))
+              (PP (IN Through)
+                (NP (JJ sound) (JJ internal) (NN control)))
+              (, ,)
+              (S
+                (NP (DT an) (NN undertaking))
+                (VP (MD can)
+                  (VP (VB ensure))))
+              (: :))
+            (: -)
+            (NP
+              (NP (DT an)
+                (ADJP (JJ appropriate) (CC and) (JJ efficient))
+                (NN organisation) (CC and) (NN management))
+              (PP (IN of)
+                (NP (DT the) (NNS operations))))
+            (: ;))
+          (: -)
+          (NP (JJ reliable) (JJ financial) (NN reporting))
+          (: ;))
+        (: -)
+        (ADJP (JJ efficient))
+        (NP
+          (NP (NN operation) (CC and) (NN management))
+          (PP (IN of)
+            (NP (NN information) (NNS systems))))
+        (: ;))
+      (: -)
+      (NP (DT a) (JJ good) (NN ability)
+        (S
+          (VP (TO to)
+            (VP (VB identify) (, ,)
+              (INTJ (NN measure) (, ,) (NN monitor))
+              (CC and)
+              (VP (VB manage)
+                (NP (PRP$ its) (NNS risks)))))))
+      (: ;))
+    (: -)
+    (NP
+      (NP (DT a) (JJ good) (NN ability)
+        (S
+          (VP (TO to)
+            (VP (VB comply)
+              (PP (IN with)
+                (NP (NNS laws) (CC and) (NNS ordinances)))))))
+      (, ,)
+      (NP (JJ internal) (NNS regulations))
+      (, ,)
+      (CONJP (RB as) (RB well) (IN as))
+      (NP
+        (NP
+          (ADJP (RB generally) (VBN accepted))
+          (NN practice))
+        (CC or)
+        (NP
+          (ADJP (RB generally) (VBN accepted))
+          (NNS standards))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 2))
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP
+          (NP (NNS directors))
+          (CC and)
+          (NP (VBG managing) (NN director)))))
+    (VP (MD should)
+      (VP (VB endeavour)
+        (S
+          (VP (TO to)
+            (VP (VB ensure)
+              (SBAR (IN that)
+                (S
+                  (NP
+                    (NP (DT the) (NN organisation) (CC and) (NN management))
+                    (PP (IN of)
+                      (NP
+                        (NP (DT the) (NN undertaking) (POS ’s))
+                        (NNS operations))))
+                  (VP (VBP are)
+                    (VP (VBN characterised)
+                      (PP (IN by)
+                        (NP (JJ sound) (JJ internal) (NN control))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (NN §) (CD 3))
+      (PP (IN In)
+        (NP (NN order)))
+      (S
+        (VP (TO to)
+          (VP (VB maintain)
+            (NP (JJ sound) (JJ internal) (NN control))))))
+    (, ,)
+    (NP (DT the) (NN organisation))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN adapted)
+          (PP (TO to)
+            (NP
+              (NP (DT the) (NNS changes))
+              (PP (IN in)
+                (NP
+                  (NP
+                    (ADJP (JJ internal) (CC and) (JJ external))
+                    (NNS risks))
+                  (SBAR
+                    (WHNP (WDT that))
+                    (S
+                      (VP (VBP take)
+                        (NP (NN place))
+                        (PP (IN over)
+                          (NP (NN time)))))))))))))
+    (. .)))
+
+(ROOT
+  (FRAG
+    (X
+      (X
+        (X
+          (X
+            (X
+              (NP
+                (NP (NN §) (CD 4))
+                (SBAR
+                  (S
+                    (NP (DT An) (NN undertaking))
+                    (VP (MD may)
+                      (VP (VB achieve))))))
+              (NP (JJ sound) (JJ internal) (NN control))
+              (IN by) (, ,)
+              (PP (IN for)
+                (NP (NN example)))
+              (: :))
+            (: -)
+            (VP
+              (VP
+                (ADVP (RB regularly))
+                (VBG following)
+                (PRT (RP up))
+                (PP (IN on)
+                  (NP (DT the) (NNS operations))))
+              (CC and)
+              (VP (VBG ensuring)
+                (SBAR (IN that)
+                  (S
+                    (NP (NNS controls))
+                    (VP (VBP are)
+                      (PP (IN in)
+                        (NP (NN place)))
+                      (SBAR
+                        (WHNP (WDT which))
+                        (S
+                          (VP (VBP guarantee)
+                            (SBAR (IN that)
+                              (S
+                                (S
+                                  (VP (VBG reporting)
+                                    (ADVP (RB appropriately))))
+                                (VP (VBZ reflects)
+                                  (NP (DT the) (NNS operations)))))))))))))
+            (: ;))
+          (: -)
+          (FRAG
+            (X
+              (X
+                (X
+                  (X
+                    (S
+                      (VP
+                        (ADVP (RB regularly))
+                        (VBG monitoring)
+                        (SBAR (IN that)
+                          (S
+                            (NP (NNS resources))
+                            (VP (VBP are)
+                              (VP (VBN used)
+                                (ADVP (RB efficiently))))))))
+                    (CC and)
+                    (SBAR (IN in) (NN order)
+                      (S
+                        (VP (TO to)
+                          (VP (VB achieve)
+                            (NP
+                              (NP (DT the) (NN undertaking) (POS 's))
+                              (NNS goals))))))
+                    (: ;))
+                  (: -)
+                  (VP
+                    (VP (VBG producing)
+                      (NP (JJ internal) (NNS regulations)))
+                    (, ,)
+                    (CONJP (RB as) (RB well) (IN as))
+                    (VP (VBG documenting) (CC and)
+                      (VP (VBG updating)
+                        (NP (PRP them))
+                        (ADVP (RB regularly)))))
+                  (: ;))
+                (: -)
+                (VP (VBG allocating)
+                  (NP (NN responsibility) (CC and) (NN work))
+                  (PP (IN in)
+                    (NP (JJ such) (DT a) (NN manner)
+                      (SBAR (IN that)
+                        (S
+                          (NP
+                            (NP (DT the) (NN risk))
+                            (PP (IN of)
+                              (NP
+                                (NP (NNS conflicts))
+                                (PP (IN of)
+                                  (NP (NN interest))))))
+                          (VP (VBZ is)
+                            (VP (VBN avoided))))))))
+                (: ;))
+              (: -)
+              (VP (VBG ensuring)
+                (SBAR (IN that)
+                  (S
+                    (NP (DT an) (NN employee))
+                    (VP (VBZ does) (RB not)
+                      (VP (VB handle)
+                        (NP
+                          (NP (DT a) (NN transaction))
+                          (ADVP (RB alone))
+                          (PP (IN throughout)
+                            (NP
+                              (NP (DT the) (JJ entire) (NN processing) (NN chain))
+                              (PRN (-LRB- -LRB-)
+                                (NAC (NN segregation)
+                                  (PP (IN of)
+                                    (NP (NNS duties))))
+                                (-RRB- -RRB-))))))))))
+              (: ;))
+            (: -)
+            (S
+              (VP (VBG ensuring) (, ,)
+                (PP (IN through)
+                  (NP (NNS controls)))))
+            (, ,)
+            (S
+              (NP (DT that) (NN information))
+              (VP (VBZ is)
+                (VP (VBN provided)
+                  (PP (IN in)
+                    (NP
+                      (NP (DT the) (NN event))
+                      (SBAR
+                        (S
+                          (NP
+                            (NP (NNS developments))
+                            (PP (IN within)
+                              (NP (DT a) (NN business) (NN area))))
+                          (VP (VBP deviate)
+                            (PP (IN from)
+                              (NP
+                                (NP (DT the) (NN undertaking) (POS ’s))
+                                (NNS guidelines) (CC and) (NNS targets))))))))))))
+          (: ;))
+        (: -)
+        (VP (VBG ensuring) (, ,)
+          (PP (IN through)
+            (NP (NNS controls)))
+          (, ,)
+          (SBAR
+            (SBAR (IN that)
+              (S
+                (NP (DT the) (NN reporting))
+                (VP (VBZ is)
+                  (ADJP (JJ complete) (CC and) (JJ accurate)))))
+            (, ,)
+            (S
+              (NP (NNS transactions))
+              (VP (VBP are)
+                (VP (VBN reported)
+                  (PP (IN on)
+                    (NP (NN time))))))
+            (CC and)
+            (SBAR (IN that)
+              (S
+                (NP (VBN reported) (NNS transactions))
+                (VP (VBP are)
+                  (ADVP (RB actually))
+                  (VP (VBN implemented)))))))
+        (: ;))
+      (: -)
+      (VP
+        (VP (VBG ensuring)
+          (NP (NN continuity))
+          (PP (IN in)
+            (NP (DT the) (NNS operations))))
+        (CC and)
+        (VP (VBG protecting)
+          (NP
+            (NP (DT the) (NNS assets))
+            (PP (IN of)
+              (NP
+                (NP (DT the) (NN undertaking))
+                (CC and)
+                (NP (DT the) (NNS customers))))))
+        (, ,)
+        (PP (IN through)
+          (NP
+            (NP (NN information) (NN security))
+            (CC and)
+            (NP (JJ physical) (NN security) (NNS controls)))))
+      (: ;))
+    (: -)
+    (S
+      (VP (VBG ensuring)
+        (SBAR (IN that)
+          (S
+            (NP (NN information) (CC and) (NN reporting) (NNS systems))
+            (VP (VBP guarantee)
+              (NP
+                (ADJP (JJ current) (CC and) (JJ relevant))
+                (NN information))
+              (PP (VBG regarding)
+                (NP
+                  (NP (DT the) (NN institution) (POS 's))
+                  (NNS operations) (CC and) (NN risk) (NN exposure))))))))
+    (, ,)
+    (NP (NN etc))
+    (. .)))
+
+(ROOT
+  (ADJP (NN Chapter) (CD 4) (. .)))
+
+(ROOT
+  (FRAG
+    (X
+      (X
+        (X
+          (X
+            (NP
+              (NP (NN Management) (CC and) (NN control))
+              (PP (IN of)
+                (NP (NNS risks))))
+            (NP (NNP Business))
+            (NNS risks)
+            (NP (NN §) (CD 1))
+            (S
+              (NP
+                (NP (NNS Risks))
+                (SBAR
+                  (WHNP (WDT which))
+                  (S
+                    (VP (MD should)
+                      (VP (VB be)
+                        (VP (VBN managed) (CC and) (VBN controlled)))))))
+              (VP (VBP include) (, ,)
+                (PP (IN for)
+                  (NP (NN example)))
+                (, ,)
+                (NP (DT the) (NN following))))
+            (: :))
+          (: -)
+          (NP (NN credit) (CC and) (NN counterparty) (NNS risks))
+          (: ;))
+        (: -)
+        (NP
+          (NP (NN market) (NNS risks))
+          (PRN (-LRB- -LRB-)
+            (NP
+              (NP (NN interest) (NN rate) (NNS risks))
+              (, ,)
+              (NP (NN currency) (NNS risks))
+              (, ,) (CC and)
+              (NP (NN price) (NNS risks)))
+            (-RRB- -RRB-)))
+        (: ;))
+      (: -)
+      (NP (NN liquidity) (NNS risks))
+      (: ;))
+    (: -)
+    (NP (JJ operational) (NNS risks))
+    (PRN (-LRB- -LRB-)
+      (NP
+        (NP (NN risk))
+        (PP (IN of)
+          (NP
+            (NP (NNS losses))
+            (ADJP (JJ due)
+              (PP (TO to)
+                (NP
+                  (NP
+                    (NP
+                      (NP
+                        (ADJP (JJ defective) (CC or) (JJ inappropriate))
+                        (JJ internal) (NNS processes))
+                      (CC and) (NNS routines))
+                    (, ,)
+                    (NP (JJ human) (NN error))
+                    (, ,)
+                    (NP (JJ defective) (NNS systems))
+                    (CC or)
+                    (NP (JJ external) (NNS events)))
+                  (, ,)
+                  (PP (VBG including)
+                    (NP (JJ legal) (NNS risks)))))))))
+      (-RRB- -RRB-))
+    (. .)))
+
+(ROOT
+  (S
+    (PP (IN With)
+      (NP
+        (NP (NN respect))
+        (PP (TO to)
+          (NP
+            (NP (NN insurance) (NNS companies))
+            (CC and)
+            (NP (JJ benevolent) (NNS societies))))))
+    (, ,)
+    (NP (EX there))
+    (VP (VBP are)
+      (NP
+        (X
+          (X
+            (X
+              (ADVP (RB also))
+              (NP (JJ specific) (NN insurance) (NNS risks))
+              (JJ such) (IN as) (: :))
+            (: -)
+            (NP (NN underwriting) (NNS risks))
+            (: ;))
+          (: -) (NNS provisions) (NNS risks) (: ;))
+        (: -)
+        (NP (NN reinsurance) (NNS risks))
+        (: ;) (CC and) (: -)
+        (NP (JJ matching) (NNS risks))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP
+        (NP (JJ Internal) (NNS regulations))
+        (PP (IN for)
+          (NP (NN management))))
+      (CC and)
+      (NP
+        (NP (NN control))
+        (PP (IN of)
+          (NP
+            (NP (NNS risks))
+            (NP (NN §) (CD 2))))))
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP (NNS directors))))
+    (VP (MD should)
+      (VP (VB ensure)
+        (SBAR (IN that)
+          (S
+            (NP
+              (NP
+                (NP (DT the) (NN undertaking) (POS 's))
+                (NN management))
+              (PP (IN of)
+                (NP
+                  (NP
+                    (NP (NNS risks))
+                    (PRN (-LRB- -LRB-)
+                      (NP (NN risk) (NN management))
+                      (-RRB- -RRB-)))
+                  (CC and)
+                  (NP
+                    (NP (NN follow-up))
+                    (PP (IN of)
+                      (NP
+                        (NP
+                          (NP (DT the) (NN undertaking) (POS 's))
+                          (NNS risks))
+                        (PRN (-LRB- -LRB-)
+                          (NP (NN risk) (NN control))
+                          (-RRB- -RRB-))))))))
+            (VP (VBP are)
+              (ADJP (JJ satisfactory)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (PP (IN For)
+      (NP (DT this) (NN purpose)))
+    (, ,)
+    (NP (JJ internal) (NNS regulations))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN adopted)
+          (PP (VBG regarding)
+            (NP
+              (NP (NN risk) (NN management))
+              (CC and)
+              (NP (NN risk) (NN control)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN Compliance))
+      (PP (IN with)
+        (NP (DT these) (NNS regulations))))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN ensured)
+          (ADVP (RB constantly)))))
+    (. .)))
+
+(ROOT
+  (SBARQ
+    (WHADVP (WRB How))
+    (SQ (VBZ is)
+      (NP (NN risk))
+      (NP (NN control)
+        (S
+          (VP (TO to)
+            (VP (VB be)
+              (VP (VBN organised)))))))
+    (. ?)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 3))
+    (NP (DT The) (NN undertaking))
+    (VP (MD should)
+      (VP (VB contain)
+        (NP
+          (NP (DT a) (JJ composite) (NN function))
+          (PP (IN for)
+            (NP (JJ independent) (NN risk) (NN control))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB inform)
+        (NP
+          (NP (DT the) (NN board))
+          (PP (IN of)
+            (NP
+              (NP
+                (NP (NNS directors))
+                (, ,)
+                (NP (NN management))
+                (CC and)
+                (NP (JJ other) (NNS persons)))
+              (SBAR
+                (WHNP (WP who))
+                (S
+                  (VP (VBP require)
+                    (NP (DT the) (NN information))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN information))
+    (VP
+      (VP (MD should)
+        (VP (VB provide)
+          (NP
+            (NP (DT a)
+              (ADJP (JJ comprehensive) (CC and) (JJ objective))
+              (NN representation))
+            (PP (IN of)
+              (NP
+                (NP (DT the) (NN undertaking) (POS 's))
+                (NNS risks))))))
+      (CC and)
+      (VP (VBP contain)
+        (NP
+          (NP (NNS analyses))
+          (PP (IN of)
+            (NP
+              (NP (NNS changes))
+              (PP (IN in)
+                (NP (DT the) (NNS risks))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function) (CD 4))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB propose)
+        (NP
+          (NP (DT the) (NNS changes))
+          (PP (IN in)
+            (NP
+              (NP
+                (NP (NN governance) (NNS documents))
+                (CC and) (NNS processes))
+              (SBAR
+                (WHNP (WDT which))
+                (S
+                  (VP (VBP result)
+                    (PP (IN from)
+                      (NP
+                        (NP (DT the) (NNS observations))
+                        (VP (VBG regarding)
+                          (NP (NN risk) (NN management)))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (JJ answerable)
+          (PP (TO to)
+            (NP (DT the) (VBG managing) (NN director))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP It))
+    (VP
+      (VP (MD may)
+        (ADVP (RB also))
+        (VP (VB be)
+          (VP (VBN situated)
+            (SBAR (RB so) (IN that)
+              (S
+                (NP (PRP it))
+                (VP (VBZ is)
+                  (ADJP (JJ answerable)
+                    (PP (TO to)
+                      (NP
+                        (NP (DT another) (JJ senior) (NN officer))
+                        (SBAR
+                          (WHNP (WP who))
+                          (S
+                            (VP (VBZ possesses)
+                              (NP
+                                (NP (JJ sound) (NN knowledge))
+                                (PP (IN of)
+                                  (NP
+                                    (NP (DT the) (NN undertaking) (POS 's))
+                                    (NNS risks))))))))))))))))
+      (CC and)
+      (VP (VBZ is)
+        (ADJP (RB directly) (JJ subordinate))
+        (PP (TO to)
+          (NP (DT the) (VBG managing) (NN director)))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (JJ Such) (NN person))
+    (VP (MD shall) (RB not)
+      (PRN (, ,)
+        (ADVP (RB however))
+        (, ,))
+      (VP (VB be)
+        (ADJP (JJ responsible)
+          (PP (IN for)
+            (NP (DT the) (JJ day-to-day) (NN business) (NNS operations))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB possess)
+        (NP
+          (NP (DT the) (NNS resources))
+          (ADJP (JJ necessary))
+          (PP (IN for)
+            (NP (PRP$ its) (NNS duties))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NNS duties))
+    (VP (MD should) (RB not)
+      (VP (VB be)
+        (VP (VBN carried)
+          (PRT (RP out))
+          (PP (IN by)
+            (NP
+              (NP (NNS employees))
+              (SBAR
+                (WHNP (WP who))
+                (S
+                  (VP (VBP are)
+                    (VP (VBN engaged)
+                      (PP (IN in)
+                        (NP (DT the) (JJ day-to-day) (NN business) (NNS operations))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 4))
+      (NP (DT The) (NN function)))
+    (VP (MD may)
+      (VP (VB structure)
+        (NP (DT the) (NN work))
+        (PP (IN in)
+          (NP
+            (NP (JJ different) (NNS ways))
+            (VP (VBG depending)
+              (PP (IN on)
+                (NP
+                  (NP (DT the) (NN undertaking) (POS 's))
+                  (NNS operations))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP It))
+    (VP (MD may) (, ,)
+      (PP (IN for)
+        (NP (NN example)))
+      (, ,)
+      (VP (VBP engage)
+        (NP (JJ other) (NNS functions))
+        (PP (IN in)
+          (NP (DT the) (NN undertaking)
+            (S
+              (VP (TO to)
+                (VP (VB compile)
+                  (NP (NNS data))
+                  (PP (IN for)
+                    (NP (PRP$ its) (NNS reports) (CC and) (NNS analyses))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD shall) (, ,)
+      (ADVP (RB however))
+      (, ,)
+      (PP (IN at)
+        (S
+          (NP (DT all) (NNS times))
+          (VP (VB be)
+            (ADJP (JJ responsible)
+              (PP
+                (PP (IN for)
+                  (NP
+                    (NP (DT the) (VBN coordinated) (NN reporting))
+                    (CC and)
+                    (NP
+                      (NP (NNS analyses))
+                      (PP (IN of)
+                        (NP
+                          (NP (DT the) (NN undertaking) (POS 's))
+                          (NNS risks))))))
+                (, ,) (CC and)
+                (PP (IN for)
+                  (S
+                    (VP (VBG ensuring)
+                      (SBAR (IN that)
+                        (S
+                          (NP (DT the) (VBG underlying) (NNS data))
+                          (VP (VBZ is)
+                            (ADJP (JJ correct))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP
+        (NP
+          (NP (NN §) (CD 5))
+          (NP (NN Chapter) (CD 8))
+          (NP
+            (NP (NN §) (CD 1))
+            (CC and)
+            (NP
+              (NP
+                (NP (NN Chapter) (CD 16))
+                (, ,)
+                (NP (NN §) (CD 1)))
+              (PP (IN of)
+                (NP (DT the) (NNP Insurance) (NNP Operations) (NNP Act))))))
+        (PRN (-LRB- -LRB-)
+          (NP
+            (NP (NNS SFS))
+            (NP (CD 1982:713)))
+          (-RRB- -RRB-)))
+      (PP (VBG regarding)
+        (NP
+          (NP (DT the) (NNS duties) (CC and) (NN responsibility))
+          (PP (IN of)
+            (NP (DT the) (JJ responsible) (NN actuary))))))
+    (VP (MD shall)
+      (ADVP (RB also))
+      (VP (VB apply)
+        (PP (IN with)
+          (NP
+            (NP (NN respect))
+            (PP (TO to)
+              (NP (NN insurance) (NNS companies)))))))
+    (. .)))
+
+(ROOT
+  (ADJP (NN Chapter) (CD 5) (. .)))
+
+(ROOT
+  (S
+    (NP (NN Compliance) (NN §) (CD 1) (NN Compliance))
+    (VP (VBZ means) (, ,)
+      (PP (IN in)
+        (NP (DT these) (JJ general) (NNS guidelines)))
+      (, ,)
+      (NP
+        (NP
+          (NP (NN compliance))
+          (PP (IN with)
+            (NP
+              (NP (NNS laws))
+              (, ,)
+              (NP (NNS ordinances))
+              (CC and)
+              (NP (JJ internal) (NNS regulations)))))
+        (CONJP (RB as) (RB well) (IN as))
+        (NP
+          (NP
+            (ADJP (RB generally) (VBN accepted))
+            (NNS practices))
+          (CC or)
+          (NP
+            (NP
+              (ADJP (RB generally) (VBN accepted))
+              (NNS standards))
+            (PRN (-LRB- -LRB-)
+              (NP
+                (NP (NN hereinafter))
+                (VP
+                  (ADVP (RB jointly))
+                  (VBD referred)
+                  (PP (TO to))
+                  (PP (IN as) (`` ")
+                    (NP (NNS regulations))
+                    ('' "))))
+              (-RRB- -RRB-))
+            (VP (VBG regarding)
+              (NP (DT the) (JJ licensed) (NNS operations)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (JJ Deficient) (NN compliance))
+    (VP (MD may)
+      (VP (VB result)
+        (PP (IN in)
+          (NP
+            (NP (VBN increased) (JJ operational) (NNS risks))
+            (, ,)
+            (NP
+              (NP (NNS risks))
+              (PP (IN of)
+                (NP (JJ legal) (NNS sanctions))))
+            (, ,)
+            (NP (JJ supervisory) (NNS risks))
+            (, ,)
+            (NP (JJ economic) (NNS losses))
+            (CC and)
+            (NP
+              (NP (NN damage))
+              (PP (TO to)
+                (NP (NN reputation))))))))
+    (. .)))
+
+(ROOT
+  (SBARQ
+    (WHADVP (WRB How))
+    (SQ
+      (VP (VBZ is)
+        (NP
+          (NP (NN compliance))
+          (SBAR
+            (S
+              (VP (TO to)
+                (VP (VB be)
+                  (VP (VBN ensured)))))))))
+    (. ?)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 2))
+      (NP
+        (NP (DT The) (NN board))
+        (PP (IN of)
+          (NP (NNS directors)))))
+    (VP (MD should)
+      (VP (VB ensure)
+        (SBAR (IN that)
+          (S
+            (NP
+              (NP (DT a) (NN function))
+              (PRN (-LRB- -LRB-)
+                (NP (NN compliance))
+                (-RRB- -RRB-)))
+            (VP (VBZ is)
+              (PP (IN in)
+                (NP
+                  (NP (NN place))
+                  (SBAR
+                    (WHNP (WDT which))
+                    (S
+                      (VP (VBZ supports)
+                        (NP
+                          (NP (DT the) (NNS operations))
+                          (VP (VBG being)
+                            (VP (VBN conducted)
+                              (PP (IN in)
+                                (NP
+                                  (NP (NN accordance))
+                                  (PP (IN with)
+                                    (NP (NN governing) (NNS regulations))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (FRAG
+      (WHADJP (WRB Where) (JJ appropriate)))
+    (, ,)
+    (NP (DT the) (NN function))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB monitor)
+        (NP (NN compliance))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP
+      (VP (MD should)
+        (VP (VB provide)
+          (NP (NN information))
+          (ADVP (RB regularly))
+          (PP (VBG regarding)
+            (NP
+              (NP (DT the) (NNS risks))
+              (SBAR
+                (WHNP (WDT that))
+                (S
+                  (VP (MD may)
+                    (VP (VB arise)
+                      (PP (IN in)
+                        (NP (DT the) (NNS operations)))
+                      (PP (IN as)
+                        (NP
+                          (NP (DT a) (NN consequence))
+                          (PP (IN of)
+                            (NP (JJ deficient) (NN compliance)))))))))))))
+      (, ,)
+      (VP (VBP assist)
+        (PP (IN in)
+          (S
+            (VP (VBG identifying) (CC and) (VBG assessing)
+              (NP (JJ such) (NNS risks))))))
+      (, ,) (CC and)
+      (VP (VB assist)
+        (PP (IN in)
+          (NP
+            (NP (DT the) (NN formulation))
+            (PP (IN of)
+              (NP (JJ internal) (NNS regulations)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB inform)
+        (NP
+          (NP (DT the) (NN board))
+          (PP (IN of)
+            (NP
+              (NP (NNS directors))
+              (, ,)
+              (NP (VBG managing) (NN director))
+              (CC and)
+              (NP
+                (NP (NN management))
+                (PP (IN with)
+                  (NP
+                    (NP (NN respect))
+                    (PP (TO to)
+                      (NP (NN compliance) (NNS issues)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 3))
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (ADVP (RB regularly))
+      (VP (VB ensure)
+        (SBAR (IN that)
+          (S
+            (NP (DT the) (JJ relevant) (NNS personnel))
+            (VP (VBP obtain)
+              (NP
+                (NP (NN information))
+                (VP (VBG regarding)
+                  (NP
+                    (NP
+                      (ADJP (JJ new) (CC or) (VBN amended))
+                      (NNS regulations))
+                    (CC and)
+                    (PRN (, ,)
+                      (SBAR
+                        (WHADVP (WRB where))
+                        (S
+                          (VP (VBN required))))
+                      (, ,))
+                    (NP
+                      (NP (NN training))
+                      (PP (IN in)
+                        (NP (DT the) (JJ new) (NNS regulations))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 4))
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP
+          (NP (NNS directors))
+          (CC or)
+          (NP (VBG managing) (NN director)))))
+    (VP (MD should)
+      (VP (VB issue)
+        (NP (JJ internal) (NNS regulations))
+        (PP (IN with)
+          (NP
+            (NP (NN respect))
+            (PP (TO to)
+              (NP
+                (NP
+                  (NP (DT the) (NN function) (POS 's))
+                  (NN area))
+                (PP (IN of)
+                  (NP
+                    (NP (NN responsibility))
+                    (, ,)
+                    (NP (NN scope))
+                    (CC and)
+                    (NP
+                      (NP
+                        (NP (NN implementation))
+                        (PP (IN of)
+                          (NP
+                            (NP (DT the) (NN function) (POS 's))
+                            (NN work))))
+                      (CONJP (RB as) (RB well) (IN as))
+                      (NP
+                        (NP (NNS routines))
+                        (PP (IN for)
+                          (NP
+                            (NP (NN information))
+                            (VP (VBG regarding)
+                              (NP (NNS observations)))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 5))
+      (NP (DT The) (NN function)))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (JJ answerable)
+          (PP (TO to)
+            (NP
+              (NP (DT the) (NN board))
+              (PP (IN of)
+                (NP
+                  (NP (NNS directors))
+                  (CC or)
+                  (NP (DT the) (VBG Managing) (NNP Director)))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP It))
+    (VP (MD may)
+      (ADVP (RB also))
+      (VP (VB be)
+        (VP
+          (ADVP (RB so))
+          (VBN situated)
+          (SBAR (IN so) (IN that)
+            (S
+              (NP (PRP it))
+              (VP (VBZ is)
+                (ADJP (JJ subordinate)
+                  (PP (TO to)
+                    (NP
+                      (NP (DT another) (JJ senior) (CD 5) (NN officer))
+                      (PP (IN in)
+                        (NP
+                          (NP (NN possession))
+                          (PP (IN of)
+                            (NP (JJ sound) (NN knowledge)))))
+                      (PP (VBG regarding)
+                        (NP
+                          (NP
+                            (NP (DT the) (NN undertaking) (POS 's))
+                            (NNS risks) (CC and) (NNS operations))
+                          (PP (IN in)
+                            (ADJP (JJ general)))))
+                      (, ,)
+                      (SBAR
+                        (WHNP (WP who))
+                        (S
+                          (VP (VBZ is)
+                            (ADJP (RB directly) (JJ answerable)
+                              (PP (TO to)
+                                (NP (DT the) (VBG managing) (NN director))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB possess)
+        (NP
+          (NP (NNS resources))
+          (ADJP (JJ sufficient)
+            (PP (IN for)
+              (NP (PRP$ its) (NNS duties)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP It))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB have)
+        (NP
+          (NP (NNS personnel))
+          (SBAR
+            (WHNP (WP who))
+            (S
+              (VP (VBP possess)
+                (NP
+                  (NP
+                    (NP (JJ sound) (NN knowledge))
+                    (PP (IN of)
+                      (NP
+                        (NP (DT the) (NN undertaking) (POS 's))
+                        (NNS risks))))
+                  (CC and)
+                  (NP
+                    (NP (DT the) (NNS regulations))
+                    (VP (VBN applied)
+                      (PP (IN by)
+                        (NP (DT the) (NN undertaking))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 6))
+      (NP
+        (NP (DT The) (NN work))
+        (PP (IN of)
+          (NP (DT the) (NN function)))))
+    (VP (MD may)
+      (VP (VB be)
+        (VP (VBN structured)
+          (PP (IN in)
+            (NP
+              (NP (JJ different) (NNS ways))
+              (VP (VBG depending)
+                (PP (IN on)
+                  (NP
+                    (NP (DT the) (NN undertaking) (POS 's))
+                    (NNS operations)))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP It))
+    (VP (MD may)
+      (VP (VB vary)
+        (PP (IN between)
+          (NP
+            (NP (JJ different) (NNS undertakings))
+            (CC and)
+            (ADVP (IN between))
+            (PRN (, ,)
+              (PP (IN for)
+                (NP (NN example)))
+              (, ,))
+            (NP
+              (NP (DT the)
+                (ADJP (JJ local) (CC and) (JJ central))
+                (NNS levels))
+              (PP (IN in)
+                (NP (DT an) (NN undertaking))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN ambition))
+    (VP (MD should)
+      (VP (VB be)
+        (SBAR (IN that)
+          (S
+            (NP (DT the) (NN undertaking))
+            (VP (VBZ achieves)
+              (PRN (, ,)
+                (CONJP (RB as) (RB far) (IN as))
+                (ADJP (JJ possible))
+                (, ,))
+              (NP
+                (NP (DT an) (JJ independent) (NN position))
+                (PP (IN in)
+                  (NP
+                    (NP (NN relation))
+                    (PP (TO to)
+                      (NP (DT the) (JJ direct)
+                        (ADJP (RB commercially) (VBN driven))
+                        (NN operation)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN work))
+      (PP (IN of)
+        (NP (DT the) (NN function))))
+    (VP (MD may) (, ,)
+      (SBAR
+        (WHADVP (WRB where))
+        (FRAG
+          (ADJP (JJ appropriate))))
+      (, ,)
+      (VP (VB be)
+        (VP (VBN performed)
+          (PP (IN by)
+            (NP (NNS consultants))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP
+        (NP (NN §) (CD 7) (NNP Finansinspektionen) (POS 's))
+        (NNS regulations))
+      (VP (VBG regarding)
+        (NP
+          (NP (NNS rules))
+          (PP (IN of)
+            (NP (NN conduct)))
+          (PP (IN on)
+            (NP (DT the) (NNS securities) (NNS markets))))))
+    (VP (MD shall)
+      (ADVP (RB also))
+      (VP (VB apply)
+        (PP (IN with)
+          (NP
+            (NP (NN respect))
+            (PP (TO to)
+              (NP (NNS securities) (NNS companies)))))))
+    (. .)))
+
+(ROOT
+  (ADJP (NN Chapter) (CD 6) (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (JJ Independent) (NN Monitoring) (NN Function))
+      (PRN (-LRB- -LRB-)
+        (NP (JJ Internal) (NN audit))
+        (-RRB- -RRB-))
+      (NP (NN §) (CD 1))
+      (NP
+        (NP (DT The) (NN board))
+        (PP (IN of)
+          (NP (NNS directors)))))
+    (VP (MD should)
+      (VP (VB ensure)
+        (SBAR (IN that)
+          (S
+            (NP (DT a) (NN function))
+            (VP (VBZ is)
+              (PP (IN in)
+                (NP
+                  (NP (NN place))
+                  (SBAR
+                    (WHNP (WDT which))
+                    (S
+                      (VP
+                        (VP (VBZ monitors) (CC and) (VBZ evaluates)
+                          (NP (DT the) (JJ internal) (NN control)))
+                        (PRN (-LRB- -LRB-)
+                          (PP (VBG including)
+                            (NP
+                              (NP (DT the) (NN risk) (NN control))
+                              (CC and)
+                              (NP (DT the) (NN compliance) (NN function))))
+                          (-RRB- -RRB-))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (PP (IN In)
+      (NP
+        (NP (NNS undertakings))
+        (PP (IN with)
+          (NP (DT an) (JJ internal) (NN audit) (NN function)))))
+    (, ,)
+    (NP (DT the) (NNS duties))
+    (VP (MD shall)
+      (VP (VB be)
+        (VP (VBN performed)
+          (PP (IN by)
+            (NP (JJ such) (NN function))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB possess)
+        (NP
+          (NP (JJ sufficient) (NNS resources))
+          (PP (IN for)
+            (NP (PRP$ its) (NNS duties))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (PRP It))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB have)
+        (NP
+          (NP (NNS personnel))
+          (SBAR
+            (WHNP (WP who))
+            (S
+              (VP (VBP possess) (: :) (: –)
+                (NP
+                  (NP
+                    (NP
+                      (NP (JJ sound) (NN knowledge))
+                      (PP (IN of)
+                        (NP
+                          (NP (DT the) (NN undertaking) (POS 's))
+                          (NNS risks))))
+                    (CC and)
+                    (NP
+                      (NP (DT the) (NNS regulations))
+                      (VP (VBN applied)
+                        (PP (IN by)
+                          (NP (DT the) (NN undertaking))))))
+                  (: ;) (CC and) (: –)
+                  (NP
+                    (NP
+                      (NP (JJ particular) (NN expertise))
+                      (PP (IN in)
+                        (NP (NN auditing))))
+                    (CC and)
+                    (NP
+                      (S
+                        (VP (VBG evaluating)
+                          (NP (DT the) (NN development))))
+                      (, ,)
+                      (NP
+                        (NP (NN operation) (CC and) (NN management))
+                        (PP (IN of)
+                          (NP
+                            (NP (DT the) (NN undertaking) (POS 's))
+                            (NN information) (NNS systems)))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 2))
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (RB directly) (JJ answerable)
+          (PP (TO to)
+            (NP
+              (NP (DT the) (NN board))
+              (PP (IN of)
+                (NP (NNS directors))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (ADVP (RB Organisationally))
+    (, ,)
+    (NP (PRP it))
+    (VP (MD should)
+      (VP (VB be)
+        (VP
+          (ADVP (RB entirely))
+          (VBN separated)
+          (PP (IN from)
+            (NP
+              (NP (DT the) (NNS operations))
+              (SBAR
+                (WHNP (WDT that))
+                (S
+                  (VP (VBP are)
+                    (VP (VBN audited))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN independence))
+      (PP (IN of)
+        (NP (DT the) (NN function))))
+    (ADVP (RB thus))
+    (VP (VBZ entails)
+      (SBAR (IN that)
+        (S
+          (NP (PRP it))
+          (VP (MD should) (RB not)
+            (VP (VB participate)
+              (PP (IN in)
+                (NP (DT the) (JJ operative) (NN business))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 3))
+      (SBAR
+        (S
+          (NP
+            (NP (DT The) (NN board))
+            (PP (IN of)
+              (NP (NNS directors))))
+          (VP (MD should)))))
+    (, ,)
+    (PP (IN in)
+      (NP (JJ internal) (NNS regulations)))
+    (, ,)
+    (VP (VBP determine)
+      (NP
+        (NP (DT the) (NN function) (POS 's))
+        (NX
+          (NX (NNS responsibilities))
+          (, ,)
+          (NX (NN work) (NNS duties))
+          (CC and)
+          (NX (NN reporting) (NNS routines)))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 4))
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (VP (VB monitor)
+        (SBAR (IN that)
+          (S
+            (NP
+              (NP (DT the) (NN scope) (CC and) (NN focus))
+              (PP (IN of)
+                (NP (DT the) (NNS operations))))
+            (VP (VBP are)
+              (PP (IN in)
+                (NP (NN accordance)))
+              (PP (IN with)
+                (NP
+                  (NP (DT the) (NN board))
+                  (PP (IN of)
+                    (NP
+                      (NP (NNS directors) (POS '))
+                      (JJ internal) (NNS regulations))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (NN function))
+    (VP (MD should)
+      (ADVP (RB also))
+      (VP (VB audit) (CC and) (VB evaluate)
+        (NP
+          (NP (DT the) (NN undertaking) (POS 's))
+          (NN organisation) (CC and) (NNS routines))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN head))
+      (PP (IN of)
+        (NP (DT the) (NN function))))
+    (VP (MD should)
+      (VP (VB be)
+        (ADJP (JJ present)
+          (PP (IN at)
+            (NP
+              (NP (NN board) (NNS meetings))
+              (SBAR
+                (WHPP (IN at)
+                  (WHNP (WDT which)))
+                (S
+                  (NP
+                    (NP (DT the) (NN function) (POS 's))
+                    (NNS reports))
+                  (VP (VBP are)
+                    (VP (VBN considered))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 5))
+    (NP (DT The) (NN audit))
+    (VP (MD may) (, ,)
+      (SBAR
+        (WHADVP (WRB where))
+        (FRAG
+          (ADJP (JJ appropriate))))
+      (, ,)
+      (VP (VB be)
+        (VP (VBN performed)
+          (PP (IN by)
+            (NP (NNS consultants))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN §) (CD 6))
+      (NP
+        (NP (DT The) (NN function) (POS 's))
+        (NN work)))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN documented))))
+    (. .)))
+
+(ROOT
+  (ADJP (NN Chapter) (CD 7) (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN Engagement) (NNS agreements))
+      (NP (NN §) (CD 1)))
+    (NP (DT An) (NN undertaking))
+    (VP (MD may)
+      (VP (VB outsource)
+        (NP
+          (NP (NNS parts))
+          (PP (IN of)
+            (NP (DT the) (NNS operations))))
+        (PP (TO to)
+          (NP
+            (NP (DT an) (JJ external) (NN service) (NN provider))
+            (, ,)
+            (PP (IN whether)
+              (PP (IN within) (CC or) (IN outside)
+                (NP
+                  (NP
+                    (NP (DT the) (NN undertaking) (POS 's))
+                    (JJ own) (NN group) (CC or) (NN group))
+                  (PP (IN of)
+                    (NP (CD 6) (NNS undertakings))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP
+          (NP (NNS directors))
+          (CC and)
+          (NP (VBG managing) (NN director)))))
+    (VP (MD shall) (, ,)
+      (ADVP (RB however))
+      (, ,)
+      (PP (IN at)
+        (S
+          (NP (DT all) (NNS times))
+          (VP (VB be)
+            (ADJP (JJ responsible)
+              (PP (IN for)
+                (NP (DT the) (JJ outsourced) (NNS activities))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (NN §) (CD 2))
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP
+          (NP (NNS directors))
+          (CC or)
+          (NP (VBG managing) (NN director)))))
+    (VP (MD should)
+      (VP (VB draw)
+        (PRT (RP up))
+        (NP (JJ internal) (NNS regulations))
+        (PP (IN as)
+          (NP
+            (SBAR
+              (WHPP (TO to)
+                (WHNP (WDT which)))
+              (S
+                (NP
+                  (NP (JJ licensed) (NNS operations))
+                  (, ,) (CC or)
+                  (NP
+                    (NP (NNS operations))
+                    (SBAR
+                      (WHNP (WDT that))
+                      (S
+                        (VP (VBP have)
+                          (NP
+                            (NP (DT a) (JJ natural) (NN connection))
+                            (PP (IN with)
+                              (NP
+                                (NP (JJ financial) (NNS operations))
+                                (CC or)
+                                (NP (PRP$ their) (NN support) (NNS functions)))))))))
+                  (, ,))
+                (VP (MD may)
+                  (VP (VB be)
+                    (VP (VBN outsourced))))))
+            (CC and)
+            (NP
+              (NP (DT the) (NN manner))
+              (SBAR
+                (WHPP (IN in)
+                  (WHNP (WDT which)))
+                (S
+                  (NP (JJ such))
+                  (VP (MD shall)
+                    (VP (VB take)
+                      (NP (NN place)))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT The) (JJ internal) (NN regulation))
+    (VP (MD should)
+      (VP (VB state)
+        (FRAG
+          (X
+            (X
+              (X
+                (X
+                  (X
+                    (ADVP (IN at) (JJS least))
+                    (NP (DT the) (NN following))
+                    (: :))
+                  (: -)
+                  (X
+                    (NP (DT the) (NNS demands))
+                    (SBAR
+                      (WHNP (WDT which))
+                      (S
+                        (VP (VBP are)
+                          (VP (VBN imposed)
+                            (PP (VBG regarding)
+                              (NP
+                                (NP (DT the) (NN undertaking) (POS 's))
+                                (NN order) (NN placement) (NN expertise))))))))
+                  (: ;))
+                (: -)
+                (NP
+                  (NP (DT the) (NN manner))
+                  (SBAR
+                    (WHPP (IN in)
+                      (WHNP (WDT which)))
+                    (S
+                      (NP
+                        (NP (NNS risks))
+                        (VP (VBN associated)
+                          (PP (IN with)
+                            (NP (NN outsourcing)))))
+                      (VP (VBP are)
+                        (S
+                          (VP (TO to)
+                            (VP (VB be)
+                              (VP (VBN managed)))))))))
+                (: ;))
+              (: -)
+              (SBAR (IN that)
+                (S
+                  (NP (DT the) (NN undertaking))
+                  (VP (MD shall)
+                    (VP (VB ensure)
+                      (SBAR (IN that)
+                        (S
+                          (NP (DT the) (NN service) (NN provider))
+                          (VP (VBZ protects)
+                            (NP (JJ confidential) (NN information))
+                            (PP (IN with)
+                              (S
+                                (VP (NN respect)
+                                  (NP (DT both))
+                                  (PP (TO to)
+                                    (NP
+                                      (NP (DT the) (NN undertaking))
+                                      (CC and)
+                                      (NP (PRP$ its) (NNS customers))))))))))))))
+              (: ;))
+            (: -)
+            (NP
+              (NP (DT the) (NN manner))
+              (SBAR
+                (WHPP (IN in)
+                  (WHNP (WDT which)))
+                (S
+                  (NP (DT the) (NN undertaking))
+                  (VP (MD shall)
+                    (VP
+                      (VP (VB govern) (CC and) (VB monitor)
+                        (NP
+                          (NP (NN performance))
+                          (PP (IN of)
+                            (NP (DT the) (NN engagement)))))
+                      (CC and)
+                      (VP (VB review)
+                        (NP (DT the) (JJ outsourced) (NNS activities))))))))
+            (: ;))
+          (: -)
+          (NP
+            (NP (DT the) (NNS demands))
+            (SBAR
+              (WHNP (WDT which))
+              (S
+                (VP (MD must)
+                  (VP (VB be)
+                    (VP (VBN imposed)
+                      (PP (VBG regarding)
+                        (NP
+                          (NP
+                            (NP (NN expertise))
+                            (PP (IN of)
+                              (NP (DT the) (NN service) (NN provider))))
+                          (CC and)
+                          (NP
+                            (NP (JJ internal) (NNS controls) (CC and) (NN quality))
+                            (, ,)
+                            (CONJP (RB as) (RB well) (IN as))
+                            (NP
+                              (NP (DT the) (NN service) (NN provider) (POS 's))
+                              (NNS possibilities)
+                              (S
+                                (VP (TO to)
+                                  (VP (VB perform)
+                                    (NP (DT the) (NN engagement))
+                                    (PP (IN in)
+                                      (NP (DT the) (JJ long) (NN term)))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S (: -)
+    (NP (IN that) (DT the)
+      (ADJP (NN undertaking) (CC and) (NN service))
+      (NN provider))
+    (VP (MD shall)
+      (VP (VB prepare) (CC and) (VB maintain)
+        (NP (NN contingency) (NNS plans))
+        (PP (IN for)
+          (NP
+            (NP (JJ unforeseen) (NNS events))
+            (, ,)
+            (PP (VBG including)
+              (NP
+                (NP (NN crisis))
+                (CC and)
+                (NP (NN catastrophe) (NN planning))))
+            (, ,)
+            (SBAR
+              (WHNP (WDT which))
+              (S
+                (VP (MD shall)
+                  (VP (VB be)
+                    (VP (VBN tested)
+                      (ADVP (RB regularly))
+                      (: ;) (: -)
+                      (SBAR (IN that)
+                        (S
+                          (NP (PRP it))
+                          (VP (MD must)
+                            (VP (VB be)
+                              (VP (VBN ensured)
+                                (SBAR
+                                  (SBAR (IN that)
+                                    (S
+                                      (NP (NNP Finansinspektionen))
+                                      (VP (VBZ is)
+                                        (ADJP (JJ able)
+                                          (PRN (, ,)
+                                            (PP (IN in)
+                                              (NP (DT the) (NN future)))
+                                            (, ,))
+                                          (S
+                                            (VP (TO to)
+                                              (VP (VB exercise)
+                                                (NP
+                                                  (NP
+                                                    (NP (JJ effective) (NN supervision))
+                                                    (PP (IN over)
+                                                      (NP (DT the) (NN undertaking))))
+                                                  (CONJP (RB as) (RB well) (IN as))
+                                                  (SBAR (IN that)
+                                                    (S
+                                                      (NP
+                                                        (NP
+                                                          (NP
+                                                            (NP (DT the) (NN undertaking) (POS 's))
+                                                            (NNS obligations))
+                                                          (PP (IN towards)
+                                                            (NP (NNP Finansinspektionen))))
+                                                        (CC or)
+                                                        (NP
+                                                          (NP (DT the) (NN undertaking) (POS 's))
+                                                          (NNS customers)))
+                                                      (VP (VBP are) (RB not)
+                                                        (VP (VBN breached)))))))))))))
+                                  (: ;)
+                                  (PRN (: -)
+                                    (SBAR (IN that)
+                                      (S
+                                        (NP (NN contingency) (NNS plans) (CC and) (NNS strategies))
+                                        (VP (MD shall)
+                                          (VP (VB be)
+                                            (VP (VBN prepared)
+                                              (PP (VBG regarding)
+                                                (NP
+                                                  (NP
+                                                    (NP (DT the) (NN manner))
+                                                    (SBAR
+                                                      (WHPP (IN in)
+                                                        (WHNP (WDT which)))
+                                                      (S
+                                                        (NP (DT the) (NN engagement))
+                                                        (VP (MD might)
+                                                          (VP (VB be)
+                                                            (VP (VBN discontinued)))))))
+                                                  (CC and)
+                                                  (NP
+                                                    (NP (DT the) (NNS activities))
+                                                    (VP (VBN resumed)
+                                                      (PP (IN by)
+                                                        (NP
+                                                          (NP (DT the) (NN undertaking))
+                                                          (PP (IN without)
+                                                            (NP
+                                                              (NP (JJ significant) (NN disruption))
+                                                              (PP (IN in)
+                                                                (NP (JJ important) (NNS activities))))
+                                                            (: ;)))))))))))))
+                                    (: -))
+                                  (SBAR (IN that)
+                                    (S
+                                      (NP (DT a) (VBN written) (NN agreement))
+                                      (VP (MD shall)
+                                        (VP (VB be)
+                                          (ADJP (VBN prepared))
+                                          (SBAR
+                                            (WHNP (WDT which))
+                                            (S
+                                              (VP (VBZ regulates)
+                                                (NP
+                                                  (NP (DT the) (NN service) (NN level))
+                                                  (, ,)
+                                                  (NP
+                                                    (NP (DT the) (NNS parties) (POS '))
+                                                    (NNS rights) (CC and) (NNS obligations))
+                                                  (, ,)
+                                                  (CONJP (RB as) (RB well) (IN as))
+                                                  (NP
+                                                    (NP (JJ other) (NNS issues))
+                                                    (ADJP (JJ pursuant)
+                                                      (PP (TO to)
+                                                        (NP (DT these) (JJ general) (NNS guidelines))))))))))))))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (NP (NN §) (CD 3))
+      (ADVP (IN Upon) (NN outsourcing)
+        (PP (IN of)
+          (NP
+            (NP (NNS activities))
+            (PP (IN within)
+              (NP
+                (NP (DT a) (NN group) (CC or) (NN group))
+                (PP (IN of)
+                  (NP (NNS undertakings)))))))))
+    (, ,)
+    (NP (JJ particular) (NN attention))
+    (VP (MD should)
+      (VP (VB be)
+        (VP (VBN paid)
+          (PP (TO to)
+            (NP
+              (NP
+                (NP (NNS issues))
+                (PP (IN of)
+                  (NP (NN bias))))
+              (CC and)
+              (NP
+                (NP (NNS conflicts))
+                (PP (IN of)
+                  (NP (NN interest)))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (DT The) (NN board))
+      (PP (IN of)
+        (NP (NNS directors))))
+    (VP (MD should)
+      (VP (VB ensure)
+        (SBAR
+          (SBAR (IN that)
+            (S
+              (NP (DT all) (JJ such) (NNS issues))
+              (VP (VBP are)
+                (VP (VBN identified)))))
+          (CC and)
+          (SBAR (IN that)
+            (S
+              (NP (DT the) (NN undertaking))
+              (VP (VBZ has)
+                (NP
+                  (NP (JJ internal) (NNS regulations))
+                  (PP (IN in)
+                    (NP (NN place)))
+                  (SBAR
+                    (WHNP (WDT which))
+                    (S
+                      (VP (VBP address)
+                        (NP
+                          (NP (NNS issues))
+                          (PP (IN of)
+                            (NP
+                              (NP (NN bias))
+                              (CC and)
+                              (NP
+                                (NP (NNS conflicts))
+                                (PP (IN of)
+                                  (NP (NN interest)))))))))))))))))
+    (. .)))
+
+(ROOT
+  (S
+    (S
+      (ADJP (NN §) (CD 4)
+        (SBAR
+          (WHADVP (WRB Where))
+          (S
+            (NP (DT an) (NN undertaking))
+            (VP (VBZ intends)
+              (S
+                (VP (TO to)
+                  (VP (VB outsource)
+                    (NP
+                      (NP
+                        (NP (DT a) (JJ significant) (NN part))
+                        (PP (IN of)
+                          (NP (DT the) (JJ licensed) (NNS operations))))
+                      (, ,) (CC or)
+                      (NP
+                        (NP (NNS activities))
+                        (SBAR
+                          (WHNP (WDT that))
+                          (S
+                            (VP (VBP have)
+                              (NP
+                                (NP (DT a) (JJ natural) (NN connection))
+                                (PP (IN with)
+                                  (NP
+                                    (NP (JJ financial) (NNS operations))
+                                    (CC or)
+                                    (NP (PRP$ their) (NN support) (NNS functions))))))))))))))))))
+    (, ,)
+    (NP (DT the) (NN undertaking))
+    (VP (MD should)
+      (VP (VB notify)
+        (NP (JJ such))
+        (PP (IN in)
+          (NP
+            (NP (NN advance))
+            (PP (TO to)
+              (NP (NNP Finansinspektionen)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP
+        (NP (NN §) (CD 5))
+        (NP
+          (NP (NN Chapter) (CD 6))
+          (, ,)
+          (NP
+            (NP (NN §) (CD 7))
+            (PP (IN of)
+              (NP (DT the) (NNP Banking) (CC and) (NNP Financing) (NNP Business) (NNP Act))))))
+      (PRN (-LRB- -LRB-)
+        (NP
+          (NP (NNS SFS))
+          (NP (CD 2004:297)))
+        (-RRB- -RRB-)))
+    (VP (MD shall)
+      (ADVP (RB also))
+      (VP (VB apply)
+        (PP (IN with)
+          (NP
+            (NP (NN respect))
+            (PP (TO to)
+              (NP (NNS banks) (CC and) (NN credit) (NN market) (NNS undertakings)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP (NN Chapter) (CD 8))
+      (, ,)
+      (NP
+        (NP (NN §) (CD 8))
+        (PP (IN of)
+          (NP
+            (NP (DT the) (NNP Insurance) (NNP Operations) (NNP Act))
+            (PRN (-LRB- -LRB-)
+              (NP
+                (NP (NNS SFS))
+                (NP (CD 1982:713)))
+              (-RRB- -RRB-))))))
+    (VP (MD shall)
+      (ADVP (RB also))
+      (VP (VB apply)
+        (PP (IN with)
+          (NP
+            (NP (NN respect))
+            (PP (TO to)
+              (NP (NN insurance) (NNS companies)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP
+      (NP
+        (NP (NNP Finansinspektionen) (POS 's))
+        (JJ general) (NNS guidelines))
+      (VP (VBG regarding)
+        (NP (NNS securities) (NNS operations)))
+      (PRN (-LRB- -LRB-)
+        (NP
+          (NP (NNS FFFS))
+          (CD 2002:5))
+        (-RRB- -RRB-)))
+    (VP (MD shall)
+      (ADVP (RB also))
+      (VP (VB apply)
+        (PP (IN with)
+          (NP
+            (NP (NN respect))
+            (PP (TO to)
+              (NP (NNS securities) (NNS companies)))))))
+    (. .)))
+
+(ROOT
+  (S
+    (NP (DT These) (JJ general) (NNS guidelines))
+    (VP (MD shall)
+      (VP (VB enter)
+        (PP (IN into)
+          (NP (NN force)))
+        (PP (IN on)
+          (NP (CD 1))
+          (NP
+            (NP (NNP May) (CD 2005))
+            (, ,)
+            (SBAR
+              (WHPP (IN at)
+                (WHNP (WDT which) (NN time)))
+              (S
+                (NP (DT the) (JJ following) (NNS statutes))
+                (VP (MD shall)
+                  (VP (VB be)
+                    (VP (VBN repealed))))))
+            (: :) (CD 1)))))
+    (. .)))
+
+(ROOT
+  (NP
+    (NP
+      (NP
+        (NP (NNP Finansinspektionen) (POS 's))
+        (JJ general) (NNS guidelines))
+      (PRN (-LRB- -LRB-)
+        (NP
+          (NP (NNS FFFS))
+          (CD 1999:12))
+        (-RRB- -RRB-)))
+    (VP (VBG regarding)
+      (NP
+        (NP
+          (NP (NN governance))
+          (, ,)
+          (NP (JJ internal) (NN information))
+          (CC and)
+          (NP
+            (NP (JJ internal) (NNS controls))
+            (PP (IN within)
+              (NP (NN credit) (CC and) (NNS securities) (NNS institutions)))))
+        (CONJP (RB as) (RB well) (IN as))
+        (NP (NN investment) (NN fund) (NNS companies))
+        (: ;) (CD 2)))
+    (. .)))
+
+(ROOT
+  (NP
+    (NP
+      (NP
+        (NP (NNP Finansinspektionen) (POS 's))
+        (JJ general) (NNS guidelines))
+      (PRN (-LRB- -LRB-)
+        (ADJP (FW FFFS) (FW 2000:3))
+        (-RRB- -RRB-)))
+    (VP (VBG regarding)
+      (NP
+        (NP (NN governance))
+        (, ,)
+        (NP (JJ internal) (NN information))
+        (CC and)
+        (NP
+          (NP (JJ internal) (NNS controls))
+          (PP (IN within)
+            (NP
+              (NP (NN insurance) (NNS companies))
+              (CC and)
+              (NP (JJ benevolent) (NNS societies)))))))
+    (. .)))
+

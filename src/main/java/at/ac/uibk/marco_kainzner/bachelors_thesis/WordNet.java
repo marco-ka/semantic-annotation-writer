@@ -9,10 +9,7 @@ import net.sf.extjwnl.data.list.PointerTargetTreeNodeList.*;
 import net.sf.extjwnl.dictionary.Dictionary;
 import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -26,30 +23,70 @@ public class WordNet {
     public static void main(String[] args) throws JWNLException, IOException {
         Dictionary dict = Dictionary.getInstance(new FileInputStream(PROPERTIES_FILE));
 
-        String timeRule = createTimeRule(dict);
-        System.out.println("Time rule:\n" + timeRule);
-        System.out.println();
+//        var timeRule = createTimeRule(dict);
+//        saveRule("time", timeRule);
 //
-//        String actorRule = createActorRule(dict);
-//        System.out.println("Actor rule:\n" + actorRule);
-//        System.out.println();
+//        var locationRule = createLocationRule(dict);
+//        saveRule("location", locationRule);
+//
+//        var actorRule = createActorRule(dict);
+//        saveRule("actor", actorRule);
+//
+//        var artifactRule = createArtifactRule(dict);
+//        saveRule("artifact", artifactRule);
+//
+//        var conditionRule = createConditionRule(dict);
+//        saveRule("condition", conditionRule);
 
-//        String artifactRule = createArtifactRule(dict);
-//        System.out.println("Artifact rule:\n" + artifactRule);
-//        System.out.println();
+        var modalityRule = createModalityRule(dict);
+        saveRule("modality", modalityRule);
+
+        var reasonRule = createReasonRule(dict);
+        saveRule("reason", reasonRule);
 
         // Match characters that might break tregex: [^()<>|\w $]
         // String artifactRule = createRuleFromHyponyms(dict, "artifact%1:03:00::", "NP");
     }
 
     private static String createActorRule(Dictionary dict) {
-        List<String> senseKeys = Arrays.asList("body%1:14:00::", "organisation%1:14:00::");
-//        List<String> senseKeys = Arrays.asList("person%1:03:00::", "body%1:14:00::", "organisation%1:14:00::");
-
         Set<String> markers = new TreeSet<>();
-        senseKeys.forEach(key -> markers.addAll(getAllHyponyms(getSynset(dict, key))));
+        markers.addAll(getAllHyponyms(getSynset(dict, "body%1:14:00::")));
+        markers.addAll(getAllHyponyms(getSynset(dict, "organisation%1:14:00::")));
+        markers.addAll(getPersonsWithoutNames(dict));
 
         return TRegexRule.matchMarkers("(NP < (", markers,"))", PENN_TAGS);
+    }
+
+    private static String createConditionRule(Dictionary dict) {
+        var markers = getMarkersFromFile("resources/markers-manual/condition.txt");
+//        var rule1 = TRegexRule.matchMarkers("(PP << (", markers,"))", PENN_TAGS);
+//        var rule2 = TRegexRule.matchMarkers("(SBAR < (", markers,"))", PENN_TAGS); // TODO: SBAR == Ssub?
+        var rule3 = TRegexRule.matchMarkers("(NP < (VP < (TO $  VB < (", markers,"))))", PENN_TAGS); //
+
+        return rule3;
+    }
+
+    private static String createModalityRule(Dictionary dict) {
+        var markers = getMarkersFromFile("resources/markers-manual/modality.txt");
+
+        return TRegexRule.matchMarkers("(VN < (", markers,"))", PENN_TAGS);
+    }
+
+    private static String createReasonRule(Dictionary dict) {
+        var markers = getMarkersFromFile("resources/markers-manual/reason.txt");
+
+        return TRegexRule.matchMarkers("(PP < (", markers,"))", PENN_TAGS);
+    }
+
+    private static Set<String> getPersonsWithoutNames(Dictionary dict) {
+        var senseKey = "person%1:03:00::";
+        var persons = getAllHyponyms(getSynset(dict, senseKey));
+        var alphabetLower = "abcdefghijklmnopqrstuvwxyz";
+
+        return persons.stream()
+                // Keep only persons that start with a lowercase character. Drop everything that starts with digits, uppercase chars (names), special chars etc.
+                .filter(person -> alphabetLower.indexOf(person.charAt(0)) != -1)
+                .collect(Collectors.toSet());
     }
 
     private static String createTimeRule(Dictionary dict) throws JWNLException, IOException {
@@ -73,14 +110,40 @@ public class WordNet {
         return rule1;
     }
 
+    private static String createLocationRule(Dictionary dict) {
+        Set<String> markers = getMarkersFromFile("resources/markers-manual/location.txt");
+
+        return TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
+    }
+
     private static String createArtifactRule(Dictionary dict) throws JWNLException {
         Synset syn = dict.getWordBySenseKey("artifact%1:03:00::").getSynset();
         Set<String> markers = getAllHyponyms(syn);
+        markers.addAll(getMarkersFromFile("resources/markers-manual/artifact.txt"));
 
         System.out.println("Artifact markers");
         System.out.println(markers);
 
         return TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
+    }
+
+    private static Set<String> getMarkersFromFile(String path) {
+        try {
+            List<String> markers = FileUtils.readLines(new File(path), Charset.defaultCharset());
+            return new TreeSet<>(markers);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return new TreeSet<>();
+        }
+    }
+
+    private static void saveRule(String name, String rule) throws IOException {
+        File file = new File("out/rules/" + name + ".txt");
+        file.createNewFile();
+
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+        writer.write(rule);
+        writer.close();
     }
 
     private static Set<String> getAdjectivesAndAntonyms(Synset adverb) throws JWNLException {

@@ -4,19 +4,21 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class TRegexRule {
+class TRegex {
+    private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
-    static String createFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule, Collection<String> stopWords) {
+    static String createRuleFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule) {
         Stream<String> sanitizedMarkers = markers.stream()
-                .filter(lemma -> !stopWords.contains(lemma))
-                // even escaped dots ("/.") and commas break TRegexRule rules
+                // Remove lemmas that look like Penn Tags
+                .filter(lemma -> !PENN_TAGS.contains(lemma))
+                // even escaped dots ("/.") and commas break TRegex rules
                 .map(lemma -> lemma.replace(".", ""))
                 .map(lemma -> lemma.replace(",", ""))
                 // even escaped slashes ("\/") break TRegex
                 .map(lemma -> lemma.replace("/", ""))
                 // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
                 .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
-                .map(TRegexRule::regexEscape);
+                .map(TRegex::regexEscape);
 
         Set<String> singleWordMarkers = new TreeSet<>();
         Set<String> multiWordMarkers = new TreeSet<>();

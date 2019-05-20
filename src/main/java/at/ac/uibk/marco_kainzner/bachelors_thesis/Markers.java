@@ -3,6 +3,7 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 import net.sf.extjwnl.JWNLException;
 import net.sf.extjwnl.data.Synset;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class Markers {
     static Set<String> actor() {
@@ -78,8 +80,7 @@ class Markers {
             return FileUtils.readLines(new File(path), Charset.defaultCharset())
                     .stream()
                     .map(String::trim)
-                    .peek(line -> System.out.println("Line: " + line))
-//                    .filter(line -> line.length() > 1)
+                    .flatMap(marker -> Stream.of(marker, StringUtils.capitalize(marker))) // Transform first letter to uppercase
                     .collect(Collectors.toSet());
         } catch (IOException e) {
             e.printStackTrace();

@@ -23,29 +23,16 @@ public class WordNet {
     public static void main(String[] args) throws JWNLException, IOException {
         Dictionary dict = Dictionary.getInstance(new FileInputStream(PROPERTIES_FILE));
 
-//        var timeRule = createTimeRule(dict);
-//        saveRule("time", timeRule);
-//
-//        var locationRule = createLocationRule(dict);
-//        saveRule("location", locationRule);
-//
-//        var actorRule = createActorRule(dict);
-//        saveRule("actor", actorRule);
-//
-//        var artifactRule = createArtifactRule(dict);
-//        saveRule("artifact", artifactRule);
-//
-//        var conditionRule = createConditionRule(dict);
-//        saveRule("condition", conditionRule);
+        // Find dangerous characters with this regex:
+        // [^()<>|\w $\\\-\ä\ü\ö']
 
-        var modalityRule = createModalityRule(dict);
-        saveRule("modality", modalityRule);
+        var situationRule = createSituationRule();
+        saveRule("situation", situationRule);
+    }
 
-        var reasonRule = createReasonRule(dict);
-        saveRule("reason", reasonRule);
-
-        // Match characters that might break tregex: [^()<>|\w $]
-        // String artifactRule = createRuleFromHyponyms(dict, "artifact%1:03:00::", "NP");
+    private static String createSituationRule() {
+        var markers = getMarkersFromFile("resources/markers-manual/wiktionary-situation.txt");
+        return TRegexRule.createFromMarkers("(NP < (", markers, "))", PENN_TAGS);
     }
 
     private static String createActorRule(Dictionary dict) {
@@ -54,14 +41,14 @@ public class WordNet {
         markers.addAll(getAllHyponyms(getSynset(dict, "organisation%1:14:00::")));
         markers.addAll(getPersonsWithoutNames(dict));
 
-        return TRegexRule.matchMarkers("(NP < (", markers,"))", PENN_TAGS);
+        return TRegexRule.createFromMarkers("(NP < (", markers,"))", PENN_TAGS);
     }
 
     private static String createConditionRule(Dictionary dict) {
         var markers = getMarkersFromFile("resources/markers-manual/condition.txt");
-//        var rule1 = TRegexRule.matchMarkers("(PP << (", markers,"))", PENN_TAGS);
-//        var rule2 = TRegexRule.matchMarkers("(SBAR < (", markers,"))", PENN_TAGS); // TODO: SBAR == Ssub?
-        var rule3 = TRegexRule.matchMarkers("(NP < (VP < (TO $  VB < (", markers,"))))", PENN_TAGS); //
+//        var rule1 = TRegexRule.createFromMarkers("(PP << (", markers,"))", PENN_TAGS);
+//        var rule2 = TRegexRule.createFromMarkers("(SBAR < (", markers,"))", PENN_TAGS); // TODO: SBAR == Ssub?
+        var rule3 = TRegexRule.createFromMarkers("(NP < (VP < (TO $  VB < (", markers,"))))", PENN_TAGS); //
 
         return rule3;
     }
@@ -69,13 +56,13 @@ public class WordNet {
     private static String createModalityRule(Dictionary dict) {
         var markers = getMarkersFromFile("resources/markers-manual/modality.txt");
 
-        return TRegexRule.matchMarkers("(VN < (", markers,"))", PENN_TAGS);
+        return TRegexRule.createFromMarkers("(VN < (", markers,"))", PENN_TAGS);
     }
 
     private static String createReasonRule(Dictionary dict) {
         var markers = getMarkersFromFile("resources/markers-manual/reason.txt");
 
-        return TRegexRule.matchMarkers("(PP < (", markers,"))", PENN_TAGS);
+        return TRegexRule.createFromMarkers("(PP < (", markers,"))", PENN_TAGS);
     }
 
     private static Set<String> getPersonsWithoutNames(Dictionary dict) {
@@ -102,10 +89,10 @@ public class WordNet {
         markers.addAll(temporary);
 //        markers.addAll(periodHyponyms);
 
-        String rule1 = TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
+        String rule1 = TRegexRule.createFromMarkers("(NP < (", markers, "))", PENN_TAGS);
 
         // TODO: This rule has not generated any matches yet. Investigate!
-        String rule2 = TRegexRule.matchMarkers("(PP < (P < (", markers, ")) $ NP)", PENN_TAGS);
+        String rule2 = TRegexRule.createFromMarkers("(PP < (P < (", markers, ")) $ NP)", PENN_TAGS);
 
         return rule1;
     }
@@ -113,7 +100,7 @@ public class WordNet {
     private static String createLocationRule(Dictionary dict) {
         Set<String> markers = getMarkersFromFile("resources/markers-manual/location.txt");
 
-        return TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
+        return TRegexRule.createFromMarkers("(NP < (", markers, "))", PENN_TAGS);
     }
 
     private static String createArtifactRule(Dictionary dict) throws JWNLException {
@@ -124,7 +111,7 @@ public class WordNet {
         System.out.println("Artifact markers");
         System.out.println(markers);
 
-        return TRegexRule.matchMarkers("(NP < (", markers, "))", PENN_TAGS);
+        return TRegexRule.createFromMarkers("(NP < (", markers, "))", PENN_TAGS);
     }
 
     private static Set<String> getMarkersFromFile(String path) {
@@ -138,7 +125,7 @@ public class WordNet {
     }
 
     private static void saveRule(String name, String rule) throws IOException {
-        File file = new File("out/rules/" + name + ".txt");
+        File file = new File("resources/rules/auto_" + name + ".txt");
         file.createNewFile();
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));

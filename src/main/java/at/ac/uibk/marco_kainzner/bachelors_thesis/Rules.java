@@ -40,9 +40,8 @@ public class Rules {
 
         var rule1 = TRegex.ruleFromMarkers("(PP << (", anyTag, markers,"))");
         var rule2 = TRegex.ruleFromMarkers("(SBAR < (", anyTag, markers,"))"); // TODO: SBAR == Ssub?
-        var rule3 = TRegex.ruleFromMarkers("(NP < (VP < (TO $  VB < (", anyTag, markers,"))))");
 
-        return rule3;
+        return or(rule1, rule2);
     }
 
     private static String location() {
@@ -72,7 +71,11 @@ public class Rules {
         // TODO: This rule has not generated any matches yet. Investigate!
         String rule2 = TRegex.ruleFromMarkers("(PP < (P < (", anyTag, markers, ")) $ NP)");
 
-        return rule1;
+        return or(rule1, rule2);
+    }
+
+    private static String or(String rule1, String rule2) {
+        return rule1 + "|" + rule2;
     }
 
     private static void save(String name, String rule) throws IOException {

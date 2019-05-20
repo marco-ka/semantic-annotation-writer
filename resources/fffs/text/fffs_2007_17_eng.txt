@@ -1,0 +1,1489 @@
+Finansinspektionen’s Regulations
+Publisher: Finansinspektionen, Sweden, www.fi.se
+ISSN 1102-7460
+This translation is furnished for information purposes only and is not itself a legal document.
+
+FFFS 2007:17
+Finansinspektionen’s Regulations
+governing operations on trading venues;
+
+Published on
+19 July 2007
+
+decided on 6 July 2007.
+Finansinspektionen prescribes the following pursuant to Chapter 6, section 1,
+subsections 14, 33–34, 45–60 and 62 of the Securities Market Ordinance
+(2007:572) and section 5, subsections 2, 4, 6–13 and section 6, subsection 13 of the
+Trading with Financial Instruments Ordinance (2007:375).
+
+Chapter 1. Scope
+Section 1 These regulations apply to securities exchanges, clearing organisations,
+investment firms, firms whose transferable securities are admitted to trading on a
+regulated market or MTF and issuers of such transferable securities.
+Section 2 These regulations contain provisions regarding:
+– ownership and management assessment
+– official listing
+– disciplinary boards
+– market surveillance
+– market surveillance at an investment firm
+– post-trade information
+– exception and exemptions from the obligation to disclose post-trade information
+– systematic internalisers
+– information requirements for issuers of transferable securities
+– issuers without a registered office in a state within the EEA
+– notification and disclosure of information related to shareholdings
+– acquisition and disposal of own shares by limited liability companies
+– the Swedish Securities Council decisions on certain issues pertaining to public
+takeovers in the stock exchange and publication of such decisions.
+
+Chapter 2. Ownership and management assessment
+Scope
+Section 1 This chapter contains provisions governing the information a securities
+exchange, a clearing organisation and their owners shall file with
+Finansinspektionen in conjunction with an ownership or management assessment
+pursuant to the Securities Market Act (2007:528).
+
+1
+
+FFFS 2007:17
+
+Written information to Finansinspektionen
+Section 2 A securities exchange, a clearing organisation and their owners shall file
+in writing the information set forth in Appendices 1–3.
+Ownership assessment
+Application for authorisation to acquire shares
+Section 3 The information set forth in Appendix 1a or 1b shall be appended to an
+application for authorisation to acquire a qualifying holding of shares or interests in
+a securities exchange or a clearing organisation.
+If the acquirer is a legal person, Appendix 1b shall be used for information about
+the legal person and Appendix 1c for board members, alternate board members,
+managing directors and persons serving in the managing director’s stead in the
+acquiring legal person.
+The information set forth in Appendix 1c shall be appended to an application for a
+change in management in a firm that has a qualifying holding in a securities
+exchange or a clearing organisation.
+Application for authorisation to conduct operations
+Section 4 With respect to a natural person who has a qualifying holding of shares
+or interests in a securities exchange or a clearing organisation, the information set
+forth in Appendix 1a shall be appended to an application for authorisation to
+conduct operations. Where the owner is a legal person, Appendix 1b shall be
+appended.
+With respect to a board member, alternate board member, managing director or
+person serving in the managing director’s stead who has a qualifying holding, the
+information set forth in Appendix 1c shall be appended to an application for
+authorisation to conduct operations.
+Section 5 A legal person under the supervision of a financial supervisory authority
+in another EEA country does not need to submit the information in Appendices 1–3
+to its application for an ownership assessment. However, a description or outline of
+the ownership structure in the group pre- and post-acquisition, with ownership
+shares stated in per cent, shall always be appended.
+Management assessment
+Section 6 A securities exchange, clearing organisation and controlling company
+shall notify Finansinspektionen when they appoint or intend to appoint the
+following persons in the firm:
+– board members
+– alternate board members
+– a managing director or a person serving in the managing director’s stead.
+
+2
+
+FFFS 2007:17
+The investment firm shall also notify Finansinspektionen when the number of
+board members is decreased.
+The information set forth in Appendices 2a and 2b shall be appended to the
+notification when a new board member, alternate board member, managing director
+or person serving in the managing director’s stead is appointed in a securities
+exchange or a clearing organisation.
+Other provisions
+Section 7 A firm that has been the subject of an ownership or management
+assessment at some point during the past 365 days may, instead of that set out in
+sections 3–4 and 6, submit the information set forth in Appendix 3.
+
+Chapter 3. Official listing
+Section 1 In this chapter, transferable securities refers to transferable securities as
+defined in Chapter 1, section 4, subsections 2a and 2b of the Securities Market Act
+(2007:528).
+Section 2 Official listing of transferable securities on a securities exchange, unless
+otherwise specified in section 3, may only occur if it can be presumed that the
+transferable securities in question will be traded effectively with regard to the
+issuer’s economic situation, organisation and ability to fulfil its disclosure
+obligation to the securities exchange and the market and if the official listing
+application refers to:
+a) transferable securities that are freely transferable,
+b) transferable securities, whose issuer or the person acting in the issuer’s stead has
+not stopped making payments, declared bankruptcy or entered into liquidation,
+c) transferable securities, whose issuer can produce annual reports and auditor’s
+reports or corresponding historical information for the past three financial years
+(prospectuses issued during the period in question and interim and half-yearly
+reports from the period following the last annual report).
+In addition to that set out in the first paragraph, official listing of shares may only
+occur if the official listing application refers to:
+a) shares in a firm, the expected market value of which may not be less than EUR 1
+million, or, if this value cannot be estimated, the firm’s equity and untaxed reserves
+net the firm’s applicable income tax rate for the most recent financial year,
+b) subscribed and allocated shares where full and acceptable payment was
+received,
+c) shares of the same class already issued,
+d) shares distributed to the public exceeding 25 per cent of the subscribed share
+capital for all shares of the same class.
+For convertible debt instruments, debt instruments with warrants, warrants
+unassociated with debt instruments (subscription warrants), issue certificates,
+interim certificates, participating loans, equity loans or convertible participation
+certificates, in addition to that set out in the first paragraph, official listing may
+only occur if the transferable securities in question are issued by firms whose
+shares are or at the same time will be admitted to trading on a securities exchange.
+
+3
+
+FFFS 2007:17
+For debt instruments other than those set out in the third paragraph, and in addition
+to that set out in the first paragraph, official listing may only occur if the official
+listing application refers to:
+a) loans, the total nominal amount of which is not less than EUR 200,000,
+b) debt instruments, of which the issuer has fulfilled its obligations with regard to
+the debt instruments,
+c) all debt instruments ranking pari passu
+If the amounts referred to in the second or fourth paragraphs are denominated in a
+different currency, the currency should be translated to EUR using the exchange
+rate at the time of official listing.
+Section 3 If the distribution or value requirements set out in section 2, second
+paragraph do not exist, official listing may occur provided that the securities
+exchange determines that the market conditions are still satisfactory.
+Official listing may also occur if the documents referred to in section 2, first
+paragraph, subsection c can be produced for fewer than three financial years if the
+investors are judged to have access to the requisite information to be able to make
+an informed assessment of the issuer and the transferable securities that are the
+subject of the official listing application.
+Section 2, second paragraph, subsections a and d do not apply to the official listing
+of additional blocks of shares of the same class as those already registered.
+Where applicable, official listing of transferable securities in a foreign firm shall be
+subject to that which is prescribed for transferable securities in a Swedish firm.
+Shares in a foreign CIU may be registered on a securities exchange if the foreign
+CIU conducts fund activities in its home Member State and is under the
+supervision of an authority or other authorised body.
+Section 4 Shares in VPC-registered firms may be registered even if the shares are
+uncertificated. This also applies to uncertificated shares in a UCITS and other
+transferable securities for which no certificate has been issued, if the shares and
+other transferable securities are registered in a manner equivalent to that which
+applies to shares in VPC-registered firms.
+This also applies where applicable to foreign transferable securities.
+Section 5 An issuer that chooses Sweden as its home Member State pursuant to
+Chapter 1, section 9 of the Securities Market Act shall immediately disclose this
+and file information with Finansinspektionen in accordance with that laid down in
+Chapter 17 of the same Act.
+
+Chapter 4. Disciplinary board
+Section 1 The board of directors of a securities exchange appoints the members of
+a disciplinary board. Finansinspektionen shall be given the opportunity to comment
+on the proposed members prior to their appointment.
+Section 2 The chairman convenes the board and determines the time and place for
+the meeting.
+
+4
+
+FFFS 2007:17
+Section 3 The disciplinary board shall initiate disciplinary proceedings after the
+securities exchange, or an issuer or a securities exchange member with regard to
+their own contractual relationship, files an application. However, proceedings
+related to a firm with a qualifying holding in the securities exchange shall be
+initiated first after a review by the chairman of the disciplinary board, if it is
+probable that the board will impose a sanction.
+The board can also initiate disciplinary proceedings after an issuer or a securities
+exchange member files an application in situations other than those set out in the
+first paragraph. Finansinspektionen’s right to require that the board initiate
+proceedings is laid down in Chapter 13, section 14, second paragraph of the
+Securities Market Act (2007:528).
+Registrant refers to an issuer or securities exchange member who in their
+application refers to breaches of the rules of the securities exchange not related to
+their own contractual relationship with the securities exchange.
+Section 4 A request for an initiation of a disciplinary proceeding shall be filed in
+writing and contain an account of the circumstances forming the basis of the
+application. Cited, written documentation shall also be submitted to the disciplinary
+board.
+If the securities exchange finds that there is reasonable cause to believe that a
+disciplinary proceeding will be initiated against a firm that has a qualifying holding
+in the securities exchange, the securities exchange shall turn over documentation
+related to the matter to the chairman of the disciplinary board for review pursuant
+to section 3, first paragraph.
+The disciplinary board may require that documentation related to the matter be
+written in or translated into Swedish.
+Section 5 If the application for a disciplinary proceeding does not fulfil the
+regulations in section 4 or is in any other way incomplete, the board shall allow the
+party the opportunity to supplement its application.
+The board may dismiss an application:
+1. if supplementary information is not received within the determined timeframe,
+or
+2. if the application is so deficient that it cannot be used as a basis for continued
+processing of the matter.
+Section 6 If an application initiates proceedings according to section 3, second
+paragraph, the application and all related documentation shall immediately be
+turned over to the party that is the object of the application and to its counterparty.
+The matter shall then be processed between the parties set out in section 3, first
+paragraph.
+Section 7 The disciplinary board, before issuing a disciplinary action, shall obtain
+a statement from Finansinspektionen if the matter refers to a participant under the
+authority’s supervision. In general, the disciplinary board may also obtain
+additional information as needed.
+Section 8 Disciplinary proceedings shall be carried out in writing. However, a
+party shall be given the opportunity to orally present its viewpoint to the board. A
+counterparty shall be given the opportunity to be present at that time.
+
+5
+
+FFFS 2007:17
+After the decision by the board, the documentation in the matter may be turned
+over to the registrant and the registrant may be present at a meeting of the board.
+Section 9 If information has been provided by a third party in a matter, that matter
+may not be closed until the party concerned has been informed and given the
+opportunity to respond to the information.
+Section 10 When processing the matter, the disciplinary board shall consist of at
+least five members. The chairman shall have legal experience and shall have served
+as a judge. At least two members shall be knowledgeable in the conditions of the
+securities exchange. The chairman may independently make decisions that do not
+require a final decision in the matter.
+Section 11 The opinion of the majority of members serves as the decision of the
+board. In the event the number of votes is evenly split, the chairman has the
+deciding vote. If differing opinions arise during deliberations, a vote shall be held.
+In this context, section 18 of the 1986 Administrative Procedure Act (1986:223)
+shall be applied where applicable.
+Section 12 The decision of the disciplinary board shall be based on the content of
+the documentation and any other information presented during the proceedings.
+The decision shall be issued in writing and the basis on which it is grounded shall
+be given.
+Section 13 The decision shall be sent to the involved parties and registrants on the
+same day as the board’s decision is announced. If there are differing opinions,
+these shall be included in the decision.
+Section 14 Minutes shall be drawn up at the meetings of the disciplinary board
+and shall record the disciplinary board’s members, parties and registrants, the
+nature of the matter and differing opinions. However, minutes do not need to be
+drawn up if the necessary information is explicitly specified in a decision.
+
+Chapter 5. Market surveillance at a securities exchange
+Scope
+Section 1 This chapter contains the provisions regarding how a securities
+exchange shall monitor:
+1. trading and price trends pursuant to Chapter 13, section 7 of the Securities
+Market Act (2007:528),
+2. that trading participants follow the requirements set out in Chapter 14, section 7
+of the Securities Market Act,
+3. that the financial instruments admitted to trading continuously meet the
+requirements in Chapter 15, section 2 of the Securities Market Act,
+4. that issuers fulfil their information requirements pursuant to Chapter 15, section
+2 of the Securities Market Act, and
+5. financial information prescribed in Chapter 16, section 13 of the Securities
+Market Act.
+
+6
+
+FFFS 2007:17
+Resources and expertise
+Section 2 A securities exchange shall, in addition to the functions and resource
+requirements set out in Chapter 13, section 2 of the Securities Market Act
+(2007:528), have the expertise required to be able to maintain effective surveillance
+according to section 1.
+Market surveillance at a securities exchange shall have the capacity to:
+1. obtain information from issuers and participants for the purpose of explaining
+such cases as those referred to in section 1, subsections 1–5 and which is related to
+the regulated markets operated by the securities exchange, and
+2. obtain information from Swedish and foreign securities exchanges for the
+purpose of explaining such cases as those referred to in section 1, subsections 1–5.
+Section 3 The securities exchange shall have written procedures for carrying out
+surveillance and, with regard to the obligations pursuant to section 1, subsection 5,
+for taking action in the event of breaches, in accordance with the purposes referred
+to in section 12.
+Monitoring trade and price formation
+Section 4 When monitoring trade and price determination pursuant to section 1,
+subsection 1, a securities exchange shall have at its disposal technological systems
+that continuously and in real time register fluctuations in prices and turnover and
+signal deviant trading patterns.
+For each market or financial instrument, the securities exchange shall define and
+program into the technological system suitable threshold values for what is
+considered to be a deviant trading pattern.
+Section 5 As a part of its market surveillance, a securities exchange shall be able
+to assess price development based on information from the mass media and
+informational systems.
+Monitoring participants
+Section 6 When monitoring participants pursuant to section 1, subsection 2, a
+securities exchange shall be able to monitor that the participants continuously fulfil
+the requirements that apply for participation in trading on the regulated market.
+Monitoring the issuer’s information obligations
+Section 7 As a part of its market surveillance, a securities exchange shall verify
+according to section 1, subsection 4 that issuers fulfil their obligations to file and
+disclose information pursuant to the Securities Market Act (2007:528) and in
+accordance with agreements between the securities exchange and the issuer.
+Monitoring financial instruments
+Section 8 As a part of its market surveillance, a securities exchange shall verify
+pursuant to section 1, subsection 3 that the financial instruments admitted to
+
+7
+
+FFFS 2007:17
+trading meet the requirements for admission to trading as laid down in the
+Securities Market Act and in the securities exchange’s rules.
+Monitoring documentation and reporting
+Section 9 A securities exchange shall document adopted monitoring procedures
+pursuant to section 1, subsections 1–4. The documentation shall be stored in an
+orderly, secure and transparent manner for at least ten years.
+The securities exchange shall annually publish a surveillance report pursuant to
+section 1, subsections 1–4.
+Section 10 A securities exchange shall report to Finansinspektionen adopted
+monitoring procedures related to firms holding a qualifying ownership in the
+securities exchange.
+Section 11 As a part of its monitoring of trading and price determination, a
+securities exchange shall promptly inform Finansinspektionen if transactions in
+financial instruments are suspected to violate the regulations or generally accepted
+practices that apply on the securities exchange.
+Special rules for reporting obligations are laid down in the Financial Instruments
+Trading (Market Abuse Penalties) Act (2005:377) for cases where it can be
+assumed that a transaction is or relates to insider trading or market manipulation.
+Monitoring recurring financial information
+Section 12 The purpose of monitoring recurring financial information according to
+section 1, subsection 5, is to protect investors and promote public confidence in the
+securities market by contributing to the transparency of financial information
+relevant for investors’ decisions. Monitoring shall take place in accordance with
+sections 14–18.
+Enforcement
+Section 13 The enforcement shall, as a minimum, be based on a selection of
+issuers and types of documents. The sampling method in this case shall be a
+combination of a rotation or random approach and a risk-based approach. The riskbased approach shall take into consideration both the probability of misstatements
+and potential effects on the confidence in the securities market. The sample may
+also take into consideration indications of misstatements that have come to the
+attention of the securities exchange.
+Section 14 The size of the sample shall be large enough so that the enforcement
+contributes to the confidence in the securities market. Every issuer shall be
+reviewed at least once during a five-year period.
+Section 15 The securities exchange shall conduct enforcement investigations
+promptly. The securities exchange shall inform the issuers whose recurring
+financial information is subject to enforcement.
+
+8
+
+FFFS 2007:17
+European cooperation
+Section 16 The enforcement shall take into consideration developments that occur
+within the framework of EU cooperation. In its enforcement, the securities
+exchange shall strive to contribute to a uniform application of international
+accounting standards, both in Sweden and in the EEA. The securities exchange
+shall assist Finansinspektionen in the European enforcement cooperation.
+Actions in the event of infringements
+Section 17 The securities exchange shall take actions when infringements in the
+recurring financial information are discovered. The actions shall be efficient,
+prompt and in proportion to the infringement. Decisions shall be made public
+regularly.
+Documentation and reporting
+Section 18 The securities exchange shall notify Finansinspektionen immediately
+after proceedings have been initiated to investigate whether an identified
+infringement shall result in action against an issuer.
+No later than 1 March every year, the securities exchange shall submit a report to
+Finansinspektionen regarding the enforcement of the previous year. As a minimum,
+the report shall contain information about the enforcement, the results of the
+reviews and how the securities exchange established the set requirements for
+monitoring as set forth in Chapter 16, section 13 of the Securities Market Act and
+in these regulations.
+No later than 1 March every year, the securities exchange shall publish a report
+regarding the enforcement the previous year. As a minimum, the report shall
+contain information about the enforcement and the results of the reviews.
+Section 19 The securities exchange shall document its monitoring procedures. The
+securities exchange shall also document enforcement actions taken, including as a
+minimum the selection process, review procedures, communication with the issuers
+and actions in the event of identified infringements. The documentation shall be
+stored in an orderly, secure and transparent manner for at least ten years.
+
+Chapter 6. Market surveillance at a securities institution
+Scope
+Section 1 A securities institution that has authorisation to operate a MTF or
+organise trading with financial instruments in accordance with Chapter 2, section 1,
+subsection 1 of the Securities Market Act (2007:528) shall structure or have its
+market surveillance structured in such a way that trading in violation of the
+Financial Instruments Trading (Market Abuse Penalties) Act (2005:377), other
+regulations, the rules of the institution or generally accepted practice on the
+securities market can be detected and investigated.
+In these regulations, to organise trading through the investment service reception
+and transmission of orders refers to such trading in which it is possible for a larger
+customer base to participate. In addition, trading shall be of such a scope and
+frequency that continuous turnover is attained in the instrument.
+
+9
+
+FFFS 2007:17
+The regulations in this chapter shall also apply to a securities exchange that
+operates a MTF.
+Resources and expertise
+Section 2 The securities institution shall have at its disposal sufficient personnel
+and expertise to maintain effective monitoring in accordance with section 1, taking
+into consideration the type and scope of its market surveillance.
+As a minimum, the market surveillance shall have the capacity to:
+1. continuously monitor trading and price development
+2. assess price development based on information from the mass media and
+informational systems, and
+3. obtain information, to the extent possible, from issuers, customers and
+counterparties, for the purpose of analysing such cases as referred to in section 1.
+Section 3 The securities institution shall structure its market surveillance taking
+into consideration potential conflicts of interest.
+Section 4 The securities institution shall have written instructions and procedures
+for market surveillance.
+Surveillance
+Section 5 As a part of its market surveillance, the securities institution shall have
+at its disposal technological systems that continuously register fluctuations in
+prices and turnover and signal deviant trading patterns.
+For each market or financial instrument, the securities institution shall define and
+program into the technological system suitable threshold values for what will be
+considered a deviant trading pattern.
+If the securities institution, given its type and scope, can conduct effective
+surveillance without a technological system referred to in the first paragraph, the
+surveillance may be conducted manually. However, as a part of its manual
+surveillance, the securities institution shall have defined and documented what
+qualifies as a deviant trading pattern.
+Documentation and reporting
+Section 6 The securities institution shall document adopted investigation actions.
+Observations shall be summarised in writing and attested by those responsible for
+market monitoring. The documentation shall be stored in an orderly, secure and
+transparent manner for at least ten years.
+Section 7 The securities institution shall annually report on the implementation of
+its surveillance to Finansinspektionen.
+Section 8 The securities institution shall promptly notify Finansinspektionen about
+financial instrument transactions that are suspected to violate the regulations, the
+institution’s regulations or generally accepted practices that apply on the securities
+market.
+
+10
+
+FFFS 2007:17
+Special rules for reporting obligations are laid down in the Financial Instruments
+Trading (Market Abuse Penalties) Act (2005:377) for cases where it can be
+assumed that a transaction is or relates to insider trading or undue market
+manipulation.
+
+Chapter 7. Post-trade information
+Section 1 This chapter contains provisions regarding the obligation to disclose
+post-trade information for:
+– a securities exchange according to Chapter 13, section 9 of the Securities Market
+Act (2007:528),
+– an entity that operates a MTF according to Chapter 11, section 9 of the Securities
+Market Act,
+– a securities institution according to Chapter 9, section 9, subsection 2 of the
+Securities Market Act when the transaction was not executed on a regulated market
+or a MTF.
+Content and time
+Financial instruments other than debt instruments and futures and options
+contracts related to debt instruments
+Section 2 Post-trade information shall be disclosed as soon as possible. The
+disclosure of each transaction shall contain the information laid down in Article
+27(1)(a) of the Commission Regulation (EC) 1287/2006 of 10 August 2006
+implementing Directive 2004/39/EC of the European Parliament and of the
+Council.
+Debt instruments and futures/forwards and options contracts related to debt
+instruments
+Section 3 With regard to debt instruments and futures and options contracts
+related to debt instruments, the disclosure of every transaction shall as a minimum
+contain, instead of the information set out in section 2, information about:
+1. a weighted price average with regard to traded volume
+during the business day,
+2. the highest transaction price during the business day,
+3. the lowest transaction price during the business day, and
+4. the total volume of all transactions during the business
+day.
+Section 4 For debt instruments and futures and options contracts related to debt
+instruments, post-trade information shall be disclosed at the latest 9:00 AM the day
+after the business day instead of the time set out in section 2.
+Transaction disclosure
+Section 5 Disclosure of a transaction for a financial instrument shall occur
+pursuant to Article 30 of the Commission Regulation (EC) 1287/2006.
+
+11
+
+FFFS 2007:17
+Exemption
+Section 6 Where there is sufficient cause and following a specific application from
+a securities exchange or a securities institution or an entity that operates a MTF,
+Finansinspektionen can grant an exemption from the requirements in sections 2–6
+if it is justified with consideration to trading efficiency.
+
+Chapter 8. Exceptions and exemptions from the obligation to disclose
+post-trade information
+Securities exchanges and MTFs
+Exceptions
+Section 1 A securities exchange or an entity that operates a MTF does not need to
+fulfil the disclosure obligation pursuant to Chapter 11, section 10 or Chapter 13,
+section 10 of the Securities Market Act (2007:528) in cases where they operate a
+system according to Articles 17–20 of the Commission Regulation (EC) 1287/2006
+of 10 August 2006 implementing Directive 2004/39/EC of the European
+Parliament and of the Council.
+Exemptions
+Section 2 A securities exchange or an entity that operates a MTF can defer
+disclosure of information about transactions according to Chapter 11, section 11
+and Chapter 13, section 11 of the Securities Market Act (2007:528) if the criteria
+laid down in Article 28 of the Commission Regulation (EC) 1287/2006 are met.
+Section 3 The securities exchange or the entity that operates a MTF shall establish
+a procedure for handling the deferment referred to in section 2. Finansinspektionen
+shall approve such a procedure in advance.
+Section 4 The securities exchange or the entity that operates a MTF shall clearly
+inform market participants and investors about the established procedure for
+handling the deferment.
+
+Chapter 9. Systematic internalisers
+Section 1 When determining whether a share shall be defined as liquid according
+to Article 22(1) of the Commission Regulation (EC) 1287/2006 of 10 August 2006
+implementing Directive 2004/39/EC of the European Parliament and of the
+Council, both conditions (a) and (b) in the article shall be fulfilled.
+
+Chapter 10. Information requirements for transferable securities
+issuers
+Section 1 This chapter contains provisions regarding the information requirements
+for issuers whose transferable securities, according to Chapter 1, section 4, first
+paragraph, subsection 2a or 2b of the Securities Market Act (2007:528), are
+admitted to trading on a regulated market after an application from the issuer, and
+that have Sweden as their home Member State according to Chapter 2, sections 37–
+39 of the Financial Instruments Trading Act (1991:980). The provisions also apply,
+12
+
+FFFS 2007:17
+with the exception of sections 5 and 6, to an issuer that has filed an application for
+official listing or admission to trading regarding his or her transferable securities.
+Issuers of transferable securities according to Chapter 1, section 4, first paragraph,
+subsections 2a or 2b of the Securities Market Act that do not have Sweden as their
+home Member State shall, if the transferable securities are registered or admitted to
+trading on a regulated market, apply section 13. If the transferable securities of
+such an issuer are not admitted to trading on a regulated market in the issuer’s
+home Member State, the issuer shall also apply sections 10, 11, 12 and 16.
+The provisions set out in sections 2–4, 10a–12 and 14 shall also apply to issuers
+whose transferable securities according to Chapter 1, section 4, first paragraph,
+subsection 2a or 2b of the Securities Market Act, are traded on a MTF.
+Section 1a An issuer that chooses Sweden as its home Member State according to
+Chapter 1, sections 7–9 of the Securities Market Act shall immediately disclose
+this in the manner set out in section 10, first paragraph and inform
+Finansinspektionen in the manner set out in section 16.
+Section 2 The information requirements oblige the issuer to continuously have the
+ability to meet these requirements. The issuer shall have financial and reporting
+systems that enable fulfilment of the information requirements. The issuer shall
+also, when necessary, contractually guarantee that the information requirements
+can be fulfilled.
+Price sensitive information
+Section 3 The issuer shall promptly disclose if a decision is made or if an event
+occurs that to a non-negligible extent:
+– influences the perception of the issuer, or when an issuer is a parent company, the
+group, which has been created from previously disclosed information, or
+– in any other way influences the perception of the issuer.
+Section 3a When the board of directors has approved the annual financial
+statements, the issuer shall promptly publish a press release containing the financial
+results.
+The press release shall contain the essential information of the coming annual
+report.
+If the annual accounts are altered such that they differ significantly from what was
+presented in the press release, the issuer shall promptly publish the amendments.
+Section 4 If an issuer defers a disclosure in accordance with Chapter 15, section 7
+of the Securities Market Act, the issuer shall immediately notify the securities
+exchange.
+To ensure that information is not leaked, the issuer, when applying Chapter 15,
+section 7 of the Securities Market Act, shall:
+– deny persons access to information they do not need,
+– ensure that all persons who have access to such information understand the
+related legal obligations and are aware of the sanctions associated with abuse and
+improper dissemination of the information,
+
+13
+
+FFFS 2007:17
+– immediately disclose such information in the event the issuer has not been able to
+guarantee that the involved information is kept confidential.
+Issues, etc.
+Section 5 If the issuer has taken a decision to issue transferable securities in
+accordance with Chapter 1, section 4, first paragraph, subsection 2a or 2b of the
+Securities Market Act, it shall immediately disclose and notify the securities
+exchange of this decision, the reason for the issue, the issue terms and to whom the
+issue is directed. The same obligation applies to issues in subsidiaries that shall be
+approved at the annual general meeting of the parent company.
+An issuer shall also disclose announcements about how dividends shall be
+distributed and paid.
+Section 6 Where an issuer of transferable securities in accordance with section 1
+proposes to change its articles of association, statutes or similar, it shall
+communicate the draft amendment to the securities exchange where the
+transferable securities are admitted to trading and to Finansinspektionen.
+Such communication shall be effected without delay, but at the latest on the date of
+the convening of the general meeting or the meeting which is to vote on the
+proposed amendment.
+An issuer that is not allowed to register a decision to change the articles of
+association before Finansinspektionen has approved the change does not need to
+file a proposal with Finansinspektionen in accordance with this provision.
+Municipality
+Section 7 Sections 5 and 6 shall not be applied to states, municipalities or public
+agencies that have issued transferable securities.
+Public offer to acquire shares, etc.
+Section 8 If the issuer is preparing to submit a public offer to acquire shares or
+financial instruments as set out in section 2 of the Reporting Duty for Certain
+Holdings of Financial Instruments Act (2000:1087) in a limited liability company,
+the issuer shall immediately notify the securities exchange when there is reasonable
+cause that the preparation will lead to such an offer.
+Section 9 An issuer shall also immediately notify the securities exchange if it has
+been informed that a party will submit to its owners a public offer to acquire shares
+or such financial instruments as set out in section 2 of the Reporting Duty for
+Certain Holdings of Financial Instruments Act (2000:1087)..
+Disclosure, etc.
+Section 10 An issuer shall ensure that a disclosure of information pursuant to
+Chapter 17, section 2 of the Securities Market Act shall take place in such a
+manner that the information is effectively disseminated to the public in Sweden and
+in other states within the EEA as simultaneously as possible.
+
+14
+
+FFFS 2007:17
+Other information outlined in this chapter shall be disclosed by being made
+available on the issuer’s website.
+Section 10a An issuer whose transferable securities in accordance with Chapter 1,
+section 4, first paragraph, subsection 2a or 2b of the Securities Market Act are
+traded on a MTF, shall ensure that the disclosure of information takes place in such
+a manner that the information is effectively disseminated to the public.
+Section 11 When information is submitted to the media for disclosure pursuant to
+Chapter 4, section 20 of the Financial Instruments Trading Act (1991:980) or
+Chapter 17, section 3 of the Securities Market Act, it shall be clarified that the
+information being disclosed is the sort of information that must be made public by
+the issuer pursuant to these acts (alt. in accordance with this legislation). It shall
+also be stated which issuer the information refers to, the type of information and
+the date and time when the information was distributed to the media for
+publication.
+Information distributed to the media for disclosure shall be submitted as unedited
+and complete text. However, information that shall be disclosed pursuant to
+Chapter 16, sections 4–7 of the Securities Market Act, can be submitted by the
+issuer notifying the media, in addition to the storage according to Chapter 17,
+section 5 of the same Act, on which the information is available.
+Information shall be submitted to the media for disclosure in a manner that is
+secure from the risk of distortion and unauthorised access as well as identifies
+where the information originates.
+Problems or disruptions that arise in conjunction with the submission of
+information to the media for disclosure shall be resolved immediately.
+Section 12 Information disclosed pursuant to section 10, first paragraph shall also
+be promptly published on the issuer’s website. The information shall be available
+on the issuer’s website for at least 3 years.
+Significant changes to previously published information shall be disclosed
+promptly after the change has occurred. This shall take place via the same channels
+that were used for the original information.
+Section 13 An issuer that shall disclose information pursuant to Chapter 17 of the
+Securities Market Act or otherwise according to these regulations, shall disclose
+information in accordance with the following provisions regarding language.
+An issuer that has chosen Sweden as its home Member State:
+a) if the issuer’s transferable securities according to section 1 are admitted to
+trading only on a Swedish regulated market, the information shall be disclosed in
+Swedish.
+b) if the issuer’s transferable securities according to section 1 are admitted to
+trading on a Swedish regulated market and on a regulated market in one or more
+other states within the EEA, the information shall be disclosed in Swedish and in
+either English or a language approved by the competent authorities in the state(s).
+c) if the issuer’s transferable securities according to section 1 are not admitted to
+trading on a Swedish regulated market but only on a regulated market in one or
+more other states within the EEA, the information shall be disclosed in Swedish,
+English or a language approved by the competent authorities in the state(s).
+
+15
+
+FFFS 2007:17
+A state that has another state within the EEA as its home Member State shall
+disclose the information in Swedish or English.
+An issuer of transferable securities according to Chapter 1, section 4, first
+paragraph, subsection 2a or 2b of the Securities Market Act, the nominal value per
+unit of which on the issue day is at least EUR 50,000, shall, regardless of that set
+out in the first-third paragraphs, disclose the information in Swedish, English or in
+a language approved by the competent authorities where the transferable securities
+are admitted to trading.
+An issuer may disclose information in other languages than those prescribed in this
+provision. Where special cause exists, Finansinspektionen may grant an exemption
+from the provisions set forth in the first-fourth paragraphs.
+The first-third paragraphs do not apply to information covered by the provisions in
+Chapter 5, section 13.
+Section 14 The issuer may not combine the disclosure of information that shall be
+submitted pursuant to these regulations with the marketing of its own operations, if
+this can be misleading.
+Section 15 An issuer whose transferable securities according to section 1 are
+admitted to trading on a Swedish regulated market, shall, if the transferable
+securities are also admitted to trading on a foreign regulated market, also file
+information with the Swedish regulated market for disclosure at the same time as
+the information is disclosed in the foreign regulated market pursuant to section 3.
+With regard to a municipality, it is sufficient to file information with the Swedish
+regulated market.
+The issuer shall ensure that the disclosure occurs as simultaneously as possible in
+the Member States within the European Union where the issuer has requested or
+approved that the transferable security is admitted to trading on a regulated market.
+Obligation to file information by electronic means
+Section 16 Information filed with Finansinspektionen pursuant to Chapter 17,
+section 4 of the Securities Market Act shall be filed by electronic means via an
+assigned location on Finansinspektionen’s website and in accordance with the
+detailed instructions for the format and procedures provided by the authority. In
+conjunction with the filing, the authenticity of the sender’s identity and information
+shall be safeguarded using electronic identification.
+
+Chapter 11. Issuers without a registered office in the EEA
+Requirements on information about the annual general meeting
+Section 1 The requirements in a foreign regulation referred to in Chapter 18,
+sections 8 and 9 of the Securities Market Act (2007:528) shall be considered
+equivalent to the provisions in Chapter 18, sections 5 and 11 of the same Act if the
+issuer as a minimum is required to notify about the time, place and agenda for the
+meeting or annual general meeting.
+
+16
+
+FFFS 2007:17
+Requirements on periodic financial information
+Section 2 The requirements in a foreign regulation referred to in Chapter 16,
+section 11 of the Securities Market Act shall, with regard to the content of the
+annual report’s directors’ report, are considered to be equivalent to the
+requirements in the Transparency Directive if the foreign regulation requires that
+the report of the directors shall, as a minimum, contain the following information:
+a) a true and fair account of the performance of the issuer’s operations, earnings
+and financial position, combined with a description of the most important risks and
+factors of uncertainty that the issuer is facing, such that the account presents a
+balanced and complete assessment in agreement with the size and complexity of
+the business operations. Where required for an understanding of the issuer’s
+performance, earnings or position, the assessments shall include both financial and,
+where appropriate, non-financial key ratios relevant for the business operations in
+question,
+b) information about significant events for the firm that occurred after the end of
+the financial year,
+c) information about the issuer’s expected future performance.
+Section 3 The requirements in a foreign regulation referred to in Chapter 16,
+section 11 of the Securities Market Act, with regard to the content of interim
+information, shall be considered equivalent to the requirements in the Transparency
+Directive if foreign regulations require, in addition to interim information, a brief
+summary of the accounts and that the interim information must contain the
+following information:
+a) the period the information refers to,
+b) information about the issuer’s expected future performance during the remaining
+six months of the financial year,
+c) with regard to issuers of shares, major transactions with related parties if this
+information is not reported on a regular basis.
+Section 4 The requirements in a foreign regulation referred to in Chapter 16,
+section 11 of the Securities Market Act, with regard to interim reports, shall be
+considered equivalent to those in the Transparency Directive if the foreign
+regulation requires that the issuer must publish interim reports.
+Section 5 The requirements in a foreign regulation referred to in Chapter 16,
+section 11 of the Securities Market Act, with regard to the signing and attestation
+of an annual report or half-yearly report, shall be considered equivalent to those in
+the Transparency Directive if the foreign regulation requires that one or more
+persons at the issuer are responsible for the annual report and the interim report,
+and in particular for the following:
+a) that the financial reports fulfil the requirements in applicable reporting
+frameworks or accounting standards,
+b) that the description of the operations included in the financial reports is fair.
+Section 6 The requirements in a foreign regulation referred to in Chapter 16,
+section 11 of the Securities Market Act, with regard to consolidated accounts, shall
+be considered equivalent to those in the Transparency Directive if the foreign
+regulation does not require that the parent company prepares annual financial
+statements, but rather requires that an issuer with a registered office in the state
+shall include the following information in its consolidated accounts:
+a) for issuers of shares, calculation of dividends and the ability to pay dividends.
+
+17
+
+FFFS 2007:17
+b) for all issuers, where applicable, minimum capital requirements, equity and
+liquidity issues.
+To fulfil the equivalence requirement, the issuer shall also be able to provide the
+competent authority in its home Member State with additional audited information
+that only contains information relating to the issuer’s annual financial statements
+and relevant information pursuant to the first paragraph, subsections a and b. This
+information may be prepared in accordance with the accounting standards in the
+state in question.
+Section 7 The requirements in a foreign regulation referred to in Chapter 16,
+section 11 of the Securities Market Act, with regard to annual financial statements,
+shall be considered equivalent to those in the Transparency Directive if the foreign
+regulation requires that an issuer does not need to prepare a consolidated account,
+but rather shall prepare annual financial statements either in accordance with:
+– international accounting standards adopted in accordance with Article 3 of
+Directive (EC) 1606/2002 of the European Parliament and of the Council and
+applicable within the Community, or
+– national accounting standards in a third country that are equivalent to such
+standards.
+Where the financial information does not comply with such standards, restated
+annual financial statements shall be prepared to ensure equivalence. These
+financial statements must also be audited separately.
+
+Chapter 12. Notification and publication of information related to
+shareholdings
+Scope
+Section 1 This chapter contains provisions regarding the obligation to file and
+disclose information about changes to holdings of shares and other financial
+instruments regulated in Chapter 4 of the Financial Instruments Trading Act
+(1991:980).
+A limited liability company’s disclosure and filing of information with
+Finansinspektionen
+Section 2 When a limited liability company discloses information pursuant to
+Chapter 4, section 9, first paragraph or section 18, of the Financial Instruments
+Trading Act (1991:980), it shall follow the provisions in Chapter 10, section 10,
+first paragraph and section 11 of these regulations.
+Section 3 Information referred to in Chapter 4, section 1, third paragraph, section
+9, first paragraph and section 18 of the Financial Instruments Trading Act shall be
+disclosed in Swedish, Danish, Norwegian or English.
+Where special cause exists, Finansinspektionen may grant an exemption from the
+provisions set forth in the first paragraph.
+Section 4 When a limited liability company submits information with
+Finansinspektionen pursuant to Chapter 4, section 21 of the Financial Instruments
+18
+
+FFFS 2007:17
+Trading Act, it shall follow the provisions in Chapter 10, section 16 of these
+regulations.
+Regulations for holders
+Market maker
+Section 5 If a market maker intends to utilise the exception in Chapter 4, section
+14 of the Financial Instruments Trading Act, it shall notify Finansinspektionen that
+it is trading or intends to trade in its capacity as a market maker for a specific
+issuer. This type of notification shall be filed immediately, although at the latest the
+trading day after trading has commenced. The market maker shall also notify
+Finansinspektionen when it ceases to be a market maker for a specific issuer.
+Exceptions from aggregation of holdings for certain parent companies
+Section 6 In order for exceptions to the aggregation of holdings of parent
+companies and subsidiaries to apply pursuant to Chapter 4, sections 16 and 17 of
+the Financial Instruments Trading Act, the conditions under a and b shall be
+fulfilled.
+a) The parent company may not through direct or indirect instructions or in any
+other way intervene when a subsidiary that is a UCITS or a securities institution
+utilises its voting rights.
+Direct instructions refer to all instructions issued by the parent company, or by
+another firm controlled by the parent company, and refer to how the UCITS or
+securities institution in individual cases shall utilise its voting rights.
+Indirect instructions refer to all general or specific instructions, regardless of form,
+issued by the parent company, or by another firm controlled by the parent
+company, for the purpose of limiting the UCITS’ or securities institution’s freedom
+to utilise its voting rights in order to benefit certain business interests of the parent
+company or other firm controlled by the parent company.
+b) A UCITS or securities institution that is a subsidiary shall independently of the
+parent company be free to exercise the voting rights associated with the assets it
+manages.
+Section 7 A parent company that would like to utilise the exception set forth in
+Chapter 4, sections 16 and 17 of the Financial Instruments Trading Act shall,
+without delay, file the following information with Finansinspektionen:
+a) a list of the names of the subsidiaries that are UCITS or securities institutions,
+including information about which competent authorities supervise them.
+b) a declaration that the parent company meets the requirements set out in section
+6, subsection a with regard to every such UCITS or securities institution.
+Section 8 The parent company shall update the list in accordance with section 7,
+subsection a on a regular basis.
+
+19
+
+FFFS 2007:17
+Short holding period related to clearing and settlement
+Section 9 The short holding period referred to in Chapter 4, section 12, subsection
+1 of the Financial Instruments Trading Act, may, at the most, total three trading
+days from the day of the transaction.
+Notification content
+Section 10 A notification of acquisition or disposal of shares or certificates of
+deposit within the scope of Chapter 4, section 2, first paragraph, subsection 1 of the
+Financial Instruments Trading Act shall contain information concerning:
+1. the notifier’s name, civic registration number or other identification number or,
+if the notifier is a legal person, the firm, company registration number or other
+identification number and address,
+2. the issuer’s name,
+3. percentage of all shares and voting rights after the transaction,
+4. number and class of shares after the transaction,
+5. where applicable, the chain of controlling firms through which the voting rights
+are held,
+6. the date when the threshold value was reached, exceeded or fell below,
+7. the shareholder’s identity, even if the shareholder pursuant to Chapter 4, section
+3 of the Financial Instruments Trading Act does not have the right to exercise the
+voting rights, and
+8. if the shareholder according to Chapter 4, section 3 of the Financial Instruments
+Trading Act does not have the right to exercise the voting rights, then the natural or
+legal person that has the right to exercise the voting rights on behalf of the
+shareholder shall be indicated.
+Section 11 A notification of acquisition or disposal of such financial instruments
+as referred to in Chapter 4, section 2, first paragraph, subsection 2 of the Financial
+Instruments Trading Act shall contain information concerning:
+1. the notifier’s name, civic registration number or other identification number
+or, if the notifier is a legal person, the firm, company registration number or other
+identification number and address,
+2. holdings of voting rights after the transaction,
+3. number and class of financial instruments after the transaction,
+4. where applicable, the chain of controlling firms through which the financial
+instruments are held,
+5. the date when the threshold value was reached, exceeded or fell below,
+6. for an instrument with an exercise period where applicable, information about
+the day or period when the shares shall or can be acquired,
+7. the maturity or expiration of the instrument,
+8. the identity of the holder, and
+9. the name of the underlying issuer.
+Language
+Section 12 A notification filed pursuant to Chapter 4, section 3 or section 9,
+second paragraph of the Financial Instruments Trading Act, shall be prepared in
+Swedish, Danish, Norwegian or English.
+
+20
+
+FFFS 2007:17
+Where special cause exists, Finansinspektionen may grant an exception from the
+provisions set forth in the first paragraph.
+Electronic filing of the notification with Finansinspektionen
+Section 13 If a notification pursuant to Chapter 4, section 3 or section 9, second
+paragraph of the Financial Instruments Trading Act is filed with
+Finansinspektionen by electronic means, it shall be filed at the specified location
+on Finansinspektionen’s website and in accordance with the instructions regarding
+format and procedures provided by the authority. In conjunction with the filing, the
+authenticity of the sender’s identity and information shall be safeguarded using
+electronic identification.
+Exception for shares issued by companies without a registered office in the
+EEA
+Section 14 The requirements in a foreign regulation referred to in Chapter 4,
+section 23 of the Financial Instruments Trading Act shall be considered equivalent
+to those laid down in Article 15 of the Transparency Directive if the limited
+liability company is required to disclose the total number of voting rights and the
+total amount of capital to the public at the latest 30 calendar days after these totals
+have increased or decreased.
+Section 15 The requirements in a foreign regulation referred to in Chapter 4,
+section 24 of the Financial Instruments Trading Act shall be considered equivalent
+to those laid down in Article 14 of the Transparency Directive if, in accordance
+with the requirements, an issuer with a registered office in the state shall fulfil the
+following conditions:
+a) an issuer allowed to hold up to a maximum of five per cent of its own shares to
+which voting rights are attached shall announce every time the threshold value is
+reached, exceeded or falls below.
+b) an issuer allowed to hold up to a maximum of between five and ten per cent of
+its own shares to which voting rights are attached shall announce every time the
+five per cent or the maximum permissible threshold value is reached, exceeded or
+falls below.
+c) an issuer allowed to hold more than ten per cent of its own shares to which
+voting rights are attached shall announce every time the five per cent threshold
+value or ten per cent threshold value is reached, exceeded or falls below.
+
+Chapter 13. Acquisition and disposal of own shares by limited liability
+companies
+Section 1 The provisions in this chapter shall be applied by a Swedish limited
+liability company whose shares are admitted to trading on a regulated market that
+acquires or disposes of own shares.
+Section 2 A limited liability company referred to in section 1 shall register trading
+in own shares to a Swedish securities exchange where the shares are admitted to
+trading on a regulated market.
+This type of notification shall have been received by the securities exchange at the
+latest 30 minutes before the opening of the securities exchange on the trading day
+immediately following when the agreement regarding acquisition or disposal of
+shares in the company was signed.
+
+21
+
+FFFS 2007:17
+Section 3 The notification pursuant to section 2 shall contain information
+concerning:
+– the date of the transaction,
+– the number of shares acquired or disposed of divided by class,
+– the price that was paid or received per share,
+– the limited liability company’s actual holdings of own shares,
+– the total number of shares in the company.
+Section 4 The securities exchange shall disclose on its website information about
+the trading in own shares reported pursuant to section 2.
+
+Chapter 14. The Swedish Securities Council decides in certain issues
+about public takeovers on the stock market and publishes certain such
+decisions
+Transfer of management information to the Swedish Securities Council
+Section 1 The Swedish Securities Council shall make decisions in issues referred
+to in Chapter 2, section 3, second paragraph, Chapter 3, section 4 and Chapter 7,
+sections 4 and 5 of the Stock Market (Takeover Bids) Act (2006:451).
+Publication of Swedish Securities Council decisions
+Section 2 The Swedish Securities Council shall publish its decisions pursuant to
+Chapter 7, sections 4 and 5 of the Stock Market (Takeover Bids) Act (2006:451) if
+the decision means that the application is fully or partially granted.
+The Council announces the decision via publication on its website.
+_______________
+
+Entry into force provisions
+1. These regulations enter into force on 1 November 2007, when the following
+Finansinspektionen regulations and general guidelines shall cease to apply:
+– Finansinspektionen’s Regulations (FFFS 1995:43) governing official listing of
+transferable securities, etc.
+– Finansinspektionen’s Regulations (FFFS 1998:16) governing disciplinary boards
+for securities exchanges,
+– Finansinspektionen’s Regulations (FFFS 2001:5) governing market surveillance
+at securities exchanges, authorised marketplaces and securities institutions,
+– Finansinspektionen’s Regulations (FFFS 2005:6) governing acquisition and
+disposal of own shares by limited liability companies,
+– Finansinspektionen’s Regulations (FFFS 2006:4) governing that the Swedish
+Securities Council shall decide on certain issues pertaining to public takeovers in
+the securities market and publish certain such decisions.
+2. With regard to exemptions pursuant to Chapter 3, section 6 of FFFS 1995:43 and
+Chapter 2, section 3 of FFFS 2001:5 granted before the entry into force, old
+regulations apply.
+22
+
+FFFS 2007:17
+
+GENT JANSSON
+
+Carina Larsson
+
+23
+
+FFFS 2007:17
+Appendix 1a
+
+Ownership assessment – natural person
+1. State which firm the acquisition relates to and what percentage of the shares and
+voting rights in the firm is intended to be acquired.
+2. Do you or a close relation 1 own shares in the firm or in another firm, which in
+turn owns shares in the firm referred to in question 1?
+3. Append a description or outline of the ownership structure in the group pre- and
+post-acquisition, with ownership shares stated in per cent.
+4. Do you or a close relation 1 have any other financial relationships with the firm?
+5. Have you been the subject of a suitability assessment by a foreign supervisory
+authority within the past year? If yes, please explain.
+6. During the past five years, have you been a board member, alternate board
+member, managing director or deputy managing director in a firm which is under
+the supervision of Finansinspektionen or an equivalent foreign supervisory
+authority? Has this firm been subject to sanctions from a supervisory authority? If
+yes, please explain the circumstances.
+7. Have you entered into personal bankruptcy in Sweden or in a foreign country? If
+yes, please explain.
+8. Have you been a board member or held a senior position in a firm that has been
+the subject of a composition or company reorganisation or was placed into
+insolvent liquidation or the equivalent in Sweden or in a foreign country? If yes,
+please state the firm’s name and explain the circumstances.
+9. During the past five years, have you been convicted by a Swedish or foreign
+court for any crime in respect of which imprisonment is included in the range of
+penalties specified for the crime? If yes, please explain the circumstances.
+10. Would you like to state any other facts or circumstances which might be of
+relevance in the assessment of this matter?
+Note: As a part of the ownership assessment, Finansinspektionen will collaborate
+with e.g. Rikspolisstyrelsen (Swedish National Police Board), Bolagsverket
+(Swedish Companies Registration Office), Skatteverket (Swedish National Tax
+Board), Kronofogdemyndigheten (Swedish Enforcement Authority) and
+Upplysningscentralen UC AB (UC AB).
+
+The undersigned hereby certifies that the above information is correct and
+complete.
+Date:
+
+1
+
+Close relation refers to e.g. a spouse, cohabitee, child, parent or other relation with whom
+you share living accommodations.
+
+24
+
+FFFS 2007:17
+…………………………………
+Name:
+Address, telephone number:
+Civic registration number/date of birth:
+
+25
+
+FFFS 2007:17
+Appendix 1b
+
+Ownership assessment – legal person
+1. State the applicant firm’s name, company registration number and address. A
+registration certificate for the firm not more than two months old and the firm’s
+most recent audited annual report should also be appended.
+2. State which firm the acquisition relates to and what percentage of the shares and
+voting rights in the firm is intended to be acquired.
+3. Append a description or outline of the entire ownership chain in the group, preand post-acquisition, with ownership shares stated in per cent.
+4. State the other firms in the group that are under the supervision of
+Finansinspektionen or a corresponding foreign authority.
+5. During the past year, has the firm been the subject of a suitability assessment by
+a foreign supervisory authority? If yes, please explain.
+6. Would you like to state any other facts or circumstances which might be of
+relevance in the assessment of this matter?
+Note: As a part of the ownership assessment, Finansinspektionen will collaborate
+with e.g. Bolagsverket (Swedish Companies Registration Office), Skatteverket
+(Swedish National Tax Board) and Kronofogdemyndigheten (Swedish
+Enforcement Authority).
+
+The undersigned hereby certifies that the above information is correct and
+complete.
+
+Date:
+
+…………………………………
+Authorised signatory:
+Telephone number:
+
+26
+
+FFFS 2007:17
+Appendix 1c
+
+Management assessment – in conjunction with an ownership
+assessment
+1. What experience and competence do you have within the financial sector?
+Please attach a copy of your curriculum vitae.
+2. Which firm does the management assessment relate to?
+3. Have you previously been board chairman, board member or alternate board
+member in a firm where one or more board members were not discharged from
+liability? If yes, state which firm(s).
+4. Have you been the subject of a suitability assessment by a foreign supervisory
+authority within the past year? If yes, please explain.
+5. During the past five years, have you been dismissed from a financial institution?
+6. During the past five years, have you been a board member, alternate board
+member, managing director or deputy managing director in a firm which is under
+the supervision of Finansinspektionen or an equivalent foreign supervisory
+authority? Has this firm been subject to sanctions from a supervisory authority? If
+yes to either of the above questions, please explain the circumstances.
+7. Have you entered into personal bankruptcy in Sweden or in a foreign country? If
+yes, please explain.
+8. Have you been a board member or held a senior position in a firm that has been
+the subject of a composition or company reorganisation or was placed into
+insolvent liquidation or the equivalent in Sweden or in a foreign country? If yes,
+please state the firm’s name and explain the circumstances.
+9. During the past five years, have you been convicted by a Swedish or foreign
+court for any crime in respect of which imprisonment is included in the range of
+penalties specified for the crime? If yes, please explain.
+10. Would you like to state any other facts or circumstances which might be of
+relevance in the assessment of this matter?
+Note: As a part of the management assessment, Finansinspektionen will collaborate
+with e.g. Rikspolisstyrelsen (Swedish National Police Board), Bolagsverket
+(Swedish Companies Registration Office), Skatteverket (Swedish National Tax
+Board), Kronofogdemyndigheten (Swedish Enforcement Authority) and
+Upplysningscentralen UC AB (UC AB).
+
+The undersigned hereby certifies that the above information is correct and
+complete.
+Date:
+
+27
+
+FFFS 2007:17
+………………………………………
+Name:
+Address, telephone number:
+Civic registration number/date of birth:
+
+28
+
+FFFS 2007:17
+Appendix 2a
+
+Management assessment – questions for board members and alternate
+board members
+1. What experience and competence do you have within the financial sector?
+Please attach a copy of your curriculum vitae.
+2. Which firm does the management assessment relate to?
+3. Are you employed by a firm other than the firm referred to in question 2? If yes,
+state your position.
+4. Are you board chairman, board member or alternate board member in a firm
+other than that referred to in question 2? If yes, state which firm(s).
+5. Have you previously been board chairman, board member or alternate board
+member in a firm where one or more board members were not discharged from
+liability? If yes, state which firm(s).
+6. Do you directly or indirectly own shares in the firm referred to in question 2, or
+in any other firm, which represent 10 per cent or more of the share capital or voting
+capital? If yes, state in which firm(s).
+7. Do you directly or indirectly own shares in the firm referred to in question 2, or
+in any other firm, which represent less than 10 per cent, but where the holding can
+still be considered to carry a significant influence on the management of the firm?
+If yes, state in which firm(s).
+8. Do you or a close relation 2 have any other financial relationships with the firm
+referred to in question 2?
+9. Do you have any other function in the firm referred to in question 2 or in the
+group/financial group?
+10. Have you been the subject of a suitability assessment by a foreign supervisory
+authority within the past year? If yes, please explain.
+11. During the past five years, have you been dismissed from a financial
+institution?
+12. During the past five years, have you been a board member, alternate board
+member, managing director or deputy managing director in a firm which is under
+the supervision of Finansinspektionen or an equivalent foreign supervisory
+
+2
+
+Close relation refers to e.g. a spouse, cohabitee, child, parent or other relation with whom
+you share living accommodations.
+
+29
+
+FFFS 2007:17
+authority? Has this firm been subject to sanctions from a supervisory authority? If
+yes to either of the above questions, please explain the circumstances.
+13. Have you entered into personal bankruptcy in Sweden or in a foreign country?
+If yes, please explain.
+14. Have you been a board member or held a senior position in a firm that has been
+the subject of a composition or company reorganisation or was placed into
+insolvent liquidation or the equivalent in Sweden or in a foreign country? If yes,
+please state the firm’s name and explain the circumstances.
+15. During the past five years, have you been convicted by a Swedish or foreign
+court for any crime in respect of which imprisonment is included in the range of
+penalties specified for the crime? If yes, please explain.
+16. Would you like to state any other facts or circumstances which might be of
+relevance in the assessment of this matter?
+
+Note: As a part of the management assessment, Finansinspektionen will collaborate
+with e.g. Rikspolisstyrelsen (Swedish National Police Board), Bolagsverket
+(Swedish Companies Registration Office), Skatteverket (Swedish National Tax
+Board), Kronofogdemyndigheten (Swedish Enforcement Authority) and
+Upplysningscentralen UC AB (UC AB).
+
+The undersigned hereby certifies that the above information is correct and
+complete.
+Date:
+
+………………………………………
+Name:
+Address, telephone number:
+Civic registration number/date of birth:
+
+30
+
+FFFS 2007:17
+Appendix 2b
+
+Management assessment – questions for the managing director and
+deputy managing director
+1. What experience and competence do you have within the financial sector?
+Please attach a copy of your curriculum vitae.
+2. Which firm does the management assessment relate to?
+3. Are you managing director or deputy managing director in a firm other than the
+firm referred to in question 2? If yes, state which firm(s).
+4. Are you employed by a firm other than the firm referred to in question 2? If yes,
+state in which firm(s) and your position(s).
+5. Are you board chairman, board member or alternate board member in a firm
+other than that referred to in question 2? If yes, state which firm(s).
+6. Have you previously been board chairman, board member or alternate board
+member in a firm where one or more board members were not discharged from
+liability? If yes, state which firm(s).
+7. Do you directly or indirectly own shares in the firm referred to in question 2, or
+in any other firm, which represent 10 per cent or more of the share capital or voting
+capital? If yes, state which firm(s).
+8. Do you directly or indirectly own shares in the firm referred to in question 2, or
+in any other firm, which represent less than 10 per cent but where the holding can
+still be considered to carry a significant influence on the management of the firm?
+If yes, state which firm(s).
+9. Do you or a close relation 3 have any other financial relationships with the firm
+referred to in question 2?
+10. Do you have any other function in the firm referred to in question 2 or in the
+group or financial group?
+11. Have you been the subject of a suitability assessment by a foreign supervisory
+authority within the past year? If yes, please explain.
+12. During the past five years, have you been dismissed from a financial company?
+
+3
+
+Close relation refers to e.g. a spouse, cohabitee, child, parent or other relation with whom
+you share living accommodations.
+
+31
+
+FFFS 2007:17
+13. During the past five years, have you been a board member, alternate board
+member, managing director or deputy managing director in a firm which is under
+the supervision of Finansinspektionen or an equivalent foreign supervisory
+authority? Has this firm been subject to sanctions from a supervisory authority? If
+yes to either of the above questions, please explain the circumstances.
+14. Have you entered into personal bankruptcy in Sweden or in a foreign country?
+If yes, please explain the circumstances.
+15. Have you been a board member or held a senior position in a firm that has been
+the subject of a composition or company reorganisation or was placed into
+insolvent liquidation or the equivalent in Sweden or a foreign country? If yes,
+please state the firm’s name and explain the circumstances.
+16. During the past five years, have you been convicted by a Swedish or foreign
+court for any crime in respect of which imprisonment is included in the range of
+penalties specified for the crime? If yes, please explain the circumstances.
+17. Would you like to state any other facts or circumstances which might be of
+relevance in the assessment of this matter?
+
+Note: As a part of the management assessment, Finansinspektionen will collaborate
+with e.g. Rikspolisstyrelsen (Swedish National Police Board), Bolagsverket
+(Swedish Companies Registration Office), Skatteverket (Swedish National Tax
+Board), Kronofogdemyndigheten (Swedish Enforcement Authority) and
+Upplysningscentralen UC AB (UC AB).
+
+The undersigned hereby certifies that the above information is correct and
+complete.
+
+Date:
+
+………………………………………
+Name:
+Address, telephone number:
+Civic registration number/date of birth:
+
+32
+
+FFFS 2007:17
+Appendix 3
+
+Simplified ownership and management assessment for persons who
+have previously been subject to an ownership or management
+assessment during the past 365 days
+1. Has anything changed with regards to the information submitted during
+Finansinspektionen’s most recent ownership or management assessment? If yes,
+please specify.
+Note: As a part of an ownership and management assessment, Finansinspektionen
+will collaborate with e.g. Rikspolisstyrelsen (Swedish National Police Board),
+Bolagsverket (Swedish Companies Registration Office), Skatteverket (Swedish
+National Tax Board), Kronofogdemyndigheten (Swedish Enforcement Authority)
+and Upplysningscentralen UC AB (UC AB).
+
+The undersigned hereby certifies that the above information is correct and
+complete.
+
+Date:
+
+………………………………………
+
+Name/authorised signatory:
+Address, telephone number:
+Civic registration number/date of birth/company registration number:
+
+33
+
+FFFS 2007:17
+
+34
+
+FFFS 2007:17
+
+Finansinspektionen’s Regulations
+Publisher: Finansinspektionen, Sweden, www.fi.se
+ISSN 1102-7460
+This translation is furnished for information purposes only and is not itself a legal document.
+
+CONTENTS
+
+FFFS 2007:17
+
+Chapter 1. Scope
+Chapter 2. Ownership and management assessment
+Scope
+Written information to Finansinspektionen
+Ownership assessment
+Management assessment
+Other provisions
+
+Chapter 3. Official listing
+Chapter 4. Disciplinary board
+Chapter 5. Market surveillance at a securities exchange
+Scope
+Resources and expertise
+Monitoring trade and price formation
+Monitoring participants
+Monitoring the issuer’s information obligations
+Monitoring financial instruments
+Monitoring documentation and reporting
+Monitoring recurring financial information
+
+Chapter 6. Market surveillance at a securities institution
+Scope
+Resources and expertise
+Surveillance
+Documentation and reporting
+
+Chapter 7. Post-trade information
+Content and time
+Transaction disclosure
+Exemption
+
+1
+1
+1
+2
+2
+2
+3
+
+3
+4
+6
+6
+7
+7
+7
+7
+7
+8
+8
+
+9
+9
+10
+10
+10
+
+11
+11
+11
+12
+
+Chapter 8. Exceptions and exemptions from the obligation to disclose
+post-trade information
+12
+Securities exchanges and MTFs
+
+Chapter 9. Systematic internalisers
+Chapter 10. Information requirements for transferable securities
+issuers
+Price sensitive information
+Issues, etc.
+Municipality
+Public offer to acquire shares, etc.
+Disclosure, etc.
+Obligation to file information by electronic means
+
+Chapter 11. Issuers without a registered office in the EEA
+Requirements on information about the annual general meeting
+Requirements on periodic financial information
+
+Chapter 12. Notification and publication of information related to
+shareholdings
+Scope
+A limited liability company’s disclosure and filing of information with
+Finansinspektionen
+
+12
+
+12
+12
+13
+14
+14
+14
+14
+16
+
+16
+16
+17
+
+18
+18
+18
+
+35
+
+FFFS 2007:17
+Regulations for holders
+19
+Exception for shares issued by companies without a registered office in the
+EEA
+21
+
+Chapter 13. Acquisition and disposal of own shares by limited liability
+companies
+21
+Chapter 14. The Swedish Securities Council decides in certain issues
+about public takeovers on the stock market and publishes certain such
+decisions
+22
+Transfer of management information to the Swedish Securities Council
+Publication of Swedish Securities Council decisions
+
+22
+22
+
+Entry into force provisions
+22
+Ownership assessment – natural person
+24
+Ownership assessment – legal person
+26
+Management assessment – in conjunction with an ownership
+assessment
+27
+Management assessment – questions for board members and alternate
+board members
+29
+Management assessment – questions for the managing director and
+deputy managing director
+31
+Simplified ownership and management assessment for persons who
+have previously been subject to an ownership or management
+assessment during the past 365 days
+33
+
+36
+
+

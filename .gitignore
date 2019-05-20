@@ -1,4 +1,5 @@
 .idea/
 target/
 out/
-resources/wiktionary/
+wiktionary/
+resources/db/fibo-ontology/

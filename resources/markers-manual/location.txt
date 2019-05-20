@@ -1,0 +1,37 @@
+business center
+combined statistical area
+country
+country subdivision
+county
+federal capital area
+federal state
+geographic region
+geographical area
+geographical feature
+geophysical location
+geopolitical entity
+housing unit
+land parcel
+location
+metropolitan statistical area
+micropolitan statistical area
+municipality
+neighborhood
+neighborhood subdivision
+network location
+notional financial marketplace
+notional place
+physical location
+place
+populated place
+post box
+post code area
+real estate
+region
+site
+statistical area
+street
+territory
+topographical location
+tribal area
+virtual location

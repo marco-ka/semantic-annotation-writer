@@ -8,7 +8,7 @@ class TRegex {
     private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
     static String ruleFromMarkers(String beforeEachRule, String wordTag, Set<String> markers, String afterEachRule) {
-        Stream<String> sanitizedMarkers = markers.stream()
+        var sanitizedMarkers = markers.stream()
                 // Remove lemmas that look like Penn Tags
                 .filter(lemma -> !PENN_TAGS.contains(lemma))
                 // even escaped dots ("/.") and commas break TRegex rules
@@ -18,22 +18,19 @@ class TRegex {
                 .map(lemma -> lemma.replace("/", ""))
                 // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
                 .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
-                .map(TRegex::regexEscape);
+                .map(TRegex::regexEscape)
+                .collect(Collectors.partitioningBy(x -> x.contains(" ")));
 
-        Set<String> singleWordMarkers = new TreeSet<>();
-        Set<String> multiWordMarkers = new TreeSet<>();
+        var multiWordMarkers = sanitizedMarkers.get(true);
+        var singleWordMarkers = sanitizedMarkers.get(false);
 
-        sanitizedMarkers.forEach(lemma -> {
-            if (lemma.contains(" "))
-                multiWordMarkers.add(lemma);
-            else
-                singleWordMarkers.add(lemma);
-        });
-
-        String oneWordRules = beforeEachRule + withinNode(wordTag, any(singleWordMarkers.stream())) + afterEachRule;
         String multiWordRules = any(multiWordMarkers.stream().map(lemma -> ruleFromMultipleWords(beforeEachRule, wordTag, lemma, afterEachRule)));
+        String singleWordRules = beforeEachRule + withinNode(wordTag, any(singleWordMarkers.stream())) + afterEachRule;
 
-        return oneWordRules + "|" + multiWordRules;
+        if (singleWordMarkers.isEmpty()){
+            return multiWordRules;
+        }
+        return singleWordRules + "|" + multiWordRules;
     }
 
     private static String any(Stream<String> rules) {

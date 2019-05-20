@@ -87,6 +87,10 @@ class WordNet {
         return words;
     }
 
+    static Set<String> getWords(Synset syn) {
+        return synsetToWord(syn).collect(Collectors.toSet());
+    }
+
     private static Stream<Synset> getRelatedSynsets(Synset syn, PointerType ptType) {
         PointerTargetNodeList pointerTargets = null;
         try {

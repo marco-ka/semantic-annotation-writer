@@ -6,11 +6,16 @@ import java.util.stream.Stream;
 
 class TRegexRule {
 
-    static String matchMarkers(String beforeEachRule, Set<String> markers, String afterEachRule, Collection<String> stopWords) {
+    static String createFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule, Collection<String> stopWords) {
         Stream<String> sanitizedMarkers = markers.stream()
                 .filter(lemma -> !stopWords.contains(lemma))
-                .map(lemma -> lemma.replace(".", "")) // even escaped dots ("/.") break TRegexRule rules
-                .map(lemma -> lemma.replace("/", "")) // even escaped slashes ("\/") break TRegex
+                // even escaped dots ("/.") and commas break TRegexRule rules
+                .map(lemma -> lemma.replace(".", ""))
+                .map(lemma -> lemma.replace(",", ""))
+                // even escaped slashes ("\/") break TRegex
+                .map(lemma -> lemma.replace("/", ""))
+                // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
+                .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
                 .map(TRegexRule::regexEscape);
 
         Set<String> singleWordMarkers = new TreeSet<>();

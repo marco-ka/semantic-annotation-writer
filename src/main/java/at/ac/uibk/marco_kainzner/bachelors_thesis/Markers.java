@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 class Markers {
     static Set<String> actor() {
@@ -74,8 +75,12 @@ class Markers {
 
     private static Set<String> fromFile(String path) {
         try {
-            List<String> markers = FileUtils.readLines(new File(path), Charset.defaultCharset());
-            return new TreeSet<>(markers);
+            return FileUtils.readLines(new File(path), Charset.defaultCharset())
+                    .stream()
+                    .map(String::trim)
+                    .peek(line -> System.out.println("Line: " + line))
+//                    .filter(line -> line.length() > 1)
+                    .collect(Collectors.toSet());
         } catch (IOException e) {
             e.printStackTrace();
             return new TreeSet<>();

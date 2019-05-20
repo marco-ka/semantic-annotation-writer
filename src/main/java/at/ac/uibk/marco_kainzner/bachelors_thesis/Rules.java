@@ -3,6 +3,7 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 import net.sf.extjwnl.JWNLException;
 
 import java.io.*;
+import java.util.stream.Collectors;
 
 public class Rules {
     private static String anyTag = "__";
@@ -15,14 +16,14 @@ public class Rules {
     }
 
     private static void createAndSaveAll() throws IOException, JWNLException {
-        save("actor", actor());
-        save("situation", situation());
-        save("condition", condition());
-        save("modality", modality());
+//        save("actor", actor());
+//        save("situation", situation());
+//        save("condition", condition());
+//        save("modality", modality());
         save("reason", reason());
-        save("time", time());
-        save("location", location());
-        save("artifact", artifact());
+//        save("time", time());
+//        save("location", location());
+//        save("artifact", artifact());
     }
 
     private static String actor() {
@@ -56,7 +57,23 @@ public class Rules {
 
     private static String reason() {
         var markers = Markers.reason();
-        return TRegex.ruleFromMarkers("(PP < (", anyTag, markers,"))");
+
+        var VPinf = "(VP < (TO $ (__ << VB)))";
+        var VPinfExtended = "(__ << " + VPinf + ")";
+
+        // var exampleInOrderTo = "(__ < ((IN < in) $ (NN < order) $ (__ << (VP < (TO $ (__ << VB))))))";
+        var markersWithoutTO = markers.stream()
+                .map(marker -> marker.replace(" to", ""))
+                .map(String::trim)
+                .filter(marker -> !marker.isEmpty())
+                .collect(Collectors.toSet());
+
+        markers.forEach(marker -> System.out.println("Marker: " + marker));
+
+        var ruleBasic1 = TRegex.ruleFromMarkers("(PP < (", anyTag, markers,"))");
+        var ruleVPinf = TRegex.ruleFromMarkers("(__ < (", anyTag, markersWithoutTO, " $ " + VPinfExtended + "))");
+
+        return or(ruleBasic1, ruleVPinf);
     }
 
     private static String situation() {

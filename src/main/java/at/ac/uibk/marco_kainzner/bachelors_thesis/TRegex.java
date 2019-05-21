@@ -33,7 +33,7 @@ class TRegex {
         return singleWordRules + "|" + multiWordRules;
     }
 
-    private static String any(Stream<String> rules) {
+    static String any(Stream<String> rules) {
         return rules.collect(Collectors.joining("|"));
     }
 

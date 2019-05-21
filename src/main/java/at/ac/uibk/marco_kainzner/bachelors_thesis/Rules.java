@@ -4,6 +4,9 @@ import net.sf.extjwnl.JWNLException;
 
 import java.io.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.*;
 
 public class Rules {
     private static String anyTag = "__";
@@ -28,35 +31,38 @@ public class Rules {
 
     private static String actor() {
         var markers = Markers.actor();
-        return TRegex.ruleFromMarkers("(NP < (", anyTag, markers,"))");
+        return ruleFromMarkers("(NP < (", anyTag, markers,"))");
     }
 
     private static String artifact() {
         var markers = Markers.artifact();
-        return TRegex.ruleFromMarkers("(NP < (", anyTag, markers, "))");
+        return ruleFromMarkers("(NP < (", anyTag, markers, "))");
     }
 
     private static String condition() {
         var markers = Markers.condition();
 
-        var rule1 = TRegex.ruleFromMarkers("(PP << (", anyTag, markers,"))");
-        var rule2 = TRegex.ruleFromMarkers("(SBAR < (", anyTag, markers,"))"); // TODO: SBAR == Ssub?
+        var rule1 = ruleFromMarkers("(PP << (", anyTag, markers,"))");
+        var rule2 = ruleFromMarkers("(SBAR < (", anyTag, markers,"))"); // TODO: SBAR == Ssub?
 
         return or(rule1, rule2);
     }
 
     private static String location() {
         var markers = Markers.location();
-        return TRegex.ruleFromMarkers("(NP < (", anyTag, markers, "))");
+        return ruleFromMarkers("(NP < (", anyTag, markers, "))");
     }
 
     private static String modality() {
         var markers = Markers.modality();
-        return TRegex.ruleFromMarkers("(VN < (", anyTag, markers,"))");
+        return ruleFromMarkers("(VN < (", anyTag, markers,"))");
     }
 
     private static String reason() {
         var markers = Markers.reason();
+
+        // (in . (order . (TO . VB)))
+        // var VPinf = "(VP < (TO . VB))";
 
         var VPinf = "(VP < (TO $ (__ << VB)))";
         var VPinfExtended = "(__ << " + VPinf + ")";
@@ -70,23 +76,26 @@ public class Rules {
 
         markers.forEach(marker -> System.out.println("Marker: " + marker));
 
-        var ruleBasic1 = TRegex.ruleFromMarkers("(PP < (", anyTag, markers,"))");
-        var ruleVPinf = TRegex.ruleFromMarkers("(__ < (", anyTag, markersWithoutTO, " $ " + VPinfExtended + "))");
+        // TODO: Test SBAR and VPart extensively
+        var rulePP    = ruleFromMarkers("(PP < (", anyTag, markers,"))");
+        var ruleSBAR  = ruleFromMarkers("(SBAR << (", anyTag, markers, "))"); // Suspicious match
+        var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", anyTag, markers, "))"); // No match
+        var ruleVPinf = ruleFromMarkers("(__ < (", anyTag, markersWithoutTO, " $ " + VPinfExtended + "))"); // Modified to make less strict
 
-        return or(ruleBasic1, ruleVPinf);
+        return any(Stream.of(rulePP, ruleSBAR, ruleVPart, ruleVPinf));
     }
 
     private static String situation() {
         var markers = Markers.situation();
-        return TRegex.ruleFromMarkers("(NP < (", anyTag, markers, "))");
+        return ruleFromMarkers("(NP < (", anyTag, markers, "))");
     }
 
     private static String time() throws JWNLException {
         var markers = Markers.time();
 
-        String rule1 = TRegex.ruleFromMarkers("(NP < (", anyTag, markers, "))");
+        String rule1 = ruleFromMarkers("(NP < (", anyTag, markers, "))");
         // TODO: This rule has not generated any matches yet. Investigate!
-        String rule2 = TRegex.ruleFromMarkers("(PP < (P < (", anyTag, markers, ")) $ NP)");
+        String rule2 = ruleFromMarkers("(PP < (P < (", anyTag, markers, ")) $ NP)");
 
         return or(rule1, rule2);
     }

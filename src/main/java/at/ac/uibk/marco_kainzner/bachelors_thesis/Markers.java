@@ -8,19 +8,22 @@ import org.apache.commons.lang.StringUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class Markers {
-    static Set<String> actor() {
+    static Set<String> actor() throws IOException {
         Set<String> markers = new TreeSet<>();
 
         markers.addAll(WordNet.getAllHyponyms(WordNet.getSynset("body%1:14:00::")));
         markers.addAll(WordNet.getAllHyponyms(WordNet.getSynset("organisation%1:14:00::")));
         markers.addAll(WordNet.getPersonsWithoutNames());
+
+        toFile("resources/markers-auto/actor.txt", markers);
 
         return markers;
     }
@@ -54,6 +57,10 @@ class Markers {
         return manual("wiktionary_situation");
     }
 
+    static Set<String> exception() {
+        return manual("exception");
+    }
+
     static Set<String> time() throws JWNLException {
         Synset synTemporarily = WordNet.getSynset("temporarily%4:02:00::");
         Synset synPeriod = WordNet.getSynset("time_period%1:28:00::");
@@ -73,6 +80,10 @@ class Markers {
     private static Set<String> manual(String fileName) {
         var path = "resources\\markers-manual\\" + fileName + ".txt";
         return fromFile(path);
+    }
+
+    private static void toFile(String path, Set<String> markers) throws IOException {
+        Files.write(Paths.get(path), markers, Charset.defaultCharset());
     }
 
     private static Set<String> fromFile(String path) {

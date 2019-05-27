@@ -7,6 +7,11 @@ import java.util.stream.Stream;
 class TRegex {
     private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
+    static String ruleFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule) {
+        String anyTag = "__";
+        return ruleFromMarkers(beforeEachRule, anyTag, markers, afterEachRule);
+    }
+
     static String ruleFromMarkers(String beforeEachRule, String wordTag, Set<String> markers, String afterEachRule) {
         var sanitizedMarkers = markers.stream()
                 // Remove lemmas that look like Penn Tags
@@ -37,20 +42,31 @@ class TRegex {
         return rules.collect(Collectors.joining("|"));
     }
 
+    static String mergeWords(String words) {
+        var wordList = Arrays.asList(words.split(" "));
+        return mergeWords(wordList);
+    }
+
+    static String mergeWords(List<String> wordsFixedList) {
+        Collections.reverse(wordsFixedList);
+        var words = new ArrayList<>(wordsFixedList);
+
+        // Use last word as initial state. This approach avoids empty parentheses at the end of the rule.
+        var fst = words.get(0);
+        words.remove(0);
+
+        return "(" + words.stream().reduce(fst, (suffix, word) -> immediatelyPrecedes(word, suffix)) + ")";
+    }
+
+    private static String immediatelyPrecedes(String fst, String snd) {
+        return fst + " . (" + snd + ")";
+    }
+
     // If marker consists of two words (eg. marker = "word1 word2", merge into tregex rule like this: `((__ < word1) $ (__ < word2))`
     // e.g. `NP < "this article"` becomes `NP < ((__ < this) $ (__ < article))`
     private static String ruleFromMultipleWords(String beforeEachRule, String wordTag, String lemma, String afterEachRule) {
         if (lemma.contains(" ")) {
-            var beforeEachWord = "(" + wordTag + " < ";
-            var afterEachWord = ")";
-
-            var wordList = Arrays.stream(lemma.split(" "))
-                    .map(word -> beforeEachWord + word + afterEachWord)
-                    .collect(Collectors.toList());
-
-            var ruleForLemma = String.join(" $ ", wordList);
-
-            return beforeEachRule + ruleForLemma + afterEachRule;
+            return mergeWords(lemma);
         }
         return lemma;
     }

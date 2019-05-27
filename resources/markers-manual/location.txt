@@ -22,7 +22,6 @@ network location
 notional financial marketplace
 notional place
 physical location
-place
 populated place
 post box
 post code area

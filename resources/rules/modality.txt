@@ -1,0 +1,1 @@
+(VN < ((__ < (can|may|must|shall|should))))|(VN < ((__ < is) $ (__ < authorized) $ (__ < to)))|(VN < ((__ < is) $ (__ < prohibited) $ (__ < from)))|(VN < ((__ < need) $ (__ < to)))

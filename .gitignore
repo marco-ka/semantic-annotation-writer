@@ -3,3 +3,4 @@ target/
 out/
 wiktionary/
 resources/db/fibo-ontology/
+resources/rules/

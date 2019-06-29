@@ -6,6 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -62,9 +63,22 @@ public class Rules {
         return ruleFromMarkers("(NP < (", markers,"))");
     }
 
-    private static String artifact() {
+    private static String artifact() throws JWNLException, IOException {
         var markers = Markers.artifact();
-        return ruleFromMarkers("(NP < (", markers, "))");
+        var ruleNP = ruleFromMarkers("(NP < (", markers, "))");
+
+        Set<String> disallowedMarkers = new TreeSet<>();
+        disallowedMarkers.addAll(Markers.violation());
+        disallowedMarkers.addAll(Markers.time());
+        disallowedMarkers.addAll(Markers.situation());
+        disallowedMarkers.addAll(Markers.sanction());
+        disallowedMarkers.addAll(Markers.location());
+        disallowedMarkers.addAll(Markers.actor());
+
+        var ruleNothingElseMatches = "NP " + TRegex.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
+        System.out.println(ruleNothingElseMatches);
+
+        return or(ruleNP, ruleNothingElseMatches);
     }
 
     private static String condition() {
@@ -139,6 +153,10 @@ public class Rules {
 
     private static String or(String rule1, String rule2) {
         return rule1 + "|" + rule2;
+    }
+
+    private static String and(String rule1, String rule2) {
+        return rule1 + "&" + rule2;
     }
 
     private static void save(String name, String rule) throws IOException {

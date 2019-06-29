@@ -10,28 +10,40 @@ class TRegex {
     private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
     static String ruleFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule) {
+        return ruleFromMarkers(beforeEachRule, markers, afterEachRule, "|", "|");
+    }
+
+    static String ruleFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule, String joinSingleWith, String joinMultiWith) {
         var sanitizedMarkers = preprocess(markers).stream()
                 .collect(Collectors.partitioningBy(x -> x.contains(" ")));
 
         var multiWordMarkers = sanitizedMarkers.get(true);
         var singleWordMarkers = sanitizedMarkers.get(false);
 
-        String multiWordRules = any(multiWordMarkers.stream().map(lemma -> ruleFromMultipleWords(beforeEachRule, lemma, afterEachRule)));
-        String singleWordRules = beforeEachRule + any(singleWordMarkers.stream()) + afterEachRule;
+        String multiWordRules = multiWordRule(beforeEachRule, multiWordMarkers, afterEachRule, joinMultiWith);
+        String singleWordRules = singleWordRule(beforeEachRule, singleWordMarkers, afterEachRule, joinSingleWith);
 
         if (singleWordMarkers.isEmpty()){
             return multiWordRules;
         }
-        return singleWordRules + "|" + multiWordRules;
+        return singleWordRules + joinMultiWith + multiWordRules;
     }
 
-    static Set<String> subRules(Set<String> markers) {
-        // TODO: return set of merged words
-        return markers.stream().map(TRegex::mergeWords).collect(Collectors.toSet());
+    private static String multiWordRule(String beforeEachRule, List<String> multiWordMarkers, String afterEachRule, String joinWith) {
+        return multiWordMarkers.stream()
+                .map(lemma -> ruleFromMultipleWords(beforeEachRule, lemma, afterEachRule))
+                .collect(Collectors.joining(joinWith));
+    }
+
+    private static String singleWordRule(String beforeEachRule, List<String> singleWordMarkers, String afterEachRule, String joinWith) {
+        var joinedMarkers = String.join(joinWith, singleWordMarkers);
+        return beforeEachRule + joinedMarkers + afterEachRule;
     }
 
     static Set<String> preprocess(Set<String> markers) {
         return markers.stream()
+                // Remove lemmas that start with a digit
+                .filter(lemma -> !Character.isDigit(lemma.charAt(0)))
                 // Remove lemmas that look like Penn Tags
                 .filter(lemma -> !PENN_TAGS.contains(lemma))
                 // even escaped dots ("/.") and commas break TRegex rules
@@ -40,13 +52,17 @@ class TRegex {
                 // even escaped slashes ("\/") break TRegex
                 .map(lemma -> lemma.replace("/", ""))
                 // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
-                .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
+                // .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
                 .map(TRegex::regexEscape)
                 .collect(Collectors.toSet());
     }
 
     static String any(Stream<String> rules) {
         return rules.collect(Collectors.joining("|"));
+    }
+
+    static String all(Stream<String> rules) {
+        return rules.collect(Collectors.joining(""));
     }
 
     private static String mergeWords(String words) {

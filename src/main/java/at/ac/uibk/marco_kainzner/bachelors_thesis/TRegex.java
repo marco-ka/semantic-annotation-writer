@@ -25,7 +25,7 @@ class TRegex {
         return singleWordRules + "|" + multiWordRules;
     }
 
-    static Set<String> subRules(Set<String> markers) throws ExecutionControl.NotImplementedException {
+    static Set<String> subRules(Set<String> markers) {
         // TODO: return set of merged words
         return markers.stream().map(TRegex::mergeWords).collect(Collectors.toSet());
     }
@@ -49,7 +49,7 @@ class TRegex {
         return rules.collect(Collectors.joining("|"));
     }
 
-    static String mergeWords(String words) {
+    private static String mergeWords(String words) {
         var wordList = Arrays.asList(words.split(" "));
         return mergeWords(wordList);
     }
@@ -65,7 +65,7 @@ class TRegex {
         return words.stream().reduce(fst, (suffix, word) -> immediatelyPrecedes(word, suffix));
     }
 
-    static String immediatelyPrecedes(String fst, String snd) {
+    private static String immediatelyPrecedes(String fst, String snd) {
         return "(" + fst + " . " + snd + ")";
     }
 

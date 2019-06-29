@@ -53,6 +53,10 @@ class Markers {
         return manual("reason");
     }
 
+    public static Set<String> sanction() {
+        return manual("paper_sanction");
+    }
+
     static Set<String> situation() {
         return manual("wiktionary_situation");
     }
@@ -72,9 +76,13 @@ class Markers {
         Set<String> markers = Markers.manual("time");
         markers.addAll(temporarily);
         markers.addAll(temporary);
-        // markers.addAll(periodHyponyms);
+        markers.addAll(periodHyponyms);
 
         return markers;
+    }
+
+    static Set<String> violation() {
+        return manual("paper_violation");
     }
 
     private static Set<String> manual(String fileName) {
@@ -97,5 +105,13 @@ class Markers {
             e.printStackTrace();
             return new TreeSet<>();
         }
+    }
+
+    static Set<String> removeTO(Set<String> markers) {
+        return markers.stream()
+                .map(marker -> marker.replace(" to", ""))
+                .map(String::trim)
+                .filter(marker -> !marker.isEmpty())
+                .collect(Collectors.toSet());
     }
 }

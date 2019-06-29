@@ -5,63 +5,56 @@ import net.sf.extjwnl.JWNLException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.*;
 
 public class Rules {
-    private static String anyTag = "__";
-
     private static String VP_INF = "(VP < (TO $ (__ << VB)))";
 
     public static void main(String[] args) throws IOException, JWNLException {
-        // Find dangerous characters with this regex:
-        // [^()<>|\w $\\\-\ä\ü\ö']
-
+        // Find dangerous characters with this regex: [^()<>|\w $\\\-\ä\ü\ö']
         createAndSaveAll();
     }
 
     private static void createAndSaveAll() throws IOException, JWNLException {
-//        save("actor", actor());
-//        save("artifact", artifact());
-//        save("condition", condition());
+        save("actor", actor());
+        save("artifact", artifact());
+        save("condition", condition());
         save("exception", exception());
-//        save("location", location());
-//        save("modality", modality());
-//        save("reason", reason());
-//        save("situation", situation());
-//        save("time", time());
+        save("location", location());
+        save("modality", modality());
+        save("reason", reason());
+        save("situation", situation());
+        save("sanction", sanction());
+        save("time", time());
+        save("violation", violation());
     }
 
-    private static String exception() throws IOException {
+    private static String exception() {
         var markers = Markers.exception();
 
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers,"))"); // TODO: Only 2 matches in 2013_10
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
 
-
-        // TODO: Check these alternative rules for VPinf:
-        // Possible rule: `[markers] . (VP < (TO $ (__ << VB)))` // Note: (VP < ...) == VPinf
-        // Example: `(Other . (than . (VP < (TO $ (__ << VB)))))`
+        // TODO: Check alternative rules for VPinf:
         // Alternative example with better braces but probably not quite right yet: `(that . intend) . (__ << (VP < (TO $ (__ << VB))))`
         // Proven rule: `(does . (not . (need . (VP < (TO $ (__ << VB))))))` (2 matches in fffs_2009_03)
-
         // Almost there: (__ < (does . (not . (need)))) $ (VP << (TO $ (__ << VB)))
 
-        var cleanMarkers = TRegex.preprocess(markers);
-        var ruleVPinf1 = any(cleanMarkers.stream() // This rule is probably wrong. "does not need to" should not be a marker
+        var markersWithoutTO = Markers.removeTO(markers);
+
+        var ruleVPinf1 = any(TRegex.preprocess(markersWithoutTO).stream() // This rule is probably wrong. "does not need to" should not be a marker
                 .map(marker -> new ArrayList<>(Arrays.asList(marker.split(" "))))
                 .peek(marker -> marker.add(VP_INF))
                 .map(TRegex::mergeWords));
 
-        return ruleVPinf1;
-    }
+        System.out.println(ruleVPinf1);
 
-    private static String exceptionVPinf() {
-        return "";
+        return any(Stream.of(ruleVPinf1, rulePP, ruleSsub, ruleVPart));
     }
 
     private static String actor() throws IOException {
@@ -77,10 +70,10 @@ public class Rules {
     private static String condition() {
         var markers = Markers.condition();
 
-        var rule1 = ruleFromMarkers("(PP << (", markers,"))");
-        var rule2 = ruleFromMarkers("(SBAR < (", markers,"))"); // TODO: SBAR == Ssub?
+        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
+        var ruleSsub = ruleFromMarkers("(SBAR < (", markers,"))"); // TODO: SBAR == Ssub?
 
-        return or(rule1, rule2);
+        return or(rulePP, ruleSsub);
     }
 
     private static String location() {
@@ -112,11 +105,16 @@ public class Rules {
 
         // TODO: Test SBAR and VPart extensively
         var rulePP    = ruleFromMarkers("(PP < (", markers,"))");
-        var ruleSBAR  = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
+        var ruleSsub  = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
         var ruleVPinf = ruleFromMarkers("(__ < (", markersWithoutTO, " $ " + VPinfExtended + "))"); // Modified to make less strict
 
-        return any(Stream.of(rulePP, ruleSBAR, ruleVPart, ruleVPinf));
+        return any(Stream.of(rulePP, ruleSsub, ruleVPart, ruleVPinf));
+    }
+
+    private static String sanction() {
+        var markers = Markers.sanction();
+        return ruleFromMarkers("(NP < (", markers, "))");
     }
 
     private static String situation() {
@@ -127,11 +125,16 @@ public class Rules {
     private static String time() throws JWNLException {
         var markers = Markers.time();
 
-        String rule1 = ruleFromMarkers("(NP < (", markers, "))");
+        String ruleNP = ruleFromMarkers("(NP < (", markers, "))");
         // TODO: This rule has not generated any matches yet. Investigate!
-        String rule2 = ruleFromMarkers("(PP < (P < (", markers, ")) $ NP)");
+        String rulePP = ruleFromMarkers("(PP < (P < (", markers, ")) $ NP)");
 
-        return or(rule1, rule2);
+        return or(ruleNP, rulePP);
+    }
+
+    private static String violation() {
+        var markers = Markers.violation();
+        return ruleFromMarkers("(NP < (", markers, "))");
     }
 
     private static String or(String rule1, String rule2) {

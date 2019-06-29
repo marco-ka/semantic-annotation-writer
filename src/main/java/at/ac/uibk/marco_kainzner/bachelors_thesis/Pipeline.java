@@ -23,12 +23,12 @@ public class Pipeline {
     public static void main(String[] args)
             throws UIMAException, IOException {
 
-        String outputDir = "out/pipeline/";
+        String outputDir = "resources/fffs/penn-trees";
 
         // http://pdf2md.morethan.io/
         CollectionReader reader = createReader(
                 TextReader.class,
-                TextReader.PARAM_SOURCE_LOCATION, "resources/text",
+                TextReader.PARAM_SOURCE_LOCATION, "resources/fffs/text/active",
                 TextReader.PARAM_LANGUAGE, "en",
                 TextReader.PARAM_PATTERNS, new String[]{"[+]*.txt"});
 

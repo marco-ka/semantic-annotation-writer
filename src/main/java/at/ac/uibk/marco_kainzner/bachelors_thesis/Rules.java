@@ -21,7 +21,7 @@ public class Rules {
     }
 
     private static void createAndSaveAll() throws IOException, JWNLException {
-        save("actor", actor());
+       save("actor", actor());
        save("artifact", artifact());
        save("condition", condition());
        save("exception", exception());
@@ -114,8 +114,6 @@ public class Rules {
                 .filter(marker -> !marker.isEmpty())
                 .collect(Collectors.toSet());
 
-        markers.forEach(marker -> System.out.println("Marker: " + marker));
-
         // TODO: Test SBAR and VPart extensively
         var rulePP    = ruleFromMarkers("(PP < (", markers,"))");
         var ruleSsub  = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
@@ -163,8 +161,10 @@ public class Rules {
         File file = new File("resources/rules/" + name + ".txt");
         file.createNewFile();
 
+        String ruleWithNewlines = rule.replace("|(", "\n|(");
+
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.write(rule);
+        writer.write(ruleWithNewlines);
         writer.close();
     }
 }

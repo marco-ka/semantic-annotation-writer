@@ -52,6 +52,7 @@ public class Pipeline {
                 ConllUWriter.PARAM_OVERWRITE, true);
 
 //        SimplePipeline.runPipeline(reader, seg, pos, ner, maltParser, berkeleyParser, conllWriter, pennWriter);
+//        SimplePipeline.runPipeline(reader, seg, pos, ner, maltParser, conllWriter);
         SimplePipeline.runPipeline(reader, seg, pos, ner, berkeleyParser, pennWriter);
     }
 }

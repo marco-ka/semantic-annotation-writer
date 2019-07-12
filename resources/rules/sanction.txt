@@ -1,1 +1,5 @@
-(NP < ((Punishment|punishment|fine|imprisonment|Imprisonment|Fine)))|((NP < ((jail . sentence))))|((NP < ((Jail . sentence))))|((NP < ((Prison . term))))|((NP < ((prison . term))))
+(NP < ((Punishment|punishment|fine|imprisonment|Imprisonment|Fine)))
+|((NP < ((jail . sentence))))
+|((NP < ((Jail . sentence))))
+|((NP < ((Prison . term))))
+|((NP < ((prison . term))))

@@ -28,6 +28,10 @@ class TRegex {
         if (singleWordMarkers.isEmpty()){
             return multiWordRules;
         }
+        if (multiWordMarkers.isEmpty()) {
+            return singleWordRules;
+        }
+
         return singleWordRules + joinMultiWith + multiWordRules;
     }
 
@@ -56,6 +60,7 @@ class TRegex {
                 // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
                 // .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
                 .map(TRegex::regexEscape)
+                .filter(lemma -> !lemma.isEmpty())
                 .collect(Collectors.toSet());
     }
 
@@ -72,9 +77,9 @@ class TRegex {
         return mergeWords(wordList);
     }
 
-    static String mergeWords(List<String> wordsFixedList) {
-        Collections.reverse(wordsFixedList);
-        var words = new ArrayList<>(wordsFixedList);
+    static String mergeWords(List<String> wordsInLemma) {
+        Collections.reverse(wordsInLemma);
+        var words = new ArrayList<>(wordsInLemma);
 
         // Use last word as initial state. This approach avoids empty parentheses at the end of the rule.
         var fst = words.get(0);
@@ -91,7 +96,7 @@ class TRegex {
     // e.g. `NP < "this article"` becomes `NP < ((__ < this) $ (__ < article))`
     private static String ruleFromMultipleWords(String beforeEachRule, String lemma, String afterEachRule) {
         if (lemma.contains(" ")) {
-            return beforeEachRule + mergeWords(lemma) + afterEachRule;
+            return "(" + beforeEachRule + mergeWords(lemma) + afterEachRule + ")";
         }
         return lemma;
     }

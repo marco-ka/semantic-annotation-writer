@@ -1,1 +1,1 @@
-(VN < ((__ < (Should|may|May|shall|Must|Shall|can|Can|should|must))))|(VN < ((need . to)))|(VN < ((Is . (prohibited . from))))|(VN < ((Is . (authorized . to))))|(VN < ((is . (prohibited . from))))|(VN < ((Need . to)))|(VN < ((is . (authorized . to))))
+(VN < ((Should|may|May|shall|Must|Shall|can|Can|should|must)))|((VN < ((need . to))))|((VN < ((Is . (prohibited . from)))))|((VN < ((Is . (authorized . to)))))|((VN < ((is . (prohibited . from)))))|((VN < ((Need . to))))|((VN < ((is . (authorized . to)))))

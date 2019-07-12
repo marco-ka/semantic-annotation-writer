@@ -22,16 +22,16 @@ public class Rules {
 
     private static void createAndSaveAll() throws IOException, JWNLException {
         save("actor", actor());
-        save("artifact", artifact());
-        save("condition", condition());
-        save("exception", exception());
-        save("location", location());
-        save("modality", modality());
-        save("reason", reason());
-        save("situation", situation());
-        save("sanction", sanction());
-        save("time", time());
-        save("violation", violation());
+       save("artifact", artifact());
+       save("condition", condition());
+       save("exception", exception());
+       save("location", location());
+       save("modality", modality());
+       save("reason", reason());
+       save("situation", situation());
+       save("sanction", sanction());
+       save("time", time());
+       save("violation", violation());
     }
 
     private static String exception() {
@@ -60,7 +60,7 @@ public class Rules {
 
     private static String actor() throws IOException {
         var markers = Markers.actor();
-        return ruleFromMarkers("(NP < (", markers,"))");
+        return "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
     }
 
     private static String artifact() throws JWNLException, IOException {
@@ -76,7 +76,6 @@ public class Rules {
         disallowedMarkers.addAll(Markers.actor());
 
         var ruleNothingElseMatches = "NP " + TRegex.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
-        System.out.println(ruleNothingElseMatches);
 
         return or(ruleNP, ruleNothingElseMatches);
     }
@@ -122,6 +121,7 @@ public class Rules {
         var ruleSsub  = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
         var ruleVPinf = ruleFromMarkers("(__ < (", markersWithoutTO, " $ " + VPinfExtended + "))"); // Modified to make less strict
+        var ruleSrel = ruleRelativeClause + "<< ";
 
         return any(Stream.of(rulePP, ruleSsub, ruleVPart, ruleVPinf));
     }

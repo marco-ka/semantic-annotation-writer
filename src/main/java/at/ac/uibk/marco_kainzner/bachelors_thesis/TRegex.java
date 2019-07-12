@@ -39,7 +39,7 @@ class TRegex {
 
     private static String singleWordRule(String beforeEachRule, List<String> singleWordMarkers, String afterEachRule, String joinWith) {
         var joinedMarkers = String.join(joinWith, singleWordMarkers);
-        return beforeEachRule + joinedMarkers + afterEachRule;
+        return beforeEachRule + "(" + joinedMarkers + ")" + afterEachRule;
     }
 
     static Set<String> preprocess(Set<String> markers) {

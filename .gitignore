@@ -3,4 +3,8 @@ target/
 out/
 wiktionary/
 resources/db/fibo-ontology/
-resources/rules/
+resources/markers-manual/wiktionary_situation-smaller.txt
+resources/fffs/pdf/
+*.conll
+*.mrg
+active/

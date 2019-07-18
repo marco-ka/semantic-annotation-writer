@@ -13,7 +13,8 @@ import java.util.stream.Stream;
 import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.*;
 
 public class Rules {
-    private static String VP_INF = "(VP < (TO $ (__ << VB)))";
+    private static final String VP_INF = "(VP < (TO $ (__ << VB)))";
+    private static final String S_REL = "SBAR <<, (WDT < who|which|whom|that|where|why|when)";
 
     public static void main(String[] args) throws IOException, JWNLException {
         createAndSaveAll();
@@ -36,15 +37,10 @@ public class Rules {
     private static String exception() {
         var markers = Markers.exception();
 
-        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
+        var ruleSrel = S_REL + "(" + ruleFromMarkers("<< ", markers, "") + ")";
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers,"))"); // TODO: Only 2 matches in 2013_10
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
-        var ruleSrel = ruleRelativeClause + "(" + ruleFromMarkers("<< ", markers, "") + ")";
-
-        // TODO: Check alternative rules for VPinf:
-        // Alternative example with better braces but probably not quite right yet: `(that . intend) . (__ << (VP < (TO $ (__ << VB))))`
-        // Proven rule: `(does . (not . (need . (VP < (TO $ (__ << VB))))))` (2 matches in fffs_2009_03)
-        // Almost there: (__ < (does . (not . (need)))) $ (VP << (TO $ (__ << VB)))
+        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
 
         var markersWithoutTO = Markers.removeTO(markers);
 
@@ -53,7 +49,7 @@ public class Rules {
                 .peek(marker -> marker.add(VP_INF))
                 .map(TRegex::mergeWords));
 
-        return any(Stream.of(ruleVPinf, rulePP, ruleSsub, ruleVPart));
+        return any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
     }
 
     private static String actor() throws IOException {
@@ -114,7 +110,7 @@ public class Rules {
         var VPinfExtended = "(__ << " + VP_INF + ")";
         var ruleVPinf = ruleFromMarkers("NP << (__ < ", markersWithoutTO, " $ " + VPinfExtended + ")");
 
-        var ruleSrel = "(" + ruleRelativeClause + "(" + ruleFromMarkers("<< ", markers, "") + "))";
+        var ruleSrel = "(" + S_REL + "(" + ruleFromMarkers("<< ", markers, "") + "))";
 
         return any(Stream.of(rulePP, ruleSsub, ruleVPart, ruleVPinf));
     }

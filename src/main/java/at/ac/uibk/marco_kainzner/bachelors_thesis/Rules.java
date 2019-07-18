@@ -37,7 +37,7 @@ public class Rules {
     private static String exception() {
         var markers = Markers.exception();
 
-        var ruleSrel = S_REL + "(" + ruleFromMarkers("<< ", markers, "") + ")";
+        var ruleSrel = createSrelRule(markers);
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers,"))"); // TODO: Only 2 matches in 2013_10
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
@@ -77,10 +77,13 @@ public class Rules {
     private static String condition() {
         var markers = Markers.condition();
 
+        var ruleSrel = createSrelRule(markers);
+        var ruleVPinf = "Not implemented";
+        var ruleVPart = "Not implemented";
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
         var ruleSsub = ruleFromMarkers("(SBAR < (", markers,"))"); // TODO: SBAR == Ssub?
 
-        return or(rulePP, ruleSsub);
+        return any(Stream.of(ruleSrel, rulePP, ruleSsub));
     }
 
     private static String location() {
@@ -102,17 +105,16 @@ public class Rules {
                 .collect(Collectors.toSet());
 
         // TODO: Test SBAR and VPart extensively
-        var rulePP    = ruleFromMarkers("(PP < (", markers,"))");
-        var ruleSsub  = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
+        var ruleSrel = createSrelRule(markers);
+        var rulePP = ruleFromMarkers("(PP < (", markers,"))");
+        var ruleSsub = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
 
         // See https://trello.com/c/DwCEANSr/52-needs-adjustment-reason-rule
         var VPinfExtended = "(__ << " + VP_INF + ")";
         var ruleVPinf = ruleFromMarkers("NP << (__ < ", markersWithoutTO, " $ " + VPinfExtended + ")");
 
-        var ruleSrel = "(" + S_REL + "(" + ruleFromMarkers("<< ", markers, "") + "))";
-
-        return any(Stream.of(rulePP, ruleSsub, ruleVPart, ruleVPinf));
+        return any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
     }
 
     private static String sanction() {
@@ -146,6 +148,10 @@ public class Rules {
 
     private static String and(String rule1, String rule2) {
         return rule1 + "&" + rule2;
+    }
+
+    private static String createSrelRule(Set<String> markers) {
+        return S_REL + "(" + ruleFromMarkers("<< ", markers, "") + ")";
     }
 
     private static void save(String name, String rule) throws IOException {

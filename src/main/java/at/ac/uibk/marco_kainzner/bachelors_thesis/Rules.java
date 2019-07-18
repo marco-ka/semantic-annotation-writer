@@ -16,22 +16,21 @@ public class Rules {
     private static String VP_INF = "(VP < (TO $ (__ << VB)))";
 
     public static void main(String[] args) throws IOException, JWNLException {
-        // Find dangerous characters with this regex: [^()<>|\w $\\\-\ä\ü\ö']
         createAndSaveAll();
     }
 
     private static void createAndSaveAll() throws IOException, JWNLException {
-       save("actor", actor());
-       save("artifact", artifact());
-       save("condition", condition());
-       save("exception", exception());
-       save("location", location());
-       save("modality", modality());
-       save("reason", reason());
-       save("situation", situation());
-       save("sanction", sanction());
-       save("time", time());
-       save("violation", violation());
+        save("actor", actor());
+        save("artifact", artifact());
+        save("condition", condition());
+        save("exception", exception());
+        save("location", location());
+        save("modality", modality());
+        save("reason", reason());
+        save("situation", situation());
+        save("sanction", sanction());
+        save("time", time());
+        save("violation", violation());
     }
 
     private static String exception() {
@@ -40,6 +39,7 @@ public class Rules {
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers,"))"); // TODO: Only 2 matches in 2013_10
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
+        var ruleSrel = ruleRelativeClause + "(" + ruleFromMarkers("<< ", markers, "") + ")";
 
         // TODO: Check alternative rules for VPinf:
         // Alternative example with better braces but probably not quite right yet: `(that . intend) . (__ << (VP < (TO $ (__ << VB))))`
@@ -48,14 +48,12 @@ public class Rules {
 
         var markersWithoutTO = Markers.removeTO(markers);
 
-        var ruleVPinf1 = any(TRegex.preprocess(markersWithoutTO).stream() // This rule is probably wrong. "does not need to" should not be a marker
+        var ruleVPinf = any(TRegex.preprocess(markersWithoutTO).stream() // This rule is probably wrong. "does not need to" should not be a marker
                 .map(marker -> new ArrayList<>(Arrays.asList(marker.split(" "))))
                 .peek(marker -> marker.add(VP_INF))
                 .map(TRegex::mergeWords));
 
-        System.out.println(ruleVPinf1);
-
-        return any(Stream.of(ruleVPinf1, rulePP, ruleSsub, ruleVPart));
+        return any(Stream.of(ruleVPinf, rulePP, ruleSsub, ruleVPart));
     }
 
     private static String actor() throws IOException {
@@ -101,13 +99,6 @@ public class Rules {
 
     private static String reason() {
         var markers = Markers.reason();
-
-        // (in . (order . (TO . VB)))
-        // var VP_INF = "(VP < (TO . VB))";
-
-        var VPinfExtended = "(__ << " + VP_INF + ")";
-
-        // var exampleInOrderTo = "(__ < ((IN < in) $ (NN < order) $ (__ << (VP < (TO $ (__ << VB))))))";
         var markersWithoutTO = markers.stream()
                 .map(marker -> marker.replace(" to", ""))
                 .map(String::trim)
@@ -118,8 +109,12 @@ public class Rules {
         var rulePP    = ruleFromMarkers("(PP < (", markers,"))");
         var ruleSsub  = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
-        var ruleVPinf = ruleFromMarkers("(__ < (", markersWithoutTO, " $ " + VPinfExtended + "))"); // Modified to make less strict
-        var ruleSrel = ruleRelativeClause + "<< ";
+
+        // See https://trello.com/c/DwCEANSr/52-needs-adjustment-reason-rule
+        var VPinfExtended = "(__ << " + VP_INF + ")";
+        var ruleVPinf = ruleFromMarkers("NP << (__ < ", markersWithoutTO, " $ " + VPinfExtended + ")");
+
+        var ruleSrel = "(" + ruleRelativeClause + "(" + ruleFromMarkers("<< ", markers, "") + "))";
 
         return any(Stream.of(rulePP, ruleSsub, ruleVPart, ruleVPinf));
     }
@@ -161,6 +156,9 @@ public class Rules {
         File file = new File("resources/rules/" + name + ".txt");
         file.createNewFile();
 
+        System.out.println("---");
+        System.out.println(name);
+        System.out.println(rule);
         String ruleWithNewlines = rule.replace("|(", "\n|(");
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));

@@ -1,4 +1,4 @@
-(VN < ((Should|may|May|shall|Must|Shall|can|Can|should|must)))
+((VN < ((Should|may|May|shall|Must|Shall|can|Can|should|must))))
 |((VN < ((need . to))))
 |((VN < ((Is . (prohibited . from)))))
 |((VN < ((Is . (authorized . to)))))

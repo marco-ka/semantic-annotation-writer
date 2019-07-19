@@ -21,7 +21,7 @@ class TRegexTest {
         markers.addAll(shortMarkers);
         markers.addAll(longMarkers);
 
-        var expected = "SBAR <<, (some|short|markers)|(SBAR <<, (some . longer))|(SBAR <<, (markers . (with . (multiple . words))))";
+        var expected = "(SBAR <<, (some|short|markers))|(SBAR <<, (some . longer))|(SBAR <<, (markers . (with . (multiple . words))))";
         var actual = TRegex.ruleFromMarkers("SBAR <<, ", markers, "");
 
         assertEquals(expected, actual);
@@ -29,7 +29,7 @@ class TRegexTest {
 
     @Test
     void ruleFromShortMarkers() {
-        var expected = "NP < (some|short|markers)";
+        var expected = "(NP < (some|short|markers))";
         var actual = TRegex.ruleFromMarkers("NP < ", shortMarkers, "");
 
         assertEquals(expected, actual);

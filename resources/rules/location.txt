@@ -1,4 +1,4 @@
-(NP < ((country|county|municipality|Street|Territory|Municipality|Neighborhood|Country|Region|neighborhood|region|Site|County|street|site|location|Location|territory)))
+((NP < ((country|county|municipality|Street|Territory|Municipality|Neighborhood|Country|Region|neighborhood|region|Site|County|street|site|location|Location|territory))))
 |((NP < ((Geographical . feature))))
 |((NP < ((physical . location))))
 |((NP < ((Neighborhood . subdivision))))

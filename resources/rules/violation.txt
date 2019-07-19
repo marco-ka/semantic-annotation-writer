@@ -1,3 +1,3 @@
-(NP < ((Infraction|infraction|offence|transgression|misdemeanor|Crime|Transgression|crime|Offence|Misdemeanor)))
+((NP < ((Infraction|infraction|offence|transgression|misdemeanor|Crime|Transgression|crime|Offence|Misdemeanor))))
 |((NP < ((civil . wrong))))
 |((NP < ((Civil . wrong))))

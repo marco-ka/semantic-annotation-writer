@@ -3,16 +3,14 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 import net.sf.extjwnl.JWNLException;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.*;
 
 public class Rules {
+    private static final String V_PART = "(VP <, VBG)";
     private static final String VP_INF = "(VP < (TO $ (__ << VB)))";
     private static final String S_REL = "SBAR <<, (WDT < who|which|whom|that|where|why|when)";
 
@@ -38,12 +36,12 @@ public class Rules {
         var markers = Markers.exception();
 
         var ruleSrel = createSrelRule(markers);
-        var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers,"))"); // TODO: Only 2 matches in 2013_10
+        var ruleVPart = createVPartRule(markers);
         var ruleVPinf = createVPinfRule(markers);
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
 
-        return any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
+       return any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
     }
 
     private static String actor() throws IOException {
@@ -97,9 +95,8 @@ public class Rules {
         var ruleSrel = createSrelRule(markers);
         var rulePP = ruleFromMarkers("(PP < (", markers,"))");
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
-        var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
+        var ruleVPart = createVPartRule(markers);
         var ruleVPinf = createVPinfRule(markers);
-
 
         return any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
     }
@@ -139,6 +136,10 @@ public class Rules {
 
     private static String createSrelRule(Set<String> markers) {
         return S_REL + "(" + ruleFromMarkers("<< ", markers, "") + ")";
+    }
+
+    private static String createVPartRule(Set<String> markers) {
+        return ruleFromMarkers("NP < (" + V_PART + " << (", markers, "))");
     }
 
     private static String createVPinfRule(Set<String> markers) {

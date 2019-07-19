@@ -39,15 +39,9 @@ public class Rules {
 
         var ruleSrel = createSrelRule(markers);
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers,"))"); // TODO: Only 2 matches in 2013_10
+        var ruleVPinf = createVPinfRule(markers);
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
-
-        var markersWithoutTO = Markers.removeTO(markers);
-
-        var ruleVPinf = any(TRegex.preprocess(markersWithoutTO).stream() // This rule is probably wrong. "does not need to" should not be a marker
-                .map(marker -> new ArrayList<>(Arrays.asList(marker.split(" "))))
-                .peek(marker -> marker.add(VP_INF))
-                .map(TRegex::mergeWords));
 
         return any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
     }
@@ -104,11 +98,8 @@ public class Rules {
         var rulePP = ruleFromMarkers("(PP < (", markers,"))");
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
+        var ruleVPinf = createVPinfRule(markers);
 
-        // See https://trello.com/c/DwCEANSr/52-needs-adjustment-reason-rule
-        var markersWithoutTO = Markers.removeTO(markers);
-        var VPinfExtended = "(__ << " + VP_INF + ")";
-        var ruleVPinf = ruleFromMarkers("((" + VPinfExtended + " $ (__ < ", markersWithoutTO, ")) > __) >> NP");
 
         return any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
     }
@@ -148,6 +139,14 @@ public class Rules {
 
     private static String createSrelRule(Set<String> markers) {
         return S_REL + "(" + ruleFromMarkers("<< ", markers, "") + ")";
+    }
+
+    private static String createVPinfRule(Set<String> markers) {
+        // See https://trello.com/c/DwCEANSr/52-needs-adjustment-reason-rule
+        var markersWithoutTO = Markers.removeTO(markers);
+        var VPinfExtended = "(__ << " + VP_INF + ")";
+
+        return ruleFromMarkers("((" + VPinfExtended + " $ (__ < ", markersWithoutTO, ")) > __) >> NP");
     }
 
     private static void save(String name, String rule) throws IOException {

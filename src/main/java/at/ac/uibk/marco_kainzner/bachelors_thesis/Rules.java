@@ -69,13 +69,19 @@ public class Rules {
     private static String condition() {
         var markers = Markers.condition();
 
-        var ruleSrel = createSrelRule(markers);
-        var ruleVPinf = "Not implemented";
-        var ruleVPart = "Not implemented";
-        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
-        var ruleSsub = ruleFromMarkers("(SBAR < (", markers,"))"); // TODO: SBAR == Ssub?
+        Set<String> disallowedMarkers = new TreeSet<>();
+        disallowedMarkers.addAll(Markers.exception());
+        disallowedMarkers.addAll(Markers.reason());
 
-        return any(Stream.of(ruleSrel, rulePP, ruleSsub));
+        var ruleSrel = createSrelRule(markers);
+
+        var VPinfAdjusted = "__ < " + VP_INF;
+        var ruleVPinfAndNoBadMarkers = "(NP < (" + VPinfAdjusted + " " + TRegex.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
+        var ruleVpartAndNoBadMarkers = "(NP < (" + V_PART + " " + TRegex.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
+        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
+        var ruleSsub = ruleFromMarkers("(SBAR < (", markers,"))");
+
+        return any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
     }
 
     private static String location() {

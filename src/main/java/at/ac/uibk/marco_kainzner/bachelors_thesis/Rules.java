@@ -98,11 +98,6 @@ public class Rules {
 
     private static String reason() {
         var markers = Markers.reason();
-        var markersWithoutTO = markers.stream()
-                .map(marker -> marker.replace(" to", ""))
-                .map(String::trim)
-                .filter(marker -> !marker.isEmpty())
-                .collect(Collectors.toSet());
 
         // TODO: Test SBAR and VPart extensively
         var ruleSrel = createSrelRule(markers);
@@ -111,8 +106,9 @@ public class Rules {
         var ruleVPart = ruleFromMarkers("(NP < (VP <1 VBG) << (", markers, "))"); // No match
 
         // See https://trello.com/c/DwCEANSr/52-needs-adjustment-reason-rule
+        var markersWithoutTO = Markers.removeTO(markers);
         var VPinfExtended = "(__ << " + VP_INF + ")";
-        var ruleVPinf = ruleFromMarkers("NP << (__ < ", markersWithoutTO, " $ " + VPinfExtended + ")");
+        var ruleVPinf = ruleFromMarkers("((" + VPinfExtended + " $ (__ < ", markersWithoutTO, ")) > __) >> NP");
 
         return any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
     }

@@ -18,7 +18,7 @@ public class Rules {
         createAndSaveAll();
     }
 
-    private static void createAndSaveAll() throws IOException, JWNLException {
+    static void createAndSaveAll() throws IOException, JWNLException {
         save("actor", actor());
         save("artifact", artifact());
         save("condition", condition());
@@ -32,7 +32,7 @@ public class Rules {
         save("violation", violation());
     }
 
-    private static String exception() {
+    static String exception() {
         var markers = Markers.exception();
 
         var ruleSrel = createSrelRule(markers);
@@ -44,12 +44,12 @@ public class Rules {
        return any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
     }
 
-    private static String actor() throws IOException {
+    static String actor() throws IOException {
         var markers = Markers.actor();
         return "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
     }
 
-    private static String artifact() throws JWNLException, IOException {
+    static String artifact() throws JWNLException, IOException {
         var markers = Markers.artifact();
         var ruleNP = ruleFromMarkers("(NP < (", markers, "))");
 
@@ -66,7 +66,7 @@ public class Rules {
         return or(ruleNP, ruleNothingElseMatches);
     }
 
-    private static String condition() {
+    static String condition() {
         var markers = Markers.condition();
 
         Set<String> disallowedMarkers = new TreeSet<>();
@@ -84,17 +84,17 @@ public class Rules {
         return any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
     }
 
-    private static String location() {
+    static String location() {
         var markers = Markers.location();
         return ruleFromMarkers("(NP < (", markers, "))");
     }
 
-    private static String modality() {
+    static String modality() {
         var markers = Markers.modality();
         return ruleFromMarkers("(VN < (", markers,"))");
     }
 
-    private static String reason() {
+    static String reason() {
         var markers = Markers.reason();
 
         // TODO: Test SBAR and VPart extensively
@@ -107,17 +107,17 @@ public class Rules {
         return any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
     }
 
-    private static String sanction() {
+    static String sanction() {
         var markers = Markers.sanction();
         return ruleFromMarkers("(NP < (", markers, "))");
     }
 
-    private static String situation() {
+    static String situation() {
         var markers = Markers.situation();
         return ruleFromMarkers("(NP < (", markers, "))");
     }
 
-    private static String time() throws JWNLException {
+    static String time() throws JWNLException {
         var markers = Markers.time();
 
         String ruleNP = ruleFromMarkers("(NP < (", markers, "))");
@@ -127,7 +127,7 @@ public class Rules {
         return or(ruleNP, rulePP);
     }
 
-    private static String violation() {
+    static String violation() {
         var markers = Markers.violation();
         return ruleFromMarkers("(NP < (", markers, "))");
     }
@@ -141,7 +141,7 @@ public class Rules {
     }
 
     private static String createSrelRule(Set<String> markers) {
-        return S_REL + "(" + ruleFromMarkers("<< ", markers, "") + ")";
+        return "(" + S_REL + "(" + ruleFromMarkers("<< ", markers, "") + "))";
     }
 
     private static String createVPartRule(Set<String> markers) {

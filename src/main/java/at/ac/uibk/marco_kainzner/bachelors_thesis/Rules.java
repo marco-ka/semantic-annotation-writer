@@ -1,8 +1,11 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
+import edu.berkeley.nlp.util.Pair;
 import net.sf.extjwnl.JWNLException;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Stream;
@@ -30,6 +33,25 @@ public class Rules {
         save("sanction", sanction());
         save("time", time());
         save("violation", violation());
+    }
+
+    /// Returns a list of pairs where first elements are names of the rules and seconds elements are the rule strings
+    static List<Pair<String, String>> getAll() throws IOException, JWNLException {
+        var rules = new ArrayList<Pair<String, String>>();
+
+        rules.add(new Pair<>("actor", actor()));
+        rules.add(new Pair<>("artifact", artifact()));
+        rules.add(new Pair<>("condition", condition()));
+        rules.add(new Pair<>("exception", exception()));
+        rules.add(new Pair<>("location", location()));
+        rules.add(new Pair<>("modality", modality()));
+        rules.add(new Pair<>("reason", reason()));
+        rules.add(new Pair<>("situation", situation()));
+        rules.add(new Pair<>("sanction", sanction()));
+        rules.add(new Pair<>("time", time()));
+        rules.add(new Pair<>("violation", violation()));
+
+        return rules;
     }
 
     static String exception() {

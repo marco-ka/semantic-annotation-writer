@@ -9,6 +9,7 @@ import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeUtils;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordDependencyConverter;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
+import net.sf.extjwnl.JWNLException;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.fit.component.JCasConsumer_ImplBase;
@@ -16,8 +17,9 @@ import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
+import java.io.IOException;
 import java.sql.Timestamp;
-import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,35 +29,66 @@ import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 public class PipelineDependencyWriter extends JCasConsumer_ImplBase {
     @Override
     public void process(JCas jCas) {
-        var rule = Rules.condition();
+        try {
+            var rules = Rules.getAll();
 
-        for (Sentence sentence : JCasUtil.select(jCas, Sentence.class)) {
-            log(sentence.getCoveredText());
+            for (Sentence sentence : JCasUtil.select(jCas, Sentence.class)) {
+                log("Starting sentence: '" + sentence.getCoveredText() + "'");
+                log("Rule: '" + rules.get(0).getFirst() + "'");
 
-            log("Matches: ");
-            var constituentTrees = JCasUtil.selectCovered(Constituent.class, sentence)
-                    .stream()
-                    .map(PennTreeUtils::convertPennTree)
-                    .filter(tree -> matches(tree, rule))
-                    .peek(System.out::println)
-                    .collect(Collectors.toList());
+                log("Matches for constituency rule: \n---");
+                var matchesConstituency = getMatches(sentence, rules.get(0).getSecond())
+                        .stream()
+                        .peek(System.out::println)
+                        .collect(Collectors.toList());
 
-            log("Dependencies: ");
-            constituentTrees
-                    .stream()
-                    .flatMap(PipelineDependencyWriter::toDependency)
-                    .forEach(PipelineDependencyWriter::printDependency);
-            log("Done");
+                log("Matches for dependency rule: \n---");
+                var matches = matchesConstituency.stream()
+                        .filter(pennTreeNode -> hasDependency(pennTreeNode, ".*"))
+                        .peek(System.out::println)
+                        .collect(Collectors.toList());
 
-//            System.out.println("Subject Dependencies: ");
-//            var dependencies = JCasUtil.selectCovered(jCas, Dependency.class, sentence);
-//            dependencies.stream()
-//                .filter(dep -> dep.getDependencyType().contains("subj"))
-//                .forEach(dep -> System.out.println(dep.getDependencyType() + ": " + dep.getDependent().getText() + " <- " + dep.getGovernor().getText()));
+                log(matchesConstituency.size() + " constituency matches");
+                log(matches.size() + " final matches");
+                log("---\nDone with sentence");
+            }
+
+            log("All sentences done");
+        } catch (IOException | JWNLException e) {
+            log("Failed to get rules");
+            e.printStackTrace();
         }
     }
 
-    private static Stream<Dependency> toDependency(PennTreeNode node) {
+    private static List<PennTreeNode> getMatches(Sentence sentence, String constituencyRule) {
+        return getMatches(sentence, constituencyRule, null);
+    }
+
+    private static List<PennTreeNode> getMatches(Sentence sentence, String constituencyRule, String dependencyTypeRegex) {
+        var constituents = JCasUtil.selectCovered(Constituent.class, sentence)
+                .stream()
+                .map(PennTreeUtils::convertPennTree)
+                .filter(tree -> matches(tree, constituencyRule))
+                .collect(Collectors.toList());
+
+        if (dependencyTypeRegex != null) {
+            return constituents.stream()
+                    .filter(tree -> hasDependency(tree, ".*subj|.*obj"))
+                    .collect(Collectors.toList());
+        }
+
+        return constituents;
+    }
+
+    private static boolean hasDependency(PennTreeNode constituencyTree, String dependencyTypeRegex) {
+        var dependencies = toDependencyTree(constituencyTree)
+            .filter(d -> d.getDependencyType().matches(dependencyTypeRegex))
+            .peek(d -> System.out.println("Dependency matches regex ('" + dependencyTypeRegex + "'): " + dependencyStr(d)))
+            .collect(Collectors.toList());
+        return !dependencies.isEmpty();
+    }
+
+    private static Stream<Dependency> toDependencyTree(PennTreeNode node) {
         try {
             // Taken from DKPro: StanfordDependencyConverterTest.java
             JCas jcas = JCasFactory.createJCas();
@@ -75,13 +108,14 @@ public class PipelineDependencyWriter extends JCasConsumer_ImplBase {
 
             return JCasUtil.select(jcas, Dependency.class).stream();
         } catch (UIMAException e) {
+            System.out.println("Failed to convert constituency tree to dependency tree");
             e.printStackTrace();
             return null;
         }
     }
 
-    private static void printDependency(Dependency d) {
-        System.out.println(d.getDependencyType() + ":\t" + d.getGovernor().getText() + " -> " + d.getDependent().getText());
+    private static String dependencyStr(Dependency d) {
+        return d.getDependencyType() + ": '" + d.getGovernor().getText() + "' -> '" + d.getDependent().getText() + "'";
     }
 
     private static boolean matches(PennTreeNode treeNode, String rule) {

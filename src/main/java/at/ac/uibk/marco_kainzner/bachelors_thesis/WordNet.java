@@ -13,7 +13,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class WordNet {
+public class WordNet {
     private final static String PROPERTIES_FILE = "resources\\wordnet\\extjwnl_properties.xml";
     private static Dictionary dict = null;
 

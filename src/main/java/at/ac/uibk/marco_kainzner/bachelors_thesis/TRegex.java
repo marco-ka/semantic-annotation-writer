@@ -1,12 +1,10 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class TRegex {
+public class TRegex {
     private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
     static String ruleFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule) {

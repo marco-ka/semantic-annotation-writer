@@ -7,6 +7,7 @@ import edu.stanford.nlp.util.Pair;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.stream.Stream;
 public class TRegexMatch {
     public static void main(String[] args) throws IOException {
         var rule = Rules.reason();
-        var pattern = TregexPattern.compile(rule);
+        var pattern = TregexPattern.compile(rule.constituencyRule);
         var path = "./resources/fffs/penn-trees/fffs_200_statements.txt.mrg";
 
         var matches = findLabelledMatches(path, pattern);
@@ -45,6 +46,18 @@ public class TRegexMatch {
 
     private static List<Tree> readTrees(String path) throws IOException {
         var treeReader = new PennTreeReader(new FileReader(path));
+
+        List<Tree> sentences = new ArrayList<>();
+        Tree tree;
+        while ((tree = treeReader.readTree()) != null) {
+            sentences.add(tree);
+        }
+
+        return sentences;
+    }
+
+    private static List<Tree> readTrees(Reader reader) throws IOException {
+        var treeReader = new PennTreeReader(reader);
 
         List<Tree> sentences = new ArrayList<>();
         Tree tree;

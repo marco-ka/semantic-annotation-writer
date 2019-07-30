@@ -1,6 +1,5 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
-import edu.berkeley.nlp.util.Pair;
 import net.sf.extjwnl.JWNLException;
 
 import java.io.*;
@@ -10,7 +9,8 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
-import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.*;
+import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.any;
+import static at.ac.uibk.marco_kainzner.bachelors_thesis.TRegex.ruleFromMarkers;
 
 public class Rules {
     private static final String V_PART = "(VP <, VBG)";
@@ -18,43 +18,33 @@ public class Rules {
     private static final String S_REL = "SBAR <<, (WDT < who|which|whom|that|where|why|when)";
 
     public static void main(String[] args) throws IOException, JWNLException {
-        createAndSaveAll();
+        getAndSaveAll();
     }
 
-    static void createAndSaveAll() throws IOException, JWNLException {
-        save("actor", actor());
-        save("artifact", artifact());
-        save("condition", condition());
-        save("exception", exception());
-        save("location", location());
-        save("modality", modality());
-        save("reason", reason());
-        save("situation", situation());
-        save("sanction", sanction());
-        save("time", time());
-        save("violation", violation());
+    static void getAndSaveAll() throws IOException, JWNLException {
+        getAll().forEach(Rules::save);
     }
 
     /// Returns a list of pairs where first elements are names of the rules and seconds elements are the rule strings
-    static List<Pair<String, String>> getAll() throws IOException, JWNLException {
-        var rules = new ArrayList<Pair<String, String>>();
+    static List<Rule> getAll() throws IOException, JWNLException {
+        var rules = new ArrayList<Rule>();
 
-        rules.add(new Pair<>("actor", actor()));
-        rules.add(new Pair<>("artifact", artifact()));
-        rules.add(new Pair<>("condition", condition()));
-        rules.add(new Pair<>("exception", exception()));
-        rules.add(new Pair<>("location", location()));
-        rules.add(new Pair<>("modality", modality()));
-        rules.add(new Pair<>("reason", reason()));
-        rules.add(new Pair<>("situation", situation()));
-        rules.add(new Pair<>("sanction", sanction()));
-        rules.add(new Pair<>("time", time()));
-        rules.add(new Pair<>("violation", violation()));
+        rules.add(actor());
+        rules.add(artifact());
+        rules.add(condition());
+        rules.add(exception());
+        rules.add(location());
+        rules.add(modality());
+        rules.add(reason());
+        rules.add(situation());
+        rules.add(sanction());
+        rules.add(time());
+        rules.add(violation());
 
         return rules;
     }
 
-    static String exception() {
+    static Rule exception() {
         var markers = Markers.exception();
 
         var ruleSrel = createSrelRule(markers);
@@ -63,15 +53,18 @@ public class Rules {
         var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
 
-       return any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
+        var ruleStr =  any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
+        return new Rule("exception", ruleStr, null);
     }
 
-    static String actor() throws IOException {
+    static Rule actor() throws IOException {
         var markers = Markers.actor();
-        return "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
+        var ruleStr = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
+
+        return new Rule("actor", ruleStr, null);
     }
 
-    static String artifact() throws JWNLException, IOException {
+    static Rule artifact() throws JWNLException, IOException {
         var markers = Markers.artifact();
         var ruleNP = ruleFromMarkers("(NP < (", markers, "))");
 
@@ -85,10 +78,11 @@ public class Rules {
 
         var ruleNothingElseMatches = "NP " + TRegex.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
 
-        return or(ruleNP, ruleNothingElseMatches);
+        var ruleStr = or(ruleNP, ruleNothingElseMatches);
+        return new Rule("artifact", ruleStr, null);
     }
 
-    static String condition() {
+    static Rule condition() {
         var markers = Markers.condition();
 
         Set<String> disallowedMarkers = new TreeSet<>();
@@ -103,20 +97,25 @@ public class Rules {
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
         var ruleSsub = ruleFromMarkers("(SBAR < (", markers,"))");
 
-        return any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
+        var ruleStr = any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
+        return new Rule("condition", ruleStr, null);
     }
 
-    static String location() {
+    static Rule location() {
         var markers = Markers.location();
-        return ruleFromMarkers("(NP < (", markers, "))");
+        var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
+
+        return new Rule("location", ruleStr, null);
     }
 
-    static String modality() {
+    static Rule modality() {
         var markers = Markers.modality();
-        return ruleFromMarkers("(VN < (", markers,"))");
+        var ruleStr = ruleFromMarkers("(VN < (", markers,"))");
+
+        return new Rule("modality", ruleStr, null);
     }
 
-    static String reason() {
+    static Rule reason() {
         var markers = Markers.reason();
 
         // TODO: Test SBAR and VPart extensively
@@ -126,32 +125,41 @@ public class Rules {
         var ruleVPart = createVPartRule(markers);
         var ruleVPinf = createVPinfRule(markers);
 
-        return any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
+        var ruleStr = any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
+        return new Rule("reason", ruleSrel, null);
     }
 
-    static String sanction() {
+    static Rule sanction() {
         var markers = Markers.sanction();
-        return ruleFromMarkers("(NP < (", markers, "))");
+        var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
+
+        return new Rule("sanction", ruleStr, null);
     }
 
-    static String situation() {
+    static Rule situation() {
         var markers = Markers.situation();
-        return ruleFromMarkers("(NP < (", markers, "))");
+        var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
+
+        return new Rule("situation", ruleStr, null);
     }
 
-    static String time() throws JWNLException {
+    static Rule time() throws JWNLException {
         var markers = Markers.time();
 
         String ruleNP = ruleFromMarkers("(NP < (", markers, "))");
         // TODO: This rule has not generated any matches yet. Investigate!
         String rulePP = ruleFromMarkers("(PP < (P < (", markers, ")) $ NP)");
 
-        return or(ruleNP, rulePP);
+        var ruleStr = or(ruleNP, rulePP);
+
+        return new Rule("time", ruleStr, null);
     }
 
-    static String violation() {
+    static Rule violation() {
         var markers = Markers.violation();
-        return ruleFromMarkers("(NP < (", markers, "))");
+        var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
+
+        return new Rule("violation", ruleStr, null);
     }
 
     private static String or(String rule1, String rule2) {
@@ -178,17 +186,22 @@ public class Rules {
         return ruleFromMarkers("((" + VPinfExtended + " $ (__ < ", markersWithoutTO, ")) > __) >> NP");
     }
 
-    private static void save(String name, String rule) throws IOException {
-        File file = new File("resources/rules/" + name + ".txt");
-        file.createNewFile();
+    // Save constituency part of a rule
+    private static void save(Rule rule) {
+        File file = new File("resources/rules/" + rule.name + ".txt");
+        try {
+            file.createNewFile();
 
-        System.out.println("---");
-        System.out.println(name);
-        System.out.println(rule);
-        String ruleWithNewlines = rule.replace("|(", "\n|(");
+            System.out.println("---");
+            System.out.println(rule.name);
+            System.out.println(rule);
+            String ruleWithNewlines = rule.constituencyRule.replace("|(", "\n|(");
 
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.write(ruleWithNewlines);
-        writer.close();
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(ruleWithNewlines);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

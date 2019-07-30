@@ -1,5 +1,6 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
+import de.tudarmstadt.ukp.dkpro.core.api.io.JCasFileWriter_ImplBase;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.Constituent;
@@ -13,94 +14,78 @@ import edu.stanford.nlp.trees.tregex.TregexPattern;
 import net.sf.extjwnl.JWNLException;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
-import org.apache.uima.examples.SourceDocumentInformation;
-import org.apache.uima.fit.component.JCasConsumer_ImplBase;
+import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Paths;
+import java.io.OutputStreamWriter;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
-import static org.apache.uima.fit.factory.CollectionReaderFactory.createReaderDescription;
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
-public class PipelineDependencyWriter extends JCasConsumer_ImplBase {
+public class PipelineDependencyWriter extends JCasFileWriter_ImplBase {
     @Override
-    // TODO: Param: Target location
-    public void process(JCas jCas) {
+    public void process(JCas jCas) throws AnalysisEngineProcessException {
+        var documentId = DocumentMetaData.get(jCas).getDocumentId();
         try {
-            var metaData = DocumentMetaData.get(jCas);
-            var docName = metaData.getDocumentId();
-
             var rules = Rules.getAll();
-            var dir = "C:/Users/Marco/Documents/Projects/dkpro-pipeline/resources/";
-            var path = Paths.get(dir, docName + "_matches.txt");
-            writeAllText(path.toString(), "");
+            var rule = "ROOT";
 
-            var sentenceIndex = 0;
-            for (Sentence sentence : JCasUtil.select(jCas, Sentence.class)) {
-                sentenceIndex++;
+            var sentences = JCasUtil.select(jCas, Sentence.class);
+            var matches = sentences.stream()
+                    .flatMap(sentence -> getMatches(sentence, rule, ".*subj|.*obj"))
+                    .collect(Collectors.toList());
+            var matchesStr = matchesToString(documentId, matches);
 
-//                log("Starting sentence: '" + sentence.getCoveredText() + "'");
-//                log("Rule: '" + rules.get(0).getFirst() + "'");
-//                log("---< RULE>---");
-//                log(rules.get(0).getSecond());
-//                log("---</RULE>---");
+            System.out.println(matchesStr);
 
-                log("Matches for constituency rule: \n---");
-                var matchesConstituency = getMatches(sentence, rules.get(0).getSecond())
-                        .stream()
-//                        .peek(System.out::println)
-                        .collect(Collectors.toList());
-
-                log("Matches for dependency rule: \n---");
-                var matches = matchesConstituency.stream()
-                        .filter(pennTreeNode -> hasDependency(pennTreeNode, ".*"))
-//                        .peek(System.out::println)
-                        .collect(Collectors.toList());
-
-//                log(matchesConstituency.size() + " constituency matches");
-//                log(matches.size() + " final matches");
-//                log("---\nDone with sentence");
-
-                for (PennTreeNode match : matches) {
-                    var txt = "sentence_" + sentenceIndex + ": " + match.toString();
-                    appendLine(path.toString(), txt);
-                }
-            }
-
-            log("All sentences done");
+            write(jCas, matchesStr);
 
         } catch (IOException | JWNLException e) {
-            log("Failed to get rules");
-            e.printStackTrace();
+            throw new AnalysisEngineProcessException(e);
         }
     }
 
-    private static List<PennTreeNode> getMatches(Sentence sentence, String constituencyRule) {
-        return getMatches(sentence, constituencyRule, null);
+    private void write(JCas jCas, String str) throws IOException {
+        var outputStream = new OutputStreamWriter(getOutputStream(jCas, ".txt"));
+        outputStream.write(str);
+        outputStream.close();
     }
 
-    private static List<PennTreeNode> getMatches(Sentence sentence, String constituencyRule, String dependencyTypeRegex) {
+    private static String matchesToString(String documentId, List<PennTreeNode> matches) {
+        var sb = new StringBuilder();
+        var lineId = new AtomicInteger(1);
+
+        matches.forEach(match -> {
+            sb.append(documentId);
+            sb.append("-");
+            sb.append(lineId.get());
+            sb.append(" ");
+
+            sb.append(match);
+            sb.append(System.lineSeparator());
+
+            lineId.getAndIncrement();
+        });
+
+        return sb.toString();
+    }
+
+    private static Stream<PennTreeNode> getMatches(Sentence sentence, String constituencyRule, String dependencyTypeRegex) {
         var constituents = JCasUtil.selectCovered(Constituent.class, sentence)
                 .stream()
                 .map(PennTreeUtils::convertPennTree)
-                .filter(tree -> matches(tree, constituencyRule))
-                .collect(Collectors.toList());
+                .filter(tree -> matches(tree, constituencyRule));
 
         if (dependencyTypeRegex != null) {
-            return constituents.stream()
-                    .filter(tree -> hasDependency(tree, ".*subj|.*obj"))
-                    .collect(Collectors.toList());
+            return constituents.filter(tree -> hasDependency(tree, dependencyTypeRegex));
         }
 
         return constituents;
@@ -109,7 +94,7 @@ public class PipelineDependencyWriter extends JCasConsumer_ImplBase {
     private static boolean hasDependency(PennTreeNode constituencyTree, String dependencyTypeRegex) {
         var dependencies = toDependencyTree(constituencyTree)
             .filter(d -> d.getDependencyType().matches(dependencyTypeRegex))
-//            .peek(d -> System.out.println("Dependency matches regex ('" + dependencyTypeRegex + "'): " + dependencyStr(d)))
+            // .peek(d -> System.out.println("Dependency matches regex ('" + dependencyTypeRegex + "'): " + dependencyStr(d)))
             .collect(Collectors.toList());
         return !dependencies.isEmpty();
     }
@@ -123,6 +108,7 @@ public class PipelineDependencyWriter extends JCasConsumer_ImplBase {
             PennTreeToJCasConverter converter = new PennTreeToJCasConverter(null, null);
             converter.setCreatePosTags(true);
             converter.convertPennTree(jcas, sb, node);
+
             jcas.setDocumentText(sb.toString());
             jcas.setDocumentLanguage("en");
             new Sentence(jcas, 0, jcas.getDocumentText().length()).addToIndexes();
@@ -157,23 +143,5 @@ public class PipelineDependencyWriter extends JCasConsumer_ImplBase {
     private static void log(String msg) {
         var timestamp = new Timestamp(System.currentTimeMillis());
         System.out.println(timestamp + ": " + msg);
-    }
-
-    private static void appendLine(String path, String text) throws IOException {
-        File file = new File(path);
-        FileWriter fw = new FileWriter(path, true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(text);
-        bw.newLine();
-        bw.close();
-    }
-
-    private static void writeAllText(String path, String text) throws IOException {
-        File file = new File(path);
-        file.createNewFile();
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-        writer.write(text);
-        writer.close();
     }
 }

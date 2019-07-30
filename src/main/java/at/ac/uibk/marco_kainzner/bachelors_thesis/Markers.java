@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-class Markers {
+public class Markers {
     static Set<String> actor() throws IOException {
         Set<String> markers = new TreeSet<>();
 

@@ -4,6 +4,7 @@ import de.tudarmstadt.ukp.dkpro.core.berkeleyparser.BerkeleyParser;
 import de.tudarmstadt.ukp.dkpro.core.io.conll.ConllUWriter;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreebankCombinedWriter;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
+import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
 import de.tudarmstadt.ukp.dkpro.core.maltparser.MaltParser;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordNamedEntityRecognizer;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
@@ -45,7 +46,11 @@ public class Pipeline {
                 ConllUWriter.PARAM_TARGET_LOCATION, outputDir,
                 ConllUWriter.PARAM_OVERWRITE, true);
 
-        var dependencyPrinter = createEngineDescription(PipelineDependencyWriter.class);
+        var dependencyPrinter = createEngineDescription(PipelineDependencyWriter.class,
+                PipelineDependencyWriter.PARAM_TARGET_LOCATION, outputDir,
+                PipelineDependencyWriter.PARAM_OVERWRITE, true);
+
+        var xmiWriter = createEngineDescription(XmiWriter.class, XmiWriter.PARAM_TARGET_LOCATION, outputDir);
 
         // SimplePipeline.runPipeline(reader, segmenter, posTagger, ner, maltParser, berkeleyParser, conllWriter, pennWriter);
         SimplePipeline.runPipeline(reader, segmenter, posTagger, ner, maltParser, berkeleyParser, dependencyPrinter);

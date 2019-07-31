@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Markers {
+public class MarkerGenerator {
     static Set<String> actor() throws IOException {
         Set<String> markers = new TreeSet<>();
 
@@ -32,7 +32,7 @@ public class Markers {
         Synset syn = WordNet.getSynset("artifact%1:03:00::");
 
         Set<String> markers = WordNet.getAllHyponyms(syn);
-        markers.addAll(Markers.fromFile("resources/markers-manual/artifact.txt"));
+        markers.addAll(MarkerGenerator.fromFile("resources/markers-manual/artifact.txt"));
 
         return markers;
     }
@@ -73,7 +73,7 @@ public class Markers {
         Set<String> temporary = WordNet.getAdjectivesAndAntonyms(synTemporarily);
         Set<String> periodHyponyms = WordNet.getAllHyponyms(synPeriod);
 
-        Set<String> markers = Markers.manual("time");
+        Set<String> markers = MarkerGenerator.manual("time");
         markers.addAll(temporarily);
         markers.addAll(temporary);
         markers.addAll(periodHyponyms);

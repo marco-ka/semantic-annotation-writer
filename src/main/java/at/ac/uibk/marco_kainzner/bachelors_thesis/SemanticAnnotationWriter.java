@@ -30,12 +30,12 @@ import java.util.stream.Stream;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
-public class PipelineDependencyWriter extends JCasFileWriter_ImplBase {
+public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     @Override
     public void process(JCas jCas) throws AnalysisEngineProcessException {
         var documentId = DocumentMetaData.get(jCas).getDocumentId();
         try {
-            var rules = Rules.getAll();
+            var rules = SemanticRuleGenerator.getAll();
             var rule = "ROOT";
 
             var sentences = JCasUtil.select(jCas, Sentence.class);

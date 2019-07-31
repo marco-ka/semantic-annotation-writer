@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class TRegex {
+public class TregexRuleGenerator {
     private static final List<String> PENN_TAGS = Arrays.asList("CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBZ", "VBP", "VBD", "VBN", "VBG", "WDT", "WP", "WP$", "WRB", "NP", "PP", "VP", "ADVP", "ADJP", "SBAR", "PRT", "INTJ");
 
     static String ruleFromMarkers(String beforeEachRule, Set<String> markers, String afterEachRule) {
@@ -48,14 +48,14 @@ public class TRegex {
                 .filter(lemma -> !Character.isDigit(lemma.charAt(0)))
                 // Remove lemmas that look like Penn Tags
                 .filter(lemma -> !PENN_TAGS.contains(lemma))
-                // even escaped dots ("/.") and commas break TRegex rules
+                // even escaped dots ("/.") and commas break TregexRuleGenerator rules
                 .map(lemma -> lemma.replace(".", ""))
                 .map(lemma -> lemma.replace(",", ""))
-                // even escaped slashes ("\/") break TRegex
+                // even escaped slashes ("\/") break TregexRuleGenerator
                 .map(lemma -> lemma.replace("/", ""))
                 // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
                 // .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
-                .map(TRegex::regexEscape)
+                .map(TregexRuleGenerator::regexEscape)
                 .filter(lemma -> !lemma.isEmpty())
                 .collect(Collectors.toSet());
     }

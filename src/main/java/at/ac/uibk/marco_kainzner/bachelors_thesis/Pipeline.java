@@ -46,9 +46,9 @@ public class Pipeline {
                 ConllUWriter.PARAM_TARGET_LOCATION, outputDir,
                 ConllUWriter.PARAM_OVERWRITE, true);
 
-        var dependencyPrinter = createEngineDescription(PipelineDependencyWriter.class,
-                PipelineDependencyWriter.PARAM_TARGET_LOCATION, outputDir,
-                PipelineDependencyWriter.PARAM_OVERWRITE, true);
+        var dependencyPrinter = createEngineDescription(SemanticAnnotationWriter.class,
+                SemanticAnnotationWriter.PARAM_TARGET_LOCATION, outputDir,
+                SemanticAnnotationWriter.PARAM_OVERWRITE, true);
 
         var xmiWriter = createEngineDescription(XmiWriter.class, XmiWriter.PARAM_TARGET_LOCATION, outputDir);
 

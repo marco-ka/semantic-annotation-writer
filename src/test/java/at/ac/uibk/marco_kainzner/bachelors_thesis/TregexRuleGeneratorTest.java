@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class TRegexTest {
+class TregexRuleGeneratorTest {
 
     private static final Set<String> shortMarkers = Stream.of("some", "short", "markers").collect(Collectors.toSet());
     private static final Set<String> longMarkers = Stream.of("some longer", "markers with multiple words").collect(Collectors.toSet());
@@ -22,7 +22,7 @@ class TRegexTest {
         markers.addAll(longMarkers);
 
         var expected = "(SBAR <<, (some|short|markers))|(SBAR <<, (some . longer))|(SBAR <<, (markers . (with . (multiple . words))))";
-        var actual = TRegex.ruleFromMarkers("SBAR <<, ", markers, "");
+        var actual = TregexRuleGenerator.ruleFromMarkers("SBAR <<, ", markers, "");
 
         assertEquals(expected, actual);
     }
@@ -30,7 +30,7 @@ class TRegexTest {
     @Test
     void ruleFromShortMarkers() {
         var expected = "(NP < (some|short|markers))";
-        var actual = TRegex.ruleFromMarkers("NP < ", shortMarkers, "");
+        var actual = TregexRuleGenerator.ruleFromMarkers("NP < ", shortMarkers, "");
 
         assertEquals(expected, actual);
     }
@@ -38,7 +38,7 @@ class TRegexTest {
     @Test
     void ruleFromLongMarkers() {
         var expected = "(VP << (some . longer))|(VP << (markers . (with . (multiple . words))))";
-        var actual = TRegex.ruleFromMarkers("VP << ", longMarkers, "");
+        var actual = TregexRuleGenerator.ruleFromMarkers("VP << ", longMarkers, "");
 
         assertEquals(expected, actual);
     }
@@ -49,7 +49,7 @@ class TRegexTest {
         var unprocessed = Stream.of("12345", "9 Starts With Digit", "/Word 1", ".Word 2", ",Word 3").collect(Collectors.toSet());
 
         // When
-        var actual = TRegex.preprocess(unprocessed);
+        var actual = TregexRuleGenerator.preprocess(unprocessed);
 
         // Then
         var expected = Stream.of("Word \\1", "Word \\2", "Word \\3").collect(Collectors.toSet());
@@ -62,7 +62,7 @@ class TRegexTest {
         var words = Arrays.asList("one", "two", "three", "four");
 
         // When
-        var actual = TRegex.mergeWords(words);
+        var actual = TregexRuleGenerator.mergeWords(words);
 
         // Then
         var expected = "(one . (two . (three . four)))";

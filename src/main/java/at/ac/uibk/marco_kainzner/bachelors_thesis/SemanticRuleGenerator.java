@@ -28,17 +28,17 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws IOException, JWNLException {
         var rules = new ArrayList<SemanticRule>();
 
-        rules.addAll(actor());
-        rules.add(artifact());
-        rules.add(condition());
-        rules.add(exception());
-        rules.add(location());
-        rules.add(modality());
-        rules.add(reason());
-        rules.add(situation());
-        rules.add(sanction());
-        rules.add(time());
-        rules.add(violation());
+        rules.addAll(actor());  // 1 match
+        rules.add(artifact());  // 1338 matches: that is a lot in 300 sentences
+        rules.add(condition()); // 84 matches: they do not look right
+        rules.add(exception()); // 9 matches
+        rules.add(location());  // no match
+        rules.add(modality());  // no match
+        rules.add(reason());    // no match
+        rules.add(situation()); // no match
+        rules.add(sanction());  // no match
+        rules.add(time());      // no match
+        rules.add(violation()); // no match
 
         return rules;
     }
@@ -61,9 +61,9 @@ public class SemanticRuleGenerator {
         var tregexNP = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
         var tregexPP = "PP < S $ (NP < (__" + ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
 
-        var ruleNPSubj = new SemanticRule("actor_np_subj", tregexNP, ".*subj");
-        var ruleNPObj = new SemanticRule("actor_np_obj", tregexNP, ".*obj");
-        var rulePPObj = new SemanticRule("actor_pp_obj", tregexPP, ".*obj");
+        var ruleNPSubj = new SemanticRule("actor-np-subj", tregexNP, ".*subj"); // no match
+        var ruleNPObj = new SemanticRule("actor-np-obj", tregexNP, ".*obj"); // 1 match
+        var rulePPObj = new SemanticRule("actor-pp-obj", tregexPP, ".*obj"); // no match
 
         return List.of(ruleNPSubj, ruleNPObj, rulePPObj);
     }

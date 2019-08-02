@@ -36,8 +36,6 @@ public class Pipeline {
         var berkeleyParser = createEngineDescription(BerkeleyParser.class,
                 BerkeleyParser.PARAM_WRITE_PENN_TREE, true);
 
-        var maltParser = createEngineDescription(MaltParser.class);
-
         var pennWriter = createEngineDescription(PennTreebankCombinedWriter.class,
                 PennTreebankCombinedWriter.PARAM_TARGET_LOCATION, outputDir,
                 PennTreebankCombinedWriter.PARAM_OVERWRITE, true);
@@ -46,13 +44,10 @@ public class Pipeline {
                 ConllUWriter.PARAM_TARGET_LOCATION, outputDir,
                 ConllUWriter.PARAM_OVERWRITE, true);
 
-        var dependencyPrinter = createEngineDescription(SemanticAnnotationWriter.class,
-                SemanticAnnotationWriter.PARAM_TARGET_LOCATION, outputDir,
+        var annotationWriter = createEngineDescription(SemanticAnnotationWriter.class,
+                SemanticAnnotationWriter.PARAM_TARGET_LOCATION, "out/matches",
                 SemanticAnnotationWriter.PARAM_OVERWRITE, true);
 
-        var xmiWriter = createEngineDescription(XmiWriter.class, XmiWriter.PARAM_TARGET_LOCATION, outputDir);
-
-        // SimplePipeline.runPipeline(reader, segmenter, posTagger, ner, maltParser, berkeleyParser, conllWriter, pennWriter);
-        SimplePipeline.runPipeline(reader, segmenter, posTagger, ner, maltParser, berkeleyParser, dependencyPrinter);
+        SimplePipeline.runPipeline(reader, segmenter, posTagger, ner, berkeleyParser, annotationWriter);
     }
 }

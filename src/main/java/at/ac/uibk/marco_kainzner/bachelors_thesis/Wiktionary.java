@@ -75,7 +75,7 @@ public class Wiktionary {
     }
 
     private static void log(String msg) {
-        System.out.println(new Date()+ ": " + msg);
+        System.out.println(new Date() + ": " + msg);
     }
 
     private static boolean containsAny(String haystack, String[] needles) {

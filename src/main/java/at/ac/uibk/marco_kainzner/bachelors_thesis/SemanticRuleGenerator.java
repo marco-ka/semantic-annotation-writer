@@ -21,15 +21,14 @@ public class SemanticRuleGenerator {
         getAndSaveAll();
     }
 
-    static void getAndSaveAll() throws IOException, JWNLException {
-        getAll().forEach(SemanticRuleGenerator::save);
+    private static void getAndSaveAll() throws IOException, JWNLException {
+        getAllRules().forEach(SemanticRuleGenerator::save);
     }
 
-    /// Returns a list of pairs where first elements are names of the rules and seconds elements are the rule strings
-    static List<SemanticRule> getAll() throws IOException, JWNLException {
+    static List<SemanticRule> getAllRules() throws IOException, JWNLException {
         var rules = new ArrayList<SemanticRule>();
 
-        rules.add(actor());
+        rules.addAll(actor());
         rules.add(artifact());
         rules.add(condition());
         rules.add(exception());
@@ -44,7 +43,7 @@ public class SemanticRuleGenerator {
         return rules;
     }
 
-    static SemanticRule exception() {
+    private static SemanticRule exception() {
         var markers = MarkerGenerator.exception();
 
         var ruleSrel = createSrelRule(markers);
@@ -57,14 +56,19 @@ public class SemanticRuleGenerator {
         return new SemanticRule("exception", ruleStr, null);
     }
 
-    static SemanticRule actor() throws IOException {
+    private static List<SemanticRule> actor() throws IOException {
         var markers = MarkerGenerator.actor();
-        var ruleStr = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
+        var tregexNP = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
+        var tregexPP = "PP < S $ (NP < (__" + ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
 
-        return new SemanticRule("actor", ruleStr, null);
+        var ruleNPSubj = new SemanticRule("actor_np_subj", tregexNP, ".*subj");
+        var ruleNPObj = new SemanticRule("actor_np_obj", tregexNP, ".*obj");
+        var rulePPObj = new SemanticRule("actor_pp_obj", tregexPP, ".*obj");
+
+        return List.of(ruleNPSubj, ruleNPObj, rulePPObj);
     }
 
-    static SemanticRule artifact() throws JWNLException, IOException {
+    private static SemanticRule artifact() throws JWNLException, IOException {
         var markers = MarkerGenerator.artifact();
         var ruleNP = ruleFromMarkers("(NP < (", markers, "))");
 
@@ -82,7 +86,7 @@ public class SemanticRuleGenerator {
         return new SemanticRule("artifact", ruleStr, null);
     }
 
-    static SemanticRule condition() {
+    private static SemanticRule condition() {
         var markers = MarkerGenerator.condition();
 
         Set<String> disallowedMarkers = new TreeSet<>();
@@ -101,21 +105,21 @@ public class SemanticRuleGenerator {
         return new SemanticRule("condition", ruleStr, null);
     }
 
-    static SemanticRule location() {
+    private static SemanticRule location() {
         var markers = MarkerGenerator.location();
         var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
 
         return new SemanticRule("location", ruleStr, null);
     }
 
-    static SemanticRule modality() {
+    private static SemanticRule modality() {
         var markers = MarkerGenerator.modality();
         var ruleStr = ruleFromMarkers("(VN < (", markers,"))");
 
         return new SemanticRule("modality", ruleStr, null);
     }
 
-    static SemanticRule reason() {
+    private static SemanticRule reason() {
         var markers = MarkerGenerator.reason();
 
         // TODO: Test SBAR and VPart extensively
@@ -129,21 +133,21 @@ public class SemanticRuleGenerator {
         return new SemanticRule("reason", ruleSrel, null);
     }
 
-    static SemanticRule sanction() {
+    private static SemanticRule sanction() {
         var markers = MarkerGenerator.sanction();
         var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
 
         return new SemanticRule("sanction", ruleStr, null);
     }
 
-    static SemanticRule situation() {
+    private static SemanticRule situation() {
         var markers = MarkerGenerator.situation();
         var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
 
         return new SemanticRule("situation", ruleStr, null);
     }
 
-    static SemanticRule time() throws JWNLException {
+    private static SemanticRule time() throws JWNLException {
         var markers = MarkerGenerator.time();
 
         String ruleNP = ruleFromMarkers("(NP < (", markers, "))");
@@ -155,7 +159,7 @@ public class SemanticRuleGenerator {
         return new SemanticRule("time", ruleStr, null);
     }
 
-    static SemanticRule violation() {
+    private static SemanticRule violation() {
         var markers = MarkerGenerator.violation();
         var ruleStr = ruleFromMarkers("(NP < (", markers, "))");
 
@@ -179,7 +183,6 @@ public class SemanticRuleGenerator {
     }
 
     private static String createVPinfRule(Set<String> markers) {
-        // See https://trello.com/c/DwCEANSr/52-needs-adjustment-reason-rule
         var markersWithoutTO = MarkerGenerator.removeTO(markers);
         var VPinfExtended = "(__ << " + VP_INF + ")";
 

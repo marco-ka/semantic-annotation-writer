@@ -1,5 +1,8 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
+import edu.stanford.nlp.trees.tregex.gui.FileTreeNode;
+//import edu.stanford.nlp.trees.tregex.gui.InputPanel.TRegexGUITreeVisitor;
+
 import de.tudarmstadt.ukp.dkpro.core.api.io.JCasFileWriter_ImplBase;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
@@ -9,6 +12,7 @@ import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeNode;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeUtils;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
+import edu.stanford.nlp.trees.tregex.gui.TregexGUI;
 import edu.stanford.nlp.util.Pair;
 import net.sf.extjwnl.JWNLException;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -51,8 +55,27 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
     }
 
+    private static void getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
+        var pattern = TregexPattern.compile(patternString);
+        var visitor = new TRegexGUITreeVisitor(pattern);
+        var tree = toTree(treeNode);
+
+        visitor.setFilename(fileName);
+        visitor.visitTree(tree);
+
+        var matchedParts = visitor.getMatchedParts();
+        for (var match : visitor.getMatches()) {
+//            System.out.println(match.getFilename() + "-" + match.getSentenceId() + " \n" + match.getString());
+            for (var part : matchedParts.get(match)) {
+                System.out.println(match.getFilename() + "-" + match.getSentenceId() + " " + part.pennString());
+            };
+        }
+    }
+
     private List<Pair<String, PennTreeNode>> getMatchesInDocument(JCas jCas, SemanticRule rule) {
         String documentId = DocumentMetaData.get(jCas).getDocumentId();
+
+        var treeNode = new FileTreeNode();
 
         var sentences = JCasUtil.select(jCas, Sentence.class);
         var sentenceNr = 1;
@@ -93,20 +116,22 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var pattern = TregexPattern.compile(constituencyRule);
         System.out.println(pattern);
 
-        var constituents = JCasUtil.selectCovered(Constituent.class, sentence)
+//        var constituents =
+                JCasUtil.selectCovered(Constituent.class, sentence)
                 .stream()
                 .map(PennTreeUtils::convertPennTree)
-                .filter(tree -> matches(tree, pattern))
-                .collect(Collectors.toList());
+                .forEach(tree -> getMatchTreeVisitor("hello-file", constituencyRule, tree));
+//                .filter(tree -> matches(tree, pattern))
+//                .collect(Collectors.toList());
 
-        if (dependencyTypeRegex != null) {
-            return constituents.stream()
-                    .filter(tree -> hasDependency(tree, dependencyTypeRegex))
-                    .collect(Collectors.toList());
-        }
+//        if (dependencyTypeRegex != null) {
+//            return constituents.stream()
+//                    .filter(tree -> hasDependency(tree, dependencyTypeRegex))
+//                    .collect(Collectors.toList());
+//        }
 
-        return constituents;
-//        return new ArrayList<>();
+//        return constituents;
+        return new ArrayList<>();
     }
 
     private static boolean hasDependency(PennTreeNode constituencyTree, String dependencyTypeRegex) {

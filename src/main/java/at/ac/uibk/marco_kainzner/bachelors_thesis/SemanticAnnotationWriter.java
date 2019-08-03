@@ -90,18 +90,23 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     }
 
     private static List<PennTreeNode> getMatchesInSentence(Sentence sentence, String constituencyRule, String dependencyTypeRegex) {
+        var pattern = TregexPattern.compile(constituencyRule);
+        System.out.println(pattern);
+
         var constituents = JCasUtil.selectCovered(Constituent.class, sentence)
                 .stream()
                 .map(PennTreeUtils::convertPennTree)
-                .filter(tree -> matches(tree, constituencyRule));
+                .filter(tree -> matches(tree, pattern))
+                .collect(Collectors.toList());
 
         if (dependencyTypeRegex != null) {
-            return constituents
+            return constituents.stream()
                     .filter(tree -> hasDependency(tree, dependencyTypeRegex))
                     .collect(Collectors.toList());
         }
 
-        return constituents.collect(Collectors.toList());
+        return constituents;
+//        return new ArrayList<>();
     }
 
     private static boolean hasDependency(PennTreeNode constituencyTree, String dependencyTypeRegex) {
@@ -116,14 +121,27 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         return d.getDependencyType() + ": '" + d.getGovernor().getText() + "' -> '" + d.getDependent().getText() + "'";
     }
 
-    private static boolean matches(PennTreeNode treeNode, String rule) {
-        var treeStr = PennTreeUtils.toPennTree(treeNode);
-        var tree = Tree.valueOf(treeStr);
+    private static List<Tree> getMatches(PennTreeNode treeNode, TregexPattern pattern) {
+        var tree = toTree(treeNode);
+        var matcher = pattern.matcher(tree);
 
-        var pattern = TregexPattern.compile(rule);
+//        var nodeNames = matcher.getNodeNames();
+//        System.out.println(nodeNames.size() + " matches");
+//        System.out.println(matcher.getNodeNames());
+
+        return new ArrayList<>();
+    }
+
+    private static boolean matches(PennTreeNode treeNode, TregexPattern pattern) {
+        var tree = toTree(treeNode);
         var matcher = pattern.matcher(tree);
 
         return matcher.matches();
+    }
+
+    private static Tree toTree(PennTreeNode treeNode) {
+        var treeStr = PennTreeUtils.toPennTree(treeNode);
+        return Tree.valueOf(treeStr);
     }
 
     private static void log(String msg) {

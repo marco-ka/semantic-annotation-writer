@@ -28,11 +28,11 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws JWNLException, IOException {
         var rules = new ArrayList<SemanticRule>();
 
-//        rules.addAll(actor());  // 1 match
+        rules.addAll(actor());  // 1 match
 //        rules.add(artifact());  // 1338 matches: that is a lot in 300 sentences
-//        rules.addAll(condition()); // 84 matches: they do not look right
-//        rules.add(exception()); // 9 matches
-//        rules.add(location());  // no match
+        rules.addAll(condition()); // 84 matches: they do not look right
+        rules.add(exception()); // 9 matches
+        rules.add(location());  // no match
         rules.add(modality());
 //        System.out.println(modality().constituencyRule);
 //        rules.add(reason());    // no match
@@ -54,7 +54,7 @@ public class SemanticRuleGenerator {
         var rulePP = ruleFromMarkers("(PP << (", markers,"))");
 
         var ruleStr =  any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
-        return new SemanticRule("exception", ruleStr, null);
+        return new SemanticRule("exception", ruleStr);
     }
 
     private static List<SemanticRule> actor() throws IOException {
@@ -84,7 +84,7 @@ public class SemanticRuleGenerator {
         var ruleNothingElseMatches = "NP " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
 
         var ruleStr = or(ruleNP, ruleNothingElseMatches);
-        return new SemanticRule("artifact", ruleStr, null);
+        return new SemanticRule("artifact", ruleStr);
     }
 
     private static List<SemanticRule> condition() {
@@ -103,11 +103,11 @@ public class SemanticRuleGenerator {
         var ruleSsub = ruleFromMarkers("(SBAR < (__ < ", markers,"))");
 
         var rules = List.of(
-                new SemanticRule("condition-Srel", ruleSrel, null),
-                new SemanticRule("condition-PP", rulePP, null),
-                new SemanticRule("condition-VPinf_no-other-markers", ruleVPinfAndNoBadMarkers, null),
-                new SemanticRule("condition-VPart_no-other-markers", ruleVpartAndNoBadMarkers, null),
-                new SemanticRule("condition-Ssub", ruleSsub, null)
+                new SemanticRule("condition-Srel", ruleSrel),
+                new SemanticRule("condition-PP", rulePP),
+                new SemanticRule("condition-VPinf_no-other-markers", ruleVPinfAndNoBadMarkers),
+                new SemanticRule("condition-VPart_no-other-markers", ruleVpartAndNoBadMarkers),
+                new SemanticRule("condition-Ssub", ruleSsub)
         );
 
 //        var ruleStr = any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
@@ -118,14 +118,14 @@ public class SemanticRuleGenerator {
         var markers = MarkerGenerator.location();
         var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("location", ruleStr, null);
+        return new SemanticRule("location", ruleStr);
     }
 
     private static SemanticRule modality() {
 //        var markers = MarkerGenerator.modality();
 //        var ruleStr = ruleFromMarkers("(MD < (", markers,"))");
 
-        return new SemanticRule("modality", "MD", null);
+        return new SemanticRule("modality", "MD");
     }
 
     private static SemanticRule reason() {
@@ -139,21 +139,21 @@ public class SemanticRuleGenerator {
         var ruleVPinf = createVPinfRule(markers);
 
         var ruleStr = any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
-        return new SemanticRule("reason", ruleStr, null);
+        return new SemanticRule("reason", ruleStr);
     }
 
     private static SemanticRule sanction() {
         var markers = MarkerGenerator.sanction();
         var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("sanction", ruleStr, null);
+        return new SemanticRule("sanction", ruleStr);
     }
 
     private static SemanticRule situation() {
         var markers = MarkerGenerator.situation();
         var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("situation", ruleStr, null);
+        return new SemanticRule("situation", ruleStr);
     }
 
     private static SemanticRule time() throws JWNLException {
@@ -165,14 +165,14 @@ public class SemanticRuleGenerator {
 
         var ruleStr = or(ruleNP, rulePP);
 
-        return new SemanticRule("time", ruleStr, null);
+        return new SemanticRule("time", ruleStr);
     }
 
     private static SemanticRule violation() {
         var markers = MarkerGenerator.violation();
         var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("violation", ruleStr, null);
+        return new SemanticRule("violation", ruleStr);
     }
 
     private static String or(String rule1, String rule2) {

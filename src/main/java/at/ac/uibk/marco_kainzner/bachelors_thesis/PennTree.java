@@ -4,7 +4,9 @@ import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeNode;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeToJCasConverter;
+import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeUtils;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordDependencyConverter;
+import edu.stanford.nlp.trees.Tree;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;
 import org.apache.uima.fit.factory.JCasFactory;
@@ -43,5 +45,10 @@ class PennTree {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private static Tree toTree(PennTreeNode treeNode) {
+        var treeStr = PennTreeUtils.toPennTree(treeNode);
+        return Tree.valueOf(treeStr);
     }
 }

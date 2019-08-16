@@ -1,6 +1,6 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
-import edu.stanford.nlp.trees.tregex.gui.FileTreeNode;
+import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
 //import edu.stanford.nlp.trees.tregex.gui.InputPanel.TRegexGUITreeVisitor;
 
 import de.tudarmstadt.ukp.dkpro.core.api.io.JCasFileWriter_ImplBase;
@@ -12,7 +12,6 @@ import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeNode;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeUtils;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
-import edu.stanford.nlp.trees.tregex.gui.TregexGUI;
 import edu.stanford.nlp.util.Pair;
 import net.sf.extjwnl.JWNLException;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
@@ -24,9 +23,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     @Override
@@ -41,7 +38,8 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
                 log("--- Rule : " + rule.name);
                 var matches = getMatchesInDocument(jCas, rule);
                 log("--- Done with rule : " + rule.name);
-                String matchesStr = matchesToString(matches);
+                var matchesStr = String.join("", matches);
+//                String matchesStr = matchesToString(matches);
                 log("--- Done with toString");
 
                 write(jCas, rule.name, matchesStr);
@@ -55,7 +53,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
     }
 
-    private static void getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
+    private static TRegexGUITreeVisitor getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
         var pattern = TregexPattern.compile(patternString);
         var visitor = new TRegexGUITreeVisitor(pattern);
         var tree = toTree(treeNode);
@@ -70,27 +68,29 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
                 System.out.println(match.getFilename() + "-" + match.getSentenceId() + " " + part.pennString());
             };
         }
+        return visitor;
     }
 
-    private List<Pair<String, PennTreeNode>> getMatchesInDocument(JCas jCas, SemanticRule rule) {
+    private List<String> getMatchesInDocument(JCas jCas, SemanticRule rule) {
         String documentId = DocumentMetaData.get(jCas).getDocumentId();
+        var roots = JCasUtil.select(jCas, ROOT.class);
 
-        var treeNode = new FileTreeNode();
+        var matchStrings = new ArrayList<String>();
 
-        var sentences = JCasUtil.select(jCas, Sentence.class);
-        var sentenceNr = 1;
+        var sentence = 1;
 
-        List<Pair<String, PennTreeNode>> matches = new ArrayList<>();
-        for (Sentence sentence : sentences) {
-            var label = documentId + "-" + sentenceNr + " ";
-
-            for (PennTreeNode match : getMatchesInSentence(sentence, rule.constituencyRule, rule.dependencyRuleOrNull)) {
-                matches.add(new Pair<>(label, match));
+        for (var root: roots) {
+            var visitor = getMatchTreeVisitor(documentId, rule.constituencyRule, PennTreeUtils.convertPennTree(root));
+            var matchedParts = visitor.getMatchedParts();
+            for (var match : visitor.getMatches()) {
+                for (var matchedPart : matchedParts.get(match)) {
+                    matchStrings.add(match.getFilename() + "-" + sentence + " " + matchedPart.pennString());
+                }
             }
-
-            sentenceNr++;
+            sentence++;
         }
-        return matches;
+
+        return matchStrings;
     }
 
     private void write(JCas jCas, String annotation, String str) throws IOException {

@@ -2,7 +2,10 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import net.sf.extjwnl.JWNLException;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -28,43 +31,44 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws JWNLException, IOException {
         var rules = new ArrayList<SemanticRule>();
 
-        rules.addAll(actor());  // 1 match
-//        rules.add(artifact());  // 1338 matches: that is a lot in 300 sentences
-        rules.addAll(condition()); // 84 matches: they do not look right
-        rules.add(exception()); // 9 matches
-        rules.add(location());  // no match
+        rules.add(artifact());
+        rules.addAll(actor());
+        rules.addAll(condition());
+        rules.add(exception());
+        rules.add(location());
         rules.add(modality());
-//        System.out.println(modality().constituencyRule);
-//        rules.add(reason());    // no match
-//        rules.add(situation());
-//        rules.add(sanction());  // no match
-//        rules.add(time());      // no match
-//        rules.add(violation()); // no match
+        rules.add(reason());
+        rules.add(situation());
+        rules.add(sanction());
+        rules.add(time());
+        rules.add(violation());
+        rules.add(action());
 
         return rules;
     }
 
-    private static SemanticRule exception() {
-        var markers = MarkerGenerator.exception();
+    private static SemanticRule action() {
+        var constituencyRule = "VP";
+        var excludeMatches = List.of("modality", "condition", "exception", "reason");
 
-        var ruleSrel = createSrelRule(markers);
-        var ruleVPart = createVPartRule(markers);
-        var ruleVPinf = createVPinfRule(markers);
-        var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))");
-        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
+        var ruleModality = modality();
+        List<ConstituentRemovalRule> toRemove = List.of(
+            new ConstituentRemovalRule(ruleModality.name, ruleModality.constituencyRule, List.of("modality"))
+        );
+//        new ConstituentRemovalRule(modality().name, modality().constituencyRule, List.of("modality"));
+//        new ConstituentRemovalRule(modality().name, modality().constituencyRule, List.of("modality"));
 
-        var ruleStr =  any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
-        return new SemanticRule("exception", ruleStr);
+        return new SemanticRule("action", constituencyRule, null, toRemove);
     }
 
     private static List<SemanticRule> actor() throws IOException {
         var markers = MarkerGenerator.actor();
-        var tregexNP = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")";
+        var tregexNP = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")"; // Can there ever be a match?
         var tregexPP = "PP < S $ (NP < (__" + ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
 
-        var ruleNPSubj = new SemanticRule("actor-np-subj", tregexNP, ".*subj"); // no match
-        var ruleNPObj = new SemanticRule("actor-np-obj", tregexNP, ".*obj"); // 1 match
-        var rulePPObj = new SemanticRule("actor-pp-obj", tregexPP, ".*obj"); // no match
+        var ruleNPSubj = new SemanticRule("actor-np-subj", tregexNP, ".*subj");
+        var ruleNPObj = new SemanticRule("actor-np-obj", tregexNP, ".*obj");
+        var rulePPObj = new SemanticRule("actor-pp-obj", tregexPP, ".*obj");
 
         return List.of(ruleNPSubj, ruleNPObj, rulePPObj);
     }
@@ -81,7 +85,7 @@ public class SemanticRuleGenerator {
         disallowedMarkers.addAll(MarkerGenerator.location());
         disallowedMarkers.addAll(MarkerGenerator.actor());
 
-        var ruleNothingElseMatches = "NP " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
+        var ruleNothingElseMatches = "NP " + ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
 
         var ruleStr = or(ruleNP, ruleNothingElseMatches);
         return new SemanticRule("artifact", ruleStr);
@@ -94,13 +98,16 @@ public class SemanticRuleGenerator {
         disallowedMarkers.addAll(MarkerGenerator.exception());
         disallowedMarkers.addAll(MarkerGenerator.reason());
 
-        var ruleSrel = createSrelRule(markers);
+        var ruleSrel = createSrelRule(markers, "condition_1");
 
         var VPinfAdjusted = "__ < " + VP_INF;
-        var ruleVPinfAndNoBadMarkers = "(NP < (" + VPinfAdjusted + " " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
-        var ruleVpartAndNoBadMarkers = "(NP < (" + V_PART + " " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
-        var rulePP = ruleFromMarkers("(PP << (", markers,"))");
-        var ruleSsub = ruleFromMarkers("(SBAR < (__ < ", markers,"))");
+        // TODO: Adjust name: VPinf instead of NP
+        var ruleVPinfAndNoBadMarkers = "(NP=condition_2 < (" + VPinfAdjusted + " " + ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
+        var ruleVpartAndNoBadMarkers = "(NP=condition_3 < (" + V_PART + " " + ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";
+        var rulePP = "(PP=condition_4 " + ruleFromMarkers("<< (", markers,")") + ")";
+        var ruleSsub = "(SBAR=condition_5 " + ruleFromMarkers("< (__ < ", markers,")") + ")";
+
+        System.out.println(rulePP);
 
         var rules = List.of(
                 new SemanticRule("condition-Srel", ruleSrel),
@@ -114,6 +121,19 @@ public class SemanticRuleGenerator {
         return rules;
     }
 
+    private static SemanticRule exception() {
+        var markers = MarkerGenerator.exception();
+
+        var ruleSrel = createSrelRule(markers, "exception_1");
+        var ruleVPart = createVPartRule(markers, "exception_2");
+        var ruleVPinf = createVPinfRule(markers, "exception_3");
+        var ruleSsub = ruleFromMarkers("(SBAR=exception_4 << (", markers,"))");
+        var rulePP = ruleFromMarkers("(PP=exception_5 << (", markers,"))");
+
+        var ruleStr =  any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
+        return new SemanticRule("exception", ruleStr);
+    }
+
     private static SemanticRule location() {
         var markers = MarkerGenerator.location();
         var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
@@ -125,18 +145,18 @@ public class SemanticRuleGenerator {
 //        var markers = MarkerGenerator.modality();
 //        var ruleStr = ruleFromMarkers("(MD < (", markers,"))");
 
-        return new SemanticRule("modality", "MD");
+        return new SemanticRule("modality", "MD=modality");
     }
 
     private static SemanticRule reason() {
         var markers = MarkerGenerator.reason();
 
         // TODO: Test SBAR and VPart extensively
-        var ruleSrel = createSrelRule(markers);
-        var rulePP = ruleFromMarkers("(PP < (__ < ", markers,"))");
-        var ruleSsub = ruleFromMarkers("(SBAR << (", markers, "))"); // Suspicious match
-        var ruleVPart = createVPartRule(markers);
-        var ruleVPinf = createVPinfRule(markers);
+        var ruleSrel = createSrelRule(markers, "reason_1");
+        var rulePP = "(PP=reason_2 " + ruleFromMarkers("< (__ < ", markers,")") + ")";
+        var ruleSsub = "(SBAR=reason_3 " + ruleFromMarkers("<< (", markers, ")") + ")"; // Suspicious match
+        var ruleVPart = createVPartRule(markers, "reason_4");
+        var ruleVPinf = createVPinfRule(markers, "reason_5");
 
         var ruleStr = any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
         return new SemanticRule("reason", ruleStr);
@@ -183,22 +203,54 @@ public class SemanticRuleGenerator {
         return rule1 + "&" + rule2;
     }
 
-    private static String createSrelRule(Set<String> markers) {
-        return "(" + S_REL + "(" + ruleFromMarkers("<< ", markers, "") + "))";
+    static String createSrelRule(Set<String> markers) {
+        return createSrelRule(markers, "");
     }
 
-    private static String createVPartRule(Set<String> markers) {
+    static String createSrelRule(Set<String> markers, String targetNodeName) {
+        String srelNamed;
+        if (targetNodeName.isEmpty()) {
+            srelNamed = S_REL;
+        } else {
+            srelNamed = S_REL.replace("SBAR", "SBAR=" + targetNodeName);
+        }
+
+        return "(" + srelNamed + "(" + ruleFromMarkers("<< ", markers, "") + "))";
+    }
+
+    static String createVPartRule(Set<String> markers, String targetNodeName) {
         // NP < (VPart( << marker ))
-        return ruleFromMarkers("NP < (" + V_PART + " << (", markers, "))");
+        String vpartNamed;
+        if (targetNodeName.isEmpty()) {
+            vpartNamed = V_PART;
+        } else {
+            vpartNamed = V_PART.replace("VP", "VP=" + targetNodeName);
+        }
+        return "NP < (" + vpartNamed + ruleFromMarkers("<< (", markers, ")") + ")";
+    }
+
+    static String createVPartRule(Set<String> markers) {
+        return createVPartRule(markers, "");
     }
 
     // TODO: Fix annotation target
-    private static String createVPinfRule(Set<String> markers) {
+    static String createVPinfRule(Set<String> markers, String targetNodeName) {
         // NP << (P < (marker) $ VPinf)
-        var markersWithoutTO = MarkerGenerator.removeTO(markers);
-        var VPinfExtended = "(__ << " + VP_INF + ")";
+        String vpinfExtended = "(__ << " + VP_INF + ")";
+        String vpinfNamed;
 
-        return ruleFromMarkers("((" + VPinfExtended + " $ (__ < ", markersWithoutTO, ")) > __) >> NP");
+        if (targetNodeName.isEmpty()) {
+            vpinfNamed = vpinfExtended;
+        } else {
+            vpinfNamed = vpinfExtended.replace("VP", "VP=" + targetNodeName);
+        }
+
+        var markersWithoutTO = MarkerGenerator.removeTO(markers);
+        return "(" + vpinfNamed + ruleFromMarkers("(($ (__ < ", markersWithoutTO, ")) > __) >> NP") + ")";
+    }
+
+    static String createVPinfRule(Set<String> markers) {
+        return createVPinfRule(markers, "");
     }
 
     // Save constituency part of a rule

@@ -5,8 +5,6 @@ import de.tudarmstadt.ukp.dkpro.core.io.conll.ConllUWriter;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreebankCombinedReader;
 import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreebankCombinedWriter;
 import de.tudarmstadt.ukp.dkpro.core.io.text.TextReader;
-import de.tudarmstadt.ukp.dkpro.core.io.xmi.XmiWriter;
-import de.tudarmstadt.ukp.dkpro.core.maltparser.MaltParser;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordNamedEntityRecognizer;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordPosTagger;
 import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordSegmenter;

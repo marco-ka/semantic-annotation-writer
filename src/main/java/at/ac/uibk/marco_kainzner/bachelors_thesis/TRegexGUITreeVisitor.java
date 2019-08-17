@@ -4,15 +4,15 @@ import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TreeVisitor;
 import edu.stanford.nlp.trees.tregex.TregexMatcher;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
-import edu.stanford.nlp.trees.tregex.gui.TreeFromFile;
 import edu.stanford.nlp.util.Generics;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+// import edu.stanford.nlp.trees.tregex.gui.InputPanel.TRegexGUITreeVisitor;
 // From package edu.stanford.nlp.trees.tregex.gui
-// Only change I made is using class MyTreeFromFile instead of TreeFromFile
+// The only change is: using class MyTreeFromFile instead of TreeFromFile
 public class TRegexGUITreeVisitor implements TreeVisitor {
 
     private int totalMatches; // = 0;
@@ -21,9 +21,8 @@ public class TRegexGUITreeVisitor implements TreeVisitor {
     private final Map<MyTreeFromFile,List<Tree>> matchedParts;
     private String filename = "";
 
-    TRegexGUITreeVisitor(TregexPattern p) { //String[] handles) {
+    TRegexGUITreeVisitor(TregexPattern p) {
         this.p = p;
-        //this.handles = handles;
         matchedTrees = new ArrayList<>();
         matchedParts = Generics.newHashMap();
     }

@@ -22,7 +22,7 @@ class PennTree {
 
     static Stream<Dependency> toDependencyTree(PennTreeNode node) {
         try {
-            // Taken from DKPro: StanfordDependencyConverterTest.java
+            // from DKPro: StanfordDependencyConverterTest.java
             JCas jcas = JCasFactory.createJCas();
 
             StringBuilder sb = new StringBuilder();
@@ -47,8 +47,12 @@ class PennTree {
         }
     }
 
-    private static Tree toTree(PennTreeNode treeNode) {
+    static Tree toTree(PennTreeNode treeNode) {
         var treeStr = PennTreeUtils.toPennTree(treeNode);
         return Tree.valueOf(treeStr);
+    }
+
+    static PennTreeNode ofTree(Tree tree) {
+        return PennTreeUtils.parsePennTree(tree.pennString());
     }
 }

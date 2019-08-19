@@ -18,10 +18,7 @@ import org.apache.uima.jcas.JCas;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
@@ -69,24 +66,31 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var roots = JCasUtil.select(jCas, ROOT.class);
 
         var matchStrings = new ArrayList<String>();
-        var sentence = 1;
-
+        var sentenceNum = 1;
 
         for (var root: roots) {
             var visitor = getMatchTreeVisitor(documentId, rule.constituencyRule, PennTreeUtils.convertPennTree(root));
-            var matchedParts = visitor.getMatchedParts();
-            for (var match : visitor.getMatches()) {
+            List<MyTreeFromFile> matches = visitor.getMatches();
+            Map<MyTreeFromFile, List<Tree>> matchedParts = visitor.getMatchedParts();
+
+            var numMatches = 0;
+
+            for (var match : matches) {
+                var sentenceId = match.getFilename() + "-" + sentenceNum;
+                List<Tree> matchedPartsInSentence = matchedParts.get(match);
+                numMatches += matchedPartsInSentence.size();
+
+                System.out.println(sentenceId + ": " + matchedPartsInSentence.size() + " matches");
+
                 for (Tree matchedPart : matchedParts.get(match)) {
-                    var sentenceId = match.getFilename() + "-" + sentence;
                     if (hasDependency(matchedPart, rule.dependencyRuleOrNull)) {
                         Tree withConstituentsRemoved = removeConstituents(matchedPart, rule.constituentRemovalRules);
-                        matchStrings.add(sentence  + " " + withConstituentsRemoved.pennString());
-                    } else {
-//                        System.out.println("Match but no dependency: " + sentenceId + " " + matchedPart.pennString());
+                        matchStrings.add(sentenceId + " " + withConstituentsRemoved.pennString());
                     }
                 }
             }
-            sentence++;
+
+            sentenceNum++;
         }
 
         return matchStrings;
@@ -95,34 +99,28 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     private Tree removeConstituents(Tree node, List<ConstituentRemovalRule> rules) {
         var modifiedNode = node;
         for (ConstituentRemovalRule rule: rules) {
-            System.out.println("Removing constituent");
             modifiedNode = removeConstituents(modifiedNode, rule);
         }
         return modifiedNode;
     }
 
     private Tree removeConstituents(Tree node, ConstituentRemovalRule rule) {
-        var namesToPrune = String.join(" ", rule.namesToRemove);
-        var operation = "prune " + namesToPrune;
-
         TregexPattern matchPattern = TregexPattern.compile(rule.constituencyRule);
-        List<TsurgeonPattern> ps = new ArrayList<>();
-        TsurgeonPattern p = Tsurgeon.parseOperation(operation);
-        ps.add(p);
+        Tree modifiedNode = node;
 
-        System.out.println("Removing " + rule.ruleName + " from ");
-        node.pennPrint();
-        System.out.println("Result");
-
-        Collection<Tree> result = Tsurgeon.processPatternOnTrees(matchPattern, Tsurgeon.collectOperations(ps), node);
-        result.forEach(res -> {
-            if (res == null) System.out.println("Result is null");
-            else System.out.println(res.pennString());
-        });
-        System.out.println("---");
-        System.out.println();
-
-        return new ArrayList<>(result).get(0);
+        for (String nameToRemove : rule.namesToRemove) {
+            String readableSurgery = "delete " + nameToRemove;
+            TsurgeonPattern surgery = Tsurgeon.parseOperation(readableSurgery);
+            try {
+                modifiedNode = Tsurgeon.processPattern(matchPattern, surgery, node);
+            } catch (NullPointerException e) {
+                System.out.println("null node fetched by Tsurgeon operation (either no node labeled this, or the labeled node didn't match anything)");
+                System.out.println("Rule: " + rule.ruleName);
+                System.out.println("Surgery: " + readableSurgery);
+//                e.printStackTrace();
+            }
+        }
+        return modifiedNode;
     }
 
     private void write(JCas jCas, String annotation, String str) throws IOException {

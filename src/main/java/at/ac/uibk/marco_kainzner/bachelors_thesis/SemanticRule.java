@@ -12,17 +12,21 @@ public class SemanticRule {
     final List<ConstituentRemovalRule> constituentRemovalRules;
 
     public SemanticRule(String name, String constituencyRule) {
-        this(name, constituencyRule, null);
+        this(name, constituencyRule, null, new ArrayList<>());
     }
 
     public SemanticRule(String name, String constituencyRule, String dependencyRuleOrNull) {
         this(name, constituencyRule, dependencyRuleOrNull, new ArrayList<>());
     }
 
-    public SemanticRule(String name, String constituencyRule, String dependencyRule, List<ConstituentRemovalRule> constituentRemovalRules) {
+    public SemanticRule(String name, String constituencyRule, List<ConstituentRemovalRule> constituentRemovalRules) {
+        this(name, constituencyRule, null, constituentRemovalRules);
+    }
+
+    public SemanticRule(String name, String constituencyRule, String dependencyRuleOrNull, List<ConstituentRemovalRule> constituentRemovalRules) {
         this.name = name;
         this.constituencyRule = constituencyRule;
-        this.dependencyRuleOrNull = dependencyRule;
+        this.dependencyRuleOrNull = dependencyRuleOrNull;
         this.constituentRemovalRules = constituentRemovalRules;
     }
 }

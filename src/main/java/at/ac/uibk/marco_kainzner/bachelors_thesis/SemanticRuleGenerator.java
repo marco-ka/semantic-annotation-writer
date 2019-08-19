@@ -33,7 +33,7 @@ public class SemanticRuleGenerator {
 
         rules.add(artifact());
         rules.addAll(actor());
-        rules.addAll(condition());
+        rules.add(condition());
         rules.add(exception());
         rules.add(location());
         rules.add(modality());
@@ -49,16 +49,15 @@ public class SemanticRuleGenerator {
 
     private static SemanticRule action() {
         var constituencyRule = "VP";
-        var excludeMatches = List.of("modality", "condition", "exception", "reason");
 
-        var ruleModality = modality();
         List<ConstituentRemovalRule> toRemove = List.of(
-            new ConstituentRemovalRule(ruleModality.name, ruleModality.constituencyRule, List.of("modality"))
+            new ConstituentRemovalRule(modality(), List.of("modality")),
+            new ConstituentRemovalRule(condition(), List.of("condition_1", "condition_2", "condition_3", "condition_4", "condition_5")),
+            new ConstituentRemovalRule(exception(), List.of("exception_1", "exception_2", "exception_3", "exception_4", "exception_5")),
+            new ConstituentRemovalRule(reason(), List.of("reason_1", "reason_2", "reason_3", "reason_4", "reason_5"))
         );
-//        new ConstituentRemovalRule(modality().name, modality().constituencyRule, List.of("modality"));
-//        new ConstituentRemovalRule(modality().name, modality().constituencyRule, List.of("modality"));
 
-        return new SemanticRule("action", constituencyRule, null, toRemove);
+        return new SemanticRule("action", constituencyRule, toRemove);
     }
 
     private static List<SemanticRule> actor() throws IOException {
@@ -91,7 +90,7 @@ public class SemanticRuleGenerator {
         return new SemanticRule("artifact", ruleStr);
     }
 
-    private static List<SemanticRule> condition() {
+    private static SemanticRule condition() {
         var markers = MarkerGenerator.condition();
 
         Set<String> disallowedMarkers = new TreeSet<>();
@@ -107,18 +106,17 @@ public class SemanticRuleGenerator {
         var rulePP = "(PP=condition_4 " + ruleFromMarkers("<< (", markers,")") + ")";
         var ruleSsub = "(SBAR=condition_5 " + ruleFromMarkers("< (__ < ", markers,")") + ")";
 
-        System.out.println(rulePP);
+//        var rules = List.of(
+//                new SemanticRule("condition-Srel", ruleSrel),
+//                new SemanticRule("condition-PP", rulePP),
+//                new SemanticRule("condition-VPinf_no-other-markers", ruleVPinfAndNoBadMarkers),
+//                new SemanticRule("condition-VPart_no-other-markers", ruleVpartAndNoBadMarkers),
+//                new SemanticRule("condition-Ssub", ruleSsub)
+//        );
+//        return rules;
 
-        var rules = List.of(
-                new SemanticRule("condition-Srel", ruleSrel),
-                new SemanticRule("condition-PP", rulePP),
-                new SemanticRule("condition-VPinf_no-other-markers", ruleVPinfAndNoBadMarkers),
-                new SemanticRule("condition-VPart_no-other-markers", ruleVpartAndNoBadMarkers),
-                new SemanticRule("condition-Ssub", ruleSsub)
-        );
-
-//        var ruleStr = any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
-        return rules;
+        var ruleStr = any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
+        return new SemanticRule("condition", ruleStr);
     }
 
     private static SemanticRule exception() {
@@ -127,8 +125,8 @@ public class SemanticRuleGenerator {
         var ruleSrel = createSrelRule(markers, "exception_1");
         var ruleVPart = createVPartRule(markers, "exception_2");
         var ruleVPinf = createVPinfRule(markers, "exception_3");
-        var ruleSsub = ruleFromMarkers("(SBAR=exception_4 << (", markers,"))");
-        var rulePP = ruleFromMarkers("(PP=exception_5 << (", markers,"))");
+        var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))"); // TODO: Add name to SBAR: SBAR=exception_4
+        var rulePP = ruleFromMarkers("(PP << (", markers,"))"); // TODO: Add name to PP: PP=exception_5
 
         var ruleStr =  any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
         return new SemanticRule("exception", ruleStr);
@@ -226,7 +224,7 @@ public class SemanticRuleGenerator {
         } else {
             vpartNamed = V_PART.replace("VP", "VP=" + targetNodeName);
         }
-        return "NP < (" + vpartNamed + ruleFromMarkers("<< (", markers, ")") + ")";
+        return "(NP < (" + vpartNamed + ruleFromMarkers("<< (", markers, ")") + "))";
     }
 
     static String createVPartRule(Set<String> markers) {

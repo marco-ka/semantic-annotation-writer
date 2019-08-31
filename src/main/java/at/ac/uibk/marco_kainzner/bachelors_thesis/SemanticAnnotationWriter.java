@@ -37,11 +37,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
                 var matches = getMatches(jCas, rule);
                 log("--- Done with rule : " + rule.name);
                 var matchesStr = String.join("", matches);
-                log("--- Done with toString");
-
                 write(jCas, rule.name, matchesStr);
-                log("--- Done with writing");
-                log("--- ----------------- ---");
             }
             log("--- Done with document " + documentId);
 
@@ -50,16 +46,13 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
     }
 
-    private static TRegexGUITreeVisitor getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
-        var pattern = TregexPattern.compile(patternString);
-        var visitor = new TRegexGUITreeVisitor(pattern);
-        var tree = PennTree.toTree(treeNode);
-
-        visitor.setFilename(fileName);
-        visitor.visitTree(tree);
-
-        return visitor;
+    private void write(JCas jCas, String annotation, String str) throws IOException {
+        var fileSuffix = "-" + annotation + ".txt";
+        var outputStream = new OutputStreamWriter(getOutputStream(jCas, fileSuffix));
+        outputStream.write(str);
+        outputStream.close();
     }
+
 
     private List<String> getMatches(JCas jCas, SemanticRule rule) {
         String documentId = DocumentMetaData.get(jCas).getDocumentId();
@@ -69,7 +62,11 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var sentenceNum = 1;
 
         for (var root: roots) {
-            var visitor = getMatchTreeVisitor(documentId, rule.constituencyRule, PennTreeUtils.convertPennTree(root));
+            var rootTreeNode = PennTreeUtils.convertPennTree(root);
+            var rootTree = PennTree.toTree(rootTreeNode);
+            System.out.println(rootTree.toString());
+<
+            var visitor = getMatchTreeVisitor(documentId, rule.constituencyRule, rootTreeNode);
             List<MyTreeFromFile> matches = visitor.getMatches();
             Map<MyTreeFromFile, List<Tree>> matchedParts = visitor.getMatchedParts();
 
@@ -82,9 +79,21 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
 
                 System.out.println(sentenceId + ": " + matchedPartsInSentence.size() + " matches");
 
+                var sentenceTree = match.getTree();
                 for (Tree matchedPart : matchedParts.get(match)) {
                     if (hasDependency(matchedPart, rule.dependencyRuleOrNull)) {
                         Tree withConstituentsRemoved = removeConstituents(matchedPart, rule.constituentRemovalRules);
+
+                        System.out.println("Parent:");
+                        sentenceTree.pennPrint();
+                        System.out.println();
+                        matchedPart.pennPrint();
+
+//                        System.out.println("Span: " + matchedPart.getSpan());
+                        var left = sentenceTree.leftCharEdge(matchedPart);
+                        var right = sentenceTree.rightCharEdge(matchedPart);
+                        System.out.println("Span: " + left + " - " + right);
+
                         matchStrings.add(sentenceId + " " + withConstituentsRemoved.pennString());
                     }
                 }
@@ -94,6 +103,17 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
 
         return matchStrings;
+    }
+
+    private static TRegexGUITreeVisitor getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
+        var pattern = TregexPattern.compile(patternString);
+        var visitor = new TRegexGUITreeVisitor(pattern);
+        var tree = PennTree.toTree(treeNode);
+
+        visitor.setFilename(fileName);
+        visitor.visitTree(tree);
+
+        return visitor;
     }
 
     private Tree removeConstituents(Tree node, List<ConstituentRemovalRule> rules) {
@@ -108,26 +128,22 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         TregexPattern matchPattern = TregexPattern.compile(rule.constituencyRule);
         Tree modifiedNode = node;
 
+        int noNodesMatchCount = 0;
         for (String nameToRemove : rule.namesToRemove) {
             String readableSurgery = "delete " + nameToRemove;
             TsurgeonPattern surgery = Tsurgeon.parseOperation(readableSurgery);
             try {
                 modifiedNode = Tsurgeon.processPattern(matchPattern, surgery, node);
             } catch (NullPointerException e) {
-                System.out.println("null node fetched by Tsurgeon operation (either no node labeled this, or the labeled node didn't match anything)");
-                System.out.println("Rule: " + rule.ruleName);
-                System.out.println("Surgery: " + readableSurgery);
-//                e.printStackTrace();
+//                System.out.println("null node fetched by Tsurgeon operation (either no node labeled this, or the labeled node didn't match anything)");
+                noNodesMatchCount++;
             }
         }
-        return modifiedNode;
-    }
 
-    private void write(JCas jCas, String annotation, String str) throws IOException {
-        var fileSuffix = "-" + annotation + ".txt";
-        var outputStream = new OutputStreamWriter(getOutputStream(jCas, fileSuffix));
-        outputStream.write(str);
-        outputStream.close();
+        if (noNodesMatchCount > 0)
+            System.out.println("Rule '" + rule.ruleName + "': " + noNodesMatchCount + " times no match");
+
+        return modifiedNode;
     }
 
     private static boolean hasDependency(Tree constituencyTree, String dependencyTypeRegex) {

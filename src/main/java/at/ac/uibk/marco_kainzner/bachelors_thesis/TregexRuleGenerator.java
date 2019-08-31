@@ -48,13 +48,11 @@ class TregexRuleGenerator {
                 .filter(lemma -> !Character.isDigit(lemma.charAt(0)))
                 // Remove lemmas that look like Penn Tags
                 .filter(lemma -> !PENN_TAGS.contains(lemma))
-                // even escaped dots ("/.") and commas break TregexRuleGenerator rules
+                // dots and commas break Tregex rules rules even if escaped ("/.")
                 .map(lemma -> lemma.replace(".", ""))
                 .map(lemma -> lemma.replace(",", ""))
-                // even escaped slashes ("\/") break TregexRuleGenerator
+                // slashes break Tregex rules even if escaped ("\/")
                 .map(lemma -> lemma.replace("/", ""))
-                // Remove lemmas that consist only of digits. Such lemmas seem to lead to an "illegal octal escape sequence" exception
-                // .filter(lemma -> !lemma.replaceAll("\\d", "").isEmpty())
                 .map(TregexRuleGenerator::regexEscape)
                 .filter(lemma -> !lemma.isEmpty())
                 .collect(Collectors.toSet());

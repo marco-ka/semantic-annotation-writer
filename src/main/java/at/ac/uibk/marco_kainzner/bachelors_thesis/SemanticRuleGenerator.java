@@ -31,8 +31,8 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws JWNLException, IOException {
         var rules = new ArrayList<SemanticRule>();
 
-        rules.add(artifact());
-        rules.addAll(actor());
+//        rules.add(artifact());
+//        rules.addAll(actor());
         rules.add(condition());
         rules.add(exception());
         rules.add(location());
@@ -40,7 +40,7 @@ public class SemanticRuleGenerator {
         rules.add(reason());
         rules.add(situation());
         rules.add(sanction());
-        rules.add(time());
+//        rules.add(time());
         rules.add(violation());
         rules.add(action());
 
@@ -152,7 +152,7 @@ public class SemanticRuleGenerator {
         // TODO: Test SBAR and VPart extensively
         var ruleSrel = createSrelRule(markers, "reason_1");
         var rulePP = "(PP=reason_2 " + ruleFromMarkers("< (__ < ", markers,")") + ")";
-        var ruleSsub = "(SBAR=reason_3 " + ruleFromMarkers("<< (", markers, ")") + ")"; // Suspicious match
+        var ruleSsub = "(SBAR=reason_3 " + ruleFromMarkers("<< (", markers, ")") + ")";
         var ruleVPart = createVPartRule(markers, "reason_4");
         var ruleVPinf = createVPinfRule(markers, "reason_5");
 
@@ -245,10 +245,6 @@ public class SemanticRuleGenerator {
 
         var markersWithoutTO = MarkerGenerator.removeTO(markers);
         return "(" + vpinfNamed + ruleFromMarkers("(($ (__ < ", markersWithoutTO, ")) > __) >> NP") + ")";
-    }
-
-    static String createVPinfRule(Set<String> markers) {
-        return createVPinfRule(markers, "");
     }
 
     // Save constituency part of a rule

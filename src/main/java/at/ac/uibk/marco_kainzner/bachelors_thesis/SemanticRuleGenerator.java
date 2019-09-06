@@ -139,7 +139,7 @@ public class SemanticRuleGenerator {
         return new SemanticRule("location", ruleStr);
     }
 
-    private static SemanticRule modality() {
+    public static SemanticRule modality() {
 //        var markers = MarkerGenerator.modality();
 //        var ruleStr = ruleFromMarkers("(MD < (", markers,"))");
 

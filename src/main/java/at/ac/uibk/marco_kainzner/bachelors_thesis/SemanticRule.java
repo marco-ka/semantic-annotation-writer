@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SemanticRule {
-    final String name;
-    final String constituencyRule;
+    public final String name;
+    public final String constituencyRule;
     // Only needed for "actor" rule
-    final String dependencyRuleOrNull;
+    public final String dependencyRuleOrNull;
     // List of annotations names to remove from matched strings. Only needed for "action" rule
-    final List<ConstituentRemovalRule> constituentRemovalRules;
+    public final List<ConstituentRemovalRule> constituentRemovalRules;
 
     public SemanticRule(String name, String constituencyRule) {
         this(name, constituencyRule, null, new ArrayList<>());

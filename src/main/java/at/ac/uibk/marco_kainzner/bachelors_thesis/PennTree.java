@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
-class PennTree {
+public class PennTree {
 
     static Stream<Dependency> toDependencyTree(PennTreeNode node) {
         try {
@@ -47,7 +47,7 @@ class PennTree {
         }
     }
 
-    static Tree toTree(PennTreeNode treeNode) {
+    public static Tree toTree(PennTreeNode treeNode) {
         var treeStr = PennTreeUtils.toPennTree(treeNode);
         return Tree.valueOf(treeStr);
     }

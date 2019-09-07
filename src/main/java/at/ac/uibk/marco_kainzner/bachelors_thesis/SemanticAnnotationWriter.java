@@ -17,14 +17,12 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.io.OutputStreamWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
@@ -32,33 +30,14 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     public void process(JCas jCas) throws AnalysisEngineProcessException {
         String documentId = DocumentMetaData.get(jCas).getDocumentId();
         try {
-            log("--- ----------------- ---");
-            log("--- Starting document " + documentId);
             List<SemanticRule> rules = SemanticRuleGenerator.getAllRules();
-
-            var annotations = new ArrayList<Annotation>();
-
             for (SemanticRule rule : rules) {
                 var annos = getAnnotations(jCas, rule);
                 write(jCas, rule.name, annos);
             }
-
-            Map<String, List<Annotation>> annotationsPerSentence = annotations
-                    .stream()
-                    .collect(Collectors.groupingBy(annotation -> annotation.sentenceId));
-
-            log("--- Done with document " + documentId);
         } catch (IOException | JWNLException e) {
             throw new AnalysisEngineProcessException(e);
         }
-    }
-
-    private void writeAnnotations(JCas jCas, String label, List<Annotation> annotations) throws IOException {
-        var fileSuffix = "-" + label + ".txt";
-        var outputStream = new OutputStreamWriter(getOutputStream(jCas, fileSuffix));
-        var annotationsStr = annotations.stream().map(Annotation::toString).collect(Collectors.toList());
-        outputStream.write(String.join("\n", annotationsStr));
-        outputStream.close();
     }
 
     private void write(JCas jCas, String ruleName, List<Annotation> annotations) throws IOException {
@@ -109,11 +88,6 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
             Map<MyTreeFromFile, List<Tree>> matchedParts = visitor.getMatchedParts();
 
             for (var match : matchesInSentence) {
-                String sentenceId = match.getFilename() + "-" + sentenceNum;
-
-                List<Tree> matchedPartsInSentence = matchedParts.get(match);
-//                System.out.println(sentenceId + ": " + matchedPartsInSentence.size() + " matches");
-
                 Tree sentenceTree = match.getTree();
                 for (Tree matchedPart : matchedParts.get(match)) {
                     if (hasDependency(matchedPart, rule.dependencyRuleOrNull)) {

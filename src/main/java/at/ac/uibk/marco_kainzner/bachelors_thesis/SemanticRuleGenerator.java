@@ -93,6 +93,8 @@ public class SemanticRuleGenerator {
     private static SemanticRule condition() {
         var markers = MarkerGenerator.condition();
 
+        System.out.println("Condition markers: " + markers);
+
         Set<String> disallowedMarkers = new TreeSet<>();
         disallowedMarkers.addAll(MarkerGenerator.exception());
         disallowedMarkers.addAll(MarkerGenerator.reason());

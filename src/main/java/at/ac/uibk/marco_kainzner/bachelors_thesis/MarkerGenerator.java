@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Set;
 import java.util.TreeSet;
@@ -16,6 +17,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MarkerGenerator {
+    private static final String resourceDir = "C:/Users/Marco/Documents/Projects/semantic-legal-metadata-annotation/resources";
+
     static Set<String> actor() throws IOException {
         Set<String> markers = new TreeSet<>();
 
@@ -23,7 +26,8 @@ public class MarkerGenerator {
         markers.addAll(WordNet.getAllHyponyms(WordNet.getSynset("organisation%1:14:00::")));
         markers.addAll(WordNet.getPersonsWithoutNames());
 
-        toFile("resources/markers-auto/actor.txt", markers);
+        var path = Paths.get(resourceDir, "markers-auto/actor.txt");
+        toFile(path, markers);
 
         return markers;
     }
@@ -32,7 +36,7 @@ public class MarkerGenerator {
         Synset syn = WordNet.getSynset("artifact%1:03:00::");
 
         Set<String> markers = WordNet.getAllHyponyms(syn);
-        markers.addAll(MarkerGenerator.fromFile("resources/markers-manual/artifact.txt"));
+        markers.addAll(MarkerGenerator.fromFile(Paths.get(resourceDir, "markers-manual/artifact.txt")));
 
         return markers;
     }
@@ -86,17 +90,17 @@ public class MarkerGenerator {
     }
 
     private static Set<String> manual(String fileName) {
-        var path = "resources\\markers-manual\\" + fileName + ".txt";
+        var path = Paths.get(resourceDir, "markers-manual\\" + fileName + ".txt");
         return fromFile(path);
     }
 
-    private static void toFile(String path, Set<String> markers) throws IOException {
-        Files.write(Paths.get(path), markers, Charset.defaultCharset());
+    private static void toFile(Path path, Set<String> markers) throws IOException {
+        Files.write(path, markers, Charset.defaultCharset());
     }
 
-    private static Set<String> fromFile(String path) {
+    private static Set<String> fromFile(Path path) {
         try {
-            return FileUtils.readLines(new File(path), Charset.defaultCharset())
+            return FileUtils.readLines(new File(path.toUri()), Charset.defaultCharset())
                     .stream()
                     .map(String::trim)
                     .flatMap(marker -> Stream.of(marker, StringUtils.capitalize(marker))) // Transform first letter to uppercase

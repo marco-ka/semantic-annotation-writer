@@ -4,6 +4,7 @@ import edu.stanford.nlp.trees.tregex.TregexPattern;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
+import java.util.TreeSet;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,6 +23,20 @@ class SemanticRuleGeneratorTest {
         var expected = "(SBAR <<, (WDT < who|which|whom|that|where|why|when)((<< (marker))|(<< (another . marker))))";
         assertEquals(expected, actual);
         assertDoesNotThrow(() -> TregexPattern.compile(actual));
+    }
+
+    @Test
+    void createEmptySrelRule() {
+        // Given
+        var markers = new TreeSet<String>();
+
+        // When
+        var actual = SemanticRuleGenerator.createSrelRule(markers);
+
+        // Then
+        var expected = "(SBAR <<, (WDT < who|which|whom|that|where|why|when)())";
+        assertEquals(expected, actual);
+//        assertDoesNotThrow(() -> TregexPattern.compile(actual));
     }
 
     @Test

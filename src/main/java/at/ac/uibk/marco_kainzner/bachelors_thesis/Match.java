@@ -8,8 +8,7 @@ public class Match {
     public final String sentenceId;
     public final Tree sentenceTree;
     public final Tree matchTree;
-
-    private final int sentenceNumber;
+    public final int sentenceNumber;
 
     public Match(String label, String documentId, int sentenceNumber, Tree sentenceTree, Tree matchTree) {
         this.label = label;

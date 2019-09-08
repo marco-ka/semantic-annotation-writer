@@ -1,13 +1,13 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import com.google.gson.Gson;
-import de.tudarmstadt.ukp.dkpro.core.api.io.JCasFileWriter_ImplBase;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
-import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeNode;
-import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeUtils;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.util.TreeUtils;
+import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
+import org.dkpro.core.io.penntree.PennTreeNode;
+import org.dkpro.core.io.penntree.PennTreeUtils;
+import org.dkpro.core.stanfordnlp.util.TreeUtils;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
 import edu.stanford.nlp.trees.tregex.tsurgeon.Tsurgeon;
@@ -17,8 +17,9 @@ import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
+import java.io.*;
+import java.lang.reflect.Array;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,27 +32,40 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         String documentId = DocumentMetaData.get(jCas).getDocumentId();
         try {
             List<SemanticRule> rules = SemanticRuleGenerator.getAllRules();
+            List<Annotation> annotations = new ArrayList<>();
             for (SemanticRule rule : rules) {
-                var annos = getAnnotations(jCas, rule);
-                write(jCas, rule.name, annos);
+                annotations.addAll(getAnnotations(jCas, rule));
             }
+            write(jCas, annotations);
+//            writeSentences(jCas);
         } catch (IOException | JWNLException e) {
             throw new AnalysisEngineProcessException(e);
         }
     }
 
-    private void write(JCas jCas, String ruleName, List<Annotation> annotations) throws IOException {
+    private void write(JCas jCas, List<Annotation> annotations) throws IOException {
         Gson gson = new Gson();
-
-        var fileSuffix = "-" + ruleName + ".txt";
-        var outputStream = new OutputStreamWriter(getOutputStream(jCas, fileSuffix));
-
-        for (var anno: annotations) {
-            outputStream.write(gson.toJson(anno));
-        }
-
-        outputStream.close();
+        Path.of(getTargetLocation()).getParent().toFile().mkdirs();
+        var writer = new FileWriter(getTargetLocation());
+        var json = gson.toJson(annotations);
+        writer.write(json);
+        writer.close();
     }
+
+//    private void writeSentences(JCas jCas) throws IOException {
+//        var sentenceStrs = new ArrayList<String>();
+//        for (var sentence: JCasUtil.select(jCas, ROOT.class)) {
+//            var sentenceTreeNode = PennTreeUtils.convertPennTree(sentence);
+//            var sentenceStr = treeToString(PennTree.toTree(sentenceTreeNode));
+//            sentenceStrs.add(sentenceStr);
+//        }
+//
+//        var gson = new Gson();
+//        var writer = new FileWriter("C:/Users/Marco/Documents/Projects/inception/out/sentences.json");
+//        var json = gson.toJson(sentenceStrs);
+//        writer.write(json);
+//        writer.close();
+//    }
 
     private List<Annotation> getAnnotations(JCas jCas, SemanticRule rule) {
         return getMatches(jCas, rule).stream()
@@ -61,8 +75,8 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     }
 
     private static Annotation getAnnotation(Match match) {
-        String sentenceWords = TreeUtils.tree2Words(match.sentenceTree);
-        String matchWords = TreeUtils.tree2Words(match.matchTree);
+        String sentenceWords = treeToString(match.sentenceTree);
+        String matchWords = treeToString(match.matchTree);
 
         var begin = sentenceWords.indexOf(matchWords);
         if (begin == -1) {
@@ -71,8 +85,22 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
         var end = begin + matchWords.length();
 
-        return new Annotation(match.documentId, match.sentenceId, match.label, begin, end);
+        return new Annotation(match.documentId, match.sentenceNumber, sentenceWords, matchWords, match.label, begin, end);
     }
+
+    private static String treeToString(Tree tree) {
+        var words = TreeUtils.tree2Words(tree);
+        return words
+            .replace("-LRB- ", "(")
+            .replace("-LRB-", "(")
+            .replace(" -RRB-", ")")
+            .replace("-RRB-", ")")
+            .replace(" ’s", "’s")
+            .replace("s ’", "s’")
+            .replace("[ ... ]", "[...]")
+            .replaceAll(" ([\\,\\.\\:]+ )", "$1")
+            .trim();
+        }
 
     private List<Match> getMatches(JCas jCas, SemanticRule rule) {
         String documentId = DocumentMetaData.get(jCas).getDocumentId();

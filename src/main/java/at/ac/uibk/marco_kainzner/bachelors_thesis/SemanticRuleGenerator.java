@@ -57,13 +57,13 @@ public class SemanticRuleGenerator {
             new ConstituentRemovalRule(reason(), List.of("reason_1", "reason_2", "reason_3", "reason_4", "reason_5"))
         );
 
-        return new SemanticRule("action", constituencyRule, toRemove);
+        return new SemanticRule("Action", constituencyRule, toRemove);
     }
 
     private static List<SemanticRule> actor() throws IOException {
         var markers = MarkerGenerator.actor();
-        var tregexNP = "NP < (__" + ruleFromMarkers(" < ", markers,"") + ")"; // Can there ever be a match?
-        var tregexPP = "PP < S $ (NP < (__" + ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
+        var tregexNP = "NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + ")"; // Can there ever be a match?
+        var tregexPP = "PP < S $ (NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
 
         var ruleNPSubj = new SemanticRule("actor-np-subj", tregexNP, ".*subj");
         var ruleNPObj = new SemanticRule("actor-np-obj", tregexNP, ".*obj");
@@ -74,7 +74,7 @@ public class SemanticRuleGenerator {
 
     private static SemanticRule artifact() throws JWNLException, IOException {
         var markers = MarkerGenerator.artifact();
-        var ruleNP = ruleFromMarkers("(NP < (__ <", markers, "))");
+        var ruleNP = TregexRuleGenerator.ruleFromMarkers("(NP < (__ <", markers, "))");
 
         Set<String> disallowedMarkers = new TreeSet<>();
         disallowedMarkers.addAll(MarkerGenerator.violation());
@@ -84,16 +84,14 @@ public class SemanticRuleGenerator {
         disallowedMarkers.addAll(MarkerGenerator.location());
         disallowedMarkers.addAll(MarkerGenerator.actor());
 
-        var ruleNothingElseMatches = "NP " + ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
+        var ruleNothingElseMatches = "NP " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "");
 
         var ruleStr = or(ruleNP, ruleNothingElseMatches);
-        return new SemanticRule("artifact", ruleStr);
+        return new SemanticRule("Artifact", ruleStr);
     }
 
     private static SemanticRule condition() {
         var markers = MarkerGenerator.condition();
-
-        System.out.println("Condition markers: " + markers);
 
         Set<String> disallowedMarkers = new TreeSet<>();
         disallowedMarkers.addAll(MarkerGenerator.exception());
@@ -103,10 +101,10 @@ public class SemanticRuleGenerator {
 
         var VPinfAdjusted = "__ < " + VP_INF;
         // TODO: Adjust name: VPinf instead of NP
-        var ruleVPinfAndNoBadMarkers = "(NP=condition_2 < (" + VPinfAdjusted + " " + ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
-        var ruleVpartAndNoBadMarkers = "(NP=condition_3 < (" + V_PART + " " + ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";
-        var rulePP = "(PP=condition_4 " + ruleFromMarkers("<< (", markers,")") + ")";
-        var ruleSsub = "(SBAR=condition_5 " + ruleFromMarkers("< (__ < ", markers,")") + ")";
+        var ruleVPinfAndNoBadMarkers = "(NP=condition_2 < (" + VPinfAdjusted + " " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
+        var ruleVpartAndNoBadMarkers = "(NP=condition_3 < (" + V_PART + " " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";
+        var rulePP = "(PP=condition_4 " + TregexRuleGenerator.ruleFromMarkers("<< (", markers,")") + ")";
+        var ruleSsub = "(SBAR=condition_5 " + TregexRuleGenerator.ruleFromMarkers("< (__ < ", markers,")") + ")";
 
 //        var rules = List.of(
 //                new SemanticRule("condition-Srel", ruleSrel),
@@ -117,8 +115,8 @@ public class SemanticRuleGenerator {
 //        );
 //        return rules;
 
-        var ruleStr = any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
-        return new SemanticRule("condition", ruleStr);
+        var ruleStr = TregexRuleGenerator.any(Stream.of(ruleSrel, ruleVPinfAndNoBadMarkers, ruleVpartAndNoBadMarkers ,rulePP, ruleSsub));
+        return new SemanticRule("Condition", ruleStr);
     }
 
     private static SemanticRule exception() {
@@ -127,25 +125,25 @@ public class SemanticRuleGenerator {
         var ruleSrel = createSrelRule(markers, "exception_1");
         var ruleVPart = createVPartRule(markers, "exception_2");
         var ruleVPinf = createVPinfRule(markers, "exception_3");
-        var ruleSsub = ruleFromMarkers("(SBAR << (", markers,"))"); // TODO: Add name to SBAR: SBAR=exception_4
-        var rulePP = ruleFromMarkers("(PP << (", markers,"))"); // TODO: Add name to PP: PP=exception_5
+        var ruleSsub = TregexRuleGenerator.ruleFromMarkers("(SBAR << (", markers,"))"); // TODO: Add name to SBAR: SBAR=exception_4
+        var rulePP = TregexRuleGenerator.ruleFromMarkers("(PP << (", markers,"))"); // TODO: Add name to PP: PP=exception_5
 
-        var ruleStr =  any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
-        return new SemanticRule("exception", ruleStr);
+        var ruleStr =  TregexRuleGenerator.any(Stream.of(ruleSrel, ruleVPart, ruleVPinf, ruleSsub, rulePP));
+        return new SemanticRule("Exception", ruleStr);
     }
 
     private static SemanticRule location() {
         var markers = MarkerGenerator.location();
-        var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
+        var ruleStr = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("location", ruleStr);
+        return new SemanticRule("Location", ruleStr);
     }
 
     public static SemanticRule modality() {
 //        var markers = MarkerGenerator.modality();
 //        var ruleStr = ruleFromMarkers("(MD < (", markers,"))");
 
-        return new SemanticRule("modality", "MD=modality");
+        return new SemanticRule("Modality", "MD=modality");
     }
 
     private static SemanticRule reason() {
@@ -153,46 +151,46 @@ public class SemanticRuleGenerator {
 
         // TODO: Test SBAR and VPart extensively
         var ruleSrel = createSrelRule(markers, "reason_1");
-        var rulePP = "(PP=reason_2 " + ruleFromMarkers("< (__ < ", markers,")") + ")";
-        var ruleSsub = "(SBAR=reason_3 " + ruleFromMarkers("<< (", markers, ")") + ")";
+        var rulePP = "(PP=reason_2 " + TregexRuleGenerator.ruleFromMarkers("< (__ < ", markers,")") + ")";
+        var ruleSsub = "(SBAR=reason_3 " + TregexRuleGenerator.ruleFromMarkers("<< (", markers, ")") + ")";
         var ruleVPart = createVPartRule(markers, "reason_4");
         var ruleVPinf = createVPinfRule(markers, "reason_5");
 
-        var ruleStr = any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
-        return new SemanticRule("reason", ruleStr);
+        var ruleStr = TregexRuleGenerator.any(Stream.of(ruleSrel, rulePP, ruleVPinf, ruleSsub, ruleVPart));
+        return new SemanticRule("Reason", ruleStr);
     }
 
     private static SemanticRule sanction() {
         var markers = MarkerGenerator.sanction();
-        var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
+        var ruleStr = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("sanction", ruleStr);
+        return new SemanticRule("Sanction", ruleStr);
     }
 
     private static SemanticRule situation() {
         var markers = MarkerGenerator.situation();
-        var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
+        var ruleStr = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("situation", ruleStr);
+        return new SemanticRule("Situation", ruleStr);
     }
 
     private static SemanticRule time() throws JWNLException {
         var markers = MarkerGenerator.time();
 
-        String ruleNP = ruleFromMarkers("(NP < (__ < ", markers, "))");
+        String ruleNP = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");
         // TODO: This rule has not generated any matches yet. Investigate!
-        String rulePP = ruleFromMarkers("(PP < (P < (__ < ", markers, ")) $ NP)");
+        String rulePP = TregexRuleGenerator.ruleFromMarkers("(PP < (P < (__ < ", markers, ")) $ NP)");
 
         var ruleStr = or(ruleNP, rulePP);
 
-        return new SemanticRule("time", ruleStr);
+        return new SemanticRule("Time", ruleStr);
     }
 
     private static SemanticRule violation() {
         var markers = MarkerGenerator.violation();
-        var ruleStr = ruleFromMarkers("(NP < (__ < ", markers, "))");
+        var ruleStr = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");
 
-        return new SemanticRule("violation", ruleStr);
+        return new SemanticRule("Violation", ruleStr);
     }
 
     private static String or(String rule1, String rule2) {
@@ -215,7 +213,7 @@ public class SemanticRuleGenerator {
             srelNamed = S_REL.replace("SBAR", "SBAR=" + targetNodeName);
         }
 
-        return "(" + srelNamed + "(" + ruleFromMarkers("<< ", markers, "") + "))";
+        return "(" + srelNamed + "(" + TregexRuleGenerator.ruleFromMarkers("<< ", markers, "") + "))";
     }
 
     static String createVPartRule(Set<String> markers, String targetNodeName) {
@@ -226,7 +224,7 @@ public class SemanticRuleGenerator {
         } else {
             vpartNamed = V_PART.replace("VP", "VP=" + targetNodeName);
         }
-        return "(NP < (" + vpartNamed + ruleFromMarkers("<< (", markers, ")") + "))";
+        return "(NP < (" + vpartNamed + TregexRuleGenerator.ruleFromMarkers("<< (", markers, ")") + "))";
     }
 
     static String createVPartRule(Set<String> markers) {
@@ -246,7 +244,7 @@ public class SemanticRuleGenerator {
         }
 
         var markersWithoutTO = MarkerGenerator.removeTO(markers);
-        return "(" + vpinfNamed + ruleFromMarkers("(($ (__ < ", markersWithoutTO, ")) > __) >> NP") + ")";
+        return "(" + vpinfNamed + TregexRuleGenerator.ruleFromMarkers("(($ (__ < ", markersWithoutTO, ")) > __) >> NP") + ")";
     }
 
     // Save constituency part of a rule

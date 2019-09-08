@@ -2,10 +2,10 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
-import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeNode;
-import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeToJCasConverter;
-import de.tudarmstadt.ukp.dkpro.core.io.penntree.PennTreeUtils;
-import de.tudarmstadt.ukp.dkpro.core.stanfordnlp.StanfordDependencyConverter;
+import org.dkpro.core.io.penntree.PennTreeNode;
+import org.dkpro.core.io.penntree.PennTreeToJCasConverter;
+import org.dkpro.core.io.penntree.PennTreeUtils;
+import org.dkpro.core.stanfordnlp.StanfordDependencyConverter;
 import edu.stanford.nlp.trees.Tree;
 import org.apache.uima.UIMAException;
 import org.apache.uima.analysis_engine.AnalysisEngineDescription;

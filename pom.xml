@@ -20,59 +20,59 @@
     </build>
     <dependencies>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.text-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-io-text-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.stanfordnlp-gpl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-stanfordnlp-gpl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.berkeleyparser-gpl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-berkeleyparser-gpl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.tgrep-gpl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-io-tgrep-gpl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.opennlp-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-opennlp-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.penntree-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-io-penntree-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.conll-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-io-conll-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.maltparser-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-maltparser-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.corenlp-gpl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-corenlp-gpl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.xmi-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-io-xmi-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
-            <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-            <artifactId>de.tudarmstadt.ukp.dkpro.core.io.bincas-asl</artifactId>
-            <version>1.10.0</version>
+            <groupId>org.dkpro.core</groupId>
+            <artifactId>dkpro-core-io-bincas-asl</artifactId>
+            <version>1.11.1</version>
         </dependency>
         <dependency>
             <groupId>org.dkpro.jwktl</groupId>

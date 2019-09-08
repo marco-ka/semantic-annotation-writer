@@ -1,0 +1,411 @@
+A firm may allow a borrower not to amortise in accordance with these regulations when, as part of its new lending activities, the firm grants a loan as referred to in section 4, fourth paragraph, second sentence of the Consumer Credit Act (2010:1846).
+
+Authorised trading venues shall maintain a list pursuant to section 13 of the Reporting Obligations for Certain Holdings of Financial Instruments Act (2000:1087). The list shall contain as a minimum information regarding the name, position and Swedish personal ID number of the person subject to the notification obligation or, if the person does not have a Swedish personal ID number, some other identification number [...].
+
+For options, specification is required of whether a bid or put option has been acquired or transferred. In addition, the underlying asset, number, maturity, closing day and strike price shall be specified. The corresponding information shall be provided for forwards.
+
+A stock exchange shall decide which employees and contractors are subject to the notification obligation pursuant to Chapter 1, section 15 of the Securities Market Act (2007:528). The basis for how this group has been determined shall be documented.
+
+A lessor that, pursuant to RFR 2 Accounting for Legal Entities, reports a financial leasing agreement as an operational leasing agreement may depreciate the leased assets in accordance with the annuity method, even if this would not be consistent with IFRS 16 Leases, cf. point 84 of IFRS 16, and shall apply the rules for financial leasing agreements in terms of impairment losses and reversals of impairment losses for the leased asset, cf., IFRS 9 Financial Instruments, points 2.1(b)(i), 5.5.1 and 5.5.15(b).
+
+An unlisted securities companies whose balance sheet total for the two most recent financial years does not exceed 1,000 basic amounts in accordance with Chapter 2, section 7 of the Social Insurance Code (2010:110) only needs to provide disclosures in accordance with the following approved international accounting standards: [...].
+
+The first paragraph shall not apply if the institution prepares or is included in consolidated financial statements, or has an international connection.
+
+In the note that describes the accounting policies applied, the institution shall indicate whether it has applied disclosure reliefs.
+
+A stock exchange, in addition to the functions and resource requirements set out in Chapter 13, section 2 of the Securities Market Act (2007:528), shall have the expertise required to be able to maintain effective monitoring in accordance with section 1.
+
+Market monitoring at a stock exchange shall have the capacity to (1) obtain information from issuers and participants for explaining such cases as those referred to in section 1, points 1–4 and that are related to the regulated markets operated by the stock market, and (2) obtain information from Swedish and foreign stock exchanges for explaining such cases as those referred to in section 1, points 1–4.
+
+The undertaking’s documented risk appetite for credit risk shall specify the scope and focus of the total credit risk to which the undertaking may be exposed, the composition of the credit portfolio, diversification and concentration. Within the framework for its risk appetite, the undertaking shall also have limits for its credit risks.
+
+A decision to change the risk appetite for credit risks shall be preceded by a written analysis of how the change in risk appetite may affect the undertaking’s total credit risk and the credit portfolio’s composition, diversification and concentration. The effects of a change to the risk appetite must be monitored and evaluated.
+
+The undertaking’s documented risk strategy for credit risks shall specify how the undertaking shall actively ensure that the risk appetite for credit risks is not breached. The risk appetite and risk strategy shall be in line with the undertaking’s internal rules and strategic targets.
+
+A securities company, on the balance sheet dates of 31 March, 30 June, 30 September and 31 December, shall submit data on the company’s (1) own funds, and (2) memorandum items.
+
+Finansinspektionen shall have received the data no later than 12 May, 11 August, 11 November and 11 February. The data shall refer to the previous quarter. If the balance sheet date coincides with the date of the annual accounts, Finansinspektionen shall have received the data no later than the twentieth calendar day of the second month following the balance sheet date.
+
+If the securities company makes changes that affect the data that is reported in accordance with section 3, the company shall immediately submit correct data to Finansinspektionen.
+
+An undertaking should immediately report to Finansinspektionen when event of the following nature occur. The undertaking’s regulatory function should submit the report that should contain the information set out in the appendix.
+
+The undertaking should report events that could lead to such a change in its financial situation that it would not be able to fulfil its commitments with respect to its customers.
+
+The undertaking’s board of directors or equivalent decision-making body should establish in writing guidelines to manage and report events of material significance.
+
+A payment service provider shall have appropriate and effective procedures for handling and responding to a payment service user’s complaints about operations in the countries in which the provider provides payment services.
+
+The payment service provider shall respond to the complaint in a language that is an official language of the country where the payment service is provided, and supply this to the payment service user in paper form, unless the provider and the user have agreed otherwise.
+
+A payment service provider shall respond to a payment service user’s complaint within 15 business days of the day the complaint is received.
+
+An undertaking must identify and analyse the threats or hostile acts that could occur against its employees, contractors and other persons involved in its activities in a similar capacity.
+
+The undertaking must investigate any incidents and use this knowledge to update the procedures it is required to have under Chapter 2, section 15 of the Act on Measures against Money Laundering and Terrorist Financing (2017:630). The scope of the procedures should be based on the undertaking’s general risk assessment, the threats facing it, the nature of its activities and similar matters.
+
+An undertaking’s system pursuant to Chapter 4, section 7 of the Act on Measures against Money Laundering and Terrorist Financing (2017:630) may be electronic or manual.
+
+The undertaking must ensure that the system is designed in such a way that the information can be provided in a digital, structured and editable format. The undertaking must ensure that the information is provided via secure channels or in some other secure manner. The undertaking must also ensure that the information is treated as confidential.
+
+A securities company shall, when applying for authorisation pursuant to the Securities Market Act (2007:528), provide Finansinspektionen with information regarding the suitability of the following persons at the undertaking: chairman of the board, board members, alternate board members, and managing director or deputy managing director, i.e. a person serving in the managing director’s stead.
+
+The company shall also inform Finansinspektionen when the composition of such persons is altered or the number of board members is reduced or increased.
+
+A securities institution shall, on its website, explain how it organises and manages its operations. The institution shall also explain on the website how the board of directors, board members and the managing director meet the requirements of sufficient knowledge, insight, experience and suitability.
+
+If the institution does not have a website, it shall, in alternate way, publicly provide the information specified in the first paragraph.
+
+The provisions in sections 3–10 shall not be applied until the accepting payment service provider has opened the new payment account to which the switch shall be made.
+
+Switching a payment account shall commence by all holders of the payment account ordering in writing the accepting payment service provider to carry out the switch and provide instructions as to how this order is to be executed. The accepting payment service provider shall ensure that it is possible for a consumer to submit the order and instructions in Swedish unless the payment service provider and the consumer agree otherwise.
+
+The accepting payment service provider shall ensure that the consumer has the possibility of submitting instructions about the direct debit authorisations, incoming payments and standing orders linked to the old payment account that are to be linked to the new one. The payment service provider shall ensure that the consumer can submit instructions stating that any outstanding balance in the payment account with the ceding payment service provider is to be transferred, and that the payment account is subsequently to be closed.
+
+When a firm grants a loan collateralised by a home the loan should be limited such that the loan-to-value ratio for the home does not exceed 85 per cent of the home's market value at the time the loan is granted.
+
+This limitation to the loan-to-value ratio should be established in the firm's credit instructions, where applicable.
+
+The undertaking should have a remuneration policy to identify, measure, govern, report internally and control the risks associated with its business. The remuneration policy should be in line with and promote effective risk management and not encourage excessive risk-taking. The remuneration policy should encompass all employees.
+
+When the undertaking uses variable remuneration, it should take into consideration how such may affect earnings in the long run. When the undertaking decides the basis for remuneration, it should be attentive to the fact that performance can be affected retrospectively by current and future risks. In its performance measurement, the undertaking should take account of the actual costs for maintaining capital and liquidity that are inherent to the operations being measured.
+
+The undertaking should base performance-based remuneration on the employee’s performance as well as the performance of the relevant business unit and the undertaking as a whole. When the firm determines the remuneration for an employee, it should take into account qualitative criteria, such as that the employee complies with internal rules and procedures and respects the rules concerning conduct toward customers and investors.
+
+When granting a new loan, an undertaking may only grant or extend a loan if the borrower undertakes to amortise the loan as a minimum in accordance with these regulations.
+
+In its calculation of the loan-to-value ratio, an undertaking shall use the market value that applied when the residential property was acquired. The undertaking may instead use the market value determined during a later revaluation for the calculation of the loan-to-value ratio.
+
+A revaluation according to the first paragraph may be performed at the earliest five years after the residential property was acquired or following the last revaluation that resulted in a change in the amortisation amount. However, a revaluation may be performed earlier than this if there has been a material change in the residential property’s market value for reasons other than the general development on the market for residential properties.
+
+A firm belonging to sector S.127, captive financial institutions and money lenders, in accordance with European System of National and Regional Accounts 2010 (ESA 2010), must submit data upon request to Statistics Sweden.
+
+The data shall refer to the firm’s circumstances the most recent calendar quarter and contain the data set out in the form Balance Sheet Statistics for Sector S.127 (FinBAST), see the appendix.
+
+Statistics Sweden shall have received the data no later than the twentieth day of the following quarter.
+
+An undertaking shall update its recovery plan or group recovery plan on an annual basis or in conjunction with changes to its business that could have a material impact on the recovery plan or the group recovery plan.
+
+A recovery plan or a group recovery plan may not assume the provision of public financial support.
+
+A recovery plan and a group recovery plan, where applicable, shall include an analysis of how and when the undertaking that prepared the plan, under the conditions addressed by the plan, may apply for the use of central bank facilities. In this analysis, the undertaking shall identify those assets which would be expected to qualify as collateral by central banks concerned.
+
+When translating into SEK an amount that in a regulation pursuant to section 1 has been stated in EUR, one euro as of 31 December every year shall be considered to correspond to the value in Swedish krona that has been published in the Official Journal of the European Union and that refers to the immediately preceding final day in the month of October.
+
+An insurance undertaking may, with the consent of Finansinspektionen, obtain an exemption under section 1 if the undertaking (1) is able to demonstrate that it will discontinue its operations before 1 January 2019, or (2) is in liquidation and a liquidator has been appointed.
+
+If the undertaking is part of a group, in accordance with Chapter 19 of the Insurance Business Act (2010:2043), all insurance providers in the group shall have ceased issuing new insurance contracts in order to discontinue their operations before the exemption can be granted.
+
+The insurance undertaking shall also (1) inform Finansinspektionen that it is applying the exemption, and (2) submit an annual report to Finansinspektionen on the progress it has made towards discontinuing its operations.
+
+The occurrence of events such as those specified below should be immediately reported to Finansinspektionen by the undertaking.The report should be submitted by the compliance function and contain the information set out in the Appendix.
+
+The undertaking should report events that could lead to such a change in its financial situation that it would not be able to fulfil its commitments with respect to its customers.
+
+If an auditor takes measures such as those set out in Chapter 9, sections 43 and 44 of the Companies Act (2005:551), the undertaking should immediately inform Finansinspektionen thereof.
+
+In order to identify, measure, govern, report internally and control the risks associated with its operations, an undertaking should have a remuneration policy that is consistent with and promotes an effective risk management and does not encourage excessive risk-taking. The remuneration policy should encompass all employees.
+
+The remuneration policy should be subject to regular reviews to ensure that it develops in line with changes to the undertaking’s situation. The undertaking should base a decision about the design of the remuneration policy on an analysis of how the policy affects the risks the undertaking is exposed to and how these risks are managed.
+
+The information disclosed by an insurance undertaking in its supervisory reporting shall be relevant, reliable, comprehensible, available, comparable and consistent over time.
+
+An insurance undertaking shall disclose corrected information to Finansinspektionen as soon as possible if the information that the undertaking has disclosed in its supervisory reporting contains significant errors, or if a meeting of the company or association makes decisions that result in the information submitted in the supervisory reporting being misleading.
+
+When an insurance undertaking submits information, Appendix 1 should be used to break down insurance obligations pursuant to Commission Delegated Regulation (EU) 2015/35.
+
+The investment guidelines shall provide a general description of the pension foundation’s processes for risk control and risk monitoring. As a minimum, the description shall include (1) an account of the pension foundation’s monitoring of investment risks, and (2) a description of how the pension foundation ensures satisfactory and independent risk control.
+
+The investment guidelines shall also provide a description of the limits or other thresholds determined by the pension foundations.
+
+Where applicable, the investment guidelines shall contain a description of how the pension foundation works with normal or reference portfolios.
+
+An undertaking shall base its calculations of average interest rates in accordance with section 3 on housing loans to consumers for which the rate of interest during the calendar month was determined (a) for the first time, (b) upon renegotiation of a loan agreement, or (c) upon extension of a loan agreement.
+
+Housing loans mediated for an issuing institution shall be included in the calculations of the undertaking’s average interest rates. Loans issued to employees of the undertaking or within the group, and which carry favourable terms, shall not be included in the calculations.
+
+A housing loan with a fixed interest term that deviates from the fixed interest terms offered by the undertaking in its marketing shall be included in the calculation pertaining to the closest fixed interest term or, if it is close to two different fixed interest terms, the shorter of the two.
+
+All companies, branches and groups shall report on the balance sheet dates, 31 March, 30 June, 30 September and 31 December, relevant information in accordance with the Standard Report form, Appendix 1.
+
+Finansinspektionen shall have received the information no later than 30 April, 10 August, 31 October and 31 January. With regard to the annual accounts, Finansinspektionen shall have received the information no later than the twentieth day of the second month following the balance sheet date.
+
+If the annual accounts do not coincide with any of the balance sheet dates, the information from the annual accounts shall be reported on the reporting date that immediately follows the annual accounts.
+
+An undertaking and all or some of its subsidiary undertakings may waive application of Article 412 of Regulation (EU) No 575/2013 on prudential requirements for credit institutions and investment firms given the conditions referred to in Article 8(2) of the Regulation.
+
+A waiver requires the undertaking to submit written notification to Finansinspektionen stating which undertakings are included in the liquidity sub-group. In its notification, the undertaking shall also certify that (1) the conditions in Articles 8(1)(a)–8(1)(d) of the Regulation are fulfilled, and (2) legal opinions exist stating that the conditions in Articles 8(1)(c) and 8(1)(d) of the Regulation are fulfilled.
+
+The legal opinion pursuant to section 1 shall be issued by an external, independent legal advisor with extensive experience in the field. The opinion shall be addressed directly to the institution.
+
+An investment firm which does not have authorisation pursuant to Chapter 2, section 1, point 3 of the Securities Market Act (2007:528) does not need to apply Articles 411–428 of Regulation (EU) No 575/2013 on prudential requirements for credit institutions and investment firms. This also applies to a group of investment firms where none of the undertakings in the group have authorisation pursuant to Chapter 2, section 1, point 3 of the Securities Market Act.
+
+In its credit assessment, a lender should assess the financial circumstances of a consumer based on his or her income, assets, expenditure and debts, as well as any guarantee undertaking. The credit assessment should be based on written material or other reliable information, such as a credit report.
+
+A credit assessment should be performed even if collateral is provided for the loan.
+
+The lender should notify the consumer clearly of the reason why he or she has not been granted a loan by stating the grounds for the decision. Where the grounds for the decision are the result of a “credit calculation model”, the lender should provide a more detailed explanation if so requested by the consumer.
+
+In its application an undertaking shall provide a description of its ownership structure.
+
+The undertaking shall also append to the application the information for the ownership assessment set out in Chapter 3, section 2.
+
+Where the undertaking belongs to the same group as another undertaking that conducts certain consumer credit-related operations, deposit institutions, electronic money institutions, payment institutions, credit institutions, investment firms, fund management companies, insurance undertakings or AIF managers, the names and company registration numbers of these undertakings shall be provided.
+
+An actuary shall have sufficient skills in Swedish to understand those parts of the insurance regulations that are of significance to the duties included in the position of actuary and that are generally appropriate in view of the extent and type of operations conducted by the undertaking.
+
+An actuary shall have completed an undergraduate programme at a Swedish university or university college, consisting of at least 120 credits in mathematics and mathematical statistics, with at least 45 credits in each subject. In addition to an undergraduate qualification, actuaries shall have a master’s degree in actuarial mathematics.
+
+If the actuary’s duties concern life insurance with elements of savings, the courses completed should comprise courses in life insurance mathematics and financial mathematics. If the actuary’s duties concern risk insurance within life insurance, the courses completed should include non-life insurance mathematics.
+
+An undertaking shall classify its information so that it is ascribed the right level of protection. This classification shall be based on the requirements imposed on the information’s confidentiality, integrity and availability in its operations.
+
+The undertaking shall document the classification under the first paragraph and appoint persons or functions who are responsible for the information processed within its operations.
+
+An undertaking shall analyse the risks related to the undertaking’s information security once a year as well as in the event of changes that can affect the information security. The undertaking shall decide how to manage risks identified based on these analyses and incidents that have occurred.
+
+An undertaking shall determine a risk appetite for its operational risks. The undertaking shall have limits for its operational risks within the framework of its risk appetite.
+
+The undertaking shall use its products, services, functions, processes and IT systems as a basis for setting limits. It should be possible to use qualitative or quantitative measures to assess these limits. The undertaking shall document its risk appetite and limits.
+
+The board of directors shall decide on and regularly evaluate and if necessary update the risk appetite for operational risks. The managing director shall decide on and regularly evaluate and if necessary update the limits for operational risks.
+
+When reporting operational risks to the board of directors and managing director, an undertaking shall specify (1) indicators for operational risks under Chapter 3, Section 4, (2) breaches of risk appetite and risk limits under Chapter 2, Section 1, and (3) serious incidents.
+
+The undertaking shall also report the results from tests of the contingency, continuity and recovery plans to the board of directors at least once a year.
+
+The undertaking shall consider the nature, scope and complexity of the operations when applying the first and second paragraphs.
+
+An undertaking shall have the capability to gather and automatically compile data regarding the undertaking’s significant and measurable risks as soon as possible. The IT systems supporting such compilation shall be flexible and able to meet various analysis needs. Risk data shall be compilable at least in the event of crisis situations, stress tests and at the request of Finansinspektionen.
+
+An undertaking shall have internal rules and procedures for its accounting and risk reporting that enable it, at the request of Finansinspektionen, to submit financial statements in a timely manner which provide a true and fair presentation of the undertaking’s financial position and comply with applicable accounting standards, accounting regulations and legal requirements for risk reporting.
+
+The board of directors or the managing director shall decide on the internal rules.
+
+An institution, when applying Article 126(1) and Article 126(2)(d) of Regulation (EU) No 575/2013 on prudential requirements for credit institutions and investment firms, shall use a risk weight of 100 per cent for exposures that are secured by mortgages on commercial property when the secured property is located in Sweden or a third country.
+
+An institution, when applying Article 395(1) of Regulation (EU) No 575/2013 on prudential requirements for credit institutions and investment firms, shall recognise debt securities issued in accordance with the Covered Bonds (Issuance) Act (2003:1223) and corresponding foreign debt securities at 10 per cent of their value. In no case may the items be included in the issuing institution’s own funds.
+
+An institution shall conduct a thorough analysis of all exposures exceeding two per cent of the institution's or the group's eligible capital when determining large exposures to a group of connected clients.
+
+An insurance undertaking shall base its chosen rate of interest to discount future cash flows for occupational pension insurance on the duration of the cash flows to be valued and the currencies in which the undertaking’s insurance obligations are payable.
+
+Before choosing the rate of interest to be used for calculating technical provisions in accordance with section 1, an insurance undertaking shall first calculate the applicable discount rate curve using the method set out in Appendix 1.
+
+The undertaking shall determine forward rates on the discount rate curve as a weighted average of the market rates for the corresponding maturity and the ultimate forward rate. The method for calculating the weighted average is set out in section 1 of Appendix 1. The market rates used shall be consistent with current market quotations and are calculated according to the method set out in section 2 of Appendix 1.
+
+When such events as stated below occur, a company should report them immediately to Finansinspektionen. The report should be presented by the compliance function and should contain the information stated in the Appendix.
+
+The company should report such events that can mean that its financial conditions change, so that it is no longer able to meet its commitments to customers.
+
+If an accountant takes measures such as those set out in Chapter 9, sections 43 and 44 of the Companies Act (2005:551), the company shall immediately notify Finansinspektionen.
+
+An AIF manager shall state in its application the authorisation(s) for which it is applying. The application shall be signed by an authorised representative of the manager.
+
+An AIF manager which shall manage a special fund with an investment policy as referred to in Chapter 12, section 14 of the Alternative Investment Fund Managers Act (2013:561) shall state this in the application and, in addition to that set out in section 3, append the documents that are set out in Chapter 5a, section 5, second paragraph, points 1–6 of the Investment Funds Act (2004:46).
+
+A legal person under the supervision of Finansinspektionen or an authorised authority within the EEA does not need to submit the information set out in sections 1.7, 1.12 and 1.13 of Appendix 2 unless specifically requested by Finansinspektionen.
+
+For companies that comply with the rules set forth in Chapter 2, sections 4−5, the following applies.
+
+Where the contingency reserve (S) at the beginning of the accounting period exceeds the maximum amount (M) calculated at the close of the period, pursuant to the rules set forth in Chapter 2, sections 1−5, the excess amount (Ö = S-M) shall be dissolved.
+
+This compulsory dissolution (Ö) of the contingency reserve (S) is considered to be a contribution to cover any possible losses (F), i.e. if the profit & loss statement’s item I.10 “Technical result of a non-life insurance business” after the write-back of item I.6 “Bonuses and rebates” (net of reinsurance) is a negative amount (F).
+
+Where the compulsory dissolution (Ö) is 0, or does not cover the losses (F) of the insurance activities, additional dissolutions (U) are allowed. However, the sum of the dissolutions (Ö + U) may not exceed the losses (F).
+
+The balance sheet entry for a non-life insurance undertaking’s contingency reserve may not exceed the amounts stated in sections 2−5.
+
+No allocation of capital to contingency reserves may be made for known outstanding claims concerning annuities in sickness insurance, life annuities or for insurances where the premium has been determined for a term exceeding ten years. However, contingency reserve provisions may be made for sickness and life annuities with respect to unknown claims.
+
+A non-life insurance undertaking’s maximum contingency reserve is the highest of (1) the total of the maximum amounts per class of insurance set forth in sections 4 and 5, or (2) 100 basic amounts in accordance with Chapter 2, section 7 of the Social Insurance Code (2010:110).
+
+The undertaking may only make a provision to contingency reserves for such insurance that falls under the classes of insurance set out in section 4. (FFFS 2015:23)
+
+Provisions regarding which portion of a mortgage loan may be included in the cover pool are set out in Chapter 3, section 3 of the Covered Bonds (Issuance) Act (2003:1223). An issuing institution shall establish the primary intended purpose of the mortgage property when applying the regulation.
+
+The issuing institution, when determining the primary intended purpose of the mortgage property, should obtain guidance from the land register's type codes for taxation information. If the type codes are not updated or for other reasons do not accurately depict the property's area of use, the institution may establish more correct grounds for its assessment in collaboration with Finansinspektionen.
+
+Where a property covers several assessment units, the institution may determine the primary use with the assistance of sub-values in the tax assessment value.
+
+The institution should also apply these general guidelines to foreign mortgage properties. In these cases the assessment should be documented.
+
+Provisions stating that an issuing institution shall verify on a regular basis the market value of property that forms collateral for mortgage loans are set out in Chapter 3, section 7 of the Covered Bonds (Issuance) Act (2003:1223).
+
+If the price levels of comparable properties fall, the institution shall verify that the property that forms collateral for mortgage loans has the same value as in the original or most recent valuation. Where the market conditions for comparable properties at the locality or in the region have seriously declined, the valuation shall be re-assessed.
+
+The institution shall verify in particular the prices in the regions or within the categories where the fall in prices, or the risk that prices will fall, is the largest.
+
+An undertaking’s application shall include information about the members and, if any, alternate members of its board of directors and identify the chairman of the board of directors. The undertaking shall also identify the managing director or equivalent if such a position has been appointed and this person’s eventual deputy managing director. The undertaking shall also identify the person responsible for the electronic money operations and this person’s eventual replacement.
+
+With regard to the persons set out in the first paragraph, the undertaking shall also provide the information for management assessment set out in Chapter 5, section 4.
+
+In its application an undertaking shall append a business plan prepared in accordance with sections 8–21.
+
+An undertaking’s business plan shall include (1) a detailed description of the operations related to the issuance of electronic money which the undertaking intends to conduct, and (2) a flow chart demonstrating the administrative processes in place for the operations related to the issuance of electronic money.
+
+The business plan shall include a schematic overview of how the operations of the undertaking will be organised. The overview shall specify who is responsible for each area or function.
+
+The business plan shall also include a detailed description of the various areas or functions within the operations related to the issuance of electronic money and a general account of the activities that are carried within each area/function.
+
+The information should be designed such that it facilitates the decisions that a party intending to take out an insurance or a policyholder may need to make. It should be simple to gain an overview of the insurance policy’s most important characteristics and limitations. Information to be used as a basis for a decision that may need to be taken by a person intending to take out an insurance policy or a policyholder should be presented in consolidated form.
+
+The information should be provided in a document or in any other legible or durable form that is available to the recipient. However, this does not apply to such information as referred to in Chapter 5, section 2.
+
+For savings-type pension insurance and capital insurance, the information should clearly state the extent to which the level of the pension amount, insurance amount and any survivor benefits is guaranteed.
+
+A pension fund or foreign institution for occupational retirement provision shall observe the following: Information about the fund or institution.
+
+Upon request, members and beneficiaries shall receive a copy of the most recent annual report.
+
+If the pension fund or foreign institution for occupational retirement provision safeguards more than one pension scheme, parties entitled to payment upon request shall receive the annual report for the pension scheme to which they belong, if such information is available.
+
+Risk concentrations and intra-group transactions for which Finansinspektionen pursuant to Chapter 5, section 11 of the Special Supervision of Financial Conglomerates Act (2006:531) has made a decision shall be reported annually as per 31 December.
+
+The information shall be submitted using the “Significant risk concentrations in financial conglomerates” form in Appendix 1 and the “Significant intra-group transactions in financial conglomerates” form in Appendix 2.
+
+Finansinspektionen shall have received the information no later than 31 March.
+
+An accounting consolidation method and a combination of the deduction and aggregation method and the accounting consolidation method in accordance with Chapter 5, section 4 of the Special Supervision of Financial Conglomerates Act (2006:531) may be used if these methods provide an overview of the financial conglomerate’s financial position that is as good as the deduction and aggregation method.
+
+When the accounting consolidation method is used pursuant to section 2 and there are regulated firms in a financial sector that have not been consolidated in group accounts or equivalent aggregate accounts, such firms shall also be also taken into account.
+
+If the own funds and capital requirement of a financial conglomerate are calculated in accordance with the accounting consolidation method, and capital requirements for financial groups or insurance groups are used, the capital requirement shall be adjusted where necessary so that the firms in the financial conglomerate are included at the same percentage in the conglomerate’s capital requirement as in its own funds.
+
+Joint stock banks, members’ banks, savings banks, credit market firms, credit market associations, investment firms, Swedish management companies, insurance companies, insurance associations, mutual national insurance companies, exchanges, authorised marketplaces, clearing organisations and electronic money institutions shall, where applicable, report to Finansinspektionen general register information and information about qualifying holdings, subsidiaries, step-down subsidiaries and other participating interests in accordance with the appendix.
+
+Institutions only need to report information about compliance officers and complaint officers if they are obligated by law, ordinance or regulations to have such positions.
+
+The information shall be reported on an annual basis no later than 30 June, as well as following a change in the reported situation.
+
+Swedish financial institutions that are legal entities and deposit-taking institutions shall, where applicable, report to Finansinspektionen information about the owners’ qualifying holding in accordance with the appendix.
+
+The information shall be reported on an annual basis, although no later than 30 June.
+
+A firm's board of directors shall decide on a remuneration policy. This decision shall be based on the analysis referred to in Chapter 2. The board of directors shall be responsible for the application and review of the remuneration policy.
+
+The board of directors shall decide on (a) remuneration to senior management, (b) remuneration to employees who are primarily responsible for any of the firm's control functions, and (c) measures to enable a review of how the firm's remuneration policy is being applied.
+
+The decision of the board of directors shall where applicable comply with decisions made by the Annual General Meeting with regard to the firm's remuneration.
+
+A significant firm shall have a remuneration committee which shall conduct an independent assessment of the firm's remuneration policy and remuneration structure. A financial group may establish a common remuneration committee for all firms within the group.
+
+The Chair and other members of the remuneration committee may not be members of the firm's senior management. The members of the remuneration committee shall have sufficient knowledge and experience in issues relating to risk management and remuneration.
+
+A firm shall have a documented risk tolerance that is based on a clearly expressed quantitative and qualitative view of what constitutes appropriate liquidity risk and is adapted to the firm's operational objective, strategic direction and general risk preference. The firm's board of directors shall decide on the risk tolerance.
+
+A firm shall have strategies pursuant to Chapter 4 as well as guidelines and instructions for managing the firm's liquidity risk in accordance with the risk tolerance decided by the board of directors as set out in section 1 with the aim of ensuring that the firm has sufficient liquidity.
+
+A firm's managing director shall review and report the firm's management of liquidity risks and its liquidity to the board of directors on a regular basis.
+
+The board of directors of a firm, at least annually, shall review and approve strategies in accordance with Chapter 4 and guidelines related to the firm’s management of liquidity risk. The board of directors shall also ensure that the firm's senior management manages liquidity risks in accordance with the firm's risk tolerance.
+
+Guidelines and instructions for the management of liquidity risk shall ensure that the firm monitors and meets future liquidity needs during both normal daily management and temporary and drawn-out crisis situations. Such documents shall also provide instructions for the division of responsibility and tasks, measurement methods, limits, follow-up and reporting. The guidelines and instructions shall refer to the firm as a whole including any branches and, where applicable, coordination between them.
+
+In its application a firm shall provide information about the natural and legal persons holding a qualifying holding in the firm.
+
+The firm shall also append the information for ownership assessment provided for in Chapter 6, section 2.
+
+Furthermore, the firm shall provide information about the natural or legal persons it has or is expected to have close relationships with in accordance with Chapter 1, section 5 of the Payment Services Act (2010:751).
+
+If the firm is part of a group that includes other payment institutions, credit institutions, investment firms, fund management companies or insurance companies, it shall furnish the names and company registration numbers of these firms.
+
+An application for authorisation to acquire shares or participations in a financial institution shall include the information set out in Appendix 1a for a natural person or Appendix 1b for a legal person.
+
+Where the acquirer is a legal person, Appendix 1b shall be used for information about the legal person and Appendix 1c for information about board members, deputy board members, managing directors and deputy managing directors in the acquiring legal person.
+
+With respect to a natural person who owns a qualifying holding of shares or participations in the firm, the information set forth in section 1 of Appendix 1a shall be appended to an application for authorisation to conduct business. Where the owner is a legal person, the information set forth in section 1 of Appendix 1b shall be appended.
+
+With respect to a board member, deputy board member, managing director or deputy managing director in a firm who owns a qualifying holding, the information set forth in Appendix 1c shall be appended to an application for authorisation to conduct business.
+
+A legal person under the supervision of Finansinspektionen or a competent authority within the EEA does not need to submit the information set out in sections 1.7, 1.12 and 1.13 of Appendix 1b, unless specifically requested by Finansinspektionen.
+
+An institution shall apply a rule in approved international financial reporting standards if it is in agreement with the Annual Accounts for Credit Institutions and Securities Companies Act (1995:1559) and these regulations. In other cases, the corresponding regulation in Annual Accounts for Credit Institutions and Securities Companies Act and these regulations shall apply.
+
+An institution does not need to apply a rule in approved international financial reporting standards that is in agreement with the Annual Accounts for Credit Institutions and Securities Companies Act and these regulations if it instead applies a corresponding regulation in Swedish Financial Reporting Board Recommendation RFR 2 Accounting for Legal Entities. (FFFS 2013:2)
+
+For it to be determined that an institution controls another undertaking requires, in addition to fulfilment of the conditions in IFRS 10 Consolidated Financial Statements, that the institution holds a participation in the undertaking, cf., Chapter 1, section 4 of the Annual Accounts for Credit Institutions and Securities Companies Act (1995:1559) and Chapter 1, section 4 of the Annual Accounts Act (1995:1554).
+
+If the institution does not hold a participation in the other undertaking but in accordance with IFRS 10 still controls the other undertaking, the institution shall disclose information regarding this situation in a note. In such a case the other undertaking shall state in a note, if it is an institution, which undertaking controls without participations and how the influence can be exercised. (FFFS 2013:24)
+
+An institution shall make a provision in its balance sheet for pension commitments for employees that are not covered by pension insurance or specifically separated assets (pension trust or the equivalent).
+
+Institutions whose reported pension liabilities in the balance sheet or capital in specifically separated assets exceed the capital value of the pension commitments for employees shall not report the surplus in the balance sheet.
+
+The first and second paragraphs do not apply to defined-benefit plans that are reported in accordance with IAS 19 Employee Benefits. (FFFS 2013:2)
+
+If the distribution or value requirements set out in section 2, second paragraph do not exist, official listing may occur provided that the securities exchange determines that the market conditions are still satisfactory.
+
+Official listing may also occur if the documents referred to in section 2, first paragraph, subsection c can be produced for fewer than three financial years if the investors are judged to have access to the requisite information to be able to make an informed assessment of the issuer and the transferable securities that are the subject of the official listing application.
+
+Section 2, second paragraph, subsections a and d do not apply to the official listing of additional blocks of shares of the same class as those already registered.
+
+Where applicable, official listing of transferable securities in a foreign firm shall be subject to that which is prescribed for transferable securities in a Swedish firm.
+
+Shares in a foreign CIU may be registered on a securities exchange if the foreign CIU conducts fund activities in its home Member State and is under the supervision of an authority or other authorised body.
+
+The firm shall calculate and report to Finansinspektionen the effect a sudden change in the general interest rate level (interest rate shock) has on its financial value.
+
+The interest rate shock shall correspond to a sudden and sustainable parallel shift by 200 basis points applied to the yield curves to which current positions are tied at the time of reporting.
+
+Where the effect of such a shock results in a decline in the firm’s economic value by more than 20% in relation to its own funds, the firm shall submit a statement to Finansinspektionen describing the measures required to reduce the potential decline.
+
+The calculation shall cover items in non-trading activities that are tied to interest rate conditions. This refers both to assets and liabilities on the balance sheet and long and short positions that are not included in the balance sheet (off-balance sheet items).
+
+For currencies where the firm has assets or liabilities, the calculations shall be made currency by currency. A firm with interest rate risk exposure in more than ten currencies only needs to calculate the risk separately for the ten most important currencies from an interest rate risk viewpoint. Interest rate risks in the other currencies may be calculated as if they were in the same currency.
+
+The interest rate risks in the different currencies shall be added net for a total interest rate risk. Conversion to SEK shall apply the current spot rates at the time of calculation.
+
+An undertaking's board of directors shall bear the ultimate responsibility for the undertaking's organisation and management of its affairs. The nature of the board of directors' responsibility follows, inter alia, from the company law and business law legislation applied by the undertaking.
+
+The board of directors should adopt a strategy and targets for the operations conducted by the undertaking. The board of directors should also follow up compliance with these targets.
+
+Material changes relating to the operations and organisation should be decided upon by the board of directors.
+
+An undertaking’s managing director shall handle the day-to-day management of the undertaking's affairs in accordance with the board of directors' guidelines and instructions. The managing director shall also take the measures required in order that: the undertaking's accounts are maintained in accordance with law; and the administration of funds is conducted in a secure manner.
+
+The nature of the managing director's responsibility follows, inter alia, from company law and business law legislation.
+
+The managing director should ensure that the board of directors receives such objective, detailed and relevant information as required in order to take well-founded decisions and that the board of directors is regularly informed regarding developments in the undertaking's operations.
+
+An undertaking should possess efficient information and communications systems for the dissemination of internal information. The reference here is, inter alia, to technical systems as well as organisation and routines for the internal communication and dissemination of information.
+
+The auditor should not provide consultancy services at the institution or at a company closely related to it without Finansinspektionen's consent. This also applies to persons subordinate to the auditor.
+
+The auditor should pay particular attention to the institution's internal control systems in his audit. The auditor should also pay particular attention to the management of the existing risks in the business activities and how guidelines and instructions are applied.
+
+The auditor in a life insurance company should pay particular attention to transactions taking place between the life insurance company and other companies in the same group and the supporting documents for decisions on those transactions. The auditor should also compare these with the life insurance company's own guidelines.
+
+If any change of auditor occurs during the current financial year, Finansinspektionen should be informed immediately.
+
+The undertaking shall ensure that personnel providing advice are familiar with the legislation and rules relevant to the focus, scope and degree of difficulty of the advice.
+
+The undertaking shall ensure that the personnel providing advice also under-stand and can fulfil the requirements demanded of the advice on the basis of the focus, scope and degree of difficulty of the advice. The knowledge shall take ac-count of the significance of advising liability, ethics and generally accepted advising practices. In addition, the knowledge shall include the manner in which the duty of care, the duty to advise against a particular course of conduct, and the duty to maintain documentation shall be fulfilled.
+
+The undertaking shall ensure that personnel providing advice can also apply knowledge regarding savings and investments in financial instruments and insurance on the basis of the focus, scope and degree of difficulty of the advice.
+
+In conjunction with an ongoing customer relationship between the undertaking and the consumer, the information should be regularly updated.
+
+The consumer's financial and other significant circumstances for the advice should be documented by stating, for example, the consumer's family situation, income, assets, expenses, liabilities and insurance situation.
+
+In conjunction with the documentation of the consumer's purpose of the in-vestment, notes should also be made of his investment horizon.
+
+The institution should ensure that a functioning system is in place for contacts with customers in complaints matters. The institution should have one or more complaints officers to whom dissatisfied customers can be referred.
+
+The customer should be informed in an appropriate manner regarding the institution’s handling of complaints and the identity of the complaints manager at the institution. The information should also state how the customer shall submit a complaint against the institution. Similar information should also be available at every institution’s office and on their website. The customer should also be informed regarding the guidance which may be obtained from the Swedish Consumers’ Banking & Finance Bureau and the Swedish Consumers Insurance Bureau as well as through municipal consumers’ advice officials.
+
+When a complaint cannot be resolved, the complainant should receive written information regarding the possibility to pursue the matter further within the institution. The customer should also be informed of the reasons for the rejection of the complaint by the institution. Such information should be provided in writing upon request by the customer.
+
+Complaints should be handled efficiently and attentively. The institute should answer complaints objectively and correctly and in writing upon request by the customer.
+
+Complaints should be answered as quickly as possible. The institution should give particular consideration to the interest the complainant may have in obtaining a prompt response in order to secure evidence and take financial measures as a consequence of this complaint. When an answer cannot be provided within 14 days, the complainant should be informed within such time regarding the handling of the matter.
+
+At the request of Finansinspektionen, companies shall submit by electronic means information of trading in shares or options having shares as their underlying asset in accordance with the Appendix.
+
+Finansinspektionen may grant exemption from these regulations if special circumstances apply.
+
+Limits for market risks should be compiled for the institution as well as for individual units, various trading desks, product areas or individual traders within position-taking units. The limits should be consistent with applied risk measurements and designed to restrict immediate and/or accumulated losses over a given period, e.g. a month or a year.
+
+The institution should have a centralised function for independent control of market risk that reports to the managing director or a member of senior management not responsible for position-taking units and who has knowledge about financial instruments and methods for management and control of market risks. The function should have sufficient resources and expertise regarding market risks.

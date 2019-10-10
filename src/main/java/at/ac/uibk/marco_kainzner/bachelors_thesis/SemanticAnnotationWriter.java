@@ -29,7 +29,6 @@ import java.util.stream.Collectors;
 public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     @Override
     public void process(JCas jCas) throws AnalysisEngineProcessException {
-        String documentId = DocumentMetaData.get(jCas).getDocumentId();
         try {
             List<SemanticRule> rules = SemanticRuleGenerator.getAllRules();
             List<Annotation> annotations = new ArrayList<>();
@@ -80,7 +79,8 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
 
         var begin = sentenceWords.indexOf(matchWords);
         if (begin == -1) {
-            System.out.println("Cannot generate annotation from match: " + match);
+            // This can happen after removing constituents from a match (action-rule)
+            System.out.println("The match is not a substring of the containing sentence: '" + treeToString(match.matchTree) + "'");
             return null;
         }
         var end = begin + matchWords.length();
@@ -160,13 +160,13 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
             try {
                 modifiedNode = Tsurgeon.processPattern(matchPattern, surgery, node);
             } catch (NullPointerException e) {
-//                System.out.println("null node fetched by Tsurgeon operation (either no node labeled this, or the labeled node didn't match anything)");
+                // System.out.println("null node fetched by Tsurgeon operation (either no node labeled this, or the labeled node didn't match anything)");
                 noNodesMatchCount++;
             }
         }
 
-        if (noNodesMatchCount > 0)
-            System.out.println("Rule '" + rule.ruleName + "': " + noNodesMatchCount + " times no match");
+        // if (noNodesMatchCount > 0)
+        //    System.out.println("Rule '" + rule.ruleName + "': " + noNodesMatchCount + " times no match");
 
         return modifiedNode;
     }
@@ -189,9 +189,5 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
 
     private static String dependencyStr(Dependency d) {
         return d.getDependencyType() + ": '" + d.getGovernor().getText() + "' -> '" + d.getDependent().getText() + "'";
-    }
-
-    private static void log(String msg) {
-        System.out.println(new Date() + ": " + msg);
     }
 }

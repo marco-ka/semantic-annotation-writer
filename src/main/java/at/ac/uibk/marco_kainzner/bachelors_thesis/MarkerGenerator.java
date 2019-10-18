@@ -1,10 +1,5 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
-import net.sf.extjwnl.JWNLException;
-import net.sf.extjwnl.data.Synset;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -16,8 +11,14 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
+
+import net.sf.extjwnl.JWNLException;
+import net.sf.extjwnl.data.Synset;
+
 public class MarkerGenerator {
-    private static final String resourceDir = "C:/Users/Marco/Documents/Projects/semantic-legal-metadata-annotation/resources";
+    private static final String resourceDir = "resources";
 
     static Set<String> actor() throws IOException {
         Set<String> markers = new TreeSet<>();
@@ -90,7 +91,7 @@ public class MarkerGenerator {
     }
 
     private static Set<String> manual(String fileName) {
-        var path = Paths.get(resourceDir, "markers-manual\\" + fileName + ".txt");
+        var path = Paths.get(resourceDir, "markers-manual/" + fileName + ".txt");
         return fromFile(path);
     }
 

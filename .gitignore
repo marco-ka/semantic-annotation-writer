@@ -8,3 +8,6 @@ resources/fffs/pdf/
 *.conll
 *.mrg
 active/
+.classpath
+.project
+.settings

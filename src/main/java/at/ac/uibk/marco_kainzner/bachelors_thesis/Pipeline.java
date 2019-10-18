@@ -1,5 +1,12 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
+import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
+import static org.apache.uima.fit.factory.CollectionReaderFactory.createReader;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 import org.apache.uima.UIMAException;
 import org.apache.uima.fit.pipeline.SimplePipeline;
 import org.dkpro.core.berkeleyparser.BerkeleyParser;
@@ -11,18 +18,11 @@ import org.dkpro.core.stanfordnlp.StanfordNamedEntityRecognizer;
 import org.dkpro.core.stanfordnlp.StanfordPosTagger;
 import org.dkpro.core.stanfordnlp.StanfordSegmenter;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-
-import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
-import static org.apache.uima.fit.factory.CollectionReaderFactory.createReader;
-
 public class Pipeline {
 
     public static void main(String[] args) throws UIMAException, IOException {
         var documentId = "fffs_200_statements.txt";
-        var fileContent = Files.readString(Path.of("C:/Users/Marco/Documents/Projects/semantic-legal-metadata-annotation/resources/fffs/text/active/fffs_200_statements.txt"));
+        var fileContent = Files.readString(Path.of("/home/mun/development/marco-bachelor-thesis/resources/fffs/text/fffs_200_statements.txt"));
         var annotationsFile = Path.of("out/annotations.json");
         run(documentId, fileContent, annotationsFile);
     }
@@ -32,7 +32,7 @@ public class Pipeline {
         var pennTreeFile = "out/penn-trees/fffs_200_statements.txt.mrg";
 
         var textReader = createReader(
-                TextReader.class, TextReader.PARAM_SOURCE_LOCATION, "C:/Users/Marco/Documents/Projects/semantic-legal-metadata-annotation/resources/fffs/text/active",
+                TextReader.class, TextReader.PARAM_SOURCE_LOCATION, "/home/mun/development/marco-bachelor-thesis/resources/fffs/text",
                 TextReader.PARAM_LANGUAGE, "en",
                 TextReader.PARAM_PATTERNS, new String[]{"[+]*.txt"});
 

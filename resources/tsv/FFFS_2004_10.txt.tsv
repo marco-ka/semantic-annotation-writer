@@ -1,0 +1,160 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=The auditor should not provide consultancy services at the institution or at a company closely related to it without Finansinspektionen's consent.
+1-1	0-3	The	Actor:Agent[1]	
+1-2	4-11	auditor	Actor:Agent[1]	
+1-3	12-18	should	Modality	
+1-4	19-22	not	Action[2]	
+1-5	23-30	provide	Action[2]	
+1-6	31-42	consultancy	Action[2]	
+1-7	43-51	services	Action[2]	
+1-8	52-54	at	Action[2]|Location[3]	
+1-9	55-58	the	Action[2]|Location[3]	
+1-10	59-70	institution	Action[2]|Location[3]	
+1-11	71-73	or	Action[2]	
+1-12	74-76	at	Action[2]|Location[4]	
+1-13	77-78	a	Action[2]|Location[4]	
+1-14	79-86	company	Action[2]|Location[4]	
+1-15	87-94	closely	Action[2]|Location[4]	
+1-16	95-102	related	Action[2]|Location[4]	
+1-17	103-105	to	Action[2]|Location[4]	
+1-18	106-108	it	Action[2]|Location[4]	
+1-19	109-116	without	Action[2]|Constraint:Condition[5]	
+1-20	117-137	Finansinspektionen's	Action[2]|Constraint:Condition[5]	
+1-21	138-145	consent	Action[2]|Constraint:Condition[5]	
+1-22	145-146	.	Action[2]	
+
+#Text=This also applies to persons subordinate to the auditor.
+2-1	147-151	This	Reference	
+2-2	152-156	also	_	
+2-3	157-164	applies	Situation[6]	
+2-4	165-167	to	Situation[6]	
+2-5	168-175	persons	Situation[6]|Actor:Target[7]	
+2-6	176-187	subordinate	Situation[6]|Actor:Target[7]	
+2-7	188-190	to	Situation[6]|Actor:Target[7]	
+2-8	191-194	the	Situation[6]|Actor:Target[7]	
+2-9	195-202	auditor	Situation[6]|Actor:Target[7]	
+2-10	202-203	.	_	
+
+#Text=The auditor should pay particular attention to the institution's internal control systems in his audit.
+3-1	205-208	The	Actor:Agent[8]	
+3-2	209-216	auditor	Actor:Agent[8]	
+3-3	217-223	should	Modality	
+3-4	224-227	pay	Action[9]	
+3-5	228-238	particular	Action[9]	
+3-6	239-248	attention	Action[9]	
+3-7	249-251	to	Action[9]	
+3-8	252-255	the	Action[9]|Artifact[10]	
+3-9	256-269	institution's	Action[9]|Artifact[10]	
+3-10	270-278	internal	Action[9]|Artifact[10]	
+3-11	279-286	control	Action[9]|Artifact[10]	
+3-12	287-294	systems	Action[9]|Artifact[10]	
+3-13	295-297	in	Action[9]	
+3-14	298-301	his	Action[9]	
+3-15	302-307	audit	Action[9]	
+3-16	307-308	.	Action[9]	
+
+#Text=The auditor should also pay particular attention to the management of the existing risks in the business activities and how guidelines and instructions are applied.
+4-1	309-312	The	Actor:Agent[11]	
+4-2	313-320	auditor	Actor:Agent[11]	
+4-3	321-327	should	Modality	
+4-4	328-332	also	_	
+4-5	333-336	pay	Action[12]	
+4-6	337-347	particular	Action[12]	
+4-7	348-357	attention	Action[12]	
+4-8	358-360	to	Action[12]	
+4-9	361-364	the	Action[12]	
+4-10	365-375	management	Action[12]|Action[13]	
+4-11	376-378	of	Action[12]|Action[13]	
+4-12	379-382	the	Action[12]|Action[13]	
+4-13	383-391	existing	Action[12]|Action[13]|Actor:Target[14]	
+4-14	392-397	risks	Action[12]|Action[13]|Actor:Target[14]	
+4-15	398-400	in	Action[12]|Action[13]|Actor:Target[14]	
+4-16	401-404	the	Action[12]|Action[13]|Actor:Target[14]	
+4-17	405-413	business	Action[12]|Action[13]|Actor:Target[14]	
+4-18	414-424	activities	Action[12]|Action[13]|Actor:Target[14]	
+4-19	425-428	and	Action[12]	
+4-20	429-432	how	Action[12]|Action[15]	
+4-21	433-443	guidelines	Action[12]|Action[15]|Artifact[16]	
+4-22	444-447	and	Action[12]|Action[15]	
+4-23	448-460	instructions	Action[12]|Action[15]|Artifact[17]	
+4-24	461-464	are	Action[12]|Action[15]	
+4-25	465-472	applied	Action[12]|Action[15]	
+4-26	472-473	.	_	
+
+#Text=The auditor in a life insurance company should pay particular attention to transactions taking place between the life insurance company and other companies in the same group and the supporting documents for decisions on those transactions.
+5-1	475-478	The	Actor:Agent[18]	
+5-2	479-486	auditor	Actor:Agent[18]	
+5-3	487-489	in	Location[19]	
+5-4	490-491	a	Location[19]	
+5-5	492-496	life	Location[19]	
+5-6	497-506	insurance	Location[19]	
+5-7	507-514	company	Location[19]	
+5-8	515-521	should	Modality	
+5-9	522-525	pay	Action[20]	
+5-10	526-536	particular	Action[20]	
+5-11	537-546	attention	Action[20]	
+5-12	547-549	to	Action[20]	
+5-13	550-562	transactions	Action[20]|Action[21]	
+5-14	563-569	taking	Action[20]|Action[21]	
+5-15	570-575	place	Action[20]|Action[21]	
+5-16	576-583	between	Action[20]|Action[21]	
+5-17	584-587	the	Action[20]|Action[21]	
+5-18	588-592	life	Action[20]|Action[21]|Actor:Auxiliary Party[22]	
+5-19	593-602	insurance	Action[20]|Action[21]|Actor:Auxiliary Party[22]	
+5-20	603-610	company	Action[20]|Action[21]|Actor:Auxiliary Party[22]	
+5-21	611-614	and	Action[20]|Action[21]	
+5-22	615-620	other	Action[20]|Action[21]|Actor:Auxiliary Party[23]	
+5-23	621-630	companies	Action[20]|Action[21]|Actor:Auxiliary Party[23]	
+5-24	631-633	in	Action[20]|Action[21]|Actor:Auxiliary Party[23]	
+5-25	634-637	the	Action[20]|Action[21]|Actor:Auxiliary Party[23]	
+5-26	638-642	same	Action[20]|Action[21]|Actor:Auxiliary Party[23]	
+5-27	643-648	group	Action[20]|Action[21]|Actor:Auxiliary Party[23]	
+5-28	649-652	and	Action[20]	
+5-29	653-656	the	Action[20]	
+5-30	657-667	supporting	Action[20]	
+5-31	668-677	documents	Action[20]|Artifact[24]	
+5-32	678-681	for	Action[20]|Artifact[24]	
+5-33	682-691	decisions	Action[20]|Artifact[24]	
+5-34	692-694	on	Action[20]	
+5-35	695-700	those	Action[20]	
+5-36	701-713	transactions	Action[20]	
+5-37	713-714	.	_	
+
+#Text=The auditor should also compare these with the life insurance company's own guidelines.
+6-1	715-718	The	Actor:Agent[25]	
+6-2	719-726	auditor	Actor:Agent[25]	
+6-3	727-733	should	Modality	
+6-4	734-738	also	_	
+6-5	739-746	compare	Action[26]	
+6-6	747-752	these	Action[26]	
+6-7	753-757	with	Action[26]	
+6-8	758-761	the	Action[26]	
+6-9	762-766	life	Action[26]|Actor:Target[27]	
+6-10	767-776	insurance	Action[26]|Actor:Target[27]	
+6-11	777-786	company's	Action[26]|Actor:Target[27]	
+6-12	787-790	own	Action[26]	
+6-13	791-801	guidelines	Action[26]|Artifact[28]	
+6-14	801-802	.	_	
+
+#Text=If any change of auditor occurs during the current financial year, Finansinspektionen should be informed immediately.
+7-1	804-806	If	Constraint:Condition[29]	
+7-2	807-810	any	Constraint:Condition[29]	
+7-3	811-817	change	Constraint:Condition[29]	
+7-4	818-820	of	Constraint:Condition[29]	
+7-5	821-828	auditor	Constraint:Condition[29]	
+7-6	829-835	occurs	Constraint:Condition[29]	
+7-7	836-842	during	Constraint:Condition[29]	
+7-8	843-846	the	Constraint:Condition[29]	
+7-9	847-854	current	Constraint:Condition[29]|Time[30]	
+7-10	855-864	financial	Constraint:Condition[29]|Time[30]	
+7-11	865-869	year	Constraint:Condition[29]|Time[30]	
+7-12	869-870	,	_	
+7-13	871-889	Finansinspektionen	Actor:Target	
+7-14	890-896	should	Modality	
+7-15	897-899	be	Action[31]	
+7-16	900-908	informed	Action[31]	
+7-17	909-920	immediately	Action[31]	
+7-18	920-921	.	_	

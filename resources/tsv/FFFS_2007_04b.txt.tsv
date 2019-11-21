@@ -1,0 +1,41 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=The interest rate risks in the different currencies shall be added net for a total interest rate risk.
+1-1	0-3	The	_	
+1-2	4-12	interest	Artifact[1]	
+1-3	13-17	rate	Artifact[1]	
+1-4	18-23	risks	Artifact[1]	
+1-5	24-26	in	_	
+1-6	27-30	the	_	
+1-7	31-40	different	_	
+1-8	41-51	currencies	_	
+1-9	52-57	shall	Modality	
+1-10	58-60	be	Action[2]	
+1-11	61-66	added	Action[2]	
+1-12	67-70	net	Action[2]	
+1-13	71-74	for	Action[2]	
+1-14	75-76	a	Action[2]	
+1-15	77-82	total	Action[2]|Artifact[3]	
+1-16	83-91	interest	Action[2]|Artifact[3]	
+1-17	92-96	rate	Action[2]|Artifact[3]	
+1-18	97-101	risk	Action[2]|Artifact[3]	
+1-19	101-102	.	_	
+
+#Text=Conversion to SEK shall apply the current spot rates at the time of calculation.
+2-1	103-113	Conversion	_	
+2-2	114-116	to	_	
+2-3	117-120	SEK	_	
+2-4	121-126	shall	Modality	
+2-5	127-132	apply	Action[4]	
+2-6	133-136	the	Action[4]|Artifact[5]	
+2-7	137-144	current	Action[4]|Artifact[5]	
+2-8	145-149	spot	Action[4]|Artifact[5]	
+2-9	150-155	rates	Action[4]|Artifact[5]	
+2-10	156-158	at	Action[4]	
+2-11	159-162	the	Action[4]	
+2-12	163-167	time	Action[4]|Time[6]	
+2-13	168-170	of	Action[4]|Time[6]	
+2-14	171-182	calculation	Action[4]|Time[6]	
+2-15	182-183	.	_	

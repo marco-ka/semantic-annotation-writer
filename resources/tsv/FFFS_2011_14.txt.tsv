@@ -1,0 +1,193 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=Joint stock banks, members’ banks, savings banks, credit market firms, credit market associations, investment firms, Swedish management companies, insurance companies, insurance associations, mutual national insurance companies, exchanges, authorised marketplaces, clearing organisations and electronic money institutions shall, where applicable, report to Finansinspektionen general register information and information about qualifying holdings, subsidiaries, step-down subsidiaries and other participating interests in accordance with the appendix.
+1-1	0-5	Joint	Actor:Agent[1]	
+1-2	6-11	stock	Actor:Agent[1]	
+1-3	12-17	banks	Actor:Agent[1]	
+1-4	17-18	,	_	
+1-5	19-26	members	Actor:Agent[2]	
+1-6	26-27	’	Actor:Agent[2]	
+1-7	28-33	banks	Actor:Agent[2]	
+1-8	33-34	,	_	
+1-9	35-42	savings	Actor:Agent[3]	
+1-10	43-48	banks	Actor:Agent[3]	
+1-11	48-49	,	_	
+1-12	50-56	credit	Actor:Agent[4]	
+1-13	57-63	market	Actor:Agent[4]	
+1-14	64-69	firms	Actor:Agent[4]	
+1-15	69-70	,	_	
+1-16	71-77	credit	Actor:Agent[5]	
+1-17	78-84	market	Actor:Agent[5]	
+1-18	85-97	associations	Actor:Agent[5]	
+1-19	97-98	,	_	
+1-20	99-109	investment	Actor:Agent[6]	
+1-21	110-115	firms	Actor:Agent[6]	
+1-22	115-116	,	_	
+1-23	117-124	Swedish	Actor:Agent[7]	
+1-24	125-135	management	Actor:Agent[7]	
+1-25	136-145	companies	Actor:Agent[7]	
+1-26	145-146	,	_	
+1-27	147-156	insurance	Actor:Agent[8]	
+1-28	157-166	companies	Actor:Agent[8]	
+1-29	166-167	,	_	
+1-30	168-177	insurance	Actor:Agent[9]	
+1-31	178-190	associations	Actor:Agent[9]	
+1-32	190-191	,	_	
+1-33	192-198	mutual	Actor:Agent[10]	
+1-34	199-207	national	Actor:Agent[10]	
+1-35	208-217	insurance	Actor:Agent[10]	
+1-36	218-227	companies	Actor:Agent[10]	
+1-37	227-228	,	_	
+1-38	229-238	exchanges	Actor:Agent	
+1-39	238-239	,	_	
+1-40	240-250	authorised	Actor:Agent[11]	
+1-41	251-263	marketplaces	Actor:Agent[11]	
+1-42	263-264	,	_	
+1-43	265-273	clearing	Actor:Agent[12]	
+1-44	274-287	organisations	Actor:Agent[12]	
+1-45	288-291	and	_	
+1-46	292-302	electronic	Actor:Agent[13]	
+1-47	303-308	money	Actor:Agent[13]	
+1-48	309-321	institutions	Actor:Agent[13]	
+1-49	322-327	shall	Modality	
+1-50	327-328	,	_	
+1-51	329-334	where	Constraint[14]	
+1-52	335-345	applicable	Constraint[14]	
+1-53	345-346	,	_	
+1-54	347-353	report	Action[15]	
+1-55	354-356	to	Action[15]	
+1-56	357-375	Finansinspektionen	Action[15]|Actor:Target[16]	
+1-57	376-383	general	Action[15]|Artifact[17]	
+1-58	384-392	register	Action[15]|Artifact[17]	
+1-59	393-404	information	Action[15]|Artifact[17]	
+1-60	405-408	and	Action[15]	
+1-61	409-420	information	Action[15]|Artifact[18]	
+1-62	421-426	about	Action[15]|Artifact[18]	
+1-63	427-437	qualifying	Action[15]|Artifact[18]	
+1-64	438-446	holdings	Action[15]|Artifact[18]	
+1-65	446-447	,	Action[15]|Artifact[18]	
+1-66	448-460	subsidiaries	Action[15]|Artifact[18]	
+1-67	460-461	,	Action[15]|Artifact[18]	
+1-68	462-471	step-down	Action[15]|Artifact[18]	
+1-69	472-484	subsidiaries	Action[15]|Artifact[18]	
+1-70	485-488	and	Action[15]|Artifact[18]	
+1-71	489-494	other	Action[15]|Artifact[18]	
+1-72	495-508	participating	Action[15]|Artifact[18]	
+1-73	509-518	interests	Action[15]|Artifact[18]	
+1-74	519-521	in	Action[15]	
+1-75	522-532	accordance	Action[15]	
+1-76	533-537	with	Action[15]	
+1-77	538-541	the	Action[15]	
+1-78	542-550	appendix	Action[15]|Reference[19]	
+1-79	550-551	.	Action[15]	
+
+#Text=Institutions only need to report information about compliance officers and complaint officers if they are obligated by law, ordinance or regulations to have such positions.
+2-1	553-565	Institutions	Actor:Agent[20]	
+2-2	566-570	only	Actor:Agent[20]	
+2-3	571-575	need	_	
+2-4	576-578	to	_	
+2-5	579-585	report	Action[21]	
+2-6	586-597	information	Action[21]|Artifact[22]	
+2-7	598-603	about	Action[21]	
+2-8	604-614	compliance	Action[21]|Actor:Auxiliary Party[23]	
+2-9	615-623	officers	Action[21]|Actor:Auxiliary Party[23]	
+2-10	624-627	and	Action[21]	
+2-11	628-637	complaint	Action[21]|Actor:Auxiliary Party[24]	
+2-12	638-646	officers	Action[21]|Actor:Auxiliary Party[24]	
+2-13	647-649	if	Constraint:Condition[25]	
+2-14	650-654	they	Constraint:Condition[25]	
+2-15	655-658	are	Constraint:Condition[25]	
+2-16	659-668	obligated	Constraint:Condition[25]	
+2-17	669-671	by	Constraint:Condition[25]	
+2-18	672-675	law	Constraint:Condition[25]	
+2-19	675-676	,	Constraint:Condition[25]	
+2-20	677-686	ordinance	Constraint:Condition[25]	
+2-21	687-689	or	Constraint:Condition[25]	
+2-22	690-701	regulations	Constraint:Condition[25]	
+2-23	702-704	to	Constraint:Condition[25]	
+2-24	705-709	have	Constraint:Condition[25]	
+2-25	710-714	such	Constraint:Condition[25]	
+2-26	715-724	positions	Constraint:Condition[25]	
+2-27	724-725	.	_	
+
+#Text=The information shall be reported on an annual basis no later than 30 June, as well as following a change in the reported situation.
+3-1	727-730	The	_	
+3-2	731-742	information	Artifact	
+3-3	743-748	shall	Modality	
+3-4	749-751	be	Action[26]	
+3-5	752-760	reported	Action[26]	
+3-6	761-763	on	Action[26]	
+3-7	764-766	an	Action[26]	
+3-8	767-773	annual	Action[26]|Time[27]	
+3-9	774-779	basis	Action[26]	
+3-10	780-782	no	Action[26]	
+3-11	783-788	later	Action[26]	
+3-12	789-793	than	Action[26]	
+3-13	794-796	30	Action[26]|Time[28]	
+3-14	797-801	June	Action[26]|Time[28]	
+3-15	801-802	,	Action[26]	
+3-16	803-805	as	Action[26]	
+3-17	806-810	well	Action[26]	
+3-18	811-813	as	Action[26]	
+3-19	814-823	following	Action[26]	
+3-20	824-825	a	Action[26]	
+3-21	826-832	change	Action[26]	
+3-22	833-835	in	Action[26]	
+3-23	836-839	the	Action[26]	
+3-24	840-848	reported	Action[26]	
+3-25	849-858	situation	Action[26]	
+3-26	858-859	.	_	
+
+#Text=Swedish financial institutions that are legal entities and deposit-taking institutions shall, where applicable, report to Finansinspektionen information about the owners’ qualifying holding in accordance with the appendix.
+4-1	861-868	Swedish	Actor:Agent[29]	
+4-2	869-878	financial	Actor:Agent[29]	
+4-3	879-891	institutions	Actor:Agent[29]	
+4-4	892-896	that	_	
+4-5	897-900	are	_	
+4-6	901-906	legal	Actor:Auxiliary Party[30]	
+4-7	907-915	entities	Actor:Auxiliary Party[30]	
+4-8	916-919	and	_	
+4-9	920-934	deposit-taking	Actor:Auxiliary Party[31]	
+4-10	935-947	institutions	Actor:Auxiliary Party[31]	
+4-11	948-953	shall	Modality	
+4-12	953-954	,	_	
+4-13	955-960	where	Constraint[32]	
+4-14	961-971	applicable	Constraint[32]	
+4-15	971-972	,	_	
+4-16	973-979	report	Action[33]	
+4-17	980-982	to	Action[33]	
+4-18	983-1001	Finansinspektionen	Action[33]|Actor:Target[34]	
+4-19	1002-1013	information	Action[33]|Artifact[35]	
+4-20	1014-1019	about	Action[33]|Artifact[35]	
+4-21	1020-1023	the	Action[33]|Artifact[35]	
+4-22	1024-1030	owners	Action[33]|Artifact[35]	
+4-23	1030-1031	’	Action[33]|Artifact[35]	
+4-24	1032-1042	qualifying	Action[33]|Artifact[35]	
+4-25	1043-1050	holding	Action[33]|Artifact[35]	
+4-26	1051-1053	in	Action[33]	
+4-27	1054-1064	accordance	Action[33]	
+4-28	1065-1069	with	Action[33]	
+4-29	1070-1073	the	Action[33]	
+4-30	1074-1082	appendix	Action[33]|Reference[36]	
+4-31	1082-1083	.	Action[33]	
+
+#Text=The information shall be reported on an annual basis, although no later than 30 June.
+5-1	1085-1088	The	_	
+5-2	1089-1100	information	Artifact	
+5-3	1101-1106	shall	Modality	
+5-4	1107-1109	be	Action[37]	
+5-5	1110-1118	reported	Action[37]	
+5-6	1119-1121	on	Action[37]	
+5-7	1122-1124	an	Action[37]	
+5-8	1125-1131	annual	Action[37]|Time[38]	
+5-9	1132-1137	basis	Action[37]	
+5-10	1137-1138	,	Action[37]	
+5-11	1139-1147	although	Action[37]	
+5-12	1148-1150	no	Action[37]	
+5-13	1151-1156	later	Action[37]	
+5-14	1157-1161	than	Action[37]	
+5-15	1162-1164	30	Action[37]|Time[39]	
+5-16	1165-1169	June	Action[37]|Time[39]	
+5-17	1169-1170	.	Action[37]	

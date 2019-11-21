@@ -1,0 +1,50 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=At the request of Finansinspektionen, companies shall submit by electronic means information of trading in shares or options having shares as their underlying asset in accordance with the Appendix.
+1-1	0-2	At	Reason[1]	
+1-2	3-6	the	Reason[1]	
+1-3	7-14	request	Reason[1]	
+1-4	15-17	of	Reason[1]	
+1-5	18-36	Finansinspektionen	Reason[1]	
+1-6	36-37	,	_	
+1-7	38-47	companies	Actor:Agent	
+1-8	48-53	shall	Modality	
+1-9	54-60	submit	Action[2]	
+1-10	61-63	by	Action[2]|Constraint:Condition[3]	
+1-11	64-74	electronic	Action[2]|Constraint:Condition[3]	
+1-12	75-80	means	Action[2]|Constraint:Condition[3]	
+1-13	81-92	information	Action[2]|Artifact[4]	
+1-14	93-95	of	Action[2]|Artifact[4]	
+1-15	96-103	trading	Action[2]|Artifact[4]	
+1-16	104-106	in	Action[2]|Artifact[4]	
+1-17	107-113	shares	Action[2]|Artifact[4]	
+1-18	114-116	or	Action[2]|Artifact[4]	
+1-19	117-124	options	Action[2]|Artifact[4]	
+1-20	125-131	having	Action[2]|Artifact[4]	
+1-21	132-138	shares	Action[2]|Artifact[4]	
+1-22	139-141	as	Action[2]|Artifact[4]	
+1-23	142-147	their	Action[2]|Artifact[4]	
+1-24	148-158	underlying	Action[2]|Artifact[4]	
+1-25	159-164	asset	Action[2]|Artifact[4]	
+1-26	165-167	in	Action[2]	
+1-27	168-178	accordance	Action[2]	
+1-28	179-183	with	Action[2]	
+1-29	184-187	the	Action[2]	
+1-30	188-196	Appendix	Action[2]|Reference[5]	
+1-31	196-197	.	_	
+
+#Text=Finansinspektionen may grant exemption from these regulations if special circumstances apply.
+2-1	199-217	Finansinspektionen	Actor:Agent	
+2-2	218-221	may	Modality	
+2-3	222-227	grant	Constraint:Exception[6]	
+2-4	228-237	exemption	Constraint:Exception[6]	
+2-5	238-242	from	Constraint:Exception[6]	
+2-6	243-248	these	Constraint:Exception[6]|Reference[7]	
+2-7	249-260	regulations	Constraint:Exception[6]|Reference[7]	
+2-8	261-263	if	Constraint:Exception[6]|Constraint:Condition[8]	
+2-9	264-271	special	Constraint:Exception[6]|Constraint:Condition[8]	
+2-10	272-285	circumstances	Constraint:Exception[6]|Constraint:Condition[8]	
+2-11	286-291	apply	Constraint:Exception[6]|Constraint:Condition[8]	
+2-12	291-292	.	_	

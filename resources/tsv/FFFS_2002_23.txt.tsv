@@ -1,0 +1,316 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=The institution should ensure that a functioning system is in place for contacts with customers in complaints matters.
+1-1	0-3	The	Actor:Agent[1]	
+1-2	4-15	institution	Actor:Agent[1]	
+1-3	16-22	should	Modality	
+1-4	23-29	ensure	Action[2]	
+1-5	30-34	that	Action[2]	
+1-6	35-36	a	Action[2]	
+1-7	37-48	functioning	Action[2]|Artifact[3]	
+1-8	49-55	system	Action[2]|Artifact[3]	
+1-9	56-58	is	Action[2]|Artifact[3]	
+1-10	59-61	in	Action[2]|Artifact[3]	
+1-11	62-67	place	Action[2]|Artifact[3]	
+1-12	68-71	for	Action[2]|Artifact[3]	
+1-13	72-80	contacts	Action[2]|Artifact[3]	
+1-14	81-85	with	Action[2]|Artifact[3]	
+1-15	86-95	customers	Action[2]|Artifact[3]	
+1-16	96-98	in	Action[2]|Artifact[3]	
+1-17	99-109	complaints	Action[2]|Artifact[3]	
+1-18	110-117	matters	Action[2]|Artifact[3]	
+1-19	117-118	.	_	
+
+#Text=The institution should have one or more complaints officers to whom dissatisfied customers can be referred.
+2-1	119-122	The	Actor:Agent[4]	
+2-2	123-134	institution	Actor:Agent[4]	
+2-3	135-141	should	Modality	
+2-4	142-146	have	Situation[5]	
+2-5	147-150	one	Situation[5]	
+2-6	151-153	or	Situation[5]	
+2-7	154-158	more	Situation[5]	
+2-8	159-169	complaints	Situation[5]|Actor:Auxiliary Party[6]	
+2-9	170-178	officers	Situation[5]|Actor:Auxiliary Party[6]	
+2-10	179-181	to	Situation[5]	
+2-11	182-186	whom	Situation[5]|Action[7]|Actor:Agent[8]	
+2-12	187-199	dissatisfied	Situation[5]|Action[7]|Actor:Target[9]	
+2-13	200-209	customers	Situation[5]|Action[7]|Actor:Target[9]	
+2-14	210-213	can	Situation[5]|Action[7]|Modality[10]	
+2-15	214-216	be	Situation[5]|Action[7]	
+2-16	217-225	referred	Situation[5]|Action[7]	
+2-17	225-226	.	_	
+
+#Text=The customer should be informed in an appropriate manner regarding the institution’s handling of complaints and the identity of the complaints manager at the institution.
+3-1	228-231	The	Actor:Target[11]	
+3-2	232-240	customer	Actor:Target[11]	
+3-3	241-247	should	Modality	
+3-4	248-250	be	Action[12]	
+3-5	251-259	informed	Action[12]	
+3-6	260-262	in	Action[12]|Constraint:Condition[13]	
+3-7	263-265	an	Action[12]|Constraint:Condition[13]	
+3-8	266-277	appropriate	Action[12]|Constraint:Condition[13]	
+3-9	278-284	manner	Action[12]|Constraint:Condition[13]	
+3-10	285-294	regarding	Action[12]	
+3-11	295-298	the	Action[12]|Artifact[14]	
+3-12	299-310	institution	Action[12]|Artifact[14]	
+3-13	310-311	’	Action[12]|Artifact[14]	
+3-14	311-312	s	Action[12]|Artifact[14]	
+3-15	313-321	handling	Action[12]|Artifact[14]	
+3-16	322-324	of	Action[12]|Artifact[14]	
+3-17	325-335	complaints	Action[12]|Artifact[14]	
+3-18	336-339	and	Action[12]	
+3-19	340-343	the	Action[12]	
+3-20	344-352	identity	Action[12]|Artifact[15]	
+3-21	353-355	of	Action[12]|Artifact[15]	
+3-22	356-359	the	Action[12]|Artifact[15]	
+3-23	360-370	complaints	Action[12]|Artifact[15]|Actor:Auxiliary Party[16]	
+3-24	371-378	manager	Action[12]|Artifact[15]|Actor:Auxiliary Party[16]	
+3-25	379-381	at	Action[12]|Artifact[15]	
+3-26	382-385	the	Action[12]|Artifact[15]	
+3-27	386-397	institution	Action[12]|Artifact[15]	
+3-28	397-398	.	Action[12]	
+
+#Text=The information should also state how the customer shall submit a complaint against the institution.
+4-1	399-402	The	Artifact[17]	
+4-2	403-414	information	Artifact[17]	
+4-3	415-421	should	Modality	
+4-4	422-426	also	_	
+4-5	427-432	state	Situation[18]	
+4-6	433-436	how	Situation[18]	
+4-7	437-440	the	Situation[18]|Actor:Agent[19]	
+4-8	441-449	customer	Situation[18]|Actor:Agent[19]	
+4-9	450-455	shall	Situation[18]|Modality[20]	
+4-10	456-462	submit	Situation[18]|Action[21]	
+4-11	463-464	a	Situation[18]|Action[21]	
+4-12	465-474	complaint	Situation[18]|Action[21]	
+4-13	475-482	against	Situation[18]|Action[21]	
+4-14	483-486	the	Situation[18]|Action[21]|Actor:Target[22]	
+4-15	487-498	institution	Situation[18]|Action[21]|Actor:Target[22]	
+4-16	498-499	.	_	
+
+#Text=Similar information should also be available at every institution’s office and on their website.
+5-1	500-507	Similar	Artifact[23]	
+5-2	508-519	information	Artifact[23]	
+5-3	520-526	should	Modality	
+5-4	527-531	also	_	
+5-5	532-534	be	Situation[24]	
+5-6	535-544	available	Situation[24]	
+5-7	545-547	at	Situation[24]	
+5-8	548-553	every	Situation[24]|Location[25]	
+5-9	554-565	institution	Situation[24]|Location[25]	
+5-10	565-566	’	Situation[24]|Location[25]	
+5-11	566-567	s	Situation[24]|Location[25]	
+5-12	568-574	office	Situation[24]|Location[25]	
+5-13	575-578	and	Situation[24]	
+5-14	579-581	on	Situation[24]|Location[26]	
+5-15	582-587	their	Situation[24]|Location[26]	
+5-16	588-595	website	Situation[24]|Location[26]	
+5-17	595-596	.	_	
+
+#Text=The customer should also be informed regarding the guidance which may be obtained from the Swedish Consumers’ Banking & Finance Bureau and the Swedish Consumers Insurance Bureau as well as through municipal consumers’ advice officials.
+6-1	597-600	The	Actor:Target[27]	
+6-2	601-609	customer	Actor:Target[27]	
+6-3	610-616	should	Modality	
+6-4	617-621	also	_	
+6-5	622-624	be	Action[28]	
+6-6	625-633	informed	Action[28]	
+6-7	634-643	regarding	Action[28]	
+6-8	644-647	the	Action[28]|Action[29]	
+6-9	648-656	guidance	Action[28]|Action[29]|Artifact[30]	
+6-10	657-662	which	_	
+6-11	663-666	may	Modality	
+6-12	667-669	be	Action[31]	
+6-13	670-678	obtained	Action[31]	
+6-14	679-683	from	Action[31]	
+6-15	684-687	the	Action[31]	
+6-16	688-695	Swedish	Action[31]|Actor:Target[32]	
+6-17	696-705	Consumers	Action[31]|Actor:Target[32]	
+6-18	705-706	’	Action[31]|Actor:Target[32]	
+6-19	707-714	Banking	Action[31]|Actor:Target[32]	
+6-20	715-716	&	Action[31]|Actor:Target[32]	
+6-21	717-724	Finance	Action[31]|Actor:Target[32]	
+6-22	725-731	Bureau	Action[31]|Actor:Target[32]	
+6-23	732-735	and	Action[31]	
+6-24	736-739	the	Action[31]|Actor:Target[33]	
+6-25	740-747	Swedish	Action[31]|Actor:Target[33]	
+6-26	748-757	Consumers	Action[31]|Actor:Target[33]	
+6-27	758-767	Insurance	Action[31]|Actor:Target[33]	
+6-28	768-774	Bureau	Action[31]|Actor:Target[33]	
+6-29	775-777	as	Action[31]	
+6-30	778-782	well	Action[31]	
+6-31	783-785	as	Action[31]	
+6-32	786-793	through	Action[31]	
+6-33	794-803	municipal	Action[31]|Actor:Target[34]	
+6-34	804-813	consumers	Action[31]|Actor:Target[34]	
+6-35	813-814	’	Action[31]|Actor:Target[34]	
+6-36	815-821	advice	Action[31]|Actor:Target[34]	
+6-37	822-831	officials	Action[31]|Actor:Target[34]	
+6-38	831-832	.	Action[31]	
+
+#Text=When a complaint cannot be resolved, the complainant should receive written information regarding the possibility to pursue the matter further within the institution.
+7-1	834-838	When	Constraint:Condition[35]	
+7-2	839-840	a	Constraint:Condition[35]	
+7-3	841-850	complaint	Constraint:Condition[35]	
+7-4	851-857	cannot	Constraint:Condition[35]	
+7-5	858-860	be	Constraint:Condition[35]	
+7-6	861-869	resolved	Constraint:Condition[35]	
+7-7	869-870	,	_	
+7-8	871-874	the	Actor:Target[36]	
+7-9	875-886	complainant	Actor:Target[36]	
+7-10	887-893	should	Modality	
+7-11	894-901	receive	Action[37]	
+7-12	902-909	written	Action[37]|Artifact[38]	
+7-13	910-921	information	Action[37]|Artifact[38]	
+7-14	922-931	regarding	Action[37]|Artifact[38]	
+7-15	932-935	the	Action[37]|Artifact[38]	
+7-16	936-947	possibility	Action[37]|Artifact[38]	
+7-17	948-950	to	Action[37]|Artifact[38]	
+7-18	951-957	pursue	Action[37]|Artifact[38]	
+7-19	958-961	the	Action[37]|Artifact[38]	
+7-20	962-968	matter	Action[37]|Artifact[38]	
+7-21	969-976	further	Action[37]|Artifact[38]	
+7-22	977-983	within	Action[37]|Artifact[38]	
+7-23	984-987	the	Action[37]|Artifact[38]	
+7-24	988-999	institution	Action[37]|Artifact[38]	
+7-25	999-1000	.	_	
+
+#Text=The customer should also be informed of the reasons for the rejection of the complaint by the institution.
+8-1	1001-1004	The	Actor:Target[39]	
+8-2	1005-1013	customer	Actor:Target[39]	
+8-3	1014-1020	should	Modality	
+8-4	1021-1025	also	_	
+8-5	1026-1028	be	Action[40]	
+8-6	1029-1037	informed	Action[40]	
+8-7	1038-1040	of	Action[40]	
+8-8	1041-1044	the	Action[40]	
+8-9	1045-1052	reasons	Action[40]|Artifact[41]	
+8-10	1053-1056	for	Action[40]|Artifact[41]	
+8-11	1057-1060	the	Action[40]|Artifact[41]	
+8-12	1061-1070	rejection	Action[40]|Artifact[41]	
+8-13	1071-1073	of	Action[40]|Artifact[41]	
+8-14	1074-1077	the	Action[40]|Artifact[41]	
+8-15	1078-1087	complaint	Action[40]|Artifact[41]	
+8-16	1088-1090	by	Action[40]|Artifact[41]	
+8-17	1091-1094	the	Action[40]|Artifact[41]	
+8-18	1095-1106	institution	Action[40]|Artifact[41]	
+8-19	1106-1107	.	Action[40]	
+
+#Text=Such information should be provided in writing upon request by the customer.
+9-1	1108-1112	Such	_	
+9-2	1113-1124	information	Artifact	
+9-3	1125-1131	should	Modality	
+9-4	1132-1134	be	Action[42]	
+9-5	1135-1143	provided	Action[42]	
+9-6	1144-1146	in	Action[42]	
+9-7	1147-1154	writing	Action[42]	
+9-8	1155-1159	upon	Action[42]|Constraint:Condition[43]	
+9-9	1160-1167	request	Action[42]|Constraint:Condition[43]	
+9-10	1168-1170	by	Action[42]|Constraint:Condition[43]	
+9-11	1171-1174	the	Action[42]|Constraint:Condition[43]	
+9-12	1175-1183	customer	Action[42]|Constraint:Condition[43]	
+9-13	1183-1184	.	_	
+
+#Text=Complaints should be handled efficiently and attentively.
+10-1	1186-1196	Complaints	Actor:Target	
+10-2	1197-1203	should	Modality	
+10-3	1204-1206	be	Action[44]	
+10-4	1207-1214	handled	Action[44]	
+10-5	1215-1226	efficiently	Action[44]	
+10-6	1227-1230	and	Action[44]	
+10-7	1231-1242	attentively	Action[44]	
+10-8	1242-1243	.	_	
+
+#Text=The institute should answer complaints objectively and correctly and in writing upon request by the customer.
+11-1	1244-1247	The	_	
+11-2	1248-1257	institute	_	
+11-3	1258-1264	should	_	
+11-4	1265-1271	answer	_	
+11-5	1272-1282	complaints	_	
+11-6	1283-1294	objectively	_	
+11-7	1295-1298	and	_	
+11-8	1299-1308	correctly	_	
+11-9	1309-1312	and	_	
+11-10	1313-1315	in	_	
+11-11	1316-1323	writing	_	
+11-12	1324-1328	upon	_	
+11-13	1329-1336	request	_	
+11-14	1337-1339	by	_	
+11-15	1340-1343	the	_	
+11-16	1344-1352	customer	_	
+11-17	1352-1353	.	_	
+
+#Text=Complaints should be answered as quickly as possible.
+12-1	1355-1365	Complaints	_	
+12-2	1366-1372	should	_	
+12-3	1373-1375	be	_	
+12-4	1376-1384	answered	_	
+12-5	1385-1387	as	_	
+12-6	1388-1395	quickly	_	
+12-7	1396-1398	as	_	
+12-8	1399-1407	possible	_	
+12-9	1407-1408	.	_	
+
+#Text=The institution should give particular consideration to the interest the complainant may have in obtaining a prompt response in order to secure evidence and take financial measures as a consequence of this complaint.
+13-1	1409-1412	The	_	
+13-2	1413-1424	institution	_	
+13-3	1425-1431	should	_	
+13-4	1432-1436	give	_	
+13-5	1437-1447	particular	_	
+13-6	1448-1461	consideration	_	
+13-7	1462-1464	to	_	
+13-8	1465-1468	the	_	
+13-9	1469-1477	interest	_	
+13-10	1478-1481	the	_	
+13-11	1482-1493	complainant	_	
+13-12	1494-1497	may	_	
+13-13	1498-1502	have	_	
+13-14	1503-1505	in	_	
+13-15	1506-1515	obtaining	_	
+13-16	1516-1517	a	_	
+13-17	1518-1524	prompt	_	
+13-18	1525-1533	response	_	
+13-19	1534-1536	in	_	
+13-20	1537-1542	order	_	
+13-21	1543-1545	to	_	
+13-22	1546-1552	secure	_	
+13-23	1553-1561	evidence	_	
+13-24	1562-1565	and	_	
+13-25	1566-1570	take	_	
+13-26	1571-1580	financial	_	
+13-27	1581-1589	measures	_	
+13-28	1590-1592	as	_	
+13-29	1593-1594	a	_	
+13-30	1595-1606	consequence	_	
+13-31	1607-1609	of	_	
+13-32	1610-1614	this	_	
+13-33	1615-1624	complaint	_	
+13-34	1624-1625	.	_	
+
+#Text=When an answer cannot be provided within 14 days, the complainant should be informed within such time regarding the handling of the matter.
+14-1	1626-1630	When	Constraint:Condition[45]	
+14-2	1631-1633	an	Constraint:Condition[45]	
+14-3	1634-1640	answer	Constraint:Condition[45]	
+14-4	1641-1647	cannot	Constraint:Condition[45]	
+14-5	1648-1650	be	Constraint:Condition[45]	
+14-6	1651-1659	provided	Constraint:Condition[45]	
+14-7	1660-1666	within	Constraint:Condition[45]	
+14-8	1667-1669	14	Constraint:Condition[45]|Time[46]	
+14-9	1670-1674	days	Constraint:Condition[45]|Time[46]	
+14-10	1674-1675	,	_	
+14-11	1676-1679	the	Actor:Target[47]	
+14-12	1680-1691	complainant	Actor:Target[47]	
+14-13	1692-1698	should	Modality	
+14-14	1699-1701	be	Action[48]	
+14-15	1702-1710	informed	Action[48]	
+14-16	1711-1717	within	Action[48]|Time[49]	
+14-17	1718-1722	such	Action[48]|Time[49]	
+14-18	1723-1727	time	Action[48]|Time[49]	
+14-19	1728-1737	regarding	Action[48]	
+14-20	1738-1741	the	Action[48]	
+14-21	1742-1750	handling	Action[48]	
+14-22	1751-1753	of	Action[48]	
+14-23	1754-1757	the	Action[48]	
+14-24	1758-1764	matter	Action[48]	
+14-25	1764-1765	.	_	

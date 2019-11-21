@@ -1,0 +1,72 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=Institutions whose reported pension liabilities in the balance sheet or capital in specifically separated assets exceed the capital value of the pension commitments for employees shall not report the surplus in the balance sheet.
+1-1	0-12	Institutions	Actor:Agent	
+1-2	13-18	whose	_	
+1-3	19-27	reported	Constraint:Condition[1]	
+1-4	28-35	pension	Constraint:Condition[1]|Artifact[2]	
+1-5	36-47	liabilities	Constraint:Condition[1]|Artifact[2]	
+1-6	48-50	in	Constraint:Condition[1]	
+1-7	51-54	the	Constraint:Condition[1]	
+1-8	55-62	balance	Constraint:Condition[1]|Artifact[3]	
+1-9	63-68	sheet	Constraint:Condition[1]|Artifact[3]	
+1-10	69-71	or	Constraint:Condition[1]	
+1-11	72-79	capital	Constraint:Condition[1]	
+1-12	80-82	in	Constraint:Condition[1]	
+1-13	83-95	specifically	Constraint:Condition[1]|Artifact[4]	
+1-14	96-105	separated	Constraint:Condition[1]|Artifact[4]	
+1-15	106-112	assets	Constraint:Condition[1]|Artifact[4]	
+1-16	113-119	exceed	Constraint:Condition[1]	
+1-17	120-123	the	Constraint:Condition[1]	
+1-18	124-131	capital	Constraint:Condition[1]|Artifact[5]	
+1-19	132-137	value	Constraint:Condition[1]|Artifact[5]	
+1-20	138-140	of	Constraint:Condition[1]	
+1-21	141-144	the	Constraint:Condition[1]	
+1-22	145-152	pension	Constraint:Condition[1]|Artifact[6]	
+1-23	153-164	commitments	Constraint:Condition[1]|Artifact[6]	
+1-24	165-168	for	Constraint:Condition[1]	
+1-25	169-178	employees	Constraint:Condition[1]	
+1-26	179-184	shall	Modality	
+1-27	185-188	not	Action[7]	
+1-28	189-195	report	Action[7]	
+1-29	196-199	the	Action[7]	
+1-30	200-207	surplus	Action[7]|Artifact[8]	
+1-31	208-210	in	Action[7]	
+1-32	211-214	the	Action[7]	
+1-33	215-222	balance	Action[7]|Artifact[9]	
+1-34	223-228	sheet	Action[7]|Artifact[9]	
+1-35	228-229	.	_	
+
+#Text=The first and second paragraphs do not apply to defined-benefit plans that are reported in accordance with IAS 19 Employee Benefits.
+2-1	231-234	The	Constraint:Exception[10]|Reference[11]	
+2-2	235-240	first	Constraint:Exception[10]|Reference[11]	
+2-3	241-244	and	Constraint:Exception[10]|Reference[11]	
+2-4	245-251	second	Constraint:Exception[10]|Reference[11]	
+2-5	252-262	paragraphs	Constraint:Exception[10]|Reference[11]	
+2-6	263-265	do	Constraint:Exception[10]	
+2-7	266-269	not	Constraint:Exception[10]	
+2-8	270-275	apply	Constraint:Exception[10]	
+2-9	276-278	to	Constraint:Exception[10]	
+2-10	279-294	defined-benefit	Constraint:Exception[10]|Artifact[12]	
+2-11	295-300	plans	Constraint:Exception[10]|Artifact[12]	
+2-12	301-305	that	Constraint:Exception[10]	
+2-13	306-309	are	Constraint:Exception[10]	
+2-14	310-318	reported	Constraint:Exception[10]	
+2-15	319-321	in	Constraint:Exception[10]	
+2-16	322-332	accordance	Constraint:Exception[10]	
+2-17	333-337	with	Constraint:Exception[10]	
+2-18	338-341	IAS	Constraint:Exception[10]|Artifact[13]	
+2-19	342-344	19	Constraint:Exception[10]|Artifact[13]	
+2-20	345-353	Employee	Constraint:Exception[10]|Artifact[13]	
+2-21	354-362	Benefits	Constraint:Exception[10]|Artifact[13]	
+2-22	362-363	.	Constraint:Exception[10]	
+
+#Text=(FFFS 2013:2)
+3-1	364-365	(	_	
+3-2	365-369	FFFS	_	
+3-3	370-374	2013	_	
+3-4	374-375	:	_	
+3-5	375-376	2	_	
+3-6	376-377	)	_	

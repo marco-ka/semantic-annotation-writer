@@ -1,0 +1,221 @@
+#FORMAT=WebAnno TSV 3.2
+#T_SP=webanno.custom.SemanticLegalMetadata|Concept
+
+
+#Text=A firm's board of directors shall decide on a remuneration policy.
+1-1	0-1	A	Actor:Agent[1]	
+1-2	2-8	firm's	Actor:Agent[1]	
+1-3	9-14	board	Actor:Agent[1]	
+1-4	15-17	of	Actor:Agent[1]	
+1-5	18-27	directors	Actor:Agent[1]	
+1-6	28-33	shall	Modality	
+1-7	34-40	decide	Action[2]	
+1-8	41-43	on	Action[2]	
+1-9	44-45	a	Action[2]	
+1-10	46-58	remuneration	Action[2]|Artifact[3]	
+1-11	59-65	policy	Action[2]|Artifact[3]	
+1-12	65-66	.	_	
+
+#Text=This decision shall be based on the analysis referred to in Chapter 2.
+2-1	67-71	This	_	
+2-2	72-80	decision	Artifact	
+2-3	81-86	shall	Modality	
+2-4	87-89	be	Situation[4]	
+2-5	90-95	based	Situation[4]	
+2-6	96-98	on	Situation[4]	
+2-7	99-102	the	Situation[4]	
+2-8	103-111	analysis	Situation[4]|Artifact[5]	
+2-9	112-120	referred	Situation[4]	
+2-10	121-123	to	Situation[4]	
+2-11	124-126	in	Situation[4]	
+2-12	127-134	Chapter	Situation[4]	
+2-13	135-136	2	Situation[4]	
+2-14	136-137	.	Situation[4]	
+
+#Text=The board of directors shall be responsible for the application and review of the remuneration policy.
+3-1	138-141	The	Actor:Agent[6]	
+3-2	142-147	board	Actor:Agent[6]	
+3-3	148-150	of	Actor:Agent[6]	
+3-4	151-160	directors	Actor:Agent[6]	
+3-5	161-166	shall	Modality	
+3-6	167-169	be	Situation[7]	
+3-7	170-181	responsible	Situation[7]	
+3-8	182-185	for	Situation[7]	
+3-9	186-189	the	Situation[7]	
+3-10	190-201	application	Situation[7]	
+3-11	202-205	and	Situation[7]	
+3-12	206-212	review	Situation[7]	
+3-13	213-215	of	Situation[7]	
+3-14	216-219	the	Situation[7]	
+3-15	220-232	remuneration	Situation[7]|Artifact[8]	
+3-16	233-239	policy	Situation[7]|Artifact[8]	
+3-17	239-240	.	_	
+
+#Text=The board of directors shall decide on (a) remuneration to senior management, (b) remuneration to employees who are primarily responsible for any of the firm's control functions, and (c) measures to enable a review of how the firm's remuneration policy is being applied.
+4-1	242-245	The	Actor:Agent[9]	
+4-2	246-251	board	Actor:Agent[9]	
+4-3	252-254	of	Actor:Agent[9]	
+4-4	255-264	directors	Actor:Agent[9]	
+4-5	265-270	shall	Modality	
+4-6	271-277	decide	Action[10]	
+4-7	278-280	on	Action[10]	
+4-8	281-282	(	Action[10]	
+4-9	282-283	a	Action[10]	
+4-10	283-284	)	Action[10]	
+4-11	285-297	remuneration	Action[10]	
+4-12	298-300	to	Action[10]	
+4-13	301-307	senior	Action[10]	
+4-14	308-318	management	Action[10]	
+4-15	318-319	,	Action[10]	
+4-16	320-321	(	Action[10]	
+4-17	321-322	b	Action[10]	
+4-18	322-323	)	Action[10]	
+4-19	324-336	remuneration	Action[10]	
+4-20	337-339	to	Action[10]	
+4-21	340-349	employees	Action[10]	
+4-22	350-353	who	Action[10]	
+4-23	354-357	are	Action[10]	
+4-24	358-367	primarily	Action[10]	
+4-25	368-379	responsible	Action[10]	
+4-26	380-383	for	Action[10]	
+4-27	384-387	any	Action[10]	
+4-28	388-390	of	Action[10]	
+4-29	391-394	the	Action[10]	
+4-30	395-401	firm's	Action[10]	
+4-31	402-409	control	Action[10]	
+4-32	410-419	functions	Action[10]	
+4-33	419-420	,	Action[10]	
+4-34	421-424	and	Action[10]	
+4-35	425-426	(	Action[10]	
+4-36	426-427	c	Action[10]	
+4-37	427-428	)	Action[10]	
+4-38	429-437	measures	Action[10]	
+4-39	438-440	to	Action[10]	
+4-40	441-447	enable	Action[10]	
+4-41	448-449	a	Action[10]	
+4-42	450-456	review	Action[10]	
+4-43	457-459	of	Action[10]	
+4-44	460-463	how	Action[10]	
+4-45	464-467	the	Action[10]	
+4-46	468-474	firm's	Action[10]	
+4-47	475-487	remuneration	Action[10]|Artifact[11]	
+4-48	488-494	policy	Action[10]|Artifact[11]	
+4-49	495-497	is	Action[10]	
+4-50	498-503	being	Action[10]	
+4-51	504-511	applied	Action[10]	
+4-52	511-512	.	Action[10]	
+
+#Text=The decision of the board of directors shall where applicable comply with decisions made by the Annual General Meeting with regard to the firm's remuneration.
+5-1	514-517	The	_	
+5-2	518-526	decision	Artifact	
+5-3	527-529	of	_	
+5-4	530-533	the	Actor:Auxiliary Party[12]	
+5-5	534-539	board	Actor:Auxiliary Party[12]	
+5-6	540-542	of	Actor:Auxiliary Party[12]	
+5-7	543-552	directors	Actor:Auxiliary Party[12]	
+5-8	553-558	shall	Modality	
+5-9	559-564	where	_	
+5-10	565-575	applicable	_	
+5-11	576-582	comply	Situation[13]	
+5-12	583-587	with	Situation[13]	
+5-13	588-597	decisions	Situation[13]|Artifact[14]	
+5-14	598-602	made	Situation[13]	
+5-15	603-605	by	Situation[13]	
+5-16	606-609	the	Situation[13]	
+5-17	610-616	Annual	Situation[13]|Time[15]	
+5-18	617-624	General	Situation[13]	
+5-19	625-632	Meeting	Situation[13]	
+5-20	633-637	with	Situation[13]	
+5-21	638-644	regard	Situation[13]	
+5-22	645-647	to	Situation[13]	
+5-23	648-651	the	Situation[13]|Artifact[16]	
+5-24	652-658	firm's	Situation[13]|Artifact[16]	
+5-25	659-671	remuneration	Situation[13]|Artifact[16]	
+5-26	671-672	.	_	
+
+#Text=A significant firm shall have a remuneration committee which shall conduct an independent assessment of the firm's remuneration policy and remuneration structure.
+6-1	674-675	A	Actor:Agent[17]	
+6-2	676-687	significant	Actor:Agent[17]	
+6-3	688-692	firm	Actor:Agent[17]	
+6-4	693-698	shall	Modality	
+6-5	699-703	have	Situation[18]	
+6-6	704-705	a	Situation[18]	
+6-7	706-718	remuneration	Situation[18]|Actor:Auxiliary Party[19]	
+6-8	719-728	committee	Situation[18]|Actor:Auxiliary Party[19]	
+6-9	729-734	which	Situation[18]	
+6-10	735-740	shall	Situation[18]|Modality[20]	
+6-11	741-748	conduct	Situation[18]|Action[21]	
+6-12	749-751	an	Situation[18]|Action[21]	
+6-13	752-763	independent	Situation[18]|Action[21]|Artifact[22]	
+6-14	764-774	assessment	Situation[18]|Action[21]|Artifact[22]	
+6-15	775-777	of	Situation[18]|Action[21]	
+6-16	778-781	the	Situation[18]|Action[21]	
+6-17	782-788	firm's	Situation[18]|Action[21]	
+6-18	789-801	remuneration	Situation[18]|Action[21]|Artifact[23]	
+6-19	802-808	policy	Situation[18]|Action[21]|Artifact[23]	
+6-20	809-812	and	Situation[18]|Action[21]	
+6-21	813-825	remuneration	Situation[18]|Action[21]|Artifact[24]	
+6-22	826-835	structure	Situation[18]|Action[21]|Artifact[24]	
+6-23	835-836	.	_	
+
+#Text=A financial group may establish a common remuneration committee for all firms within the group.
+7-1	837-838	A	Actor:Agent[25]	
+7-2	839-848	financial	Actor:Agent[25]	
+7-3	849-854	group	Actor:Agent[25]	
+7-4	855-858	may	Modality	
+7-5	859-868	establish	Action[26]	
+7-6	869-870	a	Action[26]	
+7-7	871-877	common	Action[26]|Actor:Target[27]	
+7-8	878-890	remuneration	Action[26]|Actor:Target[27]	
+7-9	891-900	committee	Action[26]|Actor:Target[27]	
+7-10	901-904	for	Action[26]	
+7-11	905-908	all	Action[26]	
+7-12	909-914	firms	Action[26]|Actor:Auxiliary Party[28]	
+7-13	915-921	within	Action[26]|Location[29]	
+7-14	922-925	the	Action[26]|Location[29]	
+7-15	926-931	group	Action[26]|Location[29]	
+7-16	931-932	.	_	
+
+#Text=The Chair and other members of the remuneration committee may not be members of the firm's senior management.
+8-1	934-937	The	Actor:Agent[30]	
+8-2	938-943	Chair	Actor:Agent[30]	
+8-3	944-947	and	_	
+8-4	948-953	other	_	
+8-5	954-961	members	Actor:Agent[31]	
+8-6	962-964	of	Actor:Agent[31]	
+8-7	965-968	the	Actor:Agent[31]	
+8-8	969-981	remuneration	Actor:Agent[31]	
+8-9	982-991	committee	Actor:Agent[31]	
+8-10	992-995	may	Modality	
+8-11	996-999	not	Situation[32]	
+8-12	1000-1002	be	Situation[32]	
+8-13	1003-1010	members	Situation[32]|Actor:Target[33]	
+8-14	1011-1013	of	Situation[32]	
+8-15	1014-1017	the	Situation[32]	
+8-16	1018-1024	firm's	Situation[32]|Actor:Auxiliary Party[34]	
+8-17	1025-1031	senior	Situation[32]|Actor:Auxiliary Party[34]	
+8-18	1032-1042	management	Situation[32]|Actor:Auxiliary Party[34]	
+8-19	1042-1043	.	_	
+
+#Text=The members of the remuneration committee shall have sufficient knowledge and experience in issues relating to risk management and remuneration.
+9-1	1044-1047	The	Actor:Agent[35]	
+9-2	1048-1055	members	Actor:Agent[35]	
+9-3	1056-1058	of	Actor:Agent[35]	
+9-4	1059-1062	the	Actor:Agent[35]	
+9-5	1063-1075	remuneration	Actor:Agent[35]	
+9-6	1076-1085	committee	Actor:Agent[35]	
+9-7	1086-1091	shall	Modality	
+9-8	1092-1096	have	Situation[36]	
+9-9	1097-1107	sufficient	Situation[36]	
+9-10	1108-1117	knowledge	Situation[36]	
+9-11	1118-1121	and	Situation[36]	
+9-12	1122-1132	experience	Situation[36]	
+9-13	1133-1135	in	Situation[36]	
+9-14	1136-1142	issues	Situation[36]	
+9-15	1143-1151	relating	Situation[36]	
+9-16	1152-1154	to	Situation[36]	
+9-17	1155-1159	risk	Situation[36]	
+9-18	1160-1170	management	Situation[36]	
+9-19	1171-1174	and	Situation[36]	
+9-20	1175-1187	remuneration	Situation[36]	
+9-21	1187-1188	.	_	

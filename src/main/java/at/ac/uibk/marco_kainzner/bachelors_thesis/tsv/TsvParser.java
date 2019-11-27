@@ -15,17 +15,33 @@ import static org.jooq.lambda.tuple.Tuple.tuple;
 public class TsvParser {
     public static void main(String[] args) throws IOException {
         var dir = Path.of("resources", "tsv");
-
         var files = Files.list(dir);
-        var file = files.findFirst().get();
 
-        var tsv = Files.readAllLines(file);
-        var sentences = segmentIntoSentences(tsv).map(TsvParser::parseSentence);
+        var file = files.findFirst().get();
+        var sentences = parseFile(file);
 
         sentences.forEach(x -> System.out.println(x + "\n"));
     }
 
-    public static Sentence parseSentence(List<String> sentenceLines) {
+    public static Stream<Stream<Sentence>> parseFolder(Path path) throws IOException {
+        var files = Files.list(path);
+        return files.map(file -> {
+            try {
+                return TsvParser.parseFile(file);
+            } catch (IOException e) {
+                System.out.println("Failed to parse sentence");
+                e.printStackTrace();
+            }
+            return null;
+        });
+    }
+
+    public static Stream<Sentence> parseFile(Path path) throws IOException {
+        var tsv = Files.readAllLines(path);
+        return segmentIntoSentences(tsv).map(TsvParser::parseSentence);
+    }
+
+    private static Sentence parseSentence(List<String> sentenceLines) {
         var text = sentenceLines.get(0).replace("#Text=", "");
         var annotationLines = sentenceLines
                 .stream()
@@ -35,10 +51,10 @@ public class TsvParser {
                 .filter(arr -> arr.length > 3)
                 .collect(Collectors.toList());
 
-        return new Sentence(text, mergeAnnotationLines(annotationLines));
+        return new Sentence(text, mergeAnnotationLines(text, annotationLines));
     }
 
-    private static ArrayList<InceptionAnnotation> mergeAnnotationLines(List<String[]> lines) {
+    private static ArrayList<InceptionAnnotation> mergeAnnotationLines(String sentenceText, List<String[]> lines) {
         var labels = lines.stream()
                 .flatMap(arr -> Arrays.stream(arr[3].split("\\|")))
                 .distinct()
@@ -57,7 +73,7 @@ public class TsvParser {
 
                 var tokens = members.stream().map(x -> tuple(x[0], x[2])).collect(Collectors.toList());
 
-                var annotation = new InceptionAnnotation(label, tokens, begin, end);
+                var annotation = new InceptionAnnotation(sentenceText, label, tokens, begin, end);
                 annotations.add(annotation);
             }
             else {
@@ -69,7 +85,7 @@ public class TsvParser {
 
                     var tokens = List.of(tuple(x[0], x[2]));
 
-                    var annotation = new InceptionAnnotation(label, tokens, begin, end);
+                    var annotation = new InceptionAnnotation(sentenceText, label, tokens, begin, end);
                     annotations.add(annotation);
                 });
             }
@@ -79,7 +95,7 @@ public class TsvParser {
         return annotations;
     }
 
-    public static Stream<List<String>> segmentIntoSentences(List<String> tsv) {
+    private static Stream<List<String>> segmentIntoSentences(List<String> tsv) {
         List<List<String>> sentences = new ArrayList<>();
         List<String> sentence = new ArrayList<>();
 

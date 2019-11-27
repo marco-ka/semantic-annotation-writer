@@ -77,6 +77,8 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         String sentenceWords = treeToString(match.sentenceTree);
         String matchWords = treeToString(match.matchTree);
 
+
+
         var begin = sentenceWords.indexOf(matchWords);
         if (begin == -1) {
             // This can happen after removing constituents from a match (action-rule)
@@ -90,6 +92,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
 
     private static String treeToString(Tree tree) {
         var words = TreeUtils.tree2Words(tree);
+
         return words
             .replace("-LRB- ", "(")
             .replace("-LRB-", "(")

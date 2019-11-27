@@ -25,4 +25,28 @@ public class Annotation implements Serializable {
     public String toString() {
         return label + ": " + sentenceId + " from " + begin + " to " + end;
     }
+
+    public String compareTo(Annotation other) {
+        if (!sentenceText.equals(other.sentenceText)) {
+            throw new IllegalArgumentException("Sentences don't match");
+        }
+
+        if (begin == other.begin && end == other.end) {
+            return "perfect match";
+        }
+
+        if (this.overlapsWith(other)) {
+            return "partial match";
+        }
+
+        else return "no match";
+    }
+
+    public boolean overlapsWith(Annotation other) {
+        var isBeginIncluded = begin >= other.begin && begin <= other.end;
+        var isEndIncluded = end >= other.begin && end <= other.end;
+
+        return isBeginIncluded || isEndIncluded;
+    }
+
 }

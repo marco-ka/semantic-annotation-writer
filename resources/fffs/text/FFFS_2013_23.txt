@@ -1,0 +1,5 @@
+An insurance undertaking shall base its chosen rate of interest to discount future cash flows for occupational pension insurance on the duration of the cash flows to be valued and the currencies in which the undertaking’s insurance obligations are payable.
+
+Before choosing the rate of interest to be used for calculating technical provisions in accordance with section 1, an insurance undertaking shall first calculate the applicable discount rate curve using the method set out in Appendix 1.
+
+The undertaking shall determine forward rates on the discount rate curve as a weighted average of the market rates for the corresponding maturity and the ultimate forward rate. The method for calculating the weighted average is set out in section 1 of Appendix 1. The market rates used shall be consistent with current market quotations and are calculated according to the method set out in section 2 of Appendix 1.

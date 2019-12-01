@@ -1,0 +1,5 @@
+An AIF manager shall state in its application the authorisation(s) for which it is applying. The application shall be signed by an authorised representative of the manager.
+
+An AIF manager which shall manage a special fund with an investment policy as referred to in Chapter 12, section 14 of the Alternative Investment Fund Managers Act (2013:561) shall state this in the application and, in addition to that set out in section 3, append the documents that are set out in Chapter 5a, section 5, second paragraph, points 1–6 of the Investment Funds Act (2004:46).
+
+A legal person under the supervision of Finansinspektionen or an authorised authority within the EEA does not need to submit the information set out in sections 1.7, 1.12 and 1.13 of Appendix 2 unless specifically requested by Finansinspektionen.

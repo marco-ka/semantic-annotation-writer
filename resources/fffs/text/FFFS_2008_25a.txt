@@ -1,0 +1,9 @@
+An institution shall apply a rule in approved international financial reporting standards if it is in agreement with the Annual Accounts for Credit Institutions and Securities Companies Act (1995:1559) and these regulations. In other cases, the corresponding regulation in Annual Accounts for Credit Institutions and Securities Companies Act and these regulations shall apply.
+
+An institution does not need to apply a rule in approved international financial reporting standards that is in agreement with the Annual Accounts for Credit Institutions and Securities Companies Act and these regulations if it instead applies a corresponding regulation in Swedish Financial Reporting Board Recommendation RFR 2 Accounting for Legal Entities. (FFFS 2013:2)
+
+For it to be determined that an institution controls another undertaking requires, in addition to fulfilment of the conditions in IFRS 10 Consolidated Financial Statements, that the institution holds a participation in the undertaking, cf. Chapter 1, section 4 of the Annual Accounts for Credit Institutions and Securities Companies Act (1995:1559) and Chapter 1, section 4 of the Annual Accounts Act (1995:1554).
+
+If the institution does not hold a participation in the other undertaking but in accordance with IFRS 10 still controls the other undertaking, the institution shall disclose information regarding this situation in a note. In such a case the other undertaking shall state in a note, if it is an institution, which undertaking controls without participations and how the influence can be exercised. (FFFS 2013:24)
+
+An institution shall make a provision in its balance sheet for pension commitments for employees that are not covered by pension insurance or specifically separated assets (pension trust or the equivalent).

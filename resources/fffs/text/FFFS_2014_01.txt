@@ -1,0 +1,5 @@
+An undertaking shall have the capability to gather and automatically compile data regarding the undertaking’s significant and measurable risks as soon as possible. The IT systems supporting such compilation shall be flexible and able to meet various analysis needs. Risk data shall be compilable at least in the event of crisis situations, stress tests and at the request of Finansinspektionen.
+
+An undertaking shall have internal rules and procedures for its accounting and risk reporting that enable it, at the request of Finansinspektionen, to submit financial statements in a timely manner which provide a true and fair presentation of the undertaking’s financial position and comply with applicable accounting standards, accounting regulations and legal requirements for risk reporting.
+
+The board of directors or the managing director shall decide on the internal rules.

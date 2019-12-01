@@ -1,0 +1,1 @@
+The interest rate risks in the different currencies shall be added net for a total interest rate risk. Conversion to SEK shall apply the current spot rates at the time of calculation.

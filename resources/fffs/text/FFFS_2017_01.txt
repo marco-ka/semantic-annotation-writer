@@ -1,0 +1,5 @@
+The provisions in sections 3–10 shall not be applied until the accepting payment service provider has opened the new payment account to which the switch shall be made.
+
+Switching a payment account shall commence by all holders of the payment account ordering in writing the accepting payment service provider to carry out the switch and provide instructions as to how this order is to be executed. The accepting payment service provider shall ensure that it is possible for a consumer to submit the order and instructions in Swedish unless the payment service provider and the consumer agree otherwise.
+
+The accepting payment service provider shall ensure that the consumer has the possibility of submitting instructions about the direct debit authorisations, incoming payments and standing orders linked to the old payment account that are to be linked to the new one. The payment service provider shall ensure that the consumer can submit instructions stating that any outstanding balance in the payment account with the ceding payment service provider is to be transferred, and that the payment account is subsequently to be closed.

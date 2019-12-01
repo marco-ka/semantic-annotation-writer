@@ -1,0 +1,3 @@
+Authorised trading venues shall maintain a list pursuant to section 13 of the Reporting Obligations for Certain Holdings of Financial Instruments Act (2000:1087). The list shall contain as a minimum information regarding the name, position and Swedish personal ID number of the person subject to the notification obligation or, if the person does not have a Swedish personal ID number, some other identification number [...].
+
+For options, specification is required of whether a bid or put option has been , acquired or transferred. In addition, the underlying asset, number, maturity, closing day and strike price shall be specified. The corresponding information shall be provided for forwards.

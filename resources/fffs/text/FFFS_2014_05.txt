@@ -1,0 +1,5 @@
+An undertaking shall classify its information so that it is ascribed the right level of protection. This classification shall be based on the requirements imposed on the information’s confidentiality, integrity and availability in its operations.
+
+The undertaking shall document the classification under the first paragraph and appoint persons or functions who are responsible for the information processed within its operations.
+
+An undertaking shall analyse the risks related to the undertaking’s information security once a year as well as in the event of changes that can affect the information security. The undertaking shall decide how to manage risks identified based on these analyses and incidents that have occurred.

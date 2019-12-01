@@ -1,0 +1,5 @@
+An undertaking shall base its calculations of average interest rates in accordance with section 3 on housing loans to consumers for which the rate of interest during the calendar month was determined (a) for the first time, (b) upon renegotiation of a loan agreement, or (c) upon extension of a loan agreement.
+
+Housing loans mediated for an issuing institution shall be included in the calculations of the undertaking’s average interest rates. Loans issued to employees of the undertaking or within the group, and which carry favourable terms, shall not be included in the calculations.
+
+A housing loan with a fixed interest term that deviates from the fixed interest terms offered by the undertaking in its marketing shall be included in the calculation pertaining to the closest fixed interest term or, if it is close to two different fixed interest terms, the shorter of the two.

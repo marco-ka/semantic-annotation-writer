@@ -1,0 +1,9 @@
+The firm shall calculate and report to Finansinspektionen the effect a sudden change in the general interest rate level (interest rate shock) has on its financial value.
+
+The interest rate shock shall correspond to a sudden and sustainable parallel shift by 200 basis points applied to the yield curves to which current positions are tied at the time of reporting.
+
+Where the effect of such a shock results in a decline in the firm’s economic value by more than 20% in relation to its own funds, the firm shall submit a statement to Finansinspektionen describing the measures required to reduce the potential decline.
+
+The calculation shall cover items in non-trading activities that are tied to interest rate conditions. This refers both to assets and liabilities on the balance sheet and long and short positions that are not included in the balance sheet (off-balance sheet items).
+
+For currencies where the firm has assets or liabilities, the calculations shall be made currency by currency. A firm with interest rate risk exposure in more than ten currencies only needs to calculate the risk separately for the ten most important currencies from an interest rate risk viewpoint. Interest rate risks in the other currencies may be calculated as if they were in the same currency.

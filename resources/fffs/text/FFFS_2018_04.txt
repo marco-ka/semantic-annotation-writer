@@ -1,0 +1,5 @@
+A payment service provider shall have appropriate and effective procedures for handling and responding to a payment service user’s complaints about operations in the countries in which the provider provides payment services.
+
+The payment service provider shall respond to the complaint in a language that is an official language of the country where the payment service is provided, and supply this to the payment service user in paper form, unless the provider and the user have agreed otherwise.
+
+A payment service provider shall respond to a payment service user’s complaint within 15 business days of the day the complaint is received.

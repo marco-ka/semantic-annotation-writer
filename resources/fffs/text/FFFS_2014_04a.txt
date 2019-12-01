@@ -1,0 +1,9 @@
+An undertaking shall determine a risk appetite for its operational risks. The undertaking shall have limits for its operational risks within the framework of its risk appetite.
+
+The undertaking shall use its products, services, functions, processes and IT systems as a basis for setting limits. It should be possible to use qualitative or quantitative measures to assess these limits. The undertaking shall document its risk appetite and limits.
+
+The board of directors shall decide on and regularly evaluate and if necessary update the risk appetite for operational risks. The managing director shall decide on and regularly evaluate and if necessary update the limits for operational risks.
+
+When reporting operational risks to the board of directors and managing director, an undertaking shall specify 1. indicators for operational risks under Chapter 3, Section 4, 2. breaches of risk appetite and risk limits under Chapter 2, Section 1, and 3. serious incidents.
+
+The undertaking shall also report the results from tests of the contingency, continuity and recovery plans to the board of directors at least once a year.

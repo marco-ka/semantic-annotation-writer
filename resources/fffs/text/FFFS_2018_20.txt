@@ -1,0 +1,7 @@
+A lessor that, pursuant to RFR 2 Accounting for Legal Entities, reports a financial leasing agreement as an operational leasing agreement may depreciate the leased assets in accordance with the annuity method, even if this would not be consistent with IFRS 16 Leases, cf. point 84 of IFRS 16, and shall apply the rules for financial leasing agreements in terms of impairment losses and reversals of impairment losses for the leased asset, cf. IFRS 9 Financial Instruments, points 2.1(b)(i), 5.5.1 and 5.5.15(b)
+
+An unlisted securities companies whose balance sheet total for the two most recent financial years does not exceed 1,000 basic amounts in accordance with Chapter 2, section 7 of the Social Insurance Code (2010:110) only needs to provide disclosures in accordance with the following approved international accounting standards: [...].
+
+The first paragraph shall not apply if the institution prepares or is included in consolidated financial statements, or has an international connection.
+
+In the note that describes the accounting policies applied, the institution shall indicate whether it has applied disclosure reliefs.

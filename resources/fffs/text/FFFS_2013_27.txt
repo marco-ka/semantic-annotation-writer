@@ -1,0 +1,5 @@
+An institution, when applying Article 126(1) and Article 126(2)(d) of Regulation (EU) No 575/2013 on prudential requirements for credit institutions and investment firms, shall use a risk weight of 100 per cent for exposures that are secured by mortgages on commercial property when the secured property is located in Sweden or a third country.
+
+An institution, when applying Article 395(1) of Regulation (EU) No 575/2013 on prudential requirements for credit institutions and investment firms, shall recognise debt securities issued in accordance with the Covered Bonds (Issuance) Act (2003:1223) and corresponding foreign debt securities at 10 per cent of their value. In no case may the items be included in the issuing institution’s own funds.
+
+An institution shall conduct a thorough analysis of all exposures exceeding two per cent of the institution's or the group's eligible capital when determining large exposures to a group of connected clients.

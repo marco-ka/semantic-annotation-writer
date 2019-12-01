@@ -1,0 +1,3 @@
+Limits for market risks should be compiled for the institution as well as for individual units, various trading desks, product areas or individual traders within position-taking units. The limits should be consistent with applied risk measurements and designed to restrict immediate and/or accumulated losses over a given period, e.g. a month or a year.
+
+The institution should have a centralised function for independent control of market risk that reports to the managing director or a member of senior management not responsible for position-taking units and who has knowledge about financial instruments and methods for management and control of market risks. The function should have sufficient resources and expertise regarding market risks.

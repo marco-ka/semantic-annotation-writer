@@ -1,0 +1,9 @@
+An application for authorisation to acquire shares or participations in a financial institution shall include the information set out in Appendix 1a for a natural person or Appendix 1b for a legal person.
+
+Where the acquirer is a legal person, Appendix 1b shall be used for information about the legal person and Appendix 1c for information about board members, deputy board members, managing directors and deputy managing directors in the acquiring legal person.
+
+With respect to a natural person who owns a qualifying holding of shares or participations in the firm, the information set forth in section 1 of Appendix 1a shall be appended to an application for authorisation to conduct business. Where the owner is a legal person, the information set forth in section 1 of Appendix 1b shall be appended.
+
+With respect to a board member, deputy board member, managing director or deputy managing director in a firm who owns a qualifying holding, the information set forth in Appendix 1c shall be appended to an application for authorisation to conduct business.
+
+A legal person under the supervision of Finansinspektionen or a competent authority within the EEA does not need to submit the information set out in sections 1.7, 1.12 and 1.13 of Appendix 1b, unless specifically requested by Finansinspektionen.

@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MarkerGenerator {
-    private static final String resourceDir = "C:/Users/Marco/Documents/Projects/semantic-legal-metadata-annotation/resources";
+    private static final String resourceDir = "resources";
 
     static Set<String> actor() throws IOException {
         Set<String> markers = new TreeSet<>();
@@ -36,7 +36,7 @@ public class MarkerGenerator {
         Synset syn = WordNet.getSynset("artifact%1:03:00::");
 
         Set<String> markers = WordNet.getAllHyponyms(syn);
-        markers.addAll(MarkerGenerator.fromFile(Paths.get(resourceDir, "markers-manual/artifact.txt")));
+        markers.addAll(MarkerGenerator.fromFile(Paths.get(resourceDir, "markers-manual", "artifact.txt")));
 
         return markers;
     }
@@ -90,7 +90,7 @@ public class MarkerGenerator {
     }
 
     private static Set<String> manual(String fileName) {
-        var path = Paths.get(resourceDir, "markers-manual\\" + fileName + ".txt");
+        var path = Paths.get(resourceDir, "markers-manual", fileName + ".txt");
         return fromFile(path);
     }
 

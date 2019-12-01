@@ -1,10 +1,13 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.internal.GsonBuildConfig;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
+import org.dkpro.core.api.parameter.ComponentParameters;
 import org.dkpro.core.io.penntree.PennTreeNode;
 import org.dkpro.core.io.penntree.PennTreeUtils;
 import org.dkpro.core.stanfordnlp.util.TreeUtils;
@@ -35,6 +38,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
             for (SemanticRule rule : rules) {
                 annotations.addAll(getAnnotations(jCas, rule));
             }
+
             write(jCas, annotations);
 //            writeSentences(jCas);
         } catch (IOException | JWNLException e) {
@@ -43,9 +47,10 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     }
 
     private void write(JCas jCas, List<Annotation> annotations) throws IOException {
-        Gson gson = new Gson();
+        var writer = new OutputStreamWriter(getOutputStream(jCas, ".json"), ComponentParameters.DEFAULT_ENCODING);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
         Path.of(getTargetLocation()).getParent().toFile().mkdirs();
-        var writer = new FileWriter(getTargetLocation());
         var json = gson.toJson(annotations);
         writer.write(json);
         writer.close();
@@ -76,8 +81,6 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     private static Annotation getAnnotation(Match match) {
         String sentenceWords = treeToString(match.sentenceTree);
         String matchWords = treeToString(match.matchTree);
-
-
 
         var begin = sentenceWords.indexOf(matchWords);
         if (begin == -1) {

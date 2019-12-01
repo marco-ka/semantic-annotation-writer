@@ -21,16 +21,16 @@ import static org.apache.uima.fit.factory.CollectionReaderFactory.createReader;
 public class Pipeline {
 
     public static void main(String[] args) throws UIMAException, IOException {
-        var input = Path.of("resources/fffs/text");
-        var annotationsFile = Path.of("out/annotations.json");
+        var input = Path.of("resources", "fffs", "text");
+        var annotationsDir = Path.of("out", "annotations");
 
-        run(input, annotationsFile);
+        run(input, annotationsDir);
     }
 
-    public static void run(Path inputDir, Path outputFile) throws UIMAException, IOException {
-        var pennTreeDir = Path.of("out/penn-trees");
-        writePennTrees(inputDir, pennTreeDir);
-        writeAnnotations(pennTreeDir, outputFile);
+    public static void run(Path inputDir, Path outputDir) throws UIMAException, IOException {
+        var pennTreeDir = Path.of("out", "penn-trees");
+//        writePennTrees(inputDir, pennTreeDir);
+        writeAnnotations(pennTreeDir, outputDir);
     }
 
     public static void writePennTrees(Path inputDir, Path outputDir) throws UIMAException, IOException {
@@ -57,12 +57,12 @@ public class Pipeline {
         System.out.println(new Date() + " Done");
     }
 
-    public static void writeAnnotations(Path inputDir, Path outputFile) throws UIMAException, IOException {
+    public static void writeAnnotations(Path inputDir, Path outputDir) throws UIMAException, IOException {
         var pennReader = createReader(PennTreebankCombinedReader.class,
                 PennTreebankCombinedReader.PARAM_SOURCE_LOCATION, inputDir.toString() + "/*");
 
         var annotationWriter = createEngineDescription(SemanticAnnotationWriter.class,
-                SemanticAnnotationWriter.PARAM_TARGET_LOCATION, outputFile.toString(),
+                SemanticAnnotationWriter.PARAM_TARGET_LOCATION, outputDir.toString(),
                 SemanticAnnotationWriter.PARAM_OVERWRITE, true);
 
         System.out.println(new Date() + " Writing Annotations ...");

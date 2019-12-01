@@ -1,6 +1,7 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis.tsv;
 
 import at.ac.uibk.marco_kainzner.bachelors_thesis.Annotation;
+import at.ac.uibk.marco_kainzner.bachelors_thesis.SimpleAnnotation;
 import org.jooq.lambda.tuple.Tuple2;
 
 import java.util.List;
@@ -26,8 +27,8 @@ public class InceptionAnnotation {
         return begin + "-" + end + ": " + label + ": " + coveredTokens;
     }
 
-    public Annotation toAnnotation() {
-        return new Annotation("inception-annotation", getSentenceId(), "_", getCoveredText(), label, begin, end);
+    public SimpleAnnotation toAnnotation() {
+        return new SimpleAnnotation(sentenceText, label, begin, end);
     }
 
     private String getCoveredText() {

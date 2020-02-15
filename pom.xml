@@ -6,6 +6,13 @@
     <groupId>at.ac.uibk</groupId>
     <artifactId>kainzner-bachelors-thesis</artifactId>
     <version>1.0.0</version>
+    <repositories>
+        <repository>
+            <id>wso2-third-party</id>
+            <name>WSO2 3rd Party</name>
+            <url>https://maven.wso2.org/nexus/content/repositories/thirdparty</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
@@ -88,6 +95,7 @@
             <version>1.1.0</version>
         </dependency>
         <dependency>
+            <!-- https://mvnrepository.com/artifact/edu.stanford.nlp/stanford-tregex -->
             <groupId>edu.stanford.nlp</groupId>
             <artifactId>stanford-tregex</artifactId>
             <version>3.6.0</version>

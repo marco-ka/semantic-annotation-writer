@@ -46,7 +46,7 @@ public class MarkerGenerator {
     }
 
     static Set<String> location() {
-        return manual("location");
+        return manual("location_fibo");
     }
 
     static Set<String> modality() {
@@ -58,35 +58,40 @@ public class MarkerGenerator {
     }
 
     public static Set<String> sanction() {
-        return manual("paper_sanction");
+        return manual("sanction_paper");
     }
 
     static Set<String> situation() {
-        return manual("wiktionary_situation");
+        return manual("situation_wiktionary");
     }
 
     static Set<String> exception() {
         return manual("exception");
     }
 
-    static Set<String> time() throws JWNLException {
-        Synset synTemporarily = WordNet.getSynset("temporarily%4:02:00::");
+    static Set<String> time() throws JWNLException, IOException {
+        Synset synUnitOfTime = WordNet.getSynset("unit_of_time%1:28:00::");
         Synset synPeriod = WordNet.getSynset("time_period%1:28:00::");
+        Synset synTemporarily = WordNet.getSynset("temporarily%4:02:00::");
 
+        Set<String> unitsOfTime = WordNet.getAllHyponyms(synUnitOfTime);
         Set<String> temporarily = WordNet.getWords(synTemporarily);
         Set<String> temporary = WordNet.getAdjectivesAndAntonyms(synTemporarily);
         Set<String> periodHyponyms = WordNet.getAllHyponyms(synPeriod);
 
         Set<String> markers = MarkerGenerator.manual("time");
+        markers.addAll(unitsOfTime);
         markers.addAll(temporarily);
         markers.addAll(temporary);
         markers.addAll(periodHyponyms);
+
+        toFile(Path.of("time_wordnet.txt"), markers);
 
         return markers;
     }
 
     static Set<String> violation() {
-        return manual("paper_violation");
+        return manual("violation_paper");
     }
 
     private static Set<String> manual(String fileName) {

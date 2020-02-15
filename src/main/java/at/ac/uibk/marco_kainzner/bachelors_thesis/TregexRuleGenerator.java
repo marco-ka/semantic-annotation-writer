@@ -86,8 +86,8 @@ class TregexRuleGenerator {
         return "(" + fst + " . " + snd + ")";
     }
 
-    // If marker consists of two words (eg. marker = "word1 word2", merge into tregex rule like this: `((__ < word1) $ (__ < word2))`
-    // e.g. `NP < "this article"` becomes `NP < ((__ < this) $ (__ < article))`
+    // If a marker consists of two words (eg. marker = "word1 word2", merge it into a tregex rule like this: `(word1 . word2)`
+    // example: `NP < "this article"` becomes `NP < (__ < (this . article))`
     private static String ruleFromMultipleWords(String beforeEachRule, String lemma, String afterEachRule) {
         if (lemma.contains(" ")) {
             return "(" + beforeEachRule + mergeWords(lemma) + afterEachRule + ")";
@@ -96,5 +96,6 @@ class TregexRuleGenerator {
     }
 
     private static String regexEscape(String str) {
-        return str.replaceAll("[.\\\\+*?\\[\\^\\]$(){}0123456789=!<>|:\\-]", "\\\\$0");    }
+        return str.replaceAll("[.\\\\+*?\\[\\^\\]$(){}0123456789=!<>|:\\-]", "\\\\$0");
+    }
 }

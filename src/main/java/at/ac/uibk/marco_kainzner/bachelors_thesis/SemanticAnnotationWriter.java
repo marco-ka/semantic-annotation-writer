@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.GsonBuildConfig;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
+import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.Constituent;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
@@ -17,30 +18,35 @@ import edu.stanford.nlp.trees.tregex.tsurgeon.Tsurgeon;
 import edu.stanford.nlp.trees.tregex.tsurgeon.TsurgeonPattern;
 import net.sf.extjwnl.JWNLException;
 import org.apache.uima.analysis_engine.AnalysisEngineProcessException;
+import org.apache.uima.fit.descriptor.TypeCapability;
 import org.apache.uima.fit.util.JCasUtil;
 import org.apache.uima.jcas.JCas;
+import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
+import org.dkpro.core.io.penntree.PennTreeNode;
+import org.dkpro.core.io.penntree.PennTreeUtils;
+import org.dkpro.core.stanfordnlp.util.TreeUtils;
 
-import java.io.*;
-import java.lang.reflect.Array;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@TypeCapability(inputs = "de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.Constituent")
 public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     @Override
     public void process(JCas jCas) throws AnalysisEngineProcessException {
         try {
-            List<SemanticRule> rules = SemanticRuleGenerator.getAllRules();
+            var rules = SemanticRuleGenerator.getAllRules();
+
             List<Annotation> annotations = new ArrayList<>();
             for (SemanticRule rule : rules) {
                 annotations.addAll(getAnnotations(jCas, rule));
             }
 
             write(jCas, annotations);
-//            writeSentences(jCas);
         } catch (IOException | JWNLException e) {
             throw new AnalysisEngineProcessException(e);
         }
@@ -85,7 +91,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var begin = sentenceWords.indexOf(matchWords);
         if (begin == -1) {
             // This can happen after removing constituents from a match (action-rule)
-            System.out.println("The match is not a substring of the containing sentence: '" + treeToString(match.matchTree) + "'");
+            System.out.println("The match is not a substring of the containing sentence: '" + treeToString(match.matchTree) + "'\n    parent: '" + sentenceWords + "'");
             return null;
         }
         var end = begin + matchWords.length();
@@ -124,7 +130,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
             for (var match : matchesInSentence) {
                 Tree sentenceTree = match.getTree();
                 for (Tree matchedPart : matchedParts.get(match)) {
-                    if (hasDependency(matchedPart, rule.dependencyRuleOrNull)) {
+                    if (hasDependency(sentenceTreeNode, matchedPart, rule.dependencyRuleOrNull)) {
                         Tree withConstituentsRemoved = removeConstituents(matchedPart, rule.constituentRemovalRules);
                         matchesForRule.add(new Match(rule.name, documentId, sentenceNum, sentenceTree, withConstituentsRemoved));
                     }
@@ -177,20 +183,33 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         return modifiedNode;
     }
 
-    public static boolean hasDependency(Tree constituencyTree, String dependencyTypeRegex) {
+    public static boolean hasDependency(PennTreeNode sentenceTree, Tree matchTree, String dependencyTypeRegex) {
         if (dependencyTypeRegex == null || dependencyTypeRegex.isEmpty()) {
             return true;
         }
 
-        var pennTree = PennTree.ofTree(constituencyTree);
-        var dependencyTree = PennTree.toDependencyTree(pennTree);
+        var matchString = treeToString(matchTree);
 
-        var dependencies = dependencyTree
-            .filter(d -> d.getDependencyType().matches(dependencyTypeRegex))
-            .peek(d -> System.out.println("Dependency matches regex ('" + dependencyTypeRegex + "'): " + dependencyStr(d)))
-            .collect(Collectors.toList());
+        var sentence = sentenceTree;
+        var dependencyTree = PennTree.toDependencyTree(sentence);
 
-        return !dependencies.isEmpty();
+        var dependenciesInParent = dependencyTree.filter(x -> x.getDependencyType().matches(dependencyTypeRegex)).collect(Collectors.toList());
+        System.out.println();
+        System.out.println("--- " + matchString + " ---");
+        System.out.println("sentence: " + treeToString(PennTree.toTree(sentenceTree)));
+        System.out.println("sentence dependencies " + dependencyTypeRegex + ": " + String.join("; ", dependenciesInParent.stream().map(x -> dependencyStr(x)).collect(Collectors.toList())));
+
+        for (var dependency: dependenciesInParent) {
+            var dependent = dependency.getDependent();
+            if (matchString.contains(dependent.getText())) {
+                System.out.println("contains dependent '" + dependent.getText() + "'");
+                return true;
+            }
+            else {
+                System.out.println("!" + dependent.getText());
+            }
+        }
+        return false;
     }
 
     private static String dependencyStr(Dependency d) {

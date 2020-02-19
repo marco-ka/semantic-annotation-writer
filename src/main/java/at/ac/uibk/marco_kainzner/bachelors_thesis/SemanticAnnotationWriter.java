@@ -28,8 +28,10 @@ import org.dkpro.core.stanfordnlp.util.TreeUtils;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -38,25 +40,32 @@ import java.util.stream.Collectors;
 public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     @Override
     public void process(JCas jCas) throws AnalysisEngineProcessException {
+        var start = System.currentTimeMillis();
         try {
             var rules = SemanticRuleGenerator.getAllRules();
 
             List<Annotation> annotations = new ArrayList<>();
             for (SemanticRule rule : rules) {
+                var ruleStart = System.currentTimeMillis();
                 annotations.addAll(getAnnotations(jCas, rule));
+                var ruleEnd = System.currentTimeMillis();
+                System.out.println(getDocumentId(jCas) + ": " + rule.name + " took " + (ruleEnd - ruleStart)/1000.0 + " s");
             }
 
             write(jCas, annotations);
         } catch (IOException | JWNLException e) {
             throw new AnalysisEngineProcessException(e);
         }
+        var end = System.currentTimeMillis();
+        System.out.println("Analysis of '" + getDocumentId(jCas) + "' took " + (end - start)/1000.0 + " s");
     }
 
     private void write(JCas jCas, List<Annotation> annotations) throws IOException {
-        var writer = new OutputStreamWriter(getOutputStream(jCas, ".json"), ComponentParameters.DEFAULT_ENCODING);
-
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        Path.of(getTargetLocation()).getParent().toFile().mkdirs();
+
+        var stream = getOutputStream(jCas, ".json");
+        var writer = new OutputStreamWriter(stream);
+
         var json = gson.toJson(annotations);
         writer.write(json);
         writer.close();
@@ -115,7 +124,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
 
     private List<Match> getMatches(JCas jCas, SemanticRule rule) {
-        String documentId = DocumentMetaData.get(jCas).getDocumentId();
+        var documentId = getDocumentId(jCas);
         var roots = JCasUtil.select(jCas, ROOT.class);
         var matchesForRule = new ArrayList<Match>();
 
@@ -127,11 +136,14 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
             List<MyTreeFromFile> matchesInSentence = visitor.getMatches();
             Map<MyTreeFromFile, List<Tree>> matchedParts = visitor.getMatchedParts();
 
+            var dependencyTree = rule.dependencyRuleOrNull == null ? null : PennTree.toDependencyTree(sentenceTreeNode).collect(Collectors.toList());
+
+            List<Tree> tregexMatches = new ArrayList<>();
             for (var match : matchesInSentence) {
                 Tree sentenceTree = match.getTree();
-                for (Tree matchedPart : matchedParts.get(match)) {
-                    if (hasDependency(sentenceTreeNode, matchedPart, rule.dependencyRuleOrNull)) {
-                        Tree withConstituentsRemoved = removeConstituents(matchedPart, rule.constituentRemovalRules);
+                for (Tree tregexMatch : matchedParts.get(match)) {
+                    if (hasDependency(dependencyTree, tregexMatch, rule.dependencyRuleOrNull)) {
+                        Tree withConstituentsRemoved = removeConstituents(tregexMatch, rule.constituentRemovalRules);
                         matchesForRule.add(new Match(rule.name, documentId, sentenceNum, sentenceTree, withConstituentsRemoved));
                     }
                 }
@@ -140,6 +152,10 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
 
         return matchesForRule;
+    }
+
+    private String getDocumentId(JCas jCas) {
+        return DocumentMetaData.get(jCas).getDocumentId();
     }
 
     public static TRegexGUITreeVisitor getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
@@ -183,30 +199,18 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         return modifiedNode;
     }
 
-    public static boolean hasDependency(PennTreeNode sentenceTree, Tree matchTree, String dependencyTypeRegex) {
+    public static boolean hasDependency(List<Dependency> dependencyTree, Tree matchTree, String dependencyTypeRegex) {
         if (dependencyTypeRegex == null || dependencyTypeRegex.isEmpty()) {
             return true;
         }
 
         var matchString = treeToString(matchTree);
-
-        var sentence = sentenceTree;
-        var dependencyTree = PennTree.toDependencyTree(sentence);
-
-        var dependenciesInParent = dependencyTree.filter(x -> x.getDependencyType().matches(dependencyTypeRegex)).collect(Collectors.toList());
-        System.out.println();
-        System.out.println("--- " + matchString + " ---");
-        System.out.println("sentence: " + treeToString(PennTree.toTree(sentenceTree)));
-        System.out.println("sentence dependencies " + dependencyTypeRegex + ": " + String.join("; ", dependenciesInParent.stream().map(x -> dependencyStr(x)).collect(Collectors.toList())));
+        var dependenciesInParent = dependencyTree.stream().filter(x -> x.getDependencyType().matches(dependencyTypeRegex)).collect(Collectors.toList());
 
         for (var dependency: dependenciesInParent) {
             var dependent = dependency.getDependent();
             if (matchString.contains(dependent.getText())) {
-                System.out.println("contains dependent '" + dependent.getText() + "'");
                 return true;
-            }
-            else {
-                System.out.println("!" + dependent.getText());
             }
         }
         return false;

@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.GsonBuildConfig;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
-import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.Constituent;
+import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
@@ -26,12 +26,9 @@ import org.dkpro.core.io.penntree.PennTreeNode;
 import org.dkpro.core.io.penntree.PennTreeUtils;
 import org.dkpro.core.stanfordnlp.util.TreeUtils;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -129,7 +126,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var matchesForRule = new ArrayList<Match>();
 
         var sentenceNum = 1;
-        for (var sentence: roots) {
+        for (var sentence : roots) {
             var sentenceTreeNode = PennTreeUtils.convertPennTree(sentence);
 
             var visitor = getMatchTreeVisitor(documentId, rule.constituencyRule, sentenceTreeNode);
@@ -207,7 +204,10 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var matchString = treeToString(matchTree);
         var dependenciesInParent = dependencyTree.stream().filter(x -> x.getDependencyType().matches(dependencyTypeRegex)).collect(Collectors.toList());
 
+//        System.out.println("---");
+//        System.out.println(matchString);
         for (var dependency: dependenciesInParent) {
+//            System.out.println("  " + dependencyStr(dependency));
             var dependent = dependency.getDependent();
             if (matchString.contains(dependent.getText())) {
                 return true;

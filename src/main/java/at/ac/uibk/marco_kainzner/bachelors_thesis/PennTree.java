@@ -2,6 +2,8 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
+import edu.stanford.nlp.trees.TypedDependency;
+import edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructure;
 import org.dkpro.core.io.penntree.PennTreeNode;
 import org.dkpro.core.io.penntree.PennTreeToJCasConverter;
 import org.dkpro.core.io.penntree.PennTreeUtils;
@@ -45,6 +47,16 @@ public class PennTree {
             e.printStackTrace();
             return null;
         }
+    }
+
+    static Stream<TypedDependency> toDependencyTree2(Tree t) {
+        UniversalEnglishGrammaticalStructure gs = new UniversalEnglishGrammaticalStructure(t);
+        return gs.typedDependencies().stream();
+//        return GrammaticalStructureConversionUtils.dependenciesToString(gs, gs.typedDependencies(false), t, false, false, false);
+    }
+
+    static Stream<TypedDependency> toDependencyTree2(PennTreeNode t) {
+        return toDependencyTree2(toTree(t));
     }
 
     public static Tree toTree(PennTreeNode treeNode) {

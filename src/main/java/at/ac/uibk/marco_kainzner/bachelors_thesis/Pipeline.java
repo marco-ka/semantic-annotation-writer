@@ -3,11 +3,11 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 import org.apache.commons.io.FileUtils;
 import org.apache.uima.UIMAException;
 import org.apache.uima.fit.pipeline.SimplePipeline;
-import org.dkpro.core.berkeleyparser.BerkeleyParser;
 import org.dkpro.core.io.penntree.PennTreebankCombinedReader;
 import org.dkpro.core.io.penntree.PennTreebankCombinedWriter;
 import org.dkpro.core.io.text.TextReader;
 import org.dkpro.core.stanfordnlp.StanfordNamedEntityRecognizer;
+import org.dkpro.core.stanfordnlp.StanfordParser;
 import org.dkpro.core.stanfordnlp.StanfordPosTagger;
 import org.dkpro.core.stanfordnlp.StanfordSegmenter;
 
@@ -45,21 +45,23 @@ public class Pipeline {
         var posTagger = createEngineDescription(StanfordPosTagger.class);
         var ner = createEngineDescription(StanfordNamedEntityRecognizer.class);
 
-        var berkeleyParser = createEngineDescription(BerkeleyParser.class,
-                BerkeleyParser.PARAM_WRITE_PENN_TREE, true);
+        var coreNlpParser = createEngineDescription(StanfordParser.class,
+                StanfordParser.PARAM_WRITE_PENN_TREE, true);
 
         var pennWriter = createEngineDescription(PennTreebankCombinedWriter.class,
                 PennTreebankCombinedWriter.PARAM_TARGET_LOCATION, outputDir.toString(),
                 PennTreebankCombinedWriter.PARAM_OVERWRITE, true);
 
         System.out.println(new Date() + " Writing Penn Trees ...");
-        SimplePipeline.runPipeline(textReader, segmenter, posTagger, ner, berkeleyParser, pennWriter);
+        SimplePipeline.runPipeline(textReader, segmenter, posTagger, ner, coreNlpParser, pennWriter);
         System.out.println(new Date() + " Done");
     }
 
     public static void writeAnnotations(Path inputDir, Path outputDir) throws UIMAException, IOException {
         var pennReader = createReader(PennTreebankCombinedReader.class,
-                PennTreebankCombinedReader.PARAM_SOURCE_LOCATION, inputDir.toString() + "/*");
+                PennTreebankCombinedReader.PARAM_SOURCE_LOCATION, inputDir.toString() + "/*.mrg",
+                PennTreebankCombinedReader.PARAM_LANGUAGE, "en"
+        );
 
         var annotationWriter = createEngineDescription(SemanticAnnotationWriter.class,
                 SemanticAnnotationWriter.PARAM_TARGET_LOCATION, outputDir.toString(),

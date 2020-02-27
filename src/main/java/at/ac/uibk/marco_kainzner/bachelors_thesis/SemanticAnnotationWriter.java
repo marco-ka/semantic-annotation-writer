@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.GsonBuildConfig;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
@@ -13,6 +12,7 @@ import org.dkpro.core.io.penntree.PennTreeNode;
 import org.dkpro.core.io.penntree.PennTreeUtils;
 import org.dkpro.core.stanfordnlp.util.TreeUtils;
 import edu.stanford.nlp.trees.Tree;
+import edu.stanford.nlp.trees.TypedDependency;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
 import edu.stanford.nlp.trees.tregex.tsurgeon.Tsurgeon;
 import edu.stanford.nlp.trees.tregex.tsurgeon.TsurgeonPattern;
@@ -133,7 +133,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
             List<MyTreeFromFile> matchesInSentence = visitor.getMatches();
             Map<MyTreeFromFile, List<Tree>> matchedParts = visitor.getMatchedParts();
 
-            var dependencyTree = rule.dependencyRuleOrNull == null ? null : PennTree.toDependencyTree(sentenceTreeNode).collect(Collectors.toList());
+            var dependencyTree = PennTree.toDependencyTree(sentenceTreeNode);
 
             List<Tree> tregexMatches = new ArrayList<>();
             for (var match : matchesInSentence) {
@@ -196,20 +196,37 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         return modifiedNode;
     }
 
-    public static boolean hasDependency(List<Dependency> dependencyTree, Tree matchTree, String dependencyTypeRegex) {
+    public static boolean hasDependency(List<TypedDependency> dependencyTree, Tree matchTree, String dependencyTypeRegex) {
         if (dependencyTypeRegex == null || dependencyTypeRegex.isEmpty()) {
             return true;
         }
 
         var matchString = treeToString(matchTree);
-        var dependenciesInParent = dependencyTree.stream().filter(x -> x.getDependencyType().matches(dependencyTypeRegex)).collect(Collectors.toList());
+        var matchDependencies = PennTree.toDependencyTree(matchTree);
+
+        System.out.println();
+        System.out.println("---");
+        var matchRoot = matchDependencies.stream()
+                .filter(x -> x.reln().getShortName().equals("root"))
+                .findAny();
+
+        if (matchRoot.isEmpty())
+            throw new RuntimeException("Parse tree for match has no root: '" + matchString + "'");
+
+//        dependencyTree.forEach(x -> System.out.println(x.reln().getShortName() + " (" + x.reln().getLongName() + "): " + x.gov() + " -> " + x.dep() + " (" + x.dep().originalText() + " | " + x.dep().lemma() + ")"));
+        System.out.println("---");
+        System.out.println();
+
+        var dependenciesInParent = dependencyTree.stream()
+                .filter(x -> x.reln().getShortName().matches(dependencyTypeRegex))
+                .collect(Collectors.toList());
 
 //        System.out.println("---");
 //        System.out.println(matchString);
         for (var dependency: dependenciesInParent) {
 //            System.out.println("  " + dependencyStr(dependency));
-            var dependent = dependency.getDependent();
-            if (matchString.contains(dependent.getText())) {
+            var dependent = dependency.dep();
+            if (matchString.contains(dependent.originalText())) {
                 return true;
             }
         }

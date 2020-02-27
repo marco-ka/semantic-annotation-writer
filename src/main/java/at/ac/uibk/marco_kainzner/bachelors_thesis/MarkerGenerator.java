@@ -85,7 +85,7 @@ public class MarkerGenerator {
         markers.addAll(temporary);
         markers.addAll(periodHyponyms);
 
-        toFile(Path.of("time_wordnet.txt"), markers);
+        toFile(Path.of( resourceDir, "markers-auto", "time_wordnet.txt"), markers);
 
         return markers;
     }

@@ -1,62 +1,27 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
-import de.tudarmstadt.ukp.dkpro.core.api.segmentation.type.Sentence;
-import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
 import edu.stanford.nlp.trees.TypedDependency;
 import edu.stanford.nlp.trees.UniversalEnglishGrammaticalStructure;
 import org.dkpro.core.io.penntree.PennTreeNode;
-import org.dkpro.core.io.penntree.PennTreeToJCasConverter;
 import org.dkpro.core.io.penntree.PennTreeUtils;
-import org.dkpro.core.stanfordnlp.StanfordDependencyConverter;
 import edu.stanford.nlp.trees.Tree;
-import org.apache.uima.UIMAException;
-import org.apache.uima.analysis_engine.AnalysisEngineDescription;
-import org.apache.uima.fit.factory.JCasFactory;
-import org.apache.uima.fit.util.JCasUtil;
-import org.apache.uima.jcas.JCas;
 
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.apache.uima.fit.factory.AnalysisEngineFactory.createEngineDescription;
 import static org.apache.uima.fit.pipeline.SimplePipeline.runPipeline;
 
 public class PennTree {
 
-    static Stream<Dependency> toDependencyTree(PennTreeNode node) {
-        try {
-            // from DKPro: StanfordDependencyConverterTest.java
-            JCas jcas = JCasFactory.createJCas();
-
-            StringBuilder sb = new StringBuilder();
-            PennTreeToJCasConverter converter = new PennTreeToJCasConverter(null, null);
-            converter.setCreatePosTags(true);
-            converter.convertPennTree(jcas, sb, node);
-
-            jcas.setDocumentText(sb.toString());
-            jcas.setDocumentLanguage("en");
-            new Sentence(jcas, 0, jcas.getDocumentText().length()).addToIndexes();
-
-            AnalysisEngineDescription annotator = null;
-
-            annotator = createEngineDescription(StanfordDependencyConverter.class);
-            runPipeline(jcas, annotator);
-
-            return JCasUtil.select(jcas, Dependency.class).stream();
-        } catch (UIMAException e) {
-            System.out.println("Failed to convert constituency tree to dependency tree");
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    static Stream<TypedDependency> toDependencyTree2(Tree t) {
+    static List<TypedDependency> toDependencyTree(Tree t) {
         UniversalEnglishGrammaticalStructure gs = new UniversalEnglishGrammaticalStructure(t);
-        return gs.typedDependencies().stream();
-//        return GrammaticalStructureConversionUtils.dependenciesToString(gs, gs.typedDependencies(false), t, false, false, false);
+        return new ArrayList<>(gs.typedDependencies());
     }
 
-    static Stream<TypedDependency> toDependencyTree2(PennTreeNode t) {
-        return toDependencyTree2(toTree(t));
+    static List<TypedDependency> toDependencyTree(PennTreeNode t) {
+        return toDependencyTree(toTree(t));
     }
 
     public static Tree toTree(PennTreeNode treeNode) {

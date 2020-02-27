@@ -204,8 +204,6 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         var matchString = treeToString(matchTree);
         var matchDependencies = PennTree.toDependencyTree(matchTree);
 
-        System.out.println();
-        System.out.println("---");
         var matchRoot = matchDependencies.stream()
                 .filter(x -> x.reln().getShortName().equals("root"))
                 .findAny();
@@ -213,27 +211,21 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         if (matchRoot.isEmpty())
             throw new RuntimeException("Parse tree for match has no root: '" + matchString + "'");
 
-//        dependencyTree.forEach(x -> System.out.println(x.reln().getShortName() + " (" + x.reln().getLongName() + "): " + x.gov() + " -> " + x.dep() + " (" + x.dep().originalText() + " | " + x.dep().lemma() + ")"));
-        System.out.println("---");
-        System.out.println();
+        var matchRootText = matchRoot.get().dep().value();
 
         var dependenciesInParent = dependencyTree.stream()
                 .filter(x -> x.reln().getShortName().matches(dependencyTypeRegex))
                 .collect(Collectors.toList());
 
-//        System.out.println("---");
-//        System.out.println(matchString);
+        System.out.println("\n---");
         for (var dependency: dependenciesInParent) {
-//            System.out.println("  " + dependencyStr(dependency));
-            var dependent = dependency.dep();
-            if (matchString.contains(dependent.originalText())) {
+            var dependent = dependency.dep().value(); // or `.word()` ?
+            if (matchRootText.equals(dependent)) {
+                System.out.println("'" + matchString + "' equals " + dependent);
                 return true;
             }
+            System.out.println("'" + matchString + "' !equals " + dependent);
         }
         return false;
-    }
-
-    private static String dependencyStr(Dependency d) {
-        return d.getDependencyType() + ": '" + d.getGovernor().getText() + "' -> '" + d.getDependent().getText() + "'";
     }
 }

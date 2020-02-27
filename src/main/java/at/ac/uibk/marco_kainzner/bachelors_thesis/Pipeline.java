@@ -29,7 +29,7 @@ public class Pipeline {
 
     public static void run(Path inputDir, Path outputDir) throws UIMAException, IOException {
         var pennTreeDir = Path.of("out", "penn-trees");
-//        writePennTrees(inputDir, pennTreeDir);
+        writePennTrees(inputDir, pennTreeDir);
         writeAnnotations(pennTreeDir, outputDir);
     }
 

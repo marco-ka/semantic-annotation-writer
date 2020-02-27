@@ -31,8 +31,8 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws JWNLException, IOException {
         var rules = new ArrayList<SemanticRule>();
 
-//        rules.add(artifact());
-//        rules.addAll(actor());
+        rules.add(artifact());
+        rules.addAll(actor());
         rules.add(condition());
         rules.add(exception());
         rules.add(location());
@@ -40,7 +40,7 @@ public class SemanticRuleGenerator {
         rules.add(reason());
         rules.add(situation());
         rules.add(sanction());
-//        rules.add(time());
+        rules.add(time());
         rules.add(violation());
         rules.add(action());
 
@@ -174,7 +174,7 @@ public class SemanticRuleGenerator {
         return new SemanticRule("Situation", ruleStr);
     }
 
-    private static SemanticRule time() throws JWNLException {
+    private static SemanticRule time() throws JWNLException, IOException {
         var markers = MarkerGenerator.time();
 
         String ruleNP = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");

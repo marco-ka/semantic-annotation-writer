@@ -46,7 +46,7 @@ public class MarkerGenerator {
     }
 
     static Set<String> location() {
-        return manual("location_fibo");
+        return manual("fibo_location");
     }
 
     static Set<String> modality() {
@@ -58,11 +58,11 @@ public class MarkerGenerator {
     }
 
     public static Set<String> sanction() {
-        return manual("sanction_paper");
+        return manual("paper_sanction");
     }
 
     static Set<String> situation() {
-        return manual("situation_wiktionary");
+        return manual("wiktionary_situation");
     }
 
     static Set<String> exception() {
@@ -85,13 +85,13 @@ public class MarkerGenerator {
         markers.addAll(temporary);
         markers.addAll(periodHyponyms);
 
-        toFile(Path.of( resourceDir, "markers-auto", "time_wordnet.txt"), markers);
+        toFile(Path.of( resourceDir, "markers-auto", "wordnet_time.txt"), markers); // TODO: Create dir
 
         return markers;
     }
 
     static Set<String> violation() {
-        return manual("violation_paper");
+        return manual("paper_violation");
     }
 
     private static Set<String> manual(String fileName) {

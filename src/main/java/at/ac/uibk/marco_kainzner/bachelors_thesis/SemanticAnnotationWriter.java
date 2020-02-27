@@ -2,17 +2,11 @@ package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.internal.GsonBuildConfig;
 import de.tudarmstadt.ukp.dkpro.core.api.metadata.type.DocumentMetaData;
 import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.constituent.ROOT;
-import de.tudarmstadt.ukp.dkpro.core.api.syntax.type.dependency.Dependency;
-import org.dkpro.core.api.io.JCasFileWriter_ImplBase;
-import org.dkpro.core.api.parameter.ComponentParameters;
-import org.dkpro.core.io.penntree.PennTreeNode;
-import org.dkpro.core.io.penntree.PennTreeUtils;
-import org.dkpro.core.stanfordnlp.util.TreeUtils;
 import edu.stanford.nlp.trees.Tree;
 import edu.stanford.nlp.trees.TypedDependency;
+import edu.stanford.nlp.trees.tregex.TregexParseException;
 import edu.stanford.nlp.trees.tregex.TregexPattern;
 import edu.stanford.nlp.trees.tregex.tsurgeon.Tsurgeon;
 import edu.stanford.nlp.trees.tregex.tsurgeon.TsurgeonPattern;
@@ -156,14 +150,18 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
     }
 
     public static TRegexGUITreeVisitor getMatchTreeVisitor(String fileName, String patternString, PennTreeNode treeNode) {
-        var pattern = TregexPattern.compile(patternString);
-        var visitor = new TRegexGUITreeVisitor(pattern);
-        var tree = PennTree.toTree(treeNode);
+        try {
+            var pattern = TregexPattern.compile(patternString);
+            var visitor = new TRegexGUITreeVisitor(pattern);
+            var tree = PennTree.toTree(treeNode);
 
-        visitor.setFilename(fileName);
-        visitor.visitTree(tree);
+            visitor.setFilename(fileName);
+            visitor.visitTree(tree);
 
-        return visitor;
+            return visitor;
+        } catch (TregexParseException e) {
+            throw new RuntimeException("Failed to parse pattern: " + patternString + " (file: " + fileName + ")");
+        }
     }
 
     private Tree removeConstituents(Tree node, List<ConstituentRemovalRule> rules) {
@@ -217,14 +215,13 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
                 .filter(x -> x.reln().getShortName().matches(dependencyTypeRegex))
                 .collect(Collectors.toList());
 
-        System.out.println("\n---");
         for (var dependency: dependenciesInParent) {
             var dependent = dependency.dep().value(); // or `.word()` ?
             if (matchRootText.equals(dependent)) {
-                System.out.println("'" + matchString + "' equals " + dependent);
+//                System.out.println("'" + matchString + "' equals " + dependent);
                 return true;
             }
-            System.out.println("'" + matchString + "' !equals " + dependent);
+//            System.out.println("'" + matchString + "' !equals " + dependent);
         }
         return false;
     }

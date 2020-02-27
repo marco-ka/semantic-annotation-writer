@@ -7,6 +7,7 @@
     <artifactId>kainzner-bachelors-thesis</artifactId>
     <version>1.0.0</version>
     <repositories>
+        <!-- Stanford TRegex -->
         <repository>
             <id>wso2-third-party</id>
             <name>WSO2 3rd Party</name>
@@ -25,14 +26,6 @@
             </plugin>
         </plugins>
     </build>
-    <repositories>
-        <!-- Stanford TRegex -->
-        <repository>
-            <id>wso2-thirdparty</id>
-            <name>WSO2 3rdParty Repository</name>
-            <url>https://maven.wso2.org/nexus/content/repositories/thirdparty/</url>
-        </repository>
-    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.dkpro.core</groupId>

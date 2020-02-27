@@ -140,9 +140,6 @@ public class SemanticRuleGenerator {
     }
 
     public static SemanticRule modality() {
-//        var markers = MarkerGenerator.modality();
-//        var ruleStr = ruleFromMarkers("(MD < (", markers,"))");
-
         return new SemanticRule("Modality", "MD=modality");
     }
 

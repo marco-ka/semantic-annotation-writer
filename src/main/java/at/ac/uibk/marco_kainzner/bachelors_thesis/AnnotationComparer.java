@@ -12,7 +12,7 @@ public class AnnotationComparer {
     public static void main(String[] args) throws IOException {
         var groundTruth = TsvParser.parseFolder(groundTruthPath);
         var firstFile = groundTruth.findFirst().get();
-        var expected = firstFile.map(doc -> doc.Annotations.stream().map(InceptionAnnotation::toAnnotation));
+//        var expected = firstFile.map(doc -> doc.annotations.stream().map(InceptionAnnotation::toSimpleAnnotation));
 
     }
 }

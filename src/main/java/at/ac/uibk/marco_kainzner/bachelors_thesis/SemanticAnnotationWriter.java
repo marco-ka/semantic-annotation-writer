@@ -96,7 +96,7 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
         var end = begin + matchWords.length();
 
-        return new Annotation(match.documentId, match.sentenceNumber, sentenceWords, matchWords, match.label, begin, end);
+        return new Annotation(match.documentId, match.sentenceNumber, sentenceWords, match.label, begin, end);
     }
 
     private static String treeToString(Tree tree) {

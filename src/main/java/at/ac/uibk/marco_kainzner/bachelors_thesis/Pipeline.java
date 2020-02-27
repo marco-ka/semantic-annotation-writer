@@ -22,15 +22,17 @@ public class Pipeline {
 
     public static void main(String[] args) throws UIMAException, IOException {
         var input = Path.of("resources", "fffs", "text");
-        var annotationsDir = Path.of("out", "annotations");
+        var output = Path.of("out");
 
-        run(input, annotationsDir);
+        run(input, output);
     }
 
     public static void run(Path inputDir, Path outputDir) throws UIMAException, IOException {
-        var pennTreeDir = Path.of("out", "penn-trees");
+        var pennTreeDir = Path.of(outputDir.toString(), "penn-trees");
+        var annotationDir = Path.of(outputDir.toString(), "annotations");
+
 //        writePennTrees(inputDir, pennTreeDir);
-        writeAnnotations(pennTreeDir, outputDir);
+        writeAnnotations(pennTreeDir, annotationDir);
     }
 
     public static void writePennTrees(Path inputDir, Path outputDir) throws UIMAException, IOException {

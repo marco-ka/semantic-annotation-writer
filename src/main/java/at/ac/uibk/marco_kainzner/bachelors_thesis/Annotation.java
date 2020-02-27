@@ -6,11 +6,13 @@ public class Annotation implements Serializable {
     public final String documentId;
     public final int sentenceId;
     public final SimpleAnnotation annotation;
+    public final String coveredText;
 
-    public Annotation(String documentId, int sentenceId, String containingText, String matchText, String label, int begin, int end) {
+    public Annotation(String documentId, int sentenceId, String containingText, String label, int begin, int end) {
         this.documentId = documentId;
         this.sentenceId = sentenceId;
         this.annotation = new SimpleAnnotation(containingText, label, begin, end);
+        coveredText = containingText.substring(begin, end);
     }
 
     @Override

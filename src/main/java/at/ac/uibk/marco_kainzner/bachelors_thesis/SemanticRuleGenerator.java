@@ -12,7 +12,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.stream.Stream;
 
-import static at.ac.uibk.marco_kainzner.bachelors_thesis.TregexRuleGenerator.any;
 import static at.ac.uibk.marco_kainzner.bachelors_thesis.TregexRuleGenerator.ruleFromMarkers;
 
 public class SemanticRuleGenerator {
@@ -31,20 +30,32 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws JWNLException, IOException {
         var rules = new ArrayList<SemanticRule>();
 
-        rules.add(artifact());
+//        rules.add(artifact());
+        rules.addAll(actorRaw());
         rules.addAll(actor());
-        rules.add(condition());
-        rules.add(exception());
-        rules.add(location());
-        rules.add(modality());
-        rules.add(reason());
-        rules.add(situation());
-        rules.add(sanction());
-        rules.add(time());
-        rules.add(violation());
-        rules.add(action());
+//        rules.add(condition());
+//        rules.add(exception());
+//        rules.add(location());
+//        rules.add(modality());
+//        rules.add(reason());
+//        rules.add(situation());
+//        rules.add(sanction());
+//        rules.add(time());
+//        rules.add(violation());
+//        rules.add(action());
 
         return rules;
+    }
+
+    private static List<SemanticRule> actorRaw() throws IOException {
+        var markers = MarkerGenerator.actor();
+        var tregexNP = "NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + ")"; // Can there ever be a match?
+        var tregexPP = "PP < S $ (NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
+
+        var ruleNP = new SemanticRule("Actor-NP", tregexNP);
+        var rulePP = new SemanticRule("Actor-PP", tregexPP);
+
+        return List.of(ruleNP, rulePP);
     }
 
     private static SemanticRule action() {

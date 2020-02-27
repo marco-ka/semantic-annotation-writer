@@ -1,5 +1,8 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis.tsv;
 
+import com.google.gson.GsonBuilder;
+
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,16 +17,47 @@ import static org.jooq.lambda.tuple.Tuple.tuple;
 
 public class TsvParser {
     public static void main(String[] args) throws IOException {
-        var dir = Path.of("resources", "tsv");
-        var files = Files.list(dir);
+        var inputDir = Path.of("resources", "tsv");
+        var outputDir = Path.of("out", "tsv-json");
 
-        var file = files.findFirst().get();
-        var sentences = parseFile(file);
-
-        sentences.forEach(x -> System.out.println(x + "\n"));
+        Files.list(inputDir)
+            .filter(Files::isRegularFile)
+            .forEach(tsvFile -> toJson(tsvFile, outputDir));
     }
 
-    public static Stream<Stream<Sentence>> parseFolder(Path path) throws IOException {
+    public static void toJson(Path tsvFile, Path outputDir) {
+        System.out.println("Parsing " + tsvFile.toString());
+
+        List<Sentence> sentences = null;
+        try {
+            sentences = parseFile(tsvFile);
+        } catch (IOException e) {
+            System.out.println("Failed to parse file " + tsvFile.toString());
+            e.printStackTrace();
+        }
+
+        var outputFile = Path.of(outputDir.toString(), tsvFile.getFileName().toString());
+
+        try {
+            exportJson(outputFile, sentences);
+        } catch (IOException e) {
+            System.out.println("Failed to export json " + outputFile.toString());
+            e.printStackTrace();
+        }
+    }
+
+    public static void exportJson(Path file, List<Sentence> sentences) throws IOException {
+        var gson = new GsonBuilder().setPrettyPrinting().create();
+
+        var writer = new FileWriter(file.toString() + ".json");
+        var annotations = sentences.stream().flatMap(Sentence::GetAnnotations);
+
+        var json = gson.toJson(annotations.collect(Collectors.toList()));
+        writer.write(json);
+        writer.close();
+    }
+
+    public static Stream<List<Sentence>> parseFolder(Path path) throws IOException {
         var files = Files.list(path);
         return files.map(file -> {
             try {
@@ -36,13 +70,20 @@ public class TsvParser {
         });
     }
 
-    public static Stream<Sentence> parseFile(Path path) throws IOException {
+    public static List<Sentence> parseFile(Path path) throws IOException {
         var tsv = Files.readAllLines(path);
-        return segmentIntoSentences(tsv).map(TsvParser::parseSentence);
+
+        var documentId = path.getFileName().toString();
+
+        List<Sentence> sentences = new ArrayList<>();
+        segmentIntoSentences(tsv).forEach(x -> sentences.add(parseSentence(documentId, x)));
+
+        return sentences;
     }
 
-    private static Sentence parseSentence(List<String> sentenceLines) {
+    private static Sentence parseSentence(String documentId, List<String> sentenceLines) {
         var text = sentenceLines.get(0).replace("#Text=", "");
+
         var annotationLines = sentenceLines
                 .stream()
                 .filter(Predicate.not(String::isEmpty))
@@ -51,7 +92,7 @@ public class TsvParser {
                 .filter(arr -> arr.length > 3)
                 .collect(Collectors.toList());
 
-        return new Sentence(text, mergeAnnotationLines(text, annotationLines));
+        return new Sentence(documentId, text, mergeAnnotationLines(text, annotationLines));
     }
 
     private static ArrayList<InceptionAnnotation> mergeAnnotationLines(String sentenceText, List<String[]> lines) {
@@ -60,6 +101,9 @@ public class TsvParser {
                 .distinct()
                 .filter(x -> !x.equals("_"))
                 .collect(Collectors.toList());
+
+        var sentenceId = Integer.parseInt(lines.get(0)[0].split("-")[0]);
+        var sentenceStart = Integer.parseInt(lines.get(0)[1].split("-")[0]);
 
         var annotations = new ArrayList<InceptionAnnotation>();
         labels.forEach(label -> {
@@ -73,7 +117,7 @@ public class TsvParser {
 
                 var tokens = members.stream().map(x -> tuple(x[0], x[2])).collect(Collectors.toList());
 
-                var annotation = new InceptionAnnotation(sentenceText, label, tokens, begin, end);
+                var annotation = new InceptionAnnotation(sentenceStart, sentenceId, sentenceText, label, tokens, begin, end);
                 annotations.add(annotation);
             }
             else {
@@ -85,7 +129,7 @@ public class TsvParser {
 
                     var tokens = List.of(tuple(x[0], x[2]));
 
-                    var annotation = new InceptionAnnotation(sentenceText, label, tokens, begin, end);
+                    var annotation = new InceptionAnnotation(sentenceStart, sentenceId, sentenceText, label, tokens, begin, end);
                     annotations.add(annotation);
                 });
             }

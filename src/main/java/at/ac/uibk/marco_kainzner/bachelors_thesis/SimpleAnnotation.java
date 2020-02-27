@@ -18,9 +18,7 @@ public class SimpleAnnotation {
         this.begin = begin;
         this.end = end;
 
-        if (!isValid()) {
-            throw new IllegalArgumentException("Invalid data");
-        }
+        validate();
     }
 
     public Match compareTo(SimpleAnnotation other) {
@@ -57,12 +55,18 @@ public class SimpleAnnotation {
         return index >= begin && index <= end;
     }
 
-    private boolean isValid() {
-        return
-            !label.isEmpty()
-            && begin >= 0
-            && end > begin
-            && end <= containingText.length();
+    private void validate() {
+        if (label.isEmpty())
+            throw new IllegalArgumentException("label is empty");
+
+        if (begin < 0)
+            throw new IllegalArgumentException("begin is" + begin);
+
+        if (begin >= end)
+            throw new IllegalArgumentException("begin (" + begin + ") >= end (" + end + ")");
+
+        if (end > containingText.length())
+            throw new IllegalArgumentException("end (" + end + ") >= length of text (" + containingText.length() + ")");
     }
 
     public String getSpanningText() {

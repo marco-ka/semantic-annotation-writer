@@ -1,6 +1,7 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Annotation implements Serializable {
     public final String documentId;
@@ -48,6 +49,22 @@ public class Annotation implements Serializable {
 
     private boolean contains(int position) {
         return (annotation.begin <= position) && (position <= annotation.end);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Annotation that = (Annotation) o;
+        return sentenceId == that.sentenceId &&
+                Objects.equals(documentId, that.documentId) &&
+                Objects.equals(annotation, that.annotation) &&
+                Objects.equals(coveredText, that.coveredText);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(documentId, sentenceId, annotation, coveredText);
     }
 
     @Override

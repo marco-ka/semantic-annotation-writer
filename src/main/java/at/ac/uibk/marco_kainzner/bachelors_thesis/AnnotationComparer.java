@@ -22,14 +22,23 @@ public class AnnotationComparer {
         var matches = new ArrayList<Pair<Annotation, Annotation>>();
         var misses = new ArrayList<Annotation>();
 
+        var actual = new ArrayList<Document>();
+
         for (var expectedDoc : expected) {
             var path = Path.of(AnnotationComparer.annotationPath.toString(), expectedDoc.documentId + ".json");
             var actualDoc = Document.readJson(path);
+            actual.add(actualDoc);
 
             var results = compare(expectedDoc, actualDoc);
             matches.addAll(results.first);
             misses.addAll(results.second);
         }
+
+        var actualAnnotations = actual.stream().flatMap(x -> x.annotations.stream()).collect(Collectors.toList());
+        var additional = actual.stream().flatMap(x -> x.annotations.stream()).collect(Collectors.toList());
+
+        var actualMatches = matches.stream().map(x -> x.second).collect(Collectors.toList());
+        additional.removeAll(actualMatches);
 
         System.out.println();
         System.out.println("...");
@@ -38,15 +47,21 @@ public class AnnotationComparer {
         System.out.println();
         System.out.println("...");
         System.out.println();
+        System.out.println("Actual annotations: " + actualAnnotations.size());
+        System.out.println();
         System.out.println("Total matches: " + matches.size());
         System.out.println("Total misses: " + misses.size());
-
+        System.out.println("Total additional: " + additional.size());
 
         var matchesByConcept = matches.stream().collect(Collectors.groupingBy(x -> x.first.annotation.label));
-        var missesByConcept = misses.stream().collect(Collectors.groupingBy(y -> y.annotation.label));
+        var missesByConcept = misses.stream().collect(Collectors.groupingBy(x -> x.annotation.label));
+        var additionalByConcept = additional.stream().collect(Collectors.groupingBy(x -> x.annotation.label));
+        var actualByConcept = actualAnnotations.stream().collect(Collectors.groupingBy(x -> x.annotation.label));
+
         var concepts = new HashSet<String>();
         concepts.addAll(matchesByConcept.keySet());
         concepts.addAll(missesByConcept.keySet());
+        concepts.addAll(actualByConcept.keySet());
 
         for (var concept : concepts) {
             System.out.println();
@@ -57,6 +72,11 @@ public class AnnotationComparer {
             System.out.println("Matches: " + conceptMatches);
             var conceptMisses = missesByConcept.containsKey(concept) ? missesByConcept.get(concept).size() : 0;
             System.out.println("Misses: " + conceptMisses);
+            var conceptAdditional = additionalByConcept.containsKey(concept) ? additionalByConcept.get(concept).size() : 0;
+            System.out.println("Additional: " + conceptAdditional);
+
+            var conceptActual = actualByConcept.containsKey(concept) ? actualByConcept.get(concept).size() : 0;
+            System.out.println("(" + conceptActual + " actual annotations)");
         }
     }
 

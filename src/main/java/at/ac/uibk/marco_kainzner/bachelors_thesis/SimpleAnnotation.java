@@ -1,5 +1,7 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis;
 
+import java.util.Objects;
+
 public class SimpleAnnotation {
     public final String containingText;
     public final String label;
@@ -70,6 +72,22 @@ public class SimpleAnnotation {
             throw new IllegalArgumentException("end (" + end + ") >= length of text (" + containingText.length() + ")");
         }
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SimpleAnnotation that = (SimpleAnnotation) o;
+        return begin == that.begin &&
+                end == that.end &&
+                containingText.equals(that.containingText) &&
+                label.equals(that.label);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(containingText, label, begin, end);
     }
 
     public String getSpanningText() {

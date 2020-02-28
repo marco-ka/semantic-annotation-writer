@@ -1,8 +1,7 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis.tsv;
 
-import com.google.gson.GsonBuilder;
+import org.apache.commons.io.FilenameUtils;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,65 +19,37 @@ public class TsvParser {
         var inputDir = Path.of("resources", "tsv");
         var outputDir = Path.of("out", "tsv-json");
 
-        Files.list(inputDir)
+        var docs = readDocuments(inputDir);
+    }
+
+    public static void convertDocuments(Path inputDir, Path outputDir) throws IOException {
+        var documents = readDocuments(inputDir).collect(Collectors.toList());
+        for (var doc: documents) {
+            doc.saveToDir(outputDir);
+        }
+    }
+
+    public static Stream<Document> readDocuments(Path dir) throws IOException {
+        return Files.list(dir)
             .filter(Files::isRegularFile)
-            .forEach(tsvFile -> toJson(tsvFile, outputDir));
+            .map(TsvParser::readDocument);
     }
 
-    public static void toJson(Path tsvFile, Path outputDir) {
-        System.out.println("Parsing " + tsvFile.toString());
-
-        List<Sentence> sentences = null;
+    public static Document readDocument(Path file) {
+        List<String> tsv = null;
         try {
-            sentences = parseFile(tsvFile);
+            tsv = Files.readAllLines(file);
         } catch (IOException e) {
-            System.out.println("Failed to parse file " + tsvFile.toString());
             e.printStackTrace();
+            throw new RuntimeException(e);
         }
 
-        var outputFile = Path.of(outputDir.toString(), tsvFile.getFileName().toString());
+        var documentId = FilenameUtils.removeExtension(file.getFileName().toString()) + ".mrg";
 
-        try {
-            exportJson(outputFile, sentences);
-        } catch (IOException e) {
-            System.out.println("Failed to export json " + outputFile.toString());
-            e.printStackTrace();
-        }
-    }
+        var sentences = segmentIntoSentences(tsv).map(x -> parseSentence(documentId, x));
+        var annotations = sentences.flatMap(Sentence::GetAnnotations).collect(Collectors.toList());
 
-    public static void exportJson(Path file, List<Sentence> sentences) throws IOException {
-        var gson = new GsonBuilder().setPrettyPrinting().create();
-
-        var writer = new FileWriter(file.toString() + ".json");
-        var annotations = sentences.stream().flatMap(Sentence::GetAnnotations);
-
-        var json = gson.toJson(annotations.collect(Collectors.toList()));
-        writer.write(json);
-        writer.close();
-    }
-
-    public static Stream<List<Sentence>> parseFolder(Path path) throws IOException {
-        var files = Files.list(path);
-        return files.map(file -> {
-            try {
-                return TsvParser.parseFile(file);
-            } catch (IOException e) {
-                System.out.println("Failed to parse sentence");
-                e.printStackTrace();
-            }
-            return null;
-        });
-    }
-
-    public static List<Sentence> parseFile(Path path) throws IOException {
-        var tsv = Files.readAllLines(path);
-
-        var documentId = path.getFileName().toString();
-
-        List<Sentence> sentences = new ArrayList<>();
-        segmentIntoSentences(tsv).forEach(x -> sentences.add(parseSentence(documentId, x)));
-
-        return sentences;
+        return new Document(documentId, annotations);
     }
 
     private static Sentence parseSentence(String documentId, List<String> sentenceLines) {
@@ -135,7 +106,6 @@ public class TsvParser {
             }
         });
 
-//        annotations.forEach(System.out::println);
         return annotations;
     }
 

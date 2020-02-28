@@ -96,7 +96,17 @@ public class SemanticAnnotationWriter extends JCasFileWriter_ImplBase {
         }
         var end = begin + matchWords.length();
 
-        return new Annotation(match.documentId, match.sentenceNumber, sentenceWords, match.label, begin, end);
+        var normalizedLabel = mapLabel(match.label);
+        return new Annotation(match.documentId, match.sentenceNumber, sentenceWords, normalizedLabel, begin, end);
+    }
+
+    public static String mapLabel(String label) {
+        if (label.contains("Actor")) return "Actor";
+
+        if (SemanticRuleGenerator.conceptMap.containsKey(label)) {
+            return SemanticRuleGenerator.conceptMap.get(label);
+        }
+        return label;
     }
 
     private static String treeToString(Tree tree) {

@@ -6,10 +6,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static at.ac.uibk.marco_kainzner.bachelors_thesis.TregexRuleGenerator.ruleFromMarkers;
@@ -18,6 +15,15 @@ public class SemanticRuleGenerator {
     private static final String V_PART = "(VP <, VBG)";
     private static final String VP_INF = "(VP < (TO $ (__ << VB)))";
     private static final String S_REL = "SBAR <<, (WDT < who|which|whom|that|where|why|when)";
+
+    public static final Map<String, String> conceptMap = Map.of(
+            // Actor handled by separate replacement
+            "Constraint:Condition:Violation", "Violation",
+            "Constraint:Exception", "Exception",
+            "Constraint:Condition", "Condition",
+            "Situation:Result", "Situation",
+            "Situation:Result:Sanction", "Sanction"
+    );
 
     public static void main(String[] args) throws JWNLException, IOException {
         getAndSaveAll();
@@ -30,19 +36,19 @@ public class SemanticRuleGenerator {
     static List<SemanticRule> getAllRules() throws JWNLException, IOException {
         var rules = new ArrayList<SemanticRule>();
 
-//        rules.add(artifact());
+        rules.add(artifact());
         rules.addAll(actorRaw());
-        rules.addAll(actor());
-//        rules.add(condition());
-//        rules.add(exception());
-//        rules.add(location());
-//        rules.add(modality());
-//        rules.add(reason());
-//        rules.add(situation());
-//        rules.add(sanction());
-//        rules.add(time());
-//        rules.add(violation());
-//        rules.add(action());
+//        rules.addAll(actor());
+        rules.add(condition());
+        rules.add(exception());
+        rules.add(location());
+        rules.add(modality());
+        rules.add(reason());
+        rules.add(situation());
+        rules.add(sanction());
+        rules.add(time());
+        rules.add(violation());
+        rules.add(action());
 
         return rules;
     }
@@ -76,9 +82,9 @@ public class SemanticRuleGenerator {
         var tregexNP = "NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + ")"; // Can there ever be a match?
         var tregexPP = "PP < S $ (NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
 
-        var ruleNPSubj = new SemanticRule("actor-np-subj", tregexNP, ".*subj");
-        var ruleNPObj = new SemanticRule("actor-np-obj", tregexNP, ".*obj");
-        var rulePPObj = new SemanticRule("actor-pp-obj", tregexPP, ".*obj");
+        var ruleNPSubj = new SemanticRule("Actor-np-subj", tregexNP, ".*subj");
+        var ruleNPObj = new SemanticRule("Actor-np-obj", tregexNP, ".*obj");
+        var rulePPObj = new SemanticRule("Actor-pp-obj", tregexPP, ".*obj");
 
         return List.of(ruleNPSubj, ruleNPObj, rulePPObj);
     }

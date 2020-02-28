@@ -22,17 +22,17 @@ public class Annotation implements Serializable {
         }
 
         if (sentenceId != other.sentenceId) {
-            System.out.println("Sentence ids do not match: " + sentenceId + " != " + other.sentenceId);
+//            System.out.println("Sentence ids do not match: " + sentenceId + " != " + other.sentenceId);
             return false;
         }
 
         if (!annotation.label.equals(other.annotation.label)) {
-            System.out.println("Labels do not match: " + annotation.label + " != " + other.annotation.label);
+//            System.out.println("Labels do not match: " + annotation.label + " != " + other.annotation.label);
             return false;
         }
 
         if (!overlaps(other)) {
-            System.out.println("'" + toString() + "' does not overlap '" + other.toString() + "'");
+//            System.out.println("'" + toString() + "' does not overlap '" + other.toString() + "'");
             return false;
         }
 
@@ -47,11 +47,11 @@ public class Annotation implements Serializable {
     }
 
     private boolean contains(int position) {
-        return annotation.begin <= position && annotation.end <= position;
+        return (annotation.begin <= position) && (position <= annotation.end);
     }
 
     @Override
     public String toString() {
-        return annotation.label + ": " + sentenceId + " from " + annotation.begin + " to " + annotation.end + "(" + coveredText + ")";
+        return annotation.label + ": " + sentenceId + " from " + annotation.begin + " to " + annotation.end + " (" + coveredText + ")";
     }
 }

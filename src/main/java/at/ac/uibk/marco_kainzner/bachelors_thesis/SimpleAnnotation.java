@@ -65,8 +65,11 @@ public class SimpleAnnotation {
         if (begin >= end)
             throw new IllegalArgumentException("begin (" + begin + ") >= end (" + end + ")");
 
-        if (end > containingText.length())
+        if (end > containingText.length()) {
+            System.out.println(containingText + "\n from " + begin + " to " + end);
             throw new IllegalArgumentException("end (" + end + ") >= length of text (" + containingText.length() + ")");
+        }
+
     }
 
     public String getSpanningText() {

@@ -1,6 +1,8 @@
 package at.ac.uibk.marco_kainzner.bachelors_thesis.tsv;
 
 import at.ac.uibk.marco_kainzner.bachelors_thesis.Annotation;
+import at.ac.uibk.marco_kainzner.bachelors_thesis.SemanticAnnotationWriter;
+import at.ac.uibk.marco_kainzner.bachelors_thesis.SemanticRuleGenerator;
 import at.ac.uibk.marco_kainzner.bachelors_thesis.SimpleAnnotation;
 import org.jooq.lambda.tuple.Tuple2;
 
@@ -46,10 +48,14 @@ public class InceptionAnnotation {
     private String normalizedLabel() {
         var begin = label.lastIndexOf('[');
         var end = label.lastIndexOf(']');
-        if (begin == -1 || end == -1 || end <= begin)
-            return label;
 
-        return label.substring(0, begin);
+        String normalized;
+        if (begin == -1 || end == -1 || end <= begin)
+            normalized = label;
+        else
+            normalized = label.substring(0, begin);
+
+        return SemanticAnnotationWriter.mapLabel(normalized);
     }
 
     private String getCoveredText() {

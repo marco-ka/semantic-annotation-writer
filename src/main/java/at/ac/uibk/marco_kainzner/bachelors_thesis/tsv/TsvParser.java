@@ -36,7 +36,7 @@ public class TsvParser {
     }
 
     public static Document readDocument(Path file) {
-        List<String> tsv = null;
+        List<String> tsv;
         try {
             tsv = Files.readAllLines(file);
         } catch (IOException e) {
@@ -44,7 +44,8 @@ public class TsvParser {
             throw new RuntimeException(e);
         }
 
-        var documentId = FilenameUtils.removeExtension(file.getFileName().toString()) + ".mrg";
+        var pennTreeExtension = ".mrg";
+        var documentId = FilenameUtils.removeExtension(file.getFileName().toString()) + pennTreeExtension;
 
         var sentences = segmentIntoSentences(tsv).map(x -> parseSentence(documentId, x));
         var annotations = sentences.flatMap(Sentence::GetAnnotations).collect(Collectors.toList());

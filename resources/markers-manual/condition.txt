@@ -14,3 +14,8 @@ whether
 which
 who
 whose
+in conjunction with
+when
+where
+with
+without

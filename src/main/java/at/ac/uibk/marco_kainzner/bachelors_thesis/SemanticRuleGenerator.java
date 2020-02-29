@@ -43,7 +43,7 @@ public class SemanticRuleGenerator {
         rules.add(exception());
         rules.add(location());
         rules.add(modality());
-        rules.add(reason());
+//        rules.add(reason());
         rules.add(situation());
         rules.add(sanction());
         rules.add(time());

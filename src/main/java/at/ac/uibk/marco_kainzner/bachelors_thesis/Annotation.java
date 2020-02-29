@@ -18,7 +18,7 @@ public class Annotation implements Serializable {
 
     public boolean matches(Annotation other) {
         if (!documentId.equals(other.documentId)) {
-            System.out.println("Document ids do not match: " + documentId + " != " + other.documentId);
+//            System.out.println("Document ids do not match: " + documentId + " != " + other.documentId);
             return false;
         }
 
@@ -69,6 +69,6 @@ public class Annotation implements Serializable {
 
     @Override
     public String toString() {
-        return annotation.label + ": " + sentenceId + " from " + annotation.begin + " to " + annotation.end + " (" + coveredText + ")";
+        return documentId + "-" + sentenceId + ": " + annotation.label + ": " + coveredText + " (" + annotation.begin + " to " + annotation.end + ")";
     }
 }

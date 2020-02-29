@@ -5,12 +5,12 @@ import at.ac.uibk.marco_kainzner.bachelors_thesis.tsv.TsvParser;
 import edu.stanford.nlp.util.Pair;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class AnnotationComparer {
     private static final Path groundTruthPath = Path.of("resources","tsv");
@@ -48,6 +48,7 @@ public class AnnotationComparer {
         System.out.println("...");
         System.out.println();
         System.out.println("Actual annotations: " + actualAnnotations.size());
+//        System.out.println("Actual annotations without 'duplicates': " + actualAnnotations).size());
         System.out.println();
         System.out.println("Total matches: " + matches.size());
         System.out.println("Total misses: " + misses.size());
@@ -62,6 +63,12 @@ public class AnnotationComparer {
         concepts.addAll(matchesByConcept.keySet());
         concepts.addAll(missesByConcept.keySet());
         concepts.addAll(actualByConcept.keySet());
+        concepts.remove("Reason"); // Too few ground-truth annotations
+        concepts.remove("Reference"); // No rules for concept "Reference"
+        concepts.remove("Constraint"); // No rules for concept "Constraint"
+
+        concepts = new HashSet<>();
+        concepts.add("Action");
 
         for (var concept : concepts) {
             System.out.println();
@@ -70,12 +77,19 @@ public class AnnotationComparer {
             System.out.println();
             var conceptMatches = matchesByConcept.containsKey(concept) ? matchesByConcept.get(concept).size() : 0;
             System.out.println("Matches: " + conceptMatches);
-            var conceptMisses = missesByConcept.containsKey(concept) ? missesByConcept.get(concept).size() : 0;
-            System.out.println("Misses: " + conceptMisses);
-            var conceptAdditional = additionalByConcept.containsKey(concept) ? additionalByConcept.get(concept).size() : 0;
-            System.out.println("Additional: " + conceptAdditional);
+            List<Annotation> conceptMisses = missesByConcept.containsKey(concept) ? missesByConcept.get(concept) : new ArrayList<>();
+            System.out.println("Misses: " + conceptMisses.size());
+            List<Annotation> conceptAdditional = additionalByConcept.containsKey(concept) ? additionalByConcept.get(concept) : new ArrayList<>();
+            System.out.println("Additional: " + conceptAdditional.size());
+            System.out.println();
+
+            conceptAdditional.forEach(System.out::println);
+            System.out.println();
+            System.out.println("Missed:");
+            conceptMisses.forEach(System.out::println);
 
             var conceptActual = actualByConcept.containsKey(concept) ? actualByConcept.get(concept).size() : 0;
+            System.out.println();
             System.out.println("(" + conceptActual + " actual annotations)");
         }
     }
@@ -92,6 +106,19 @@ public class AnnotationComparer {
         var missed = results.stream().flatMap(x -> x.second.stream()).collect(Collectors.toList());
 
         return new Pair<>(matched, missed);
+    }
+
+    public static List<Annotation> removeOverlapping(List<Annotation> allAnnotations) {
+        List<Annotation> annotations = new ArrayList<>();
+
+        for (var annotation : allAnnotations) {
+            var alreadyInCollection = annotations.stream().filter(existing -> existing.matches(annotation)).findAny();
+            if (alreadyInCollection.isEmpty()) {
+                annotations.add(annotation);
+            }
+        }
+
+        return annotations;
     }
 
     public static Pair<List<Pair<Annotation, Annotation>>, List<Annotation>> compareConcept(String concept, Document expectedDoc, Document actualDoc) {
@@ -121,9 +148,9 @@ public class AnnotationComparer {
                 if (verbose) {
                     System.out.println("  Multiple matches: for annotation: " + expectedAnnotation);
                     matches.forEach(x -> System.out.println("  - " + x));
-                    System.out.println("  -> Saving first match");
+                    System.out.println("  -> Saving all matches");
                 }
-                matched.add(new Pair<>(expectedAnnotation, matches.get(0)));
+                matches.forEach(x -> matched.add(new Pair<>(expectedAnnotation, x)));
             }
         }
 

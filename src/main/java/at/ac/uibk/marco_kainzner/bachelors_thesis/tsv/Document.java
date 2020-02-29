@@ -14,7 +14,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
+import static at.ac.uibk.marco_kainzner.bachelors_thesis.AnnotationComparer.removeOverlapping;
 
 public class Document {
     public final String documentId;
@@ -46,6 +47,9 @@ public class Document {
         var reader = new FileReader(file.toFile());
         List<Annotation> annotations = gson.fromJson(reader, listOfAnnotations);
 
-        return new Document(documentId, annotations);
+        var uniqueAnnotations = annotations.stream().distinct().collect(Collectors.toList());
+        var uniqueAnnotations2 = removeOverlapping(uniqueAnnotations);
+
+        return new Document(documentId, uniqueAnnotations2);
     }
 }

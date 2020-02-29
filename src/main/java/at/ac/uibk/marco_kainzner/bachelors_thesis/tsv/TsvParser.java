@@ -19,7 +19,7 @@ public class TsvParser {
         var inputDir = Path.of("resources", "tsv");
         var outputDir = Path.of("out", "tsv-json");
 
-        var docs = readDocuments(inputDir);
+        convertDocuments(inputDir, outputDir);
     }
 
     public static void convertDocuments(Path inputDir, Path outputDir) throws IOException {

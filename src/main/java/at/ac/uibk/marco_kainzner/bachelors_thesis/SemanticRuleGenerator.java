@@ -37,7 +37,6 @@ public class SemanticRuleGenerator {
         var rules = new ArrayList<SemanticRule>();
 
         rules.add(artifact());
-        rules.addAll(actorRaw());
 //        rules.addAll(actor());
         rules.add(condition());
         rules.add(exception());
@@ -51,17 +50,6 @@ public class SemanticRuleGenerator {
         rules.add(action());
 
         return rules;
-    }
-
-    private static List<SemanticRule> actorRaw() throws IOException {
-        var markers = MarkerGenerator.actor();
-        var tregexNP = "NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + ")"; // Can there ever be a match?
-        var tregexPP = "PP < S $ (NP < (__" + TregexRuleGenerator.ruleFromMarkers(" < ", markers,"") + "))"; // Changed P to S
-
-        var ruleNP = new SemanticRule("Actor-NP", tregexNP);
-        var rulePP = new SemanticRule("Actor-PP", tregexPP);
-
-        return List.of(ruleNP, rulePP);
     }
 
     private static SemanticRule action() {
@@ -117,7 +105,7 @@ public class SemanticRuleGenerator {
         var ruleSrel = createSrelRule(markers, "condition_1");
 
         var VPinfAdjusted = "__ < " + VP_INF;
-        // TODO: Adjust name: VPinf instead of NP
+
         var ruleVPinfAndNoBadMarkers = "(NP=condition_2 < (" + VPinfAdjusted + " " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";;
         var ruleVpartAndNoBadMarkers = "(NP=condition_3 < (" + V_PART + " " + TregexRuleGenerator.ruleFromMarkers("(!<< ", disallowedMarkers, ")", "|", "") + "))";
         var rulePP = "(PP=condition_4 " + TregexRuleGenerator.ruleFromMarkers("<< (", markers,")") + ")";
@@ -151,9 +139,10 @@ public class SemanticRuleGenerator {
 
     private static SemanticRule location() {
         var markers = MarkerGenerator.location();
-        var ruleStr = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, "))");
+        var ruleStr1 = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < ", markers, ") > (PP < (IN < at|in|within|on)))");
+        var ruleStr2 = TregexRuleGenerator.ruleFromMarkers("(NP < (__ < (__ < ", markers, ")) > (PP < (IN < at|in|within|on)))");
 
-        return new SemanticRule("Location", ruleStr);
+        return new SemanticRule("Location", or(ruleStr1, ruleStr2));
     }
 
     public static SemanticRule modality() {

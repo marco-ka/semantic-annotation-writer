@@ -34,3 +34,9 @@ territory
 topographical location
 tribal area
 virtual location
+website
+office
+company
+institution
+group
+legal person

@@ -69,25 +69,8 @@ public class MarkerGenerator {
         return manual("exception");
     }
 
-    static Set<String> time() throws JWNLException, IOException {
-        Synset synUnitOfTime = WordNet.getSynset("unit_of_time%1:28:00::");
-        Synset synPeriod = WordNet.getSynset("time_period%1:28:00::");
-        Synset synTemporarily = WordNet.getSynset("temporarily%4:02:00::");
-
-        Set<String> unitsOfTime = WordNet.getAllHyponyms(synUnitOfTime);
-        Set<String> temporarily = WordNet.getWords(synTemporarily);
-        Set<String> temporary = WordNet.getAdjectivesAndAntonyms(synTemporarily);
-        Set<String> periodHyponyms = WordNet.getAllHyponyms(synPeriod);
-
-        Set<String> markers = MarkerGenerator.manual("time");
-        markers.addAll(unitsOfTime);
-        markers.addAll(temporarily);
-        markers.addAll(temporary);
-        markers.addAll(periodHyponyms);
-
-        toFile(Path.of( resourceDir, "markers-auto", "wordnet_time.txt"), markers); // TODO: Create dir
-
-        return markers;
+    static Set<String> time() {
+        return MarkerGenerator.manual("time");
     }
 
     static Set<String> violation() {

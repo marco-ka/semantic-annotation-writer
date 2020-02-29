@@ -25,7 +25,7 @@ present
 reasonable amount of time
 recent
 temporary
-time
+the time of
 transaction date
 until
 week
@@ -34,3 +34,23 @@ when
 within
 year
 years
+a regular basis
+regularly
+daily
+weekly
+monthly
+yearly
+annually
+annual
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
